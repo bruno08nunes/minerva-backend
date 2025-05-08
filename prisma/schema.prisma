@@ -34,6 +34,8 @@ model User {
 
   followings Follow[] @relation("Following")
   followers  Follow[] @relation("Follower")
+
+  Progress Progress[]
 }
 
 model Icon {
@@ -47,7 +49,7 @@ model Icon {
 }
 
 model Topic {
-  id          String  @id @default(uuid())
+  id          String @id @default(uuid())
   name        String
   description String
   iconId      String
@@ -57,7 +59,7 @@ model Topic {
 }
 
 model Theme {
-  id          String  @id @default(uuid())
+  id          String @id @default(uuid())
   name        String
   description String
   iconId      String
@@ -83,6 +85,8 @@ model Lesson {
   icon   Icon   @relation(fields: [iconId], references: [id])
 
   exercises Exercise[]
+
+  Progress Progress[]
 }
 
 model Exercise {
@@ -92,18 +96,30 @@ model Exercise {
   type      ExerciseType
   hint      String
   lessonId  String
-  lesson    Lesson      @relation(fields: [lessonId], references: [id])
+  lesson    Lesson       @relation(fields: [lessonId], references: [id])
 
   choices Choice[]
 }
 
 model Choice {
-  id         String    @id @default(uuid())
+  id         String   @id @default(uuid())
   text       String
   order      Int
   isCorrect  Boolean
   exerciseId String
   exercise   Exercise @relation(fields: [exerciseId], references: [id])
+}
+
+model Progress {
+  userId      String
+  lessonId    String
+  isCompleted Boolean
+  lastTry     DateTime?
+
+  user   User   @relation(fields: [userId], references: [id])
+  lesson Lesson @relation(fields: [lessonId], references: [id])
+
+  @@id([userId, lessonId])
 }
 
 model ProfilePicture {
@@ -114,7 +130,7 @@ model ProfilePicture {
 }
 
 model Achievement {
-  id          String  @id @default(uuid())
+  id          String @id @default(uuid())
   name        String
   description String
   iconId      String
