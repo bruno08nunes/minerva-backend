@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -25,7 +25,7 @@ model User {
   semanalXP     Int       @default(0)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
-  role         Role      @default(USER)
+  role          Role      @default(USER)
 
   profilePictureId String?
   profilePicture   ProfilePicture? @relation(fields: [profilePictureId], references: [id])
@@ -50,8 +50,8 @@ model Topic {
   id          String  @id @default(uuid())
   name        String
   description String
-  iconId      String?
-  icon        Icon?   @relation(fields: [iconId], references: [id])
+  iconId      String
+  icon        Icon   @relation(fields: [iconId], references: [id])
 
   lessons Lesson[]
 }
@@ -60,8 +60,8 @@ model Theme {
   id          String  @id @default(uuid())
   name        String
   description String
-  iconId      String?
-  icon        Icon?   @relation(fields: [iconId], references: [id])
+  iconId      String
+  icon        Icon   @relation(fields: [iconId], references: [id])
 
   lessons Lesson[]
 }
@@ -73,26 +73,26 @@ model Lesson {
   rewardXP    Int
   order       Int
 
-  topicId String?
-  topic   Topic?  @relation(fields: [topicId], references: [id])
+  topicId String
+  topic   Topic  @relation(fields: [topicId], references: [id])
 
-  themeId String?
-  theme   Theme?  @relation(fields: [themeId], references: [id])
+  themeId String
+  theme   Theme  @relation(fields: [themeId], references: [id])
 
-  iconId String?
-  icon   Icon?   @relation(fields: [iconId], references: [id])
+  iconId String
+  icon   Icon   @relation(fields: [iconId], references: [id])
 
   exercises Exercise[]
 }
 
 model Exercise {
-  id        String  @id @default(uuid())
+  id        String       @id @default(uuid())
   statement String
   order     Int
   type      ExerciseType
   hint      String
-  lessonId  String?
-  lesson    Lesson? @relation(fields: [lessonId], references: [id])
+  lessonId  String
+  lesson    Lesson      @relation(fields: [lessonId], references: [id])
 
   choices Choice[]
 }
@@ -102,8 +102,8 @@ model Choice {
   text       String
   order      Int
   isCorrect  Boolean
-  exerciseId String?
-  exercise   Exercise? @relation(fields: [exerciseId], references: [id])
+  exerciseId String
+  exercise   Exercise @relation(fields: [exerciseId], references: [id])
 }
 
 model ProfilePicture {
@@ -117,8 +117,8 @@ model Achievement {
   id          String  @id @default(uuid())
   name        String
   description String
-  iconId      String?
-  icon        Icon?   @relation(fields: [iconId], references: [id])
+  iconId      String
+  icon        Icon   @relation(fields: [iconId], references: [id])
 
   userAchievements UserAchievement[]
 }
@@ -129,8 +129,8 @@ model UserAchievement {
   achievementId String
   achievedAt    DateTime @default(now())
 
-  users        User        @relation(fields: [userId], references: [id])
-  achievements Achievement @relation(fields: [achievementId], references: [id])
+  user        User        @relation(fields: [userId], references: [id])
+  achievement Achievement @relation(fields: [achievementId], references: [id])
 }
 
 model Follow {
@@ -141,6 +141,8 @@ model Follow {
 
   follower  User @relation("Follower", fields: [followerId], references: [id])
   following User @relation("Following", fields: [followingId], references: [id])
+
+  @@unique([followerId, followingId])
 }
 
 enum ExerciseType {
