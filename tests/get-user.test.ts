@@ -11,21 +11,39 @@ describe("Get User Profile Use Case", () => {
         service = new UserService(usersRepository);
     });
 
-    it("should be able to get user profile", async () => {
+    it("should be able to get user profile by id", async () => {
         const createdUser = await usersRepository.create({
             name: "Bruno Nunes",
             email: "bruno@email.com",
             password: "admin123",
         });
 
-        const user = await service.getUserById(createdUser.id) as User;
+        const user = (await service.getUserById(createdUser.id)) as User;
 
         expect(user.name).toEqual("Bruno Nunes");
     });
 
     it("should not be able to get user profile with wrong id", async () => {
-        await expect(service.getUserById("non-existing-id"))
-            .rejects
-            .toThrow("Resource not found.");
+        await expect(service.getUserById("non-existing-id")).rejects.toThrow(
+            "Resource not found."
+        );
+    });
+
+    it("should be able to get user profile by email", async () => {
+        const createdUser = await usersRepository.create({
+            name: "Bruno Nunes",
+            email: "",
+            password: "admin123",
+        });
+
+        const user = (await service.getUserByEmail(createdUser.email)) as User;
+
+        expect(user.name).toEqual("Bruno Nunes");
+    });
+
+    it("should not be able to get user profile with wrong email", async () => {
+        await expect(
+            service.getUserByEmail("non-existing-email")
+        ).rejects.toThrow("Resource not found.");
     });
 });

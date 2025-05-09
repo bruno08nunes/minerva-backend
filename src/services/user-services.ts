@@ -13,4 +13,20 @@ export class UserService {
 
         return user;
     }
+
+    async getUserByEmail(email: string) {
+        const user = await this.userRepository.findByEmail(email);
+
+        if (!user) {
+            throw new NotFoundError();
+        }
+
+        return user;
+    }
+
+    async createUser(data: { name: string; email: string; password: string }) {
+        const user = await this.userRepository.create(data);
+
+        return user;
+    }
 }
