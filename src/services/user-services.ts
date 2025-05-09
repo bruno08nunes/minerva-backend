@@ -1,9 +1,16 @@
-import { IUserRepository } from "../repositories/users-repository.js";
+import { IUserRepository } from "../repositories/users-repository";
+import NotFoundError from "../utils/errors/not-found";
 
 export class UserService {
     constructor(private userRepository: IUserRepository){};
 
     async getUserById(id: string) {
-        return this.userRepository.findById(id);
+        const user = await this.userRepository.findById(id);
+
+        if (!user) {
+            throw new NotFoundError();
+        }
+
+        return user;
     }
 }

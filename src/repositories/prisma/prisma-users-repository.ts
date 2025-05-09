@@ -1,7 +1,7 @@
-import { Prisma, User } from "../../generated/prisma/index.js";
-import { prisma } from "../../lib/prisma.js";
+import { Prisma, User } from "../../generated/prisma";
+import { prisma } from "../../lib/prisma";
 
-import { IUserRepository } from "../users-repository.js";
+import { IUserRepository } from "../users-repository";
 
 export class PrismaUsersRepository implements IUserRepository {
     async findById(id: string): Promise<User | null> {

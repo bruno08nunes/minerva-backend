@@ -1,7 +1,7 @@
-import { Prisma, User } from "../../generated/prisma/index.js";
+import { Prisma, User } from "../../generated/prisma";
 import { randomUUID } from "node:crypto";
 
-import { IUserRepository } from "../users-repository.js";
+import { IUserRepository } from "../users-repository";
 
 export class InMemoryUsersRepository implements IUserRepository {
     public items: User[] = [];

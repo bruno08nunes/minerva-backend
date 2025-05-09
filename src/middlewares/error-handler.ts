@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { env } from "../env/index.js";
+import { env } from "../env/index";
 import { ZodError } from "zod";
 
 export interface AppError extends Error {

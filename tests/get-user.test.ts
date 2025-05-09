@@ -26,6 +26,6 @@ describe("Get User Profile Use Case", () => {
     it("should not be able to get user profile with wrong id", async () => {
         await expect(service.getUserById("non-existing-id"))
             .rejects
-            .toThrow("User not found");
+            .toThrow("Resource not found.");
     });
 });
