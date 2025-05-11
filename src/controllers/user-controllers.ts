@@ -5,6 +5,7 @@ import InvalidCredentialsError from "../utils/errors/invalid-credentials";
 import NotFoundError from "../utils/errors/not-found";
 import { z } from "zod";
 import UserAlreadyExistsError from "../utils/errors/user-already-exists";
+import { signJwt } from "../lib/jwt";
 
 const userService = new UserService(new PrismaUsersRepository());
 
@@ -44,11 +45,29 @@ export async function loginController(req: Request, res: Response) {
             throw new InvalidCredentialsError();
         }
 
+        const token = signJwt({ id: user.id });
+        if (!token) {
+            throw new Error("Token generation failed.");
+        }
+        
+        const refreshToken = signJwt({ id: user.id }, "7d", "refresh");
+        if (!refreshToken) {
+            throw new Error("Refresh token generation failed.");
+        }
+
+        res.cookie("refreshToken", refreshToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "none",
+            path: "/",
+            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        });
+
         res.json({
             message: "Login successful.",
             user: { ...user, email: undefined, password: undefined },
             success: true,
-            token: "token",
+            token: token,
         });
         return;
     } catch (error) {
@@ -73,8 +92,10 @@ export async function registerUserController(req: Request, res: Response) {
 
     const { name, email, password } = registerBodySchema.parse(req.body);
 
+    let user;
+
     try {
-        await userService.createUser({ name, email, password });
+        user = await userService.createUser({ name, email, password });
     } catch (error) {
         if (error instanceof UserAlreadyExistsError) {
             res.status(409).json({
@@ -86,10 +107,27 @@ export async function registerUserController(req: Request, res: Response) {
         throw error;
     }
 
+    const token = signJwt({ id: user.id });
+    if (!token) {
+        throw new Error("Token generation failed.");
+    }
+    const refreshToken = signJwt({ id: user.id }, "7d", "refresh");
+    if (!refreshToken) {
+        throw new Error("Refresh token generation failed.");
+    }
+
+    res.cookie("refreshToken", refreshToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "none",
+        path: "/",
+        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    });
+    
     res.status(201).json({
         message: "User created successfully.",
         success: true,
-        user: { name, email },
-        token: "token"
+        user: { id: user.id, name, email },
+        token: token
     });
 }
