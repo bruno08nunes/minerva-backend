@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { verifyJwt, signJwt } from "../lib/jwt";
+import { verifyJwt, signJwt } from "../utils/jwt";
 import { env } from "../env";
 import { UserService } from "../services/user-services";
 import { PrismaUsersRepository } from "../repositories/prisma/prisma-users-repository";

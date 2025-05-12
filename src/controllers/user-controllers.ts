@@ -5,7 +5,7 @@ import InvalidCredentialsError from "../utils/errors/invalid-credentials";
 import NotFoundError from "../utils/errors/not-found";
 import { z } from "zod";
 import UserAlreadyExistsError from "../utils/errors/user-already-exists";
-import { signJwt } from "../lib/jwt";
+import { signJwt } from "../utils/jwt";
 
 const userService = new UserService(new PrismaUsersRepository());
 
@@ -19,10 +19,17 @@ export async function getUserByIdController(req: Request, res: Response) {
             throw new NotFoundError();
         }
 
-        res.json({ user: {...user, email: undefined, password: undefined}, success: true, message: "User found." });
+        res.json({
+            user: { ...user, email: undefined, password: undefined },
+            success: true,
+            message: "User found.",
+        });
     } catch (error) {
         if (error instanceof NotFoundError) {
-            res.status(404).json({ message: error.message || "User not found.", success: false });
+            res.status(404).json({
+                message: error.message || "User not found.",
+                success: false,
+            });
             return;
         }
 
@@ -49,7 +56,7 @@ export async function loginController(req: Request, res: Response) {
         if (!token) {
             throw new Error("Token generation failed.");
         }
-        
+
         const refreshToken = signJwt({ id: user.id }, "7d", "refresh");
         if (!refreshToken) {
             throw new Error("Refresh token generation failed.");
@@ -72,7 +79,7 @@ export async function loginController(req: Request, res: Response) {
         return;
     } catch (error) {
         if (error instanceof InvalidCredentialsError) {
-            res.status(400).json({
+            res.status(401).json({
                 message: "Invalid credentials.",
                 success: false,
             });
@@ -123,11 +130,11 @@ export async function registerUserController(req: Request, res: Response) {
         path: "/",
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
-    
+
     res.status(201).json({
         message: "User created successfully.",
         success: true,
         user: { id: user.id, name, email },
-        token: token
+        token: token,
     });
 }

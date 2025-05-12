@@ -16,6 +16,7 @@ export const errorHandler = (
         res.status(400).send({
             message: "Validation error.",
             issues: err.format(),
+            success: false,
         });
         return;
     }

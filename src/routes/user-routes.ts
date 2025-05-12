@@ -4,7 +4,7 @@ import { getUserByIdController, loginController, registerUserController } from "
 const userRoutes = Router();
 
 userRoutes.get("/users/:id", getUserByIdController);
-userRoutes.post("/users/login", loginController);
-userRoutes.post("/users/register", registerUserController)
+userRoutes.post("/login", loginController);
+userRoutes.post("/register", registerUserController)
 
 export default userRoutes;

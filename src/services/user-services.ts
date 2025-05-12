@@ -1,11 +1,11 @@
-import { comparePassword, encryptPassword } from "../lib/crypto";
+import { comparePassword, encryptPassword } from "../utils/crypto";
 import { IUserRepository } from "../repositories/users-repository";
 import InvalidCredentialsError from "../utils/errors/invalid-credentials";
 import NotFoundError from "../utils/errors/not-found";
 import UserAlreadyExistsError from "../utils/errors/user-already-exists";
 
 export class UserService {
-    constructor(private userRepository: IUserRepository){};
+    constructor(private userRepository: IUserRepository) {}
 
     async getUserById(id: string) {
         const user = await this.userRepository.findById(id);
@@ -24,7 +24,10 @@ export class UserService {
             throw new InvalidCredentialsError();
         }
 
-        const isPasswordCorrect = await comparePassword(password, user.password);
+        const isPasswordCorrect = await comparePassword(
+            password,
+            user.password
+        );
 
         if (!isPasswordCorrect) {
             throw new InvalidCredentialsError();
