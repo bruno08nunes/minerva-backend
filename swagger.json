@@ -52,16 +52,6 @@
                             }
                         }
                     },
-                    "400": {
-                        "description": "Validation error.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ValidationError"
-                                }
-                            }
-                        }
-                    },
                     "404": {
                         "description": "User not found.",
                         "content": {
@@ -246,6 +236,69 @@
                     }
                 }
             }
+        },
+        "/auth/refresh": {
+            "post": {
+                "tags": ["Users"],
+                "summary": "User refresh token",
+                "description": "Refresh the authentication token.",
+                "parameters": [
+                    {
+                        "name": "refreshToken",
+                        "in": "cookie",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Refresh token passed via cookie"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Refresh successful.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Token refreshed."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "token": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Refresh token missing/invalid.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Refresh token missing."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -293,7 +346,18 @@
                         "nullable": true
                     }
                 },
-                "required": ["id", "name", "email", "totalXP", "streak", "lastActiveDay", "semanalXP", "createdAt", "updatedAt", "role"]
+                "required": [
+                    "id",
+                    "name",
+                    "email",
+                    "totalXP",
+                    "streak",
+                    "lastActiveDay",
+                    "semanalXP",
+                    "createdAt",
+                    "updatedAt",
+                    "role"
+                ]
             },
             "ValidationError": {
                 "type": "object",
@@ -352,7 +416,9 @@
                                 "_errors": ["Email is required."]
                             },
                             "password": {
-                                "_errors": ["Password must be at least 6 characters long."]
+                                "_errors": [
+                                    "Password must be at least 6 characters long."
+                                ]
                             }
                         }
                     ]
