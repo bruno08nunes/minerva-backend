@@ -1,4 +1,4 @@
-import { encryptPassword } from "../../src/lib/crypto";
+import { encryptPassword } from "../../src/utils/crypto";
 import { InMemoryUsersRepository } from "../../src/repositories/in-memory/in-memory-users-repository";
 import { UserService } from "../../src/services/user-services";
 import InvalidCredentialsError from "../../src/utils/errors/invalid-credentials";
