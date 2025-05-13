@@ -29,5 +29,7 @@ export const errorHandler = (
 
     res.status(err.status || 500).json({
         message: err.message || "Internal Server Error",
+        success: false,
+        stack: env.NODE_ENV === "production" ? undefined : err.stack,
     });
 };
