@@ -3,6 +3,7 @@ import { IUserRepository } from "../repositories/users-repository";
 import InvalidCredentialsError from "../utils/errors/invalid-credentials";
 import NotFoundError from "../utils/errors/not-found";
 import UserAlreadyExistsError from "../utils/errors/user-already-exists";
+import BadRequestError from "../utils/errors/bad-request-error";
 
 export class UserService {
     constructor(private userRepository: IUserRepository) {}
@@ -51,5 +52,47 @@ export class UserService {
         });
 
         return user;
+    }
+
+    async updateUserProfile(
+        id: string,
+        data: { name?: string; profilePictureId?: string }
+    ) {
+        if (!data.name && !data.profilePictureId) {
+            throw new BadRequestError();
+        }
+
+        const user = await this.userRepository.findById(id);
+
+        if (!user) {
+            throw new NotFoundError();
+        }
+
+        const updatedUser = await this.userRepository.update(id, data);
+
+        // TODO: Uncomment this when the profile picture feature is implemented
+        // if (data.profilePictureId) {
+        //     const exists = await prisma.profilePicture.findUnique({
+        //         where: { id: data.profilePictureId },
+        //     });
+
+        //     if (!exists) {
+        //         throw new Error("profilePictureId inválido");
+        //     }
+        // }
+
+        return updatedUser;
+    }
+
+    async deleteUser(id: string) {
+        const user = await this.userRepository.findById(id);
+
+        if (!user) {
+            throw new NotFoundError();
+        }
+
+        const deletedUser = await this.userRepository.delete(id);
+
+        return deletedUser;
     }
 }

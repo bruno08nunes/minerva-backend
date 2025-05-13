@@ -32,4 +32,24 @@ export class InMemoryUsersRepository implements IUserRepository {
 
         return user;
     }
+
+    async update(id: string, data: Prisma.UserUpdateInput) {
+        const userIndex = this.items.findIndex((user) => user.id === id);
+        const user = this.items[userIndex];
+        this.items[userIndex] = {
+            ...user,
+            ...data,
+            updatedAt: new Date(),
+        } as User;
+        
+        return this.items[userIndex];
+    }
+
+    async delete(id: string) {
+        const userIndex = this.items.findIndex((user) => user.id === id);
+        const user = this.items[userIndex];
+        this.items.splice(userIndex, 1);
+
+        return user;
+    }
 }
