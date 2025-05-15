@@ -1,5 +1,5 @@
-import { InMemoryUsersRepository } from "../../src/repositories/in-memory/in-memory-users-repository";
-import { UserService } from "../../src/services/user-services";
+import { InMemoryUsersRepository } from "../../../src/repositories/in-memory/in-memory-users-repository";
+import { UserService } from "../../../src/services/user-services";
 
 let usersRepository: InMemoryUsersRepository;
 let service: UserService;
@@ -16,16 +16,16 @@ describe("Delete User Profile Use Case", () => {
             email: "bruno@email.com",
             password: "admin123",
         });
-        const user = await service.deleteUser(createdUser.id);
-        expect(user.id).toEqual(createdUser.id);
+
+        const deletedUser = await service.deleteUser(createdUser.id);
+
+        const user = await usersRepository.findById(createdUser.id);
+
+        expect(deletedUser.id).toEqual(createdUser.id);
+        expect(user).toBeNull();
     });
 
     it("should not be able to delete user with wrong id", async () => {
-        await usersRepository.create({
-            name: "Bruno Nunes",
-            email: "bruno@email.com",
-            password: "admin123",
-        });
         expect(async () => {
             await service.deleteUser("wrong-id");
         }).rejects.toThrow("Resource not found.");
