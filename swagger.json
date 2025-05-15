@@ -526,6 +526,26 @@
                                 }
                             }
                         }
+                    },
+                    "400": {
+                        "description": "Invalid file format or format not send.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Invalid file format."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

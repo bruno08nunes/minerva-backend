@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { PrismaProfilePictureRepository } from "../repositories/prisma/prisma-profile-picture-repository";
 import { ProfilePicturesService } from "../services/profile-picture-services";
 import NotFoundError from "../utils/errors/not-found";
-import { z } from "zod";
 
 const profilePictureService = new ProfilePicturesService(new PrismaProfilePictureRepository());
 
@@ -34,22 +33,24 @@ export async function getProfilePictureByIdController(req: Request, res: Respons
     }
 }
 
-export async function createProfilePictureController(req: Request, res: Response) {
-    const registerBodySchema = z.object({
-        url: z.string().url(),
-    });
+export async function uploadProfilePictureController(req: Request, res: Response) {
+    const { file } = req;
 
-    const { url } = registerBodySchema.parse(req.body);
+    if (!file) {
+        res.status(400).json({
+            success: false,
+            message: "File not send.",
+        });
+        return;
+    }
 
-    const profilePicture = await profilePictureService.createProfilePicture({ url });
+    const profilePicture = await profilePictureService.createProfilePicture({ url: file.filename });
 
     res.status(201).json({
         data: profilePicture,
         success: true,
-        message: "Profile picture created successfully.",
+        message: "Profile picture uploaded successfully.",
     });
-
-    // TODO: Implement file upload logic, its error handling and update the swagger with this
 }
 
 export async function listProfilePicturesController(req: Request, res: Response) {

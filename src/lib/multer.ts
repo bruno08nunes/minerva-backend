@@ -1,4 +1,5 @@
 import multer from "multer";
+import InvalidFileFormatError from "../utils/errors/invalid-file-format-error";
 
 const storageProfileImage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -10,4 +11,17 @@ const storageProfileImage = multer.diskStorage({
     },
 });
 
-export const uploadProfileImage = multer({ storage: storageProfileImage });
+const allowedMimeTypes = ["image/jpeg", "image/png", "image/webp", "image/gif"];
+function imageFileFilter(
+    req: Express.Request,
+    file: Express.Multer.File,
+    cb: multer.FileFilterCallback
+) {
+    if (allowedMimeTypes.includes(file.mimetype)) {
+        cb(null, true);
+    } else {
+        cb(new InvalidFileFormatError());
+    }
+}
+
+export const uploadProfileImage = multer({ storage: storageProfileImage, fileFilter: imageFileFilter });
