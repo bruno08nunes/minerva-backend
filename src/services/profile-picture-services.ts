@@ -1,9 +1,9 @@
 import { Prisma } from "../generated/prisma";
-import { InMemoryProfilePicturesRepository } from "../repositories/in-memory/in-memory-profile-picture-repository";
+import { IProfilePicturesRepository } from "../repositories/profile-picture-repository";
 import NotFoundError from "../utils/errors/not-found";
 
 export class ProfilePicturesService {
-    constructor(private profilePictureRepository: InMemoryProfilePicturesRepository) {}
+    constructor(private profilePictureRepository: IProfilePicturesRepository) {}
 
     async createProfilePicture(data: Prisma.ProfilePictureCreateInput) {
         return this.profilePictureRepository.create({ url: data.url });

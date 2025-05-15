@@ -1,7 +1,6 @@
 // Packages
 import express from "express";
 import cors from "cors";
-import refreshRoutes from "./routes/refresh-token-routes";
 import cookieParser from "cookie-parser";
 
 import SwaggerUI from "swagger-ui-express";
@@ -12,6 +11,8 @@ import { errorHandler } from "./middlewares/error-handler";
 
 // Routes
 import userRoutes from "./routes/user-routes";
+import refreshRoutes from "./routes/refresh-token-routes";
+import profilePictureRoutes from "./routes/profile-picture-routes";
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(cors({
 // Routes
 app.use("/", userRoutes);
 app.use("/auth", refreshRoutes);
+app.use("/", profilePictureRoutes)
 
 app.use("/api/docs", SwaggerUI.serve, SwaggerUI.setup(swaggerDocument));
 
