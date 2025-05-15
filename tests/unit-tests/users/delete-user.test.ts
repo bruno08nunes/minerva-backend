@@ -1,5 +1,5 @@
-import { InMemoryUsersRepository } from "../../src/repositories/in-memory/in-memory-users-repository";
-import { UserService } from "../../src/services/user-services";
+import { InMemoryUsersRepository } from "../../../src/repositories/in-memory/in-memory-users-repository";
+import { UserService } from "../../../src/services/user-services";
 
 let usersRepository: InMemoryUsersRepository;
 let service: UserService;

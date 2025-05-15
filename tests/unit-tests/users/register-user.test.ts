@@ -1,7 +1,7 @@
-import { comparePassword } from "../../src/utils/crypto";
-import { InMemoryUsersRepository } from "../../src/repositories/in-memory/in-memory-users-repository";
-import { UserService } from "../../src/services/user-services";
-import UserAlreadyExistsError from "../../src/utils/errors/user-already-exists";
+import { comparePassword } from "../../../src/utils/crypto";
+import { InMemoryUsersRepository } from "../../../src/repositories/in-memory/in-memory-users-repository";
+import { UserService } from "../../../src/services/user-services";
+import UserAlreadyExistsError from "../../../src/utils/errors/user-already-exists";
 
 let usersRepository: InMemoryUsersRepository;
 let service: UserService;
@@ -18,10 +18,10 @@ describe("Register Use Case", () => {
             email: "bruno@email.com",
             password: "admin123",
         });
-        
+
         expect(createdUser.id).toEqual(expect.any(String));
     });
-    
+
     it("should not be able to register with same email", async () => {
         await service.createUser({
             name: "Bruno Nunes",
@@ -45,8 +45,11 @@ describe("Register Use Case", () => {
             password: "admin123",
         });
 
-        const isPasswordCorrect = await comparePassword("admin123", createdUser.password);
-        
+        const isPasswordCorrect = await comparePassword(
+            "admin123",
+            createdUser.password
+        );
+
         expect(isPasswordCorrect).toBe(true);
     });
 });

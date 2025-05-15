@@ -1,7 +1,7 @@
-import { encryptPassword } from "../../src/utils/crypto";
-import { InMemoryUsersRepository } from "../../src/repositories/in-memory/in-memory-users-repository";
-import { UserService } from "../../src/services/user-services";
-import InvalidCredentialsError from "../../src/utils/errors/invalid-credentials";
+import { encryptPassword } from "../../../src/utils/crypto";
+import { InMemoryUsersRepository } from "../../../src/repositories/in-memory/in-memory-users-repository";
+import { UserService } from "../../../src/services/user-services";
+import InvalidCredentialsError from "../../../src/utils/errors/invalid-credentials";
 
 let usersRepository: InMemoryUsersRepository;
 let service: UserService;
@@ -36,7 +36,7 @@ describe("Get User Profile Use Case", () => {
             email: "bruno@email.com",
             password: await encryptPassword("admin123"),
         });
-        
+
         await expect(
             service.login("bruno@email.com", "wrong-password")
         ).rejects.toBeInstanceOf(InvalidCredentialsError);
