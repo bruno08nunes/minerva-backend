@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import { PrismaProfilePictureRepository } from "../repositories/prisma/prisma-profile-picture-repository";
 import { ProfilePicturesService } from "../services/profile-picture-services";
 import NotFoundError from "../utils/errors/not-found";
+import { unlink } from "fs";
+import { join } from "path";
 
 const profilePictureService = new ProfilePicturesService(new PrismaProfilePictureRepository());
 
@@ -68,6 +70,17 @@ export async function deleteProfilePictureController(req: Request, res: Response
 
     try {
         const profilePicture = await profilePictureService.deleteProfilePicture(id);
+        const filePath = join(__dirname, "..", "public", "profile-images", profilePicture.url);
+
+        unlink(filePath, (err) => {
+            if (err) {
+                res.status(500).json({
+                    success: false,
+                    message: "Error deleting file.",
+                });
+                return;
+            }
+        });
 
         res.json({
             data: profilePicture,
