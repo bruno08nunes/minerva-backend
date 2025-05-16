@@ -55,12 +55,12 @@ export async function loginController(req: Request, res: Response) {
             throw new InvalidCredentialsError();
         }
 
-        const token = signJwt({ id: user.id });
+        const token = signJwt({ id: user.id, role: user.role });
         if (!token) {
             throw new Error("Token generation failed.");
         }
 
-        const refreshToken = signJwt({ id: user.id }, "7d", "refresh");
+        const refreshToken = signJwt({ id: user.id, role: user.role }, "7d", "refresh");
         if (!refreshToken) {
             throw new Error("Refresh token generation failed.");
         }
@@ -119,11 +119,11 @@ export async function registerUserController(req: Request, res: Response) {
         throw error;
     }
 
-    const token = signJwt({ id: user.id });
+    const token = signJwt({ id: user.id, role: user.role });
     if (!token) {
         throw new Error("Token generation failed.");
     }
-    const refreshToken = signJwt({ id: user.id }, "7d", "refresh");
+    const refreshToken = signJwt({ id: user.id, role: user.role }, "7d", "refresh");
     if (!refreshToken) {
         throw new Error("Refresh token generation failed.");
     }

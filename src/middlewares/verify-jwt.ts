@@ -19,16 +19,16 @@ export const authMiddleware = (
     const token = authHeader.split(" ")[1];
     const decoded = verifyJwt(token, env.JWT_SECRET);
 
-    if (!decoded || typeof decoded !== "object" || !("id" in decoded)) {
+    if (!decoded || typeof decoded !== "object" || !("id" in decoded) || !("role" in decoded)) {
         return res.status(401).json({
             success: false,
             message: "Invalid or expired token.",
         });
     }
 
-    // Attach user info to request for downstream handlers
     req.user = {
         id: decoded.id,
+        role: decoded.role,
     };
 
     next();

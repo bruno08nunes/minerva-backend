@@ -35,10 +35,10 @@ export async function refreshTokenController(req: Request, res: Response) {
         throw new NotFoundError();
     }
 
-    const newAccessToken = signJwt({ id: user.id }, "1h", env.JWT_SECRET);
+    const newAccessToken = signJwt({ id: user.id, role: user.role }, "1h", env.JWT_SECRET);
 
     const newRefreshToken = signJwt(
-        { id: user.id },
+        { id: user.id, role: user.role },
         "7d",
         env.JWT_REFRESH_SECRET
     );
