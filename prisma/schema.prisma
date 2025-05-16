@@ -27,6 +27,8 @@ model User {
   updatedAt     DateTime  @updatedAt
   role          Role      @default(USER)
 
+  username String @unique
+
   profilePictureId String?
   profilePicture   ProfilePicture? @relation(fields: [profilePictureId], references: [id])
 
