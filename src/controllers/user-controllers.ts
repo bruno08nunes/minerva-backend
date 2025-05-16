@@ -90,7 +90,11 @@ export async function loginController(req: Request, res: Response) {
             throw new Error("Token generation failed.");
         }
 
-        const refreshToken = signJwt({ id: user.id, role: user.role }, "7d", "refresh");
+        const refreshToken = signJwt(
+            { id: user.id, role: user.role },
+            "7d",
+            "refresh"
+        );
         if (!refreshToken) {
             throw new Error("Refresh token generation failed.");
         }
@@ -130,15 +134,26 @@ export async function registerUserController(req: Request, res: Response) {
         name: z.string(),
         email: z.string().email(),
         password: z.string().min(6),
-        username: z.string().min(3),
+        username: z
+            .string()
+            .min(3)
+            .max(20)
+            .regex(/^[a-zA-Z0-9_]+$/),
     });
 
-    const { name, email, password, username } = registerBodySchema.parse(req.body);
+    const { name, email, password, username } = registerBodySchema.parse(
+        req.body
+    );
 
     let user;
 
     try {
-        user = await userService.createUser({ name, email, password, username });
+        user = await userService.createUser({
+            name,
+            email,
+            password,
+            username,
+        });
     } catch (error) {
         if (error instanceof UserAlreadyExistsError) {
             res.status(409).json({
@@ -154,7 +169,11 @@ export async function registerUserController(req: Request, res: Response) {
     if (!token) {
         throw new Error("Token generation failed.");
     }
-    const refreshToken = signJwt({ id: user.id, role: user.role }, "7d", "refresh");
+    const refreshToken = signJwt(
+        { id: user.id, role: user.role },
+        "7d",
+        "refresh"
+    );
     if (!refreshToken) {
         throw new Error("Refresh token generation failed.");
     }
@@ -182,11 +201,19 @@ export async function updateUserProfileController(req: Request, res: Response) {
     const updateBodySchema = z.object({
         name: z.string().optional(),
         profilePictureId: z.string().optional(),
-        username: z.string().optional(),
+        username: z
+            .string()
+            .min(3)
+            .max(20)
+            .regex(/^[a-zA-Z0-9_]+$/)
+            .optional(),
     });
 
-    const { name: newName, profilePictureId: newProfilePictureId, username: newUsername } =
-        updateBodySchema.parse({ name, profilePictureId, username });
+    const {
+        name: newName,
+        profilePictureId: newProfilePictureId,
+        username: newUsername,
+    } = updateBodySchema.parse({ name, profilePictureId, username });
 
     try {
         const user = await userService.updateUserProfile(id, {
@@ -204,7 +231,7 @@ export async function updateUserProfileController(req: Request, res: Response) {
         res.json({
             message: "User updated successfully.",
             success: true,
-            user: safeUser
+            user: safeUser,
         });
     } catch (error) {
         if (error instanceof NotFoundError) {
@@ -239,7 +266,7 @@ export async function deleteUserController(req: Request, res: Response) {
 
         res.json({
             message: "User deleted successfully.",
-            success: true
+            success: true,
         });
     } catch (error) {
         if (error instanceof NotFoundError) {
