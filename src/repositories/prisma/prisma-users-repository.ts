@@ -1,20 +1,23 @@
-import { Prisma, User } from "../../generated/prisma";
+import { Prisma } from "../../generated/prisma";
 import { prisma } from "../../lib/prisma";
 
 import { IUserRepository } from "../users-repository";
 
 export class PrismaUsersRepository implements IUserRepository {
-    async findById(id: string): Promise<User | null> {
+    async findById(id: string) {
         const user = await prisma.user.findUnique({
             where: {
                 id,
             },
+            include: {
+                profilePicture: true,
+            }
         });
 
         return user;
     }
 
-    async findByEmail(email: string): Promise<User | null> {
+    async findByEmail(email: string) {
         const user = await prisma.user.findUnique({
             where: {
                 email,
@@ -24,17 +27,20 @@ export class PrismaUsersRepository implements IUserRepository {
         return user;
     }
 
-    async findByUsername(username: string): Promise<User | null> {
+    async findByUsername(username: string) {
         const user = await prisma.user.findUnique({
             where: {
                 username,
             },
+            include: {
+                profilePicture: true,
+            }
         });
 
         return user;
     }
 
-    async create(data: Prisma.UserCreateInput): Promise<User> {
+    async create(data: Prisma.UserCreateInput) {
         const user = await prisma.user.create({
             data,
         });

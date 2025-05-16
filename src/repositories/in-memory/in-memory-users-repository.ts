@@ -6,25 +6,26 @@ import { IUserRepository } from "../users-repository";
 export class InMemoryUsersRepository implements IUserRepository {
     public items: User[] = [];
 
-    async findById(id: string): Promise<User | null> {
+    async findById(id: string) {
         const user = this.items.find((user) => user.id === id) || null;
 
-        return user;
+        return user ? { ...user, profilePicture: null } : null;
     }
 
-    async findByEmail(email: string): Promise<User | null> {
+    async findByEmail(email: string) {
         const user = this.items.find((user) => user.email === email) || null;
 
         return user;
     }
 
-    async findByUsername(username: string): Promise<User | null> {
-        const user = this.items.find((user) => user.username === username) || null;
+    async findByUsername(username: string) {
+        const user =
+            this.items.find((user) => user.username === username) || null;
 
-        return user;
+        return user ? { ...user, profilePicture: null } : null;
     }
 
-    async create(data: Prisma.UserCreateInput): Promise<User> {
+    async create(data: Prisma.UserCreateInput) {
         const user = {
             name: data.name,
             email: data.email,
@@ -48,7 +49,7 @@ export class InMemoryUsersRepository implements IUserRepository {
             ...data,
             updatedAt: new Date(),
         } as User;
-        
+
         return this.items[userIndex];
     }
 
