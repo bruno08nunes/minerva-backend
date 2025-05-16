@@ -15,6 +15,7 @@ describe("Get User Profile Use Case", () => {
     it("should be able to login", async () => {
         await usersRepository.create({
             name: "Bruno Nunes",
+            username: "brunonunes",
             email: "bruno@email.com",
             password: await encryptPassword("admin123"),
         });
@@ -33,6 +34,7 @@ describe("Get User Profile Use Case", () => {
     it("should not be able to login with wrong password", async () => {
         await usersRepository.create({
             name: "Bruno Nunes",
+            username: "brunonunes",
             email: "bruno@email.com",
             password: await encryptPassword("admin123"),
         });

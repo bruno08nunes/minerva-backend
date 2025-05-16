@@ -40,6 +40,36 @@ export async function getUserByIdController(req: Request, res: Response) {
     }
 }
 
+export async function getUserByUsernameController(req: Request, res: Response) {
+    const { username } = req.params;
+
+    try {
+        const user = await userService.getUserByUsername(username);
+
+        if (!user) {
+            throw new NotFoundError();
+        }
+
+        const { password, email, ...safeUser } = user;
+
+        res.json({
+            user: safeUser,
+            success: true,
+            message: "User found.",
+        });
+    } catch (error) {
+        if (error instanceof NotFoundError) {
+            res.status(404).json({
+                message: error.message || "User not found.",
+                success: false,
+            });
+            return;
+        }
+
+        throw error;
+    }
+}
+
 export async function loginController(req: Request, res: Response) {
     const authenticateBodySchema = z.object({
         email: z.string().email(),
@@ -100,14 +130,15 @@ export async function registerUserController(req: Request, res: Response) {
         name: z.string(),
         email: z.string().email(),
         password: z.string().min(6),
+        username: z.string().min(3),
     });
 
-    const { name, email, password } = registerBodySchema.parse(req.body);
+    const { name, email, password, username } = registerBodySchema.parse(req.body);
 
     let user;
 
     try {
-        user = await userService.createUser({ name, email, password });
+        user = await userService.createUser({ name, email, password, username });
     } catch (error) {
         if (error instanceof UserAlreadyExistsError) {
             res.status(409).json({
@@ -146,20 +177,22 @@ export async function registerUserController(req: Request, res: Response) {
 
 export async function updateUserProfileController(req: Request, res: Response) {
     const { id } = req.params;
-    const { name, profilePictureId } = req.body;
+    const { name, profilePictureId, username } = req.body;
 
     const updateBodySchema = z.object({
         name: z.string().optional(),
         profilePictureId: z.string().optional(),
+        username: z.string().optional(),
     });
 
-    const { name: newName, profilePictureId: newProfilePictureId } =
-        updateBodySchema.parse({ name, profilePictureId });
+    const { name: newName, profilePictureId: newProfilePictureId, username: newUsername } =
+        updateBodySchema.parse({ name, profilePictureId, username });
 
     try {
         const user = await userService.updateUserProfile(id, {
             name: newName,
             profilePictureId: newProfilePictureId,
+            username: newUsername,
         });
 
         if (!user) {

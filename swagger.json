@@ -12,17 +12,17 @@
         }
     ],
     "paths": {
-        "/users/{userId}": {
+        "/users/{username}": {
             "get": {
                 "tags": ["Users"],
-                "summary": "Get user by ID",
-                "description": "Retrieve a user by their unique ID.",
+                "summary": "Get user by username",
+                "description": "Retrieve a user by their unique username.",
                 "parameters": [
                     {
-                        "name": "userId",
+                        "name": "username",
                         "in": "path",
                         "required": true,
-                        "description": "The ID of the user to retrieve.",
+                        "description": "The username of the user to retrieve.",
                         "schema": {
                             "type": "string"
                         }
@@ -73,7 +73,9 @@
                         }
                     }
                 }
-            },
+            }
+        },
+        "/users/{userId}": {
             "put": {
                 "tags": ["Users"],
                 "summary": "Update user profile by ID",
@@ -101,6 +103,10 @@
                                         "nullable": true
                                     },
                                     "profilePictureId": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "username": {
                                         "type": "string",
                                         "nullable": true
                                     }
@@ -690,6 +696,9 @@
                         "type": "string",
                         "format": "email"
                     },
+                    "username": {
+                        "type": "string"
+                    },
                     "totalXP": {
                         "type": "integer"
                     },
@@ -724,6 +733,7 @@
                     "id",
                     "name",
                     "email",
+                    "username",
                     "totalXP",
                     "streak",
                     "lastActiveDay",
@@ -811,13 +821,18 @@
                     "password": {
                         "type": "string",
                         "minLength": 6
+                    },
+                    "username": {
+                        "type": "string",
+                        "minLength": 3
                     }
                 },
                 "required": ["name", "email", "password"],
                 "example": {
                     "name": "Bruno Nunes",
                     "email": "bruno@email.com",
-                    "password": "admin123"
+                    "password": "admin123",
+                    "username": "brunonunes"
                 }
             },
             "LoginUser": {

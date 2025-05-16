@@ -13,6 +13,7 @@ describe("Delete User Profile Use Case", () => {
     it("should be able to delete a user account", async () => {
         const createdUser = await usersRepository.create({
             name: "Bruno Nunes",
+            username: "brunonunes",
             email: "bruno@email.com",
             password: "admin123",
         });

@@ -19,7 +19,10 @@ const app = express();
 // Middlewares
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:3000", // ou a URL do seu frontend
+    credentials: true, // permite cookies
+  }));
 
 // Routes
 app.use("/", userRoutes);

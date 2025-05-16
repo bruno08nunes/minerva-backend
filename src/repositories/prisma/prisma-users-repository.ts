@@ -24,6 +24,16 @@ export class PrismaUsersRepository implements IUserRepository {
         return user;
     }
 
+    async findByUsername(username: string): Promise<User | null> {
+        const user = await prisma.user.findUnique({
+            where: {
+                username,
+            },
+        });
+
+        return user;
+    }
+
     async create(data: Prisma.UserCreateInput): Promise<User> {
         const user = await prisma.user.create({
             data,

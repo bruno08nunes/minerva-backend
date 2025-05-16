@@ -5,11 +5,13 @@ import {
     registerUserController,
     updateUserProfileController,
     deleteUserController,
+    getUserByUsernameController,
 } from "../controllers/user-controllers";
 
 const userRoutes = Router();
 
-userRoutes.get("/users/:id", getUserByIdController);
+// TODO: Check if the getUserByIdController is useless
+userRoutes.get("/users/:username", getUserByUsernameController);
 userRoutes.post("/login", loginController);
 userRoutes.post("/register", registerUserController);
 userRoutes.put("/users/:id", updateUserProfileController);

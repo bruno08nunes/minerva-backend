@@ -18,6 +18,16 @@ export class UserService {
         return user;
     }
 
+    async getUserByUsername(username: string) {
+        const user = await this.userRepository.findByUsername(username);
+
+        if (!user) {
+            throw new NotFoundError();
+        }
+
+        return user;
+    }
+
     async login(email: string, password: string) {
         const user = await this.userRepository.findByEmail(email);
 
@@ -37,10 +47,16 @@ export class UserService {
         return user;
     }
 
-    async createUser(data: { name: string; email: string; password: string }) {
+    async createUser(data: { name: string; email: string; password: string, username: string }) {
         const existingUser = await this.userRepository.findByEmail(data.email);
 
         if (existingUser) {
+            throw new UserAlreadyExistsError();
+        }
+
+        const existingUsername = await this.userRepository.findByUsername(data.username);
+
+        if (existingUsername) {
             throw new UserAlreadyExistsError();
         }
 
@@ -56,9 +72,9 @@ export class UserService {
 
     async updateUserProfile(
         id: string,
-        data: { name?: string; profilePictureId?: string }
+        data: { name?: string; profilePictureId?: string, username?: string }
     ) {
-        if (!data.name && !data.profilePictureId) {
+        if (!data.name && !data.profilePictureId && !data.username) {
             throw new BadRequestError();
         }
 

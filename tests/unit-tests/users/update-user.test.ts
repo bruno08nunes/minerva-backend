@@ -13,6 +13,7 @@ describe("Update User Profile Use Case", () => {
     it("should be able to update a user profile", async () => {
         const createdUser = await usersRepository.create({
             name: "Bruno Nunes",
+            username: "brunonunes",
             email: "bruno@email.com",
             password: "admin123",
         });
@@ -26,6 +27,7 @@ describe("Update User Profile Use Case", () => {
     it("should not be able to update user with wrong id", async () => {
         await usersRepository.create({
             name: "Bruno Nunes",
+            username: "brunonunes",
             email: "bruno@email.com",
             password: "admin123",
         });
@@ -41,6 +43,7 @@ describe("Update User Profile Use Case", () => {
     it("should not be able to update user with invalid data", async () => {
         const createdUser = await usersRepository.create({
             name: "Bruno Nunes",
+            username: "brunonunes",
             email: "bruno@email.com",
             password: "admin123",
         });

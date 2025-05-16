@@ -18,10 +18,17 @@ export class InMemoryUsersRepository implements IUserRepository {
         return user;
     }
 
+    async findByUsername(username: string): Promise<User | null> {
+        const user = this.items.find((user) => user.username === username) || null;
+
+        return user;
+    }
+
     async create(data: Prisma.UserCreateInput): Promise<User> {
         const user = {
             name: data.name,
             email: data.email,
+            username: data.username,
             password: data.password,
             id: randomUUID(),
             createdAt: new Date(),
