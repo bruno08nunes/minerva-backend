@@ -27,7 +27,7 @@ app.use(cors({
 // Routes
 app.use("/", userRoutes);
 app.use("/auth", refreshRoutes);
-app.use("/", profilePictureRoutes)
+app.use("/", profilePictureRoutes);
 
 app.use("/api/docs", SwaggerUI.serve, SwaggerUI.setup(swaggerDocument));
 

@@ -11,6 +11,16 @@
             "description": "Local server"
         }
     ],
+    "tags": [
+        {
+            "name": "Users",
+            "description": "Operations related to users"
+        },
+        {
+            "name": "Profile Pictures",
+            "description": "Operations related to profile pictures"
+        }
+    ],
     "paths": {
         "/users/{username}": {
             "get": {
@@ -493,6 +503,11 @@
                 "tags": ["Profile Pictures"],
                 "summary": "Upload a new profile picture",
                 "description": "Upload a new profile picture.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -622,6 +637,11 @@
                 "tags": ["Profile Pictures"],
                 "summary": "Delete profile picture by ID",
                 "description": "Delete a profile picture.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
                 "parameters": [
                     {
                         "name": "profilePictureId",
@@ -682,6 +702,13 @@
         }
     },
     "components": {
+        "securitySchemes": {
+            "BearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        },
         "schemas": {
             "User": {
                 "type": "object",
@@ -727,6 +754,9 @@
                     "profilePictureId": {
                         "type": "string",
                         "nullable": true
+                    },
+                    "profilePicture": {
+                        "$ref": "#/components/schemas/ProfilePicture"
                     }
                 },
                 "required": [
