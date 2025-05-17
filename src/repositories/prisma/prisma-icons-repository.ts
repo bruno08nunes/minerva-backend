@@ -1,9 +1,21 @@
-import { Icon } from "../../generated/prisma";
+import { Prisma } from "../../generated/prisma";
 import { prisma } from "../../lib/prisma";
 import { IIconsRepository } from "../icons-repository";
 
 export class PrismaIconsRepository implements IIconsRepository {
-    async create(data: Icon) {
+    async findById(id: string) {
+        const icon = await prisma.icon.findUnique({
+            where: { id },
+        });
+
+        if (!icon) {
+            return null;
+        }
+
+        return icon;
+    }
+
+    async create(data: Prisma.IconCreateInput) {
         const icon = await prisma.icon.create({
             data,
         });

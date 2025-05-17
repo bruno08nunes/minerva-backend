@@ -1,11 +1,21 @@
 import { randomUUID } from 'node:crypto';
-import { Icon } from "../../generated/prisma";
+import { Icon, Prisma } from "../../generated/prisma";
 import { IIconsRepository } from "../icons-repository";
 
 export class InMemoryIconsRepository implements IIconsRepository {
     public items: Icon[] = [];
 
-    async create(data: Icon) {
+    async findById(id: string) {
+        const icon = this.items.find((icon) => icon.id === id);
+
+        if (!icon) {
+            return null;
+        }
+
+        return icon;
+    }
+
+    async create(data: Prisma.IconCreateInput) {
         const icon = {
             ...data,
             id: randomUUID(),

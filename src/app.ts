@@ -13,6 +13,7 @@ import { errorHandler } from "./middlewares/error-handler";
 import userRoutes from "./routes/user-routes";
 import refreshRoutes from "./routes/refresh-token-routes";
 import profilePictureRoutes from "./routes/profile-picture-routes";
+import iconRoutes from "./routes/icon-routes";
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use(cors({
 app.use("/", userRoutes);
 app.use("/auth", refreshRoutes);
 app.use("/", profilePictureRoutes);
+app.use("/", iconRoutes);
 
 app.use("/api/docs", SwaggerUI.serve, SwaggerUI.setup(swaggerDocument));
 
