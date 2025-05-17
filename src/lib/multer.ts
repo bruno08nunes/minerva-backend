@@ -25,3 +25,15 @@ function imageFileFilter(
 }
 
 export const uploadProfileImage = multer({ storage: storageProfileImage, fileFilter: imageFileFilter });
+
+const storageIcon = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "./src/public/icons");
+    },
+    filename: function (req, file, cb) {
+        const fileName = file.originalname.trim().replaceAll(" ", "_");
+        cb(null, Date.now() + fileName);
+    },
+});
+
+export const uploadIcon = multer({ storage: storageIcon, fileFilter: imageFileFilter });

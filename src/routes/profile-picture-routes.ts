@@ -5,7 +5,7 @@ import {
     listProfilePicturesController,
     deleteProfilePictureController,
 } from "../controllers/profile-picture-controllers";
-import { uploadProfileImageMiddleware } from "../middlewares/invalid-multer-error-handler";
+import { uploadImageMiddleware } from "../middlewares/upload-middleware";
 import { verifyUserRoleMiddleware } from "../middlewares/verify-user-role";
 
 const profilePictureRoutes = Router();
@@ -17,7 +17,7 @@ profilePictureRoutes.get(
 profilePictureRoutes.post(
     "/profile-pictures",
     verifyUserRoleMiddleware,
-    uploadProfileImageMiddleware("file"),
+    uploadImageMiddleware("file", "profileImage"),
     uploadProfilePictureController
 );
 profilePictureRoutes.get("/profile-pictures", listProfilePicturesController);

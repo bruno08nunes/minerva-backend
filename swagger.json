@@ -19,6 +19,10 @@
         {
             "name": "Profile Pictures",
             "description": "Operations related to profile pictures"
+        },
+        {
+            "name": "Icons",
+            "description": "Operations related to icons"
         }
     ],
     "paths": {
@@ -549,7 +553,7 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid file format or format not send.",
+                        "description": "Invalid file format or file not send.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -679,6 +683,190 @@
                     },
                     "404": {
                         "description": "Profile picture not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/icons": {
+            "get": {
+                "tags": ["Icons"],
+                "summary": "Get all icons",
+                "description": "Retrieve a list of all icons.",
+                "responses": {
+                    "200": {
+                        "description": "List of icons.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Icons listed successfully."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Icon"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Icons"],
+                "summary": "Upload a new icon",
+                "description": "Upload a new icon.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Icon uploaded successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Icon"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid file format or file not send.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/icons/{iconId}": {
+            "get": {
+                "tags": ["Icons"],
+                "summary": "Get icon by ID",
+                "description": "Retrieve an icon by its unique ID.",
+                "parameters": [
+                    {
+                        "name": "iconId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the icon to retrieve.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Icon details",
+                        "content": {
+                            "application/json": {
+                                "$ref": "#/components/schemas/Icon"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Icon not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Icons"],
+                "summary": "Delete icon by ID",
+                "description": "Delete an icon.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "iconId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the icon to delete.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Icon deleted successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Icon"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Icon not found.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -898,6 +1086,23 @@
                 "example": {
                     "id": "12345",
                     "url": "http://example.com/profile.jpg"
+                }
+            },
+            "Icon": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string",
+                        "format": "uri"
+                    }
+                },
+                "required": ["id", "url"],
+                "example": {
+                    "id": "icon123",
+                    "url": "http://example.com/icon.png"
                 }
             }
         }
