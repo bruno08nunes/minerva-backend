@@ -14,6 +14,7 @@ import userRoutes from "./routes/user-routes";
 import refreshRoutes from "./routes/refresh-token-routes";
 import profilePictureRoutes from "./routes/profile-picture-routes";
 import iconRoutes from "./routes/icon-routes";
+import path from "node:path";
 
 const app = express();
 
@@ -32,6 +33,9 @@ app.use("/", profilePictureRoutes);
 app.use("/", iconRoutes);
 
 app.use("/api/docs", SwaggerUI.serve, SwaggerUI.setup(swaggerDocument));
+
+app.use("/uploads/profile-images", express.static(path.join(__dirname, "public", "profile-images")));
+app.use("/uploads/icons", express.static(path.join(__dirname, "public", "icons")));
 
 // Global Error Handler
 app.use(errorHandler);
