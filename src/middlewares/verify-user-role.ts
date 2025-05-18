@@ -10,7 +10,7 @@ export function verifyUserRoleMiddleware(
     const authHeader = req.headers.authorization;
 
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
-        res.status(401).json({ message: "Token not provided" });
+        res.status(401).json({ message: "Token not provided", success: false });
         return;
     }
 
@@ -18,7 +18,7 @@ export function verifyUserRoleMiddleware(
     const payload = verifyJwt(token, env.JWT_SECRET);
 
     if (!payload || typeof payload !== "object" || !("role" in payload)) {
-        res.status(403).json({ message: "Invalid token" });
+        res.status(403).json({ message: "Invalid token", success: false });
         return;
     }
 

@@ -70,7 +70,7 @@ export async function updateThemeController(req: Request, res: Response) {
 }
 
 export async function deleteThemeController(req: Request, res: Response) {
-    const { id } = req.body;
+    const { id } = req.params;
 
     try {
         const theme = await themeService.deleteTheme(id);

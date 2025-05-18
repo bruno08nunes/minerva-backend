@@ -14,7 +14,7 @@ export class PrismaThemesRepository implements IThemesRepository {
                 name: theme.name,
                 description: theme.description,
                 icon: { connect: { id: theme.iconId } },
-            },
+            }
         });
     }
 
@@ -35,6 +35,10 @@ export class PrismaThemesRepository implements IThemesRepository {
     }
 
     async list() {
-        return await prisma.theme.findMany();
+        return await prisma.theme.findMany({
+            include: {
+                icon: true
+            }
+        });
     }
 }
