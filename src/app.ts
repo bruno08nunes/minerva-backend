@@ -15,6 +15,7 @@ import refreshRoutes from "./routes/refresh-token-routes";
 import profilePictureRoutes from "./routes/profile-picture-routes";
 import iconRoutes from "./routes/icon-routes";
 import path from "node:path";
+import themeRouter from "./routes/theme-routes";
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use("/", userRoutes);
 app.use("/auth", refreshRoutes);
 app.use("/", profilePictureRoutes);
 app.use("/", iconRoutes);
+app.use("/", themeRouter);
 
 app.use("/api/docs", SwaggerUI.serve, SwaggerUI.setup(swaggerDocument));
 
