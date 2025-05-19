@@ -3,7 +3,7 @@ import { prisma } from "../../lib/prisma";
 import { ICreateLesson, ILessonRepository } from "../lessons-repository";
 
 export class PrismaLessonsRepository implements ILessonRepository {
-    findById(id: string) {
+    async findById(id: string) {
         return prisma.lesson.findUnique({
             where: { id },
             include: {
@@ -15,7 +15,7 @@ export class PrismaLessonsRepository implements ILessonRepository {
         });
     }
 
-    list() {
+    async list() {
         return prisma.lesson.findMany({
             include: {
                 exercises: true,
@@ -26,7 +26,7 @@ export class PrismaLessonsRepository implements ILessonRepository {
         });
     }
 
-    listByTopicAndTheme(topicId: string, themeId: string) {
+    async listByTopicAndTheme(topicId: string, themeId: string) {
         return prisma.lesson.findMany({
             where: {
                 topicId: topicId,
@@ -41,7 +41,7 @@ export class PrismaLessonsRepository implements ILessonRepository {
         });
     }
 
-    create(data: ICreateLesson) {
+    async create(data: ICreateLesson) {
         return prisma.lesson.create({
             data: {
                 name: data.name,
@@ -55,7 +55,7 @@ export class PrismaLessonsRepository implements ILessonRepository {
         });
     }
 
-    update(
+    async update(
         id: string,
         data: {
             name: string;
@@ -72,7 +72,7 @@ export class PrismaLessonsRepository implements ILessonRepository {
         });
     }
 
-    delete(id: string): Promise<Lesson> {
+    async delete(id: string): Promise<Lesson> {
         return prisma.lesson.delete({ where: { id } });
     }
 }
