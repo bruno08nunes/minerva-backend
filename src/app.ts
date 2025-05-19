@@ -17,6 +17,7 @@ import iconRoutes from "./routes/icon-routes";
 import path from "node:path";
 import themeRouter from "./routes/theme-routes";
 import topicRouter from "./routes/topic-routes";
+import lessonRouter from "./routes/lesson-routes";
 
 const app = express();
 
@@ -35,6 +36,7 @@ app.use("/", profilePictureRoutes);
 app.use("/", iconRoutes);
 app.use("/", themeRouter);
 app.use("/", topicRouter);
+app.use("/", lessonRouter);
 
 app.use("/api/docs", SwaggerUI.serve, SwaggerUI.setup(swaggerDocument));
 
