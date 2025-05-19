@@ -30,31 +30,31 @@ export class LessonServices {
     async updateLesson(
         id: string,
         data: {
-            name: string;
-            description: string;
-            rewardXP: number;
-            order: number;
+            name?: string;
+            description?: string;
+            rewardXP?: number;
+            order?: number;
         }
     ) {
-        const lesson = this.lessonRepository.findById(id);
+        const lesson = await this.lessonRepository.findById(id);
 
         if (!lesson) {
             throw new NotFoundError();
         }
 
-        const updatedLesson = this.lessonRepository.update(id, data);
+        const updatedLesson = await this.lessonRepository.update(id, data);
 
         return updatedLesson;
     };
 
     async deleteLesson(id: string) {
-        const lesson = this.lessonRepository.findById(id);
+        const lesson = await this.lessonRepository.findById(id);
 
         if (!lesson) {
             throw new NotFoundError();
         }
 
-        const deletedLesson = this.lessonRepository.delete(id);
+        const deletedLesson = await this.lessonRepository.delete(id);
 
         return deletedLesson;
     }

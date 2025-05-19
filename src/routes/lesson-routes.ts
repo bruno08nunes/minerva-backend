@@ -11,9 +11,9 @@ import { verifyUserRoleMiddleware } from "../middlewares/verify-user-role";
 
 const lessonRouter = Router();
 
+lessonRouter.get("/lessons/list", listLessonsByTopicAndThemeController);
 lessonRouter.get("/lessons/:id", getLessonByIdController);
 lessonRouter.get("/lessons", listLessonsController);
-lessonRouter.get("/lessons/list", listLessonsByTopicAndThemeController);
 lessonRouter.post("/lessons", verifyUserRoleMiddleware, createLessonController);
 lessonRouter.put(
     "/lessons/:id",

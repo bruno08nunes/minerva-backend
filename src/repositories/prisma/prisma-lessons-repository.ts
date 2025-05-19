@@ -43,7 +43,15 @@ export class PrismaLessonsRepository implements ILessonRepository {
 
     create(data: ICreateLesson) {
         return prisma.lesson.create({
-            data,
+            data: {
+                name: data.name,
+                description: data.description,
+                rewardXP: data.rewardXP,
+                order: data.order,
+                topic: { connect: { id: data.topicId } },
+                theme: { connect: { id: data.themeId } },
+                icon: { connect: { id: data.iconId } },
+            },
         });
     }
 

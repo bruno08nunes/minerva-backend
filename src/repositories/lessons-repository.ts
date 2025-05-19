@@ -15,6 +15,6 @@ export interface ILessonRepository {
     list(): Promise<Lesson[]>;
     listByTopicAndTheme(topicId: string, themeId: string): Promise<Lesson[]>;
     create(data: ICreateLesson): Promise<Lesson>;
-    update(id: string, data: { name: string, description: string, rewardXP: number, order: number }): Promise<Lesson>;
+    update(id: string, data: { name?: string, description?: string, rewardXP?: number, order?: number }): Promise<Lesson>;
     delete(id: string): Promise<Lesson>;
 }

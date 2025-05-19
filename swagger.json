@@ -31,6 +31,10 @@
         {
             "name": "Topics",
             "description": "Operations related to topics"
+        },
+        {
+            "name": "Lessons",
+            "description": "Operations related to lessons"
         }
     ],
     "paths": {
@@ -1379,6 +1383,375 @@
                     }
                 }
             }
+        },
+        "/lessons": {
+            "get": {
+                "tags": ["Lessons"],
+                "summary": "Get all lessons",
+                "description": "Retrieve a list of all lessons.",
+                "responses": {
+                    "200": {
+                        "description": "List of lessons.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Lessons listed successfully."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Lesson"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Lessons"],
+                "summary": "Create a lesson",
+                "description": "Create a new lesson.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Lesson"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Lorem ipsum dolor"
+                                    },
+                                    "rewardXP": {
+                                        "type": "integer",
+                                        "example": 5
+                                    },
+                                    "order": {
+                                        "type": "integer",
+                                        "example": 0
+                                    },
+                                    "topicId": {
+                                        "type": "string",
+                                        "example": "123"
+                                    },
+                                    "themeId": {
+                                        "type": "string",
+                                        "example": "123"
+                                    },
+                                    "iconId": {
+                                        "type": "string",
+                                        "example": "123"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Lesson created successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Lesson"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/lessons/list": {
+            "get": {
+                "tags": ["Lessons"],
+                "summary": "Get lessons by topic and theme",
+                "description": "Retrieve a list of lessons filtered by topic and theme.",
+                "parameters": [
+                    {
+                        "name": "themeId",
+                        "in": "query",
+                        "description": "ID of the theme to filter lessons.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "theme_123"
+                        }
+                    },
+                    {
+                        "name": "topicId",
+                        "in": "query",
+                        "description": "ID of the topic to filter lessons.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "topic_456"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of lessons.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Lessons listed successfully."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Lesson"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/lessons/{id}": {
+            "get": {
+                "tags": ["Lessons"],
+                "summary": "Get lesson by ID",
+                "description": "Retrieve an lesson by its unique ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the lesson to retrieve.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lesson details",
+                        "content": {
+                            "application/json": {
+                                "$ref": "#/components/schemas/Lesson"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Lesson not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": ["Lessons"],
+                "summary": "Update lesson by ID",
+                "description": "Update lesson details.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the lesson to update.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "rewardXP": {
+                                        "type": "integer",
+                                        "nullable": true
+                                    },
+                                    "order": {
+                                        "type": "integer",
+                                        "nullable": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Lesson updated successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Lesson updated successfully."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Lesson"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Lesson not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Lesson not found."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Lessons"],
+                "summary": "Delete lesson by ID",
+                "description": "Delete an lesson.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the lesson to delete.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lesson deleted successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Lesson"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Lesson not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -1624,7 +1997,7 @@
                     }
                 }
             },
-             "Topic": {
+            "Topic": {
                 "type": "object",
                 "properties": {
                     "id": {
@@ -1649,6 +2022,81 @@
                         "id": "icon123",
                         "url": "http://example.com/icon.png"
                     }
+                }
+            },
+            "Lesson": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "string" },
+                    "name": { "type": "string" },
+                    "description": { "type": "string" },
+                    "rewardXP": { "type": "integer" },
+                    "order": { "type": "integer" },
+                    "topicId": { "type": "string" },
+                    "themeId": { "type": "string" },
+                    "iconId": { "type": "string" },
+                    "exercises": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Exercise"
+                        }
+                    },
+                    "topic": {
+                        "$ref": "#/components/schemas/Topic"
+                    },
+                    "theme": {
+                        "$ref": "#/components/schemas/Theme"
+                    },
+                    "icon": {
+                        "$ref": "#/components/schemas/Icon"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "description",
+                    "rewardXP",
+                    "order",
+                    "topicId",
+                    "themeId",
+                    "iconId",
+                    "exercises",
+                    "topic",
+                    "theme",
+                    "icon"
+                ],
+                "example": {
+                    "id": "123",
+                    "name": "Lição",
+                    "description": "Lição",
+                    "rewardXP": 0,
+                    "order": 0,
+                    "topicId": "topic123",
+                    "themeId": "theme123",
+                    "iconId": "icon123",
+                    "exercises": [],
+                    "topic": {
+                        "id": "topic123",
+                        "name": "Topico",
+                        "description": "Topico",
+                        "iconId": "icon123"
+                    },
+                    "theme": {
+                        "id": "theme123",
+                        "name": "Lorem",
+                        "description": "Lorem ipsum dolor",
+                        "iconId": "icon123"
+                    },
+                    "icon": {
+                        "id": "icon123",
+                        "url": "image.png"
+                    }
+                }
+            },
+            "Exercise": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "string" }
                 }
             }
         }

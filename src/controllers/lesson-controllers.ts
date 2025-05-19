@@ -11,7 +11,7 @@ export async function getLessonByIdController(req: Request, res: Response) {
     const { id } = req.params;
 
     try {
-        const lesson = service.getLessonById(id);
+        const lesson = await service.getLessonById(id);
 
         if (!lesson) {
             throw new NotFoundError();
@@ -36,7 +36,7 @@ export async function getLessonByIdController(req: Request, res: Response) {
 }
 
 export async function listLessonsController(req: Request, res: Response) {
-    const lessons = service.listAllLessons();
+    const lessons = await service.listAllLessons();
 
     res.json({
         message: "Lessons listed successfully.",
@@ -56,7 +56,7 @@ export async function listLessonsByTopicAndThemeController(
 
     const { topicId, themeId } = listLessonsBodySchema.parse(req.query);
 
-    const lessons = service.listLessonsByTopicAndTheme(topicId, themeId);
+    const lessons = await service.listLessonsByTopicAndTheme(topicId, themeId);
 
     res.json({
         message: "Lessons listed successfully.",
@@ -78,7 +78,7 @@ export async function createLessonController(req: Request, res: Response) {
 
     const data = createBodySchema.parse(req.body);
 
-    const lesson = service.createLesson(data);
+    const lesson = await service.createLesson(data);
 
     res.status(201).json({
         message: "Lesson created successfully.",
@@ -89,10 +89,10 @@ export async function createLessonController(req: Request, res: Response) {
 
 export async function updateLessonController(req: Request, res: Response) {
     const updateBodySchema = z.object({
-        name: z.string(),
-        description: z.string(),
-        rewardXP: z.number().int(),
-        order: z.number().int(),
+        name: z.string().optional(),
+        description: z.string().optional(),
+        rewardXP: z.number().int().optional(),
+        order: z.number().int().optional(),
         id: z.string().uuid(),
     });
 
@@ -129,11 +129,23 @@ export async function deleteLessonController(req: Request, res: Response) {
 
     const { id } = deleteBodySchema.parse(req.params);
 
-    const lesson = service.deleteLesson(id);
+    try {
+        const lesson = await service.deleteLesson(id);
+    
+        res.json({
+            message: "Lesson deleted successfuly.",
+            success: true,
+            data: lesson
+        });
+    } catch (err) {
+        if (err instanceof NotFoundError) {
+            res.status(404).json({
+                message: err.message || "Lesson not found.",
+                success: false,
+            });
+            return;
+        }
 
-    res.json({
-        message: "Lesson deleted successfuly.",
-        success: true,
-        data: lesson
-    });
+        throw err;
+    }
 }
