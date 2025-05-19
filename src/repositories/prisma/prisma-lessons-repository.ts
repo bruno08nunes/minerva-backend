@@ -7,7 +7,11 @@ export class PrismaLessonsRepository implements ILessonRepository {
         return prisma.lesson.findUnique({
             where: { id },
             include: {
-                exercises: true,
+                exercises: {
+                    include: {
+                        choices: true
+                    }
+                },
                 topic: true,
                 theme: true,
                 icon: true,
@@ -18,7 +22,11 @@ export class PrismaLessonsRepository implements ILessonRepository {
     async list() {
         return prisma.lesson.findMany({
             include: {
-                exercises: true,
+                exercises: {
+                    include: {
+                        choices: true
+                    }
+                },
                 topic: true,
                 theme: true,
                 icon: true,
@@ -33,7 +41,11 @@ export class PrismaLessonsRepository implements ILessonRepository {
                 themeId: themeId,
             },
             include: {
-                exercises: true,
+                exercises: {
+                    include: {
+                        choices: true
+                    }
+                },
                 topic: true,
                 theme: true,
                 icon: true,
