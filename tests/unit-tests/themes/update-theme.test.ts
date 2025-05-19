@@ -36,7 +36,7 @@ describe("Update Theme Use Case", () => {
         }).rejects.toThrow("Resource not found.");
     });
     
-    it("should not be able to update user with invalid data", async () => {
+    it("should not be able to update theme with invalid data", async () => {
         const createdTheme = await themeRepository.create({
             name: "Lorem",
             description: "Lorem ipsum dolor it.",
@@ -44,7 +44,7 @@ describe("Update Theme Use Case", () => {
         });
 
         expect(async () => {
-            await service.updateTheme(createdTheme.id, {}); // Arrumar o teste pq tem como atualizar com dados vazios
+            await service.updateTheme(createdTheme.id, {});
         }).rejects.toThrow("Bad request.");
     });
 });
