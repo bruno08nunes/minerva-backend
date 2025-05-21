@@ -35,6 +35,10 @@
         {
             "name": "Lessons",
             "description": "Operations related to lessons"
+        },
+        {
+            "name": "Exercises",
+            "description": "Operations related to exercises"
         }
     ],
     "paths": {
@@ -1752,6 +1756,303 @@
                     }
                 }
             }
+        },
+        "/exercises": {
+            "post": {
+                "tags": ["Exercises"],
+                "summary": "Create a exercise",
+                "description": "Create a new exercise.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "statement": { "type": "string" },
+                                    "order": { "type": "integer" },
+                                    "type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "MULTIPLE_CHOICE",
+                                            "WRITE_CODE",
+                                            "COMPLETE_CODE"
+                                        ]
+                                    },
+                                    "hint": { "type": "string" },
+                                    "lessonId": { "type": "string" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Exercise created successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Exercise"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/exercises/{id}": {
+            "get": {
+                "tags": ["Exercises"],
+                "summary": "Get exercise by ID",
+                "description": "Retrieve an exercise by its unique ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the exercise to retrieve.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Exercise details",
+                        "content": {
+                            "application/json": {
+                                "$ref": "#/components/schemas/Exercise"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Exercise not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": ["Exercises"],
+                "summary": "Update exercise by ID",
+                "description": "Update exercise details.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the exercise to update.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "statement": { "type": "string" },
+                                    "order": { "type": "integer" },
+                                    "hint": { "type": "string" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Exercise updated successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Exercise updated successfully."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Exercise"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Exercise not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Exercise not found."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Exercises"],
+                "summary": "Delete exercise by ID",
+                "description": "Delete an exercise.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the exercise to delete.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Exercise deleted successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Exercise"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Exercise not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/exercises/list/{lessonId}": {
+            "get": {
+                "tags": ["Exercises"],
+                "summary": "Get exercises by lesson",
+                "description": "Retrieve a list of exercises filtered by lesson.",
+                "parameters": [
+                    {
+                        "name": "lessonId",
+                        "in": "path",
+                        "description": "ID of the lesson to filter exercises.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "lesson_123"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of exercises.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Exercises listed successfully."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Exercise"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -2096,8 +2397,45 @@
             "Exercise": {
                 "type": "object",
                 "properties": {
-                    "id": { "type": "string" }
+                    "id": { "type": "string" },
+                    "statement": { "type": "string" },
+                    "order": { "type": "integer" },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "MULTIPLE_CHOICE",
+                            "WRITE_CODE",
+                            "COMPLETE_CODE"
+                        ]
+                    },
+                    "hint": { "type": "string" },
+                    "lessonId": { "type": "string" },
+                    "choices": {
+                        "type": "array",
+                        "items": { "$ref": "#/components/schemas/Choice" }
+                    }
+                },
+                "required": [
+                    "id",
+                    "statement",
+                    "order",
+                    "type",
+                    "hint",
+                    "lessonId"
+                ],
+                "example": {
+                    "id": "123",
+                    "statement": "Exercise statement",
+                    "order": 0,
+                    "type": "COMPLETE_CODE",
+                    "hint": "Exercise hint",
+                    "lessonId": "lesson123",
+                    "choices": []
                 }
+            },
+            "Choice": {
+                "type": "object",
+                "properties": {}
             }
         }
     }

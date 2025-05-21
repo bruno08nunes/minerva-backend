@@ -72,9 +72,9 @@ export async function createExerciseController(req: Request, res: Response) {
 
 export async function updateExerciseController(req: Request, res: Response) {
     const createBodySchema = z.object({
-        statement: z.string(),
-        order: z.number().int(),
-        hint: z.string(),
+        statement: z.string().optional(),
+        order: z.number().int().optional(),
+        hint: z.string().optional(),
         id: z.string().uuid(),
     });
 
