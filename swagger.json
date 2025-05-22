@@ -2053,6 +2053,295 @@
                     }
                 }
             }
+        },
+        "/choices": {
+            "post": {
+                "tags": ["Choices"],
+                "summary": "Create a choice",
+                "description": "Create a new choice.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "text": { "type": "string" },
+                                    "order": { "type": "integer" },
+                                    "isCorrect": { "type": "boolean" },
+                                    "exerciseId": { "type": "string" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Choice created successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Choice"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/choices/{id}": {
+            "get": {
+                "tags": ["Choices"],
+                "summary": "Get choice by ID",
+                "description": "Retrieve an choice by its unique ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the choice to retrieve.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Choice details",
+                        "content": {
+                            "application/json": {
+                                "$ref": "#/components/schemas/Choice"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Choice not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": ["Choices"],
+                "summary": "Update choice by ID",
+                "description": "Update choice details.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the choice to update.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "text": { "type": "string" },
+                                    "order": { "type": "integer" },
+                                    "isCorrect": { "type": "boolean" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Choice updated successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Choice updated successfully."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Choice"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Choice not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Choice not found."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Choices"],
+                "summary": "Delete choice by ID",
+                "description": "Delete a choice.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the choice to delete.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Choice deleted successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Choice"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Choice not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/choices/list/{exerciseId}": {
+            "get": {
+                "tags": ["Choices"],
+                "summary": "Get choices by exercise",
+                "description": "Retrieve a list of choices filtered by exercise.",
+                "parameters": [
+                    {
+                        "name": "exerciseId",
+                        "in": "path",
+                        "description": "ID of the exercise to filter choices.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "exercise_123"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of choices.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Choices listed successfully."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Choice"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -2435,7 +2724,13 @@
             },
             "Choice": {
                 "type": "object",
-                "properties": {}
+                "properties": {
+                    "id": {"type": "string"},
+                    "text": {"type": "string"},
+                    "order": {"type": "number"},
+                    "isCorrect": {"type": "boolean"},
+                    "exerciseId": {"type": "string"}
+                }
             }
         }
     }
