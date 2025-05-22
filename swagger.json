@@ -39,6 +39,10 @@
         {
             "name": "Exercises",
             "description": "Operations related to exercises"
+        },
+        {
+            "name": "Choices",
+            "description": "Operations related to choices"
         }
     ],
     "paths": {
@@ -2124,8 +2128,21 @@
                     "200": {
                         "description": "Choice details",
                         "content": {
-                            "application/json": {
-                                "$ref": "#/components/schemas/Choice"
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Choice updated successfully."
+                                    },
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "data": {
+                                        "$ref": "#/components/schemas/Choice"
+                                    }
+                                }
                             }
                         }
                     },
@@ -2730,6 +2747,20 @@
                     "order": {"type": "number"},
                     "isCorrect": {"type": "boolean"},
                     "exerciseId": {"type": "string"}
+                },
+                "required": [
+                    "id",
+                    "text",
+                    "order",
+                    "isCorrect",
+                    "exerciseId"
+                ],
+                "example": {
+                    "id": "123",
+                    "text": "Lorem",
+                    "order": 0,
+                    "isCorrect": true,
+                    "exerciseId": "exercise123"
                 }
             }
         }
