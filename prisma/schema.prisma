@@ -30,7 +30,7 @@ model User {
   username String @unique
 
   profilePictureId String?
-  profilePicture   ProfilePicture? @relation(fields: [profilePictureId], references: [id])
+  profilePicture   ProfilePicture? @relation(fields: [profilePictureId], references: [id], onDelete: SetNull)
 
   achievements UserAchievement[]
 
@@ -100,7 +100,7 @@ model Exercise {
   type      ExerciseType
   hint      String
   lessonId  String
-  lesson    Lesson       @relation(fields: [lessonId], references: [id])
+  lesson    Lesson       @relation(fields: [lessonId], references: [id], onDelete: Cascade)
 
   choices Choice[]
 }
@@ -111,7 +111,7 @@ model Choice {
   order      Int
   isCorrect  Boolean
   exerciseId String
-  exercise   Exercise @relation(fields: [exerciseId], references: [id])
+  exercise   Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
 }
 
 model Progress {
@@ -120,8 +120,8 @@ model Progress {
   isCompleted Boolean
   lastTry     DateTime?
 
-  user   User   @relation(fields: [userId], references: [id])
-  lesson Lesson @relation(fields: [lessonId], references: [id])
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
 
   @@id([userId, lessonId])
 }
@@ -149,8 +149,8 @@ model UserAchievement {
   achievementId String
   achievedAt    DateTime @default(now())
 
-  user        User        @relation(fields: [userId], references: [id])
-  achievement Achievement @relation(fields: [achievementId], references: [id])
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  achievement Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
 }
 
 model Follow {
@@ -159,8 +159,8 @@ model Follow {
   followingId String
   createdAt   DateTime @default(now())
 
-  follower  User @relation("Follower", fields: [followerId], references: [id])
-  following User @relation("Following", fields: [followingId], references: [id])
+  follower  User @relation("Follower", fields: [followerId], references: [id], onDelete: Cascade)
+  following User @relation("Following", fields: [followingId], references: [id], onDelete: Cascade)
 
   @@unique([followerId, followingId])
 }
