@@ -43,6 +43,10 @@
         {
             "name": "Choices",
             "description": "Operations related to choices"
+        },
+        {
+            "name": "Explanations",
+            "description": "Operations related to explanations"
         }
     ],
     "paths": {
@@ -2359,6 +2363,310 @@
                     }
                 }
             }
+        },
+        "/explanations": {
+            "post": {
+                "tags": ["Explanations"],
+                "summary": "Create a explanation",
+                "description": "Create a new explanation.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "type": "object",
+                                    "properties": {
+                                        "title": { "type": "string" },
+                                        "content": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "type": {
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "paragraph",
+                                                            "code",
+                                                            "image"
+                                                        ]
+                                                    },
+                                                    "data": { "type": "string" }
+                                                }
+                                            }
+                                        },
+                                        "topicId": { "type": "string" }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Explanation created successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Explanation created successfully."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Explanation"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid.",
+                        "content": {
+                            "application/json": {
+                                "$ref": "#/components/schemas/ValidationError"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/explanations/{id}": {
+            "get": {
+                "tags": ["Explanations"],
+                "summary": "Get explanation by ID",
+                "description": "Retrieve an explanation by its unique ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the explanation to retrieve.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Explanation details",
+                        "content": {
+                            "application/json": {
+                                "type": "object",
+                                "properties": {
+                                    "message": {
+                                        "type": "string",
+                                        "example": "Explanation found."
+                                    },
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "data": {
+                                        "$ref": "#/components/schemas/Explanation"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Explanation not found.",
+                        "content": {
+                            "application/json": {
+                                "$ref": "#/components/schemas/ValidationError"
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": ["Explanations"],
+                "summary": "Update explanation by ID",
+                "description": "Update explanation details.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the explanation to update.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "type": "object",
+                            "properties": {
+                                "text": { "type": "string" },
+                                "content": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "paragraph",
+                                                    "code",
+                                                    "image"
+                                                ]
+                                            },
+                                            "data": { "type": "string" }
+                                        }
+                                    }
+                                },
+                                "topicId": { "type": "string" }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Explanation updated successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Explanation updated successfully."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Explanation"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Explanation not found.",
+                        "content": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Explanations"],
+                "summary": "Delete explanation by ID",
+                "description": "Delete an explanation.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the explanation to delete.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Explanation deleted successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Explanation"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Explanation not found.",
+                        "content": {
+                            "application/json": {
+                                "$ref": "#/components/schemas/ValidationError"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/explanations/list": {
+            "get": {
+                "tags": ["Explanations"],
+                "summary": "List all explanations",
+                "description": "Retrieve a list of explanations.",
+                "responses": {
+                    "200": {
+                        "description": "List of explanations.",
+                        "content": {
+                            "application/json": {
+                                "type": "array",
+                                "items": [
+                                    {
+                                        "$ref": "#/components/schemas/Explanation"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/explanations/list/{topicId}": {
+            "get": {
+                "tags": ["Explanations"],
+                "summary": "Get explanations by topic",
+                "description": "Retrieve a list of explanations filtered by topic.",
+                "parameters": [
+                    {
+                        "name": "topicId",
+                        "in": "path",
+                        "description": "ID of the topic to filter explanations.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "topic_123"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of explanations.",
+                        "content": {
+                            "application/json": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Explanation"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -2742,25 +3050,60 @@
             "Choice": {
                 "type": "object",
                 "properties": {
-                    "id": {"type": "string"},
-                    "text": {"type": "string"},
-                    "order": {"type": "number"},
-                    "isCorrect": {"type": "boolean"},
-                    "exerciseId": {"type": "string"}
+                    "id": { "type": "string" },
+                    "text": { "type": "string" },
+                    "order": { "type": "number" },
+                    "isCorrect": { "type": "boolean" },
+                    "exerciseId": { "type": "string" }
                 },
-                "required": [
-                    "id",
-                    "text",
-                    "order",
-                    "isCorrect",
-                    "exerciseId"
-                ],
+                "required": ["id", "text", "order", "isCorrect", "exerciseId"],
                 "example": {
                     "id": "123",
                     "text": "Lorem",
                     "order": 0,
                     "isCorrect": true,
                     "exerciseId": "exercise123"
+                }
+            },
+            "Explanation": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "string" },
+                    "title": { "type": "string" },
+                    "content": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string",
+                                    "enum": ["paragraph", "code", "image"]
+                                },
+                                "data": { "type": "string" }
+                            }
+                        }
+                    },
+                    "exerciseId": { "type": "string" }
+                },
+                "required": ["id", "title", "content", "exerciseId"],
+                "example": {
+                    "id": "123",
+                    "title": "Explanation title",
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "data": "Lorem ipsum dolor sit amet."
+                        },
+                        {
+                            "type": "code",
+                            "data": "console.log(\"Hello World\");"
+                        },
+                        {
+                            "type": "image",
+                            "data": "http://example.com/image.png"
+                        }
+                    ],
+                    "topicId": "topic123"
                 }
             }
         }
