@@ -1,5 +1,8 @@
 import { prisma } from "../../lib/prisma";
-import { CreateExerciseType, IExercisesRepository } from "../exercise-repository";
+import {
+    CreateExerciseType,
+    IExercisesRepository,
+} from "../exercise-repository";
 
 export class PrismaExercisesRepository implements IExercisesRepository {
     async findById(id: string) {
