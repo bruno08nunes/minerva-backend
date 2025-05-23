@@ -91,14 +91,14 @@ export async function createExplanationController(req: Request, res: Response) {
 
 export async function updateExplanationController(req: Request, res: Response) {
     const updateBodySchema = z.object({
-        title: z.string(),
+        title: z.string().optional(),
         content: z.array(
             z.object({
                 type: z.enum(["paragraph", "code", "image"]),
                 data: z.string(),
             })
-        ),
-        topicId: z.string().uuid(),
+        ).optional(),
+        topicId: z.string().uuid().optional(),
         id: z.string().uuid(),
     });
 

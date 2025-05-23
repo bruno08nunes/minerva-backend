@@ -11,6 +11,6 @@ export interface IExplanationRepository {
     list(): Promise<Explanation[]>;
     listByTopic(topicId: string): Promise<Explanation[]>;
     create(data: CreateExplanationType): Promise<Explanation>;
-    update(id: string, data: CreateExplanationType): Promise<Explanation>;
+    update(id: string, data: Partial<CreateExplanationType>): Promise<Explanation>;
     delete(id: string): Promise<Explanation>;
 }

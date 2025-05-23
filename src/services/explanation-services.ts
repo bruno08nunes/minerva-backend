@@ -29,7 +29,7 @@ export class ExplanationServices {
         return this.explanationRepository.create(data);
     }
 
-    async updateExplanation(id: string, data: CreateExplanationType) {
+    async updateExplanation(id: string, data: Partial<CreateExplanationType>) {
         const explanation = await this.explanationRepository.findById(id);
 
         if (!explanation) {

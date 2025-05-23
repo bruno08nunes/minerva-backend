@@ -2435,7 +2435,9 @@
                         "description": "Invalid.",
                         "content": {
                             "application/json": {
-                                "$ref": "#/components/schemas/ValidationError"
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
+                                }
                             }
                         }
                     }
@@ -2463,18 +2465,20 @@
                         "description": "Explanation details",
                         "content": {
                             "application/json": {
-                                "type": "object",
-                                "properties": {
-                                    "message": {
-                                        "type": "string",
-                                        "example": "Explanation found."
-                                    },
-                                    "success": {
-                                        "type": "boolean",
-                                        "example": true
-                                    },
-                                    "data": {
-                                        "$ref": "#/components/schemas/Explanation"
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Explanation found."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Explanation"
+                                        }
                                     }
                                 }
                             }
@@ -2484,7 +2488,9 @@
                         "description": "Explanation not found.",
                         "content": {
                             "application/json": {
-                                "$ref": "#/components/schemas/ValidationError"
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
+                                }
                             }
                         }
                     }
@@ -2545,7 +2551,7 @@
                   },
                 "responses": {
                     "200": {
-                        "description": "Explanation updated successfully.",
+                        "description": "Explanation updated successfully",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -2570,7 +2576,11 @@
                     "404": {
                         "description": "Explanation not found.",
                         "content": {
-                            "$ref": "#/components/schemas/ValidationError"
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
+                                }
+                            }
                         }
                     }
                 }
@@ -2610,7 +2620,9 @@
                         "description": "Explanation not found.",
                         "content": {
                             "application/json": {
-                                "$ref": "#/components/schemas/ValidationError"
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
+                                }
                             }
                         }
                     }
@@ -2627,12 +2639,19 @@
                         "description": "List of explanations.",
                         "content": {
                             "application/json": {
-                                "type": "array",
-                                "items": [
-                                    {
-                                        "$ref": "#/components/schemas/Explanation"
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {"type": "string", "example": "Explanations listed successfully."},
+                                        "success": true,
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Explanation"
+                                            }
+                                        }
                                     }
-                                ]
+                                }
                             }
                         }
                     }
@@ -2661,9 +2680,18 @@
                         "description": "List of explanations.",
                         "content": {
                             "application/json": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/components/schemas/Explanation"
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {"type": "string", "example": "Explanations listed successfully."},
+                                        "success": true,
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Explanation"
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }

@@ -29,7 +29,7 @@ export class PrismaExplanationRepository implements IExplanationRepository {
         return prisma.explanation.create({ data });
     }
 
-    async update(id: string, data: CreateExplanationType) {
+    async update(id: string, data: Partial<CreateExplanationType>) {
         return prisma.explanation.update({ where: { id }, data });
     }
 
