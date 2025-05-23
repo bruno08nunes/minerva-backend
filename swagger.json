@@ -2377,37 +2377,36 @@
                 "requestBody": {
                     "required": true,
                     "content": {
-                        "application/json": {
-                            "schema": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "title": {
+                              "type": "string"
+                            },
+                            "content": {
+                              "type": "array",
+                              "items": {
                                 "type": "object",
                                 "properties": {
-                                    "type": "object",
-                                    "properties": {
-                                        "title": { "type": "string" },
-                                        "content": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "type": {
-                                                        "type": "string",
-                                                        "enum": [
-                                                            "paragraph",
-                                                            "code",
-                                                            "image"
-                                                        ]
-                                                    },
-                                                    "data": { "type": "string" }
-                                                }
-                                            }
-                                        },
-                                        "topicId": { "type": "string" }
-                                    }
+                                  "type": {
+                                    "type": "string",
+                                    "enum": ["paragraph", "code", "image"]
+                                  },
+                                  "data": {
+                                    "type": "string"
+                                  }
                                 }
+                              }
+                            },
+                            "topicId": {
+                              "type": "string"
                             }
+                          }
                         }
+                      }
                     }
-                },
+                  },
                 "responses": {
                     "201": {
                         "description": "Explanation created successfully.",
@@ -2514,32 +2513,36 @@
                 "requestBody": {
                     "required": true,
                     "content": {
-                        "application/json": {
-                            "type": "object",
-                            "properties": {
-                                "text": { "type": "string" },
-                                "content": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "type": {
-                                                "type": "string",
-                                                "enum": [
-                                                    "paragraph",
-                                                    "code",
-                                                    "image"
-                                                ]
-                                            },
-                                            "data": { "type": "string" }
-                                        }
-                                    }
-                                },
-                                "topicId": { "type": "string" }
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "title": {
+                              "type": "string"
+                            },
+                            "content": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "string",
+                                    "enum": ["paragraph", "code", "image"]
+                                  },
+                                  "data": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "topicId": {
+                              "type": "string"
                             }
+                          }
                         }
+                      }
                     }
-                },
+                  },
                 "responses": {
                     "200": {
                         "description": "Explanation updated successfully.",
