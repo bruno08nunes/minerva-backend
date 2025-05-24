@@ -6,7 +6,12 @@ import { z } from "zod";
 const service = new ProgressServices(new PrismaProgressRepository());
 
 export async function getProgressController(req: Request, res: Response) {
-    const { userId, lessonId } = req.params;
+    const getProgressQuerySchema = z.object({
+        userId: z.string().uuid(),
+        lessonId: z.string().uuid()
+    });
+
+    const { userId, lessonId } = getProgressQuerySchema.parse(req.query);
 
     const progress = await service.find(userId, lessonId);
 

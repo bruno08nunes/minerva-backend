@@ -47,6 +47,10 @@
         {
             "name": "Explanations",
             "description": "Operations related to explanations"
+        },
+        {
+            "name": "Progress",
+            "description": "Operations related to progress"
         }
     ],
     "paths": {
@@ -2377,36 +2381,40 @@
                 "requestBody": {
                     "required": true,
                     "content": {
-                      "application/json": {
-                        "schema": {
-                          "type": "object",
-                          "properties": {
-                            "title": {
-                              "type": "string"
-                            },
-                            "content": {
-                              "type": "array",
-                              "items": {
+                        "application/json": {
+                            "schema": {
                                 "type": "object",
                                 "properties": {
-                                  "type": {
-                                    "type": "string",
-                                    "enum": ["paragraph", "code", "image"]
-                                  },
-                                  "data": {
-                                    "type": "string"
-                                  }
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "content": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "paragraph",
+                                                        "code",
+                                                        "image"
+                                                    ]
+                                                },
+                                                "data": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "topicId": {
+                                        "type": "string"
+                                    }
                                 }
-                              }
-                            },
-                            "topicId": {
-                              "type": "string"
                             }
-                          }
                         }
-                      }
                     }
-                  },
+                },
                 "responses": {
                     "201": {
                         "description": "Explanation created successfully.",
@@ -2519,36 +2527,40 @@
                 "requestBody": {
                     "required": true,
                     "content": {
-                      "application/json": {
-                        "schema": {
-                          "type": "object",
-                          "properties": {
-                            "title": {
-                              "type": "string"
-                            },
-                            "content": {
-                              "type": "array",
-                              "items": {
+                        "application/json": {
+                            "schema": {
                                 "type": "object",
                                 "properties": {
-                                  "type": {
-                                    "type": "string",
-                                    "enum": ["paragraph", "code", "image"]
-                                  },
-                                  "data": {
-                                    "type": "string"
-                                  }
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "content": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "paragraph",
+                                                        "code",
+                                                        "image"
+                                                    ]
+                                                },
+                                                "data": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "topicId": {
+                                        "type": "string"
+                                    }
                                 }
-                              }
-                            },
-                            "topicId": {
-                              "type": "string"
                             }
-                          }
                         }
-                      }
                     }
-                  },
+                },
                 "responses": {
                     "200": {
                         "description": "Explanation updated successfully",
@@ -2642,7 +2654,10 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "message": {"type": "string", "example": "Explanations listed successfully."},
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Explanations listed successfully."
+                                        },
                                         "success": true,
                                         "data": {
                                             "type": "array",
@@ -2683,7 +2698,10 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "message": {"type": "string", "example": "Explanations listed successfully."},
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Explanations listed successfully."
+                                        },
                                         "success": true,
                                         "data": {
                                             "type": "array",
@@ -2692,6 +2710,110 @@
                                             }
                                         }
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/progress": {
+            "get": {
+                "tags": ["Progress"],
+                "summary": "Get progress by user and lesson",
+                "description": "Retrieve a progress filtered by user and lesson.",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "description": "ID of the user to filter progress.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "user_123"
+                        }
+                    },
+                    {
+                        "name": "lessonId",
+                        "in": "query",
+                        "description": "ID of the lesson to filter progress.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "lesson_123"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Progress retrieved.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Progress found."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Progress"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Progress"],
+                "summary": "Create or update a progress",
+                "description": "Create or update a progress.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Progress"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Progress created/updated successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Progress updated successfully."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Progress"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
                                 }
                             }
                         }
@@ -3135,6 +3257,15 @@
                         }
                     ],
                     "topicId": "topic123"
+                }
+            },
+            "Progress": {
+                "type": "object",
+                "properties": {
+                    "userId": { "type": "string" },
+                    "lessonId": { "type": "string" },
+                    "isCompleted": { "type": "boolean" },
+                    "lastTry": { "type": "string", "format": "date-time" }
                 }
             }
         }

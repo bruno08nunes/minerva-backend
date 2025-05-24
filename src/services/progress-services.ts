@@ -8,7 +8,7 @@ export class ProgressServices {
     }
 
     async progress(data: CreateProgressType) {
-        const progress = this.progressRepository.find(data.userId, data.lessonId);
+        const progress = await this.progressRepository.find(data.userId, data.lessonId);
 
         if (!progress) {
             return this.progressRepository.create(data);
