@@ -8,6 +8,13 @@ export class PrismaExplanationRepository implements IExplanationRepository {
     async findById(id: string) {
         const exercise = await prisma.explanation.findUnique({
             where: { id },
+            include: {
+                topic: {
+                    include: {
+                        icon: true,
+                    },
+                },
+            },
         });
 
         if (!exercise) {
@@ -18,11 +25,28 @@ export class PrismaExplanationRepository implements IExplanationRepository {
     }
 
     async list() {
-        return prisma.explanation.findMany();
+        return prisma.explanation.findMany({
+            include: {
+                topic: {
+                    include: {
+                        icon: true,
+                    },
+                },
+            },
+        });
     }
 
     async listByTopic(topicId: string) {
-        return prisma.explanation.findMany({ where: { topicId } });
+        return prisma.explanation.findMany({
+            where: { topicId },
+            include: {
+                topic: {
+                    include: {
+                        icon: true,
+                    },
+                },
+            },
+        });
     }
 
     async create(data: CreateExplanationType) {
