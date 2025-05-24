@@ -1,4 +1,3 @@
-import { Progress } from "../../generated/prisma";
 import { prisma } from "../../lib/prisma";
 import {
     CreateProgressType,
@@ -19,7 +18,10 @@ export class PrismaProgressRepository implements IProgressRepository {
     update({ userId, lessonId, ...data }: CreateProgressType) {
         return prisma.progress.update({
             where: { userId_lessonId: { userId, lessonId } },
-            data,
+            data: {
+                ...data,
+                lastTry: new Date()
+            },
         });
     }
 }
