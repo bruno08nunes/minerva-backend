@@ -144,13 +144,14 @@ model Achievement {
 }
 
 model UserAchievement {
-  id            String   @id @default(uuid())
   userId        String
   achievementId String
   achievedAt    DateTime @default(now())
 
   user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
   achievement Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+
+  @@id([userId, achievementId])
 }
 
 model Follow {
