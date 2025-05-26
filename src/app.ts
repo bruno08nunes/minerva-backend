@@ -2,6 +2,7 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import path from "node:path";
 
 import SwaggerUI from "swagger-ui-express";
 import swaggerDocument from "../swagger.json";
@@ -14,7 +15,6 @@ import userRoutes from "./routes/user-routes";
 import refreshRoutes from "./routes/refresh-token-routes";
 import profilePictureRoutes from "./routes/profile-picture-routes";
 import iconRoutes from "./routes/icon-routes";
-import path from "node:path";
 import themeRouter from "./routes/theme-routes";
 import topicRouter from "./routes/topic-routes";
 import lessonRouter from "./routes/lesson-routes";
@@ -24,6 +24,7 @@ import explanationRouter from "./routes/explanation-routes";
 import progressRouter from "./routes/progress-routes";
 import achievementRouter from "./routes/achievement-routes";
 import userAchievementRouter from "./routes/user-achievement-routes";
+import followRouter from "./routes/follow-routes";
 
 const app = express();
 
@@ -49,6 +50,7 @@ app.use("/", explanationRouter);
 app.use("/", progressRouter);
 app.use("/", achievementRouter);
 app.use("/", userAchievementRouter);
+app.use("/", followRouter);
 
 app.use("/api/docs", SwaggerUI.serve, SwaggerUI.setup(swaggerDocument));
 

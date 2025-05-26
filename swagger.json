@@ -501,6 +501,204 @@
                 }
             }
         },
+        "/users/followers/{id}": {
+            "get": {
+                "tags": ["Users"],
+                "summary": "Get followers by user ID",
+                "description": "Retrieve a list of followers for a specific user.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the user to retrieve followers for.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of followers.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Followers retrieved successfully."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/User"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/following/{id}": {
+            "get": {
+                "tags": ["Users"],
+                "summary": "Get following by user ID",
+                "description": "Retrieve a list of users that a specific user is following.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the user to retrieve following for.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of following users.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Following users retrieved successfully."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/User"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/follow": {
+            "post": {
+                "tags": ["Users"],
+                "summary": "Follow a user",
+                "description": "Follow a user by their ID.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "followerId": {
+                                        "type": "string",
+                                        "example": "123"
+                                    },
+                                    "followingId": {
+                                        "type": "string",
+                                        "example": "456"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User followed successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found.",
+                        "content": {
+                            "application/json": {
+                                "$ref": "#/components/schemas/NotFoundError"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request.",
+                        "content": {
+                            "application/json": {
+                                "$ref": "#/components/schemas/ValidationError"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Users"],
+                "summary": "Unfollow a user",
+                "description": "Unfollow a user by their ID.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "followerId": {
+                                        "type": "string",
+                                        "example": "123"
+                                    },
+                                    "followingId": {
+                                        "type": "string",
+                                        "example": "456"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User unfollowed successfully.",
+                        "content": {
+                            "application/json": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found.",
+                        "content": {
+                            "application/json": {
+                                "$ref": "#/components/schemas/NotFoundError"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request.",
+                        "content": {
+                            "application/json": {
+                                "$ref": "#/components/schemas/ValidationError"
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/profile-pictures": {
             "get": {
                 "tags": ["Profile Pictures"],
