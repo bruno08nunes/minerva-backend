@@ -75,6 +75,11 @@ export class PrismaUsersRepository implements IUserRepository {
                 semanalXP: "desc",
             },
             take: amount,
+            select: {
+                username: true,
+                semanalXP: true,
+                profilePicture: true,
+            }
         });
 
         return users;
@@ -85,6 +90,9 @@ export class PrismaUsersRepository implements IUserRepository {
             where: {
                 id,
             },
+            include: {
+                profilePicture: true
+            }
         });
 
         if (!user) {
@@ -103,6 +111,7 @@ export class PrismaUsersRepository implements IUserRepository {
             rankingPosition: rankingPosition + 1,
             username: user.username,
             semanalXp: user.semanalXP,
+            profilePicture: user.profilePicture
         };
     }
 }

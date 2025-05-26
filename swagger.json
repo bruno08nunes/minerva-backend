@@ -742,6 +742,77 @@
                 }
             }
         },
+        "/ranking": {
+            "get": {
+                "tags": ["Users"],
+                "summary": "Get user ranking",
+                "description": "Retrieve the ranking of a user.",
+                "parameters": [
+                    {
+                        "name": "amount",
+                        "in": "query",
+                        "required": false,
+                        "description": "The number of top users to retrieve.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User ranking retrieved successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Ranking retrieved successfully."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/User"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User not found."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/profile-pictures": {
             "get": {
                 "tags": ["Profile Pictures"],

@@ -115,6 +115,10 @@ export class UserService {
     async listRanking(amount: number, userId?: string) {
         const users = await this.userRepository.getTopUsersByWeeklyXP(amount);
 
+        if (!userId) {
+            return users;
+        }
+
         const user = await this.userRepository.getUserRankingPosition(userId);
         
         return [...users, user];
