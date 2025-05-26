@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { PrismaFollowRepository } from "../repositories/prisma/prisma-follow-repository";
 import { FollowServices } from "../services/follow-services";
+import NotFoundError from "../utils/errors/not-found";
 
 const service = new FollowServices(new PrismaFollowRepository());
 
@@ -41,11 +42,23 @@ export async function createFollowController(req: Request, res: Response) {
 export async function deleteFollowController(req: Request, res: Response) {
     const { followerId, followingId } = req.body;
 
-    const follow = await service.deleteFollow(followerId, followingId);
+    try {
+        const follow = await service.deleteFollow(followerId, followingId);
+    
+        res.json({
+            data: follow,
+            message: "Follow deleted successfully",
+            success: true,
+        });
+    } catch (err) {
+        if (err instanceof NotFoundError) {
+            res.status(404).json({
+                message: "Resource not found",
+                success: false,
+            });
+            return;
+        }
 
-    res.json({
-        data: follow,
-        message: "Follow deleted successfully",
-        success: true,
-    });
+        throw err;
+    }
 }

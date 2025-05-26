@@ -633,7 +633,19 @@
                         "description": "User not found.",
                         "content": {
                             "application/json": {
-                                "$ref": "#/components/schemas/NotFoundError"
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User not found."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
                             }
                         }
                     },
@@ -641,7 +653,9 @@
                         "description": "Bad request.",
                         "content": {
                             "application/json": {
-                                "$ref": "#/components/schemas/ValidationError"
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
+                                }
                             }
                         }
                     }
@@ -676,7 +690,22 @@
                         "description": "User unfollowed successfully.",
                         "content": {
                             "application/json": {
-                                "$ref": "#/components/schemas/User"
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User unfollowed successfully."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/User"
+                                        }
+                                    }
+                                }
                             }
                         }
                     },
@@ -684,7 +713,19 @@
                         "description": "User not found.",
                         "content": {
                             "application/json": {
-                                "$ref": "#/components/schemas/NotFoundError"
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User not found."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
                             }
                         }
                     },
@@ -692,7 +733,9 @@
                         "description": "Bad request.",
                         "content": {
                             "application/json": {
-                                "$ref": "#/components/schemas/ValidationError"
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
+                                }
                             }
                         }
                     }

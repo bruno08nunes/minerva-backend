@@ -37,6 +37,7 @@ app.use(cors({
   }));
 
 // Routes
+app.use("/", followRouter);
 app.use("/", userRoutes);
 app.use("/auth", refreshRoutes);
 app.use("/", profilePictureRoutes);
@@ -50,7 +51,6 @@ app.use("/", explanationRouter);
 app.use("/", progressRouter);
 app.use("/", achievementRouter);
 app.use("/", userAchievementRouter);
-app.use("/", followRouter);
 
 app.use("/api/docs", SwaggerUI.serve, SwaggerUI.setup(swaggerDocument));
 
