@@ -23,6 +23,7 @@ import choiceRouter from "./routes/choice-routes";
 import explanationRouter from "./routes/explanation-routes";
 import progressRouter from "./routes/progress-routes";
 import achievementRouter from "./routes/achievement-routes";
+import userAchievementRouter from "./routes/user-achievement-routes";
 
 const app = express();
 
@@ -47,6 +48,7 @@ app.use("/", choiceRouter);
 app.use("/", explanationRouter);
 app.use("/", progressRouter);
 app.use("/", achievementRouter);
+app.use("/", userAchievementRouter);
 
 app.use("/api/docs", SwaggerUI.serve, SwaggerUI.setup(swaggerDocument));
 
