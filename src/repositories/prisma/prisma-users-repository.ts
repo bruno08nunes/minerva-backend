@@ -114,4 +114,22 @@ export class PrismaUsersRepository implements IUserRepository {
             profilePicture: user.profilePicture
         };
     }
+
+    async incrementXp(id: string, amount: number) {
+        const user = await prisma.user.update({
+            where: {
+                id,
+            },
+            data: {
+                semanalXP: {
+                    increment: amount,
+                },
+                totalXP: {
+                    increment: amount
+                }
+            },
+        });
+
+        return user;
+    }
 }

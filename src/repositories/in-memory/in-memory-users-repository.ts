@@ -91,4 +91,25 @@ export class InMemoryUsersRepository implements IUserRepository {
             position,
         };
     }
+
+    async incrementXp(id: string, amount: number) {
+        const userIndex = this.items.findIndex((user) => user.id === id);
+
+        if (userIndex === -1) {
+            return null;
+        }
+
+        const user = this.items[userIndex];
+        const newSemanalXP = (user.semanalXP || 0) + amount;
+        const newTotalXP = (user.totalXP || 0) + amount;
+
+        this.items[userIndex] = {
+            ...user,
+            semanalXP: newSemanalXP,
+            totalXP: newTotalXP,
+            updatedAt: new Date(),
+        } as User;
+
+        return this.items[userIndex];
+    }
 }

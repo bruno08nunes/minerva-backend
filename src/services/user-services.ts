@@ -123,4 +123,18 @@ export class UserService {
         
         return [...users, user];
     }
+
+    async incrementUserXp(id: string, amount: number) {
+        if (amount <= 0 ) {
+            throw new BadRequestError();
+        }
+
+        const user = await this.userRepository.findById(id);
+
+        if (!user) {
+            throw new NotFoundError();
+        }
+
+        return this.userRepository.incrementXp(id, amount);
+    }
 }

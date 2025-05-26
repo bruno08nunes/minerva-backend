@@ -306,3 +306,46 @@ export async function listRankingController(req: Request, res: Response) {
         users,
     });
 }
+
+export async function incrementUserXpController(req: Request, res: Response) {
+    const { id } = req.params;
+    const { amount } = req.body;
+
+    const incrementXpBodySchema = z.object({
+        amount: z.number().int().positive(),
+    });
+
+    const { amount: xpAmount } = incrementXpBodySchema.parse({ amount });
+
+    try {
+        const user = await userService.incrementUserXp(id, xpAmount);
+
+        if (!user) {
+            throw new NotFoundError();
+        }
+
+        res.json({
+            message: "User XP incremented successfully.",
+            success: true,
+            user,
+        });
+    } catch (error) {
+        if (error instanceof NotFoundError) {
+            res.status(404).json({
+                message: error.message || "User not found.",
+                success: false,
+            });
+            return;
+        }
+
+        if (error instanceof BadRequestError) {
+            res.status(400).json({
+                message: error.message || "Bad request.",
+                success: false,
+            });
+            return;
+        }
+
+        throw error;
+    }
+}

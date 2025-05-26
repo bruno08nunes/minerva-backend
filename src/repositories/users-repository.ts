@@ -13,4 +13,5 @@ export interface IUserRepository {
     delete(id: string): Promise<User>;
     getTopUsersByWeeklyXP(amount: number): Promise<Partial<User>[]>;
     getUserRankingPosition(id?: string): Promise<Partial<User> | null>;
+    incrementXp(id: string, amount: number): Promise<User | null>;
 }
