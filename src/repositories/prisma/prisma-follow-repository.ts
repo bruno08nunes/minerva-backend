@@ -33,7 +33,7 @@ export class PrismaFollowRepository implements IFollowRepository {
         return prisma.follow.findMany({
             where: { followerId: userId },
             include: {
-                follower: {
+                following: {
                     select: {
                         id: true,
                         username: true,
