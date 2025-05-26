@@ -24,4 +24,20 @@ export class PrismaProgressRepository implements IProgressRepository {
             },
         });
     }
+
+    progress({ userId, lessonId, ...data }: CreateProgressType) {
+        return prisma.progress.upsert({
+            where: { userId_lessonId: { userId, lessonId } },
+            update: {
+                ...data,
+                lastTry: new Date()
+            },
+            create: {
+                ...data,
+                userId,
+                lessonId,
+                lastTry: new Date()
+            },
+        });
+    }
 }

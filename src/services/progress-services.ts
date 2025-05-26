@@ -8,12 +8,6 @@ export class ProgressServices {
     }
 
     async progress(data: CreateProgressType) {
-        const progress = await this.progressRepository.find(data.userId, data.lessonId);
-
-        if (!progress) {
-            return this.progressRepository.create(data);
-        }
-
-        return this.progressRepository.update(data);
+        return await this.progressRepository.progress(data);
     }
 }

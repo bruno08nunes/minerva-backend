@@ -33,4 +33,14 @@ export class InMemoryProgressRepository implements IProgressRepository {
 
         return updatedProgress;
     }
+
+    async progress(data: CreateProgressType): Promise<Progress> {
+        const existingProgress = await this.find(data.userId, data.lessonId);
+
+        if (existingProgress) {
+            return this.update(data);
+        } else {
+            return this.create(data);
+        }
+    }
 }
