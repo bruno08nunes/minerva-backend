@@ -56,7 +56,9 @@ export async function listLessonsByTopicAndThemeController(
 
     const { topicId, themeId } = listLessonsBodySchema.parse(req.query);
 
-    const lessons = await service.listLessonsByTopicAndTheme(topicId, themeId);
+    const userId = req.user?.id;
+
+    const lessons = await service.listLessonsByTopicAndTheme(topicId, themeId, userId);
 
     res.json({
         message: "Lessons listed successfully.",

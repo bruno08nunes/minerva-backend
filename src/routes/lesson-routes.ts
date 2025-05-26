@@ -8,10 +8,11 @@ import {
     deleteLessonController,
 } from "../controllers/lesson-controllers";
 import { verifyUserRoleMiddleware } from "../middlewares/verify-user-role";
+import { getUserIdMiddleware } from "../middlewares/get-user-id-middleware";
 
 const lessonRouter = Router();
 
-lessonRouter.get("/lessons/list", listLessonsByTopicAndThemeController);
+lessonRouter.get("/lessons/list", getUserIdMiddleware, listLessonsByTopicAndThemeController);
 lessonRouter.get("/lessons/:id", getLessonByIdController);
 lessonRouter.get("/lessons", listLessonsController);
 lessonRouter.post("/lessons", verifyUserRoleMiddleware, createLessonController);

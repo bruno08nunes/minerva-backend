@@ -34,7 +34,7 @@ export class PrismaLessonsRepository implements ILessonRepository {
         });
     }
 
-    async listByTopicAndTheme(topicId: string, themeId: string) {
+    async listByTopicAndTheme(topicId: string, themeId: string, userId?: string) {
         return prisma.lesson.findMany({
             where: {
                 topicId: topicId,
@@ -49,6 +49,11 @@ export class PrismaLessonsRepository implements ILessonRepository {
                 topic: true,
                 theme: true,
                 icon: true,
+                Progress: {
+                    where: {
+                        userId
+                    },
+                }
             },
         });
     }

@@ -19,8 +19,8 @@ export class LessonServices {
         return this.lessonRepository.list();
     }
 
-    async listLessonsByTopicAndTheme(topicId: string, themeId: string) {
-        return this.lessonRepository.listByTopicAndTheme(topicId, themeId);
+    async listLessonsByTopicAndTheme(topicId: string, themeId: string, userId?: string) {
+        return this.lessonRepository.listByTopicAndTheme(topicId, themeId, userId);
     }
 
     async createLesson(data: ICreateLesson) {

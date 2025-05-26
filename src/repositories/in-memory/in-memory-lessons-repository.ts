@@ -19,7 +19,7 @@ export class InMemoryLessonsRepository implements ILessonRepository {
         return this.items;
     }
 
-    async listByTopicAndTheme(topicId: string, themeId: string) {
+    async listByTopicAndTheme(topicId: string, themeId: string, userId?: string) {
         return this.items.filter(
             (lesson) => lesson.topicId === topicId && lesson.themeId === themeId
         );
