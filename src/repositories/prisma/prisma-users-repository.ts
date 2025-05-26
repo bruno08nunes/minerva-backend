@@ -11,7 +11,7 @@ export class PrismaUsersRepository implements IUserRepository {
             },
             include: {
                 profilePicture: true,
-            }
+            },
         });
 
         return user;
@@ -34,7 +34,7 @@ export class PrismaUsersRepository implements IUserRepository {
             },
             include: {
                 profilePicture: true,
-            }
+            },
         });
 
         return user;
@@ -55,17 +55,54 @@ export class PrismaUsersRepository implements IUserRepository {
             },
             data,
         });
-        
+
         return user;
     }
 
     async delete(id: string) {
         const user = await prisma.user.delete({
             where: {
-                id
-            }
+                id,
+            },
         });
 
         return user;
+    }
+
+    async getTopUsersByWeeklyXP(amount: number, userId?: string) {
+        const users = await prisma.user.findMany({
+            orderBy: {
+                semanalXP: "desc",
+            },
+            take: amount,
+        });
+
+        return users;
+    }
+
+    async getUserRankingPosition(id: string) {
+        const user = await prisma.user.findUnique({
+            where: {
+                id,
+            },
+        });
+
+        if (!user) {
+            return null;
+        }
+
+        const rankingPosition = await prisma.user.count({
+            where: {
+                semanalXP: {
+                    gt: user.semanalXP,
+                },
+            },
+        });
+
+        return {
+            rankingPosition: rankingPosition + 1,
+            username: user.username,
+            semanalXp: user.semanalXP,
+        };
     }
 }

@@ -280,3 +280,29 @@ export async function deleteUserController(req: Request, res: Response) {
         throw error;
     }
 }
+
+export async function listRankingController(req: Request, res: Response) {
+    const { amount = 20 } = req.query;
+
+    const amountSchema = z.coerce.number().int().min(1).max(100);
+
+    const parsedAmount = amountSchema.safeParse(amount);
+
+    if (!parsedAmount.success) {
+        res.status(400).json({
+            message: "Invalid amount parameter.",
+            success: false,
+        });
+        return;
+    }
+
+    const userId = req.user?.id;
+
+    const users = await userService.listRanking(parsedAmount.data, userId);
+
+    res.json({
+        message: "Ranking retrieved successfully.",
+        success: true,
+        users,
+    });
+}

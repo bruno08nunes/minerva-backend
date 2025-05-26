@@ -11,4 +11,6 @@ export interface IUserRepository {
     create(data: Prisma.UserCreateInput): Promise<User>;
     update(id: string, data: Prisma.UserUpdateInput): Promise<User>;
     delete(id: string): Promise<User>;
+    getTopUsersByWeeklyXP(amount: number): Promise<User[]>;
+    getUserRankingPosition(id?: string): Promise<Partial<User> | null>;
 }

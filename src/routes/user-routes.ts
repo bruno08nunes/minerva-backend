@@ -6,7 +6,9 @@ import {
     updateUserProfileController,
     deleteUserController,
     getUserByUsernameController,
+    listRankingController,
 } from "../controllers/user-controllers";
+import { getUserIdMiddleware } from "../middlewares/get-user-id-middleware";
 
 const userRoutes = Router();
 
@@ -16,5 +18,6 @@ userRoutes.post("/login", loginController);
 userRoutes.post("/register", registerUserController);
 userRoutes.put("/users/:id", updateUserProfileController);
 userRoutes.delete("/users/:id", deleteUserController);
+userRoutes.get("/ranking", getUserIdMiddleware, listRankingController);
 
 export default userRoutes;

@@ -111,4 +111,12 @@ export class UserService {
 
         return deletedUser;
     }
+
+    async listRanking(amount: number, userId?: string) {
+        const users = await this.userRepository.getTopUsersByWeeklyXP(amount);
+
+        const user = await this.userRepository.getUserRankingPosition(userId);
+        
+        return [...users, user];
+    }
 }

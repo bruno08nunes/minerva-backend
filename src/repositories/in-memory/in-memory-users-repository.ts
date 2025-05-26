@@ -1,4 +1,4 @@
-import { Prisma, User } from "../../generated/prisma";
+import { $Enums, Prisma, User } from "../../generated/prisma";
 import { randomUUID } from "node:crypto";
 
 import { IUserRepository } from "../users-repository";
@@ -59,5 +59,36 @@ export class InMemoryUsersRepository implements IUserRepository {
         this.items.splice(userIndex, 1);
 
         return user;
+    }
+
+    async getTopUsersByWeeklyXP(amount: number) {
+        const topUsers = this.items
+            .filter((user) => user.semanalXP !== undefined)
+            .sort((a, b) => (b.semanalXP || 0) - (a.semanalXP || 0))
+            .slice(0, amount);
+
+        return topUsers;
+    }
+
+    async getUserRankingPosition(id: string) {
+        const user = this.items.find((user) => user.id === id);
+
+        if (!user) {
+            return null;
+        }
+
+        const sortedUsers = this.items
+            .filter((u) => u.semanalXP !== undefined)
+            .sort((a, b) => (b.semanalXP || 0) - (a.semanalXP || 0));
+
+        const position = sortedUsers.findIndex((u) => u.id === id) + 1;
+
+        return {
+            id: user.id,
+            name: user.name,
+            username: user.username,
+            semanalXP: user.semanalXP,
+            position,
+        };
     }
 }
