@@ -1,6 +1,8 @@
 import { IUserAchievementsRepository } from "../user-achievements-repository";
+import { randomUUID } from "node:crypto";
 
 type UserAchievement = {
+    id: string;
     userId: string;
     achievementId: string;
     achievedAt: Date;
@@ -32,6 +34,7 @@ export class InMemoryUserAchievementsRepository
             userId,
             achievementId,
             achievedAt: new Date(),
+            id: randomUUID(),
         };
 
         this.userAchivements.push(userAchievement);
