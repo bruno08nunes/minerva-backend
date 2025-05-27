@@ -13,6 +13,9 @@
     "cron": "node dist/cron.js",
     "cron:dev": "tsx src/cron.ts"
   },
+  "prisma": {
+    "seed": "tsx src/seed/index.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
