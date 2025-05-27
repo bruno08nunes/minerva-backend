@@ -1,4 +1,4 @@
-import { prisma } from "../src/lib/prisma";
+import { prisma } from "../lib/prisma";
 
 // TODO: Add this cron job in the server
 async function resetWeeklyXP() {
