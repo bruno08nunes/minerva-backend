@@ -112,4 +112,43 @@ export class InMemoryUsersRepository implements IUserRepository {
 
         return this.items[userIndex];
     }
+
+    async updateStreak(id: string) {
+        const userIndex = this.items.findIndex((user) => user.id === id);
+
+        if (userIndex === -1) {
+            return null;
+        }
+
+        const user = this.items[userIndex];
+        const newStreak = (user.streak || 0) + 1;
+
+        this.items[userIndex] = {
+            ...user,
+            streak: newStreak,
+            lastActiveDay: new Date(),
+            updatedAt: new Date(),
+        } as User;
+
+        return this.items[userIndex];
+    }
+
+    async resetStreak(id: string) {
+        const userIndex = this.items.findIndex((user) => user.id === id);
+
+        if (userIndex === -1) {
+            return null;
+        }
+
+        const user = this.items[userIndex];
+
+        this.items[userIndex] = {
+            ...user,
+            streak: 0,
+            lastActiveDay: new Date(),
+            updatedAt: new Date(),
+        } as User;
+
+        return this.items[userIndex];
+    }
 }

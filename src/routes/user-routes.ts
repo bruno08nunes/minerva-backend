@@ -8,6 +8,8 @@ import {
     getUserByUsernameController,
     listRankingController,
     incrementUserXpController,
+    resetUserStreakController,
+    updateUserStreakController,
 } from "../controllers/user-controllers";
 import { getUserIdMiddleware } from "../middlewares/get-user-id-middleware";
 
@@ -21,5 +23,7 @@ userRoutes.put("/users/xp/:id", incrementUserXpController);
 userRoutes.put("/users/:id", updateUserProfileController);
 userRoutes.delete("/users/:id", deleteUserController);
 userRoutes.get("/ranking", getUserIdMiddleware, listRankingController);
+userRoutes.patch("/users/streak", getUserIdMiddleware, updateUserStreakController);
+userRoutes.patch("/users/streak/reset", getUserIdMiddleware, resetUserStreakController);
 
 export default userRoutes;

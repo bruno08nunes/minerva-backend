@@ -132,4 +132,34 @@ export class PrismaUsersRepository implements IUserRepository {
 
         return user;
     }
+
+    async updateStreak(id: string) {
+        const user = await prisma.user.update({
+            where: {
+                id,
+            },
+            data: {
+                streak: {
+                    increment: 1,
+                },
+                lastActiveDay: new Date(),
+            },
+        });
+
+        return user;
+    }
+
+    async resetStreak(id: string) {
+        const user = await prisma.user.update({
+            where: {
+                id,
+            },
+            data: {
+                streak: 0,
+                lastActiveDay: new Date(),
+            },
+        });
+
+        return user;
+    }
 }

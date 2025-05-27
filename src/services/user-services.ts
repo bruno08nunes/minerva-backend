@@ -137,4 +137,24 @@ export class UserService {
 
         return this.userRepository.incrementXp(id, amount);
     }
+
+    async updateUserStreak(id: string) {
+        const user = await this.userRepository.findById(id);
+
+        if (!user) {
+            throw new NotFoundError();
+        }
+
+        return this.userRepository.updateStreak(id);
+    }
+
+    async resetUserStreak(id: string) {
+        const user = await this.userRepository.findById(id);
+
+        if (!user) {
+            throw new NotFoundError();
+        }
+
+        return this.userRepository.resetStreak(id);
+    }
 }

@@ -349,3 +349,75 @@ export async function incrementUserXpController(req: Request, res: Response) {
         throw error;
     }
 }
+
+export async function updateUserStreakController(req: Request, res: Response) {
+    const id = req.user?.id;
+
+    if (!id) {
+        res.status(400).json({
+            message: "User ID is required.",
+            success: false,
+        });
+        return;
+    }
+
+    try {
+        const user = await userService.updateUserStreak(id);
+
+        if (!user) {
+            throw new NotFoundError();
+        }
+
+        res.json({
+            message: "User streak updated successfully.",
+            success: true,
+            user,
+        });
+    } catch (error) {
+        if (error instanceof NotFoundError) {
+            res.status(404).json({
+                message: error.message || "User not found.",
+                success: false,
+            });
+            return;
+        }
+
+        throw error;
+    }
+}
+
+export async function resetUserStreakController(req: Request, res: Response) {
+    const id = req.user?.id;
+
+    if (!id) {
+        res.status(400).json({
+            message: "User ID is required.",
+            success: false,
+        });
+        return;
+    }
+
+    try {
+        const user = await userService.resetUserStreak(id);
+
+        if (!user) {
+            throw new NotFoundError();
+        }
+
+        res.json({
+            message: "User streak reset successfully.",
+            success: true,
+            user,
+        });
+    } catch (error) {
+        if (error instanceof NotFoundError) {
+            res.status(404).json({
+                message: error.message || "User not found.",
+                success: false,
+            });
+            return;
+        }
+
+        throw error;
+    }
+}

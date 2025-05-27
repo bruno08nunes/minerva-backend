@@ -14,4 +14,6 @@ export interface IUserRepository {
     getTopUsersByWeeklyXP(amount: number): Promise<Partial<User>[]>;
     getUserRankingPosition(id?: string): Promise<Partial<User> | null>;
     incrementXp(id: string, amount: number): Promise<User | null>;
+    updateStreak(id: string): Promise<User | null>;
+    resetStreak(id: string): Promise<User | null>;
 }
