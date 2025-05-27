@@ -32,6 +32,9 @@ export class InMemoryUsersRepository implements IUserRepository {
             username: data.username,
             password: data.password,
             id: randomUUID(),
+            semanalXP: data.semanalXP || 0,
+            totalXP: data.totalXP || 0,
+            streak: data.streak || 0,
             createdAt: new Date(),
             updatedAt: new Date(),
         } as User;
