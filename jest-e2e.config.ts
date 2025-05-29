@@ -1,6 +1,6 @@
-const config = require("./jest.config.cjs");
+import config from "./jest.config"; 
 
-module.exports = {
+export default {
     ...config,
     testEnvironment: "./src/env/prisma-test-environment.ts",
     testMatch: ['**/*e2e.test.ts']

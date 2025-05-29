@@ -160,6 +160,7 @@ export async function registerUserController(req: Request, res: Response) {
                 message: error.message || "User already exists.",
                 success: false,
             });
+            return;
         }
 
         throw error;
