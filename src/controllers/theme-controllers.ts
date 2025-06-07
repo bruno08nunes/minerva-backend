@@ -4,6 +4,7 @@ import { ThemeService } from "../services/theme-services";
 import { PrismaThemesRepository } from "../repositories/prisma/prisma-themes-repository";
 import BadRequestError from "../utils/errors/bad-request-error";
 import NotFoundError from "../utils/errors/not-found";
+import ThemeAlreadyExistsError from "../utils/errors/theme-already-exists";
 
 const themeService = new ThemeService(new PrismaThemesRepository());
 
@@ -12,17 +13,30 @@ export async function createThemeController(req: Request, res: Response) {
         name: z.string(),
         description: z.string(),
         iconId: z.string().uuid(),
+        slug: z.string().optional(),
     });
 
     const data = createThemeBodySchema.parse(req.body);
 
-    const theme = await themeService.createTheme(data);
+    try {
+        const theme = await themeService.createTheme(data);
 
-    res.status(201).json({
-        message: "Theme created succesfuly",
-        success: true,
-        data: theme,
-    });
+        res.status(201).json({
+            message: "Theme created succesfuly",
+            success: true,
+            data: theme,
+        });
+    } catch (err) {
+        if (err instanceof ThemeAlreadyExistsError) {
+            res.status(409).json({
+                message: err.message || "Theme already exists.",
+                success: false,
+            });
+            return;
+        }
+
+        throw err;
+    }
 }
 
 export async function updateThemeController(req: Request, res: Response) {
@@ -30,6 +44,7 @@ export async function updateThemeController(req: Request, res: Response) {
         const updateThemeBodySchema = z.object({
             name: z.string().optional(),
             description: z.string().optional(),
+            slug: z.string().optional(),
             id: z.string().uuid(),
         });
 
@@ -41,6 +56,7 @@ export async function updateThemeController(req: Request, res: Response) {
         const theme = await themeService.updateTheme(data.id, {
             name: data.name,
             description: data.description,
+            slug: data.slug,
         });
 
         res.status(200).json({
@@ -78,13 +94,13 @@ export async function deleteThemeController(req: Request, res: Response) {
         res.status(200).json({
             message: "Theme deleted succesfuly.",
             success: true,
-            data: theme
+            data: theme,
         });
     } catch (err) {
         if (err instanceof NotFoundError) {
             res.status(404).json({
                 message: err.message ?? "Resource not found.",
-                success: false
+                success: false,
             });
         }
 
@@ -98,6 +114,6 @@ export async function listThemeController(req: Request, res: Response) {
     res.status(200).json({
         message: "Themes listed succesfuly.",
         success: true,
-        data: themes
+        data: themes,
     });
 }

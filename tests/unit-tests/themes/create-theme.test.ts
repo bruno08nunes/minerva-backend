@@ -22,4 +22,22 @@ describe("Create Theme Use Case", () => {
         expect(theme).not.toBeNull();
         expect(theme?.name).toEqual("Lorem");
     });
+
+    it("should not be able to create a theme with the same slug", async () => {
+        await service.createTheme({
+            name: "Lorem",
+            description: "Lorem ipsum dolor met.",
+            iconId: "123",
+            slug: "lorem"
+        });
+
+        await expect(() => {
+            return service.createTheme({
+                name: "Lorem",
+                description: "Lorem ipsum dolor met.",
+                iconId: "123",
+                slug: "lorem"
+            });
+        }).rejects.toThrow("Theme already exists.");
+    });
 });

@@ -8,6 +8,7 @@ export async function createTopics() {
                 name: "Variáveis",
                 description: "Aprenda sobre variáveis, tipos de dados e como armazenar informações em seu código.",
                 iconId: "9897d6f2-fb41-4554-b22f-d251f9941fa3",
+                slug: "variaveis",
             }
         ]
     });

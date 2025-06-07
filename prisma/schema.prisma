@@ -56,6 +56,7 @@ model Topic {
   description String
   iconId      String
   icon        Icon   @relation(fields: [iconId], references: [id])
+  slug       String  @unique
 
   lessons Lesson[]
 
@@ -68,6 +69,7 @@ model Theme {
   description String
   iconId      String
   icon        Icon   @relation(fields: [iconId], references: [id])
+  slug       String  @unique
 
   lessons Lesson[]
 }

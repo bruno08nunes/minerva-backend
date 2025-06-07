@@ -14,7 +14,8 @@ describe("Update Theme Use Case", () => {
         const createdTheme = await themeRepository.create({
             name: "Lorem",
             description: "Lorem ipsum dolor it.",
-            iconId: "123"
+            iconId: "123",
+            slug: "lorem"
         });
         const updatedTheme = await service.updateTheme(createdTheme.id, {
             name: "Theme Updated",
@@ -26,7 +27,8 @@ describe("Update Theme Use Case", () => {
         await themeRepository.create({
             name: "Lorem",
             description: "Lorem ipsum dolor it.",
-            iconId: "123"
+            iconId: "123",
+            slug: "lorem"
         });
 
         expect(async () => {
@@ -40,7 +42,8 @@ describe("Update Theme Use Case", () => {
         const createdTheme = await themeRepository.create({
             name: "Lorem",
             description: "Lorem ipsum dolor it.",
-            iconId: "123"
+            iconId: "123",
+            slug: "lorem"
         });
 
         expect(async () => {

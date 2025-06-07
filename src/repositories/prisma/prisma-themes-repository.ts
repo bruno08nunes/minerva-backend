@@ -8,19 +8,26 @@ export class PrismaThemesRepository implements IThemesRepository {
         });
     }
 
-    async create(theme: { name: string; iconId: string; description: string }) {
+    async findBySlug(slug: string) {
+        return await prisma.theme.findUnique({
+            where: { slug },
+        });
+    }
+
+    async create(theme: { name: string; iconId: string; description: string, slug: string }) {
         return await prisma.theme.create({
             data: {
                 name: theme.name,
                 description: theme.description,
                 icon: { connect: { id: theme.iconId } },
+                slug: theme.slug
             }
         });
     }
 
     async update(
         id: string,
-        theme: { name?: string; iconId?: string; description?: string }
+        theme: { name?: string; iconId?: string; description?: string, slug?: string }
     ) {
         return await prisma.theme.update({
             where: { id },

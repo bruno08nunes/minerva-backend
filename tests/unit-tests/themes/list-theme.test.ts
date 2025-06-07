@@ -15,6 +15,7 @@ describe("List Theme Use Case", () => {
             name: "Lorem",
             description: "Lorem ipsum dolor met.",
             iconId: "123",
+            slug: "lorem"
         });
 
         const themes = await service.listThemes();
