@@ -18,16 +18,18 @@ Esta é a documentação do backend da aplicação Minerva e conterá explicaç�
     2. [LICENSE](#license)
     3. [.prettierrc](#prettierrc)
     4. [.gitignore](#gitignore)
-    5. [jest.config.cjs](#jestconfigcjs)
-    6. [package.json e package-lock.json](#packagejson-e-package-lockjson)
-    7. [.env.example](#envexample)
-    8. [tsconfig.json](#tsconfigjson)
-    9. [swagger.json](#swaggerjson)
-    10. [node_modules](#node_modules)
-    11. [prisma](#prisma)
-    12. [src](#src)
-    13. [tests](#tests)
-    14. [types](#types)
+    5. [jest.config.ts](#jestconfigts)
+    6. [jest-e2e.config.ts](#jest-e2e.config.ts)
+    7. [package.json e package-lock.json](#packagejson-e-package-lockjson)
+    8. [.env.example](#envexample)
+    9. [.env.testing.example](#envtestingexample)
+    10. [tsconfig.json](#tsconfigjson)
+    11. [swagger.json](#swaggerjson)
+    12. [node_modules](#node_modules)
+    13. [prisma](#prisma)
+    14. [src](#src)
+    15. [tests](#tests)
+    16. [types](#types)
 6. [Rotas e Banco de Dados](#rotas-e-banco-de-dados)
 7. [Formatação e Convenções](#formatação-e-convenções)
 8. [Deploy](#deploy)
@@ -138,9 +140,13 @@ Arquivo com estilização padrão para o desenvolvimento do site, usado em conju
 
 Arquivo que serve para não levar arquivos que não devem ser colocados no github.
 
-### jest.config.cjs
+### jest.config.ts
 
 Arquivo de configuração do Jest, que permite executar testes do código TypeScript.
+
+### jest-e2e.config.ts
+
+Arquivo de configuração do Jest para os testes e2e.
 
 ### package.json e package-lock.json
 
@@ -149,6 +155,10 @@ Informações sobre as dependências do projeto. A primeira pode sofrer algumas 
 ### .env.example
 
 Contém as variáveis de ambiente necessárias para o funcionamento do servidor. Depende de questões do desenvolvedor, que deve criar um arquivo .env com essas variáveis, mudando os valores conforme o necessário.
+
+### .env.testing.example
+
+Contém as variáveis de ambiente necessárias para os testes e2e. Depende de questões do desenvolvedor, que deve criar um arquivo .env.testing com essas variáveis, mudando os valores conforme o necessário.
 
 ### tsconfig.json
 
@@ -171,13 +181,16 @@ Pasta com a configuração do schema do prisma, juntamente com suas migrations.
 Contém os arquivos TypeScript usados no backend. Sua estrutura de pastas segue:
 
 -   controllers - Onde os dados são recebidos e tratados, passando ele futuramente para os services;
--   env - Contém a configuração das variáveis de ambiente da aplicação;
+-   env - Contém a configuração das variáveis de ambiente da aplicação, além do ambiente de testes;
 -   lib - Contém configurações de bibliotecas externas chaves para a aplicação;
 -   middlewares - Contém os middlewares da aplicação, ou seja, funções intermediárias entre as rotas da API;
 -   repositories - Contém os repositórios para lidar com as entidades do banco de dados através do Repository Pattern. Contém uma interface e dois tipos de repositório para cada entidade: InMemory (em memória através de array); e Prisma (através do ORM Prisma);
 -   routes - Onde as rotas da aplicação são definidas;
--   services - Articulam a lógica de negócio da sua aplicação, além de ser responsável por se comunicar com as camadas mais internas do Software, como por exemplo, uma camada de Dados; e
--   utils - Contém funções úteis e genéricas para a aplicação que podem ser usadas em diversos contextos.
+-   services - Articulam a lógica de negócio da sua aplicação, além de ser responsável por se comunicar com as camadas mais internas do Software, como por exemplo, uma camada de Dados;
+-   utils - Contém funções úteis e genéricas para a aplicação que podem ser usadas em diversos contextos;
+-   public - Contém as imagens da aplicação, como os ícones e fotos de perfil;
+-   scripts - Contém alguns scripts que rodaram como cron job tasks; e
+-   seed - Contém os arquivos para "semear" o banco de dados com dados para a aplicação. Esses dados são os reais da aplicação e contém alguns extras para testes em desenvolvimento.
 
 Além disso, possui os arquivos:
 
@@ -191,6 +204,8 @@ Essa pasta contém os testes da aplicação que são executados com Jest atravé
 ```
 npm test
 ```
+
+Ela contém duas pastas, uma contendo os testes unitários e outra contendo os tests end to end (e2e).
 
 ### types
 
