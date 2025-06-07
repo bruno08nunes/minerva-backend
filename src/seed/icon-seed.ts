@@ -9,7 +9,7 @@ export async function createIcons() {
             },
             {
                 id: "6668bcde-d0bf-4e7e-8a33-a1a870e5051e",
-                url: "rpg.webp",
+                url: "rpg.jpg",
             },
         ],
     });
