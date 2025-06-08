@@ -1818,6 +1818,10 @@
                                     "iconId": {
                                         "type": "string",
                                         "example": "123"
+                                    },
+                                    "slug": {
+                                        "type": "string",
+                                        "example": "lorem"
                                     }
                                 }
                             }
@@ -1841,6 +1845,26 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ValidationError"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Topic already exists.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Topic already exists."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -4115,9 +4139,12 @@
                     },
                     "icon": {
                         "$ref": "#/components/schemas/Icon"
+                    },
+                    "slug": {
+                        "type": "string"
                     }
                 },
-                "required": ["id", "name", "description", "icon"],
+                "required": ["id", "name", "description", "icon", "slug"],
                 "example": {
                     "id": "123456",
                     "name": "Lorem",
@@ -4125,7 +4152,8 @@
                     "icon": {
                         "id": "icon123",
                         "url": "http://example.com/icon.png"
-                    }
+                    },
+                    "slug": "lorem"
                 }
             },
             "Lesson": {

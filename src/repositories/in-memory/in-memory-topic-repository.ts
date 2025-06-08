@@ -9,14 +9,19 @@ export class InMemoryTopicsRepository implements ITopicRepository {
         return this.topics.find((topic) => topic.id === id) || null;
     }
 
-    async create(topic: { name: string, iconId: string, description: string }) {
-        const { name, description, iconId } = topic;
+    async findBySlug(slug: string) {
+        return this.topics.find((topic) => topic.slug === slug) || null;
+    }
+
+    async create(topic: { name: string, iconId: string, description: string, slug: string }) {
+        const { name, description, iconId, slug } = topic;
 
         const newTopic: Topic = {
             id: randomUUID(),
             name,
             description,
             iconId,
+            slug
         };
 
         this.topics.push(newTopic);
@@ -25,7 +30,7 @@ export class InMemoryTopicsRepository implements ITopicRepository {
 
     async update(
         id: string,
-        data: { name?: string; iconId?: string; description?: string }
+        data: { name?: string; iconId?: string; description?: string; slug?: string }
     ) {
         const topicIndex = this.topics.findIndex((topic) => topic.id === id);
         const topic = this.topics[topicIndex];

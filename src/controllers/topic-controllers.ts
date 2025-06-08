@@ -4,6 +4,7 @@ import { z } from "zod";
 import { TopicService } from "../services/topic-services";
 import BadRequestError from "../utils/errors/bad-request-error";
 import NotFoundError from "../utils/errors/not-found";
+import TopicAlreadyExistsError from '../utils/errors/topic-already-exists';
 
 const topicService = new TopicService(new PrismaTopicsRepository());
 
@@ -12,17 +13,30 @@ export async function createTopicController(req: Request, res: Response) {
         name: z.string(),
         description: z.string(),
         iconId: z.string().uuid(),
+        slug: z.string().optional(),
     });
 
     const data = createTopicBodySchema.parse(req.body);
 
-    const topic = await topicService.createTopic(data);
+    try {
+        const topic = await topicService.createTopic(data);
+    
+        res.status(201).json({
+            message: "Topic created succesfuly",
+            success: true,
+            data: topic,
+        });
+    } catch (err) {
+        if (err instanceof TopicAlreadyExistsError) {
+            res.status(409).json({
+                message: "Topic with this slug already exists.",
+                success: false,
+            });
+            return;
+        }
 
-    res.status(201).json({
-        message: "Topic created succesfuly",
-        success: true,
-        data: topic,
-    });
+        throw err;
+    }
 }
 
 export async function updateTopicController(req: Request, res: Response) {
@@ -30,6 +44,7 @@ export async function updateTopicController(req: Request, res: Response) {
         const updateTopicBodySchema = z.object({
             name: z.string().optional(),
             description: z.string().optional(),
+            slug: z.string().optional(),
             id: z.string().uuid(),
         });
 
@@ -41,6 +56,7 @@ export async function updateTopicController(req: Request, res: Response) {
         const topic = await topicService.updateTopic(data.id, {
             name: data.name,
             description: data.description,
+            slug: data.slug,
         });
 
         res.status(200).json({

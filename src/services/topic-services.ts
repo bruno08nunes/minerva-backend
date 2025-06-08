@@ -1,19 +1,27 @@
 import { ITopicRepository } from './../repositories/topics-repository';
 import BadRequestError from "../utils/errors/bad-request-error";
 import NotFoundError from "../utils/errors/not-found";
+import TopicAlreadyExistsError from '../utils/errors/topic-already-exists';
 
 export class TopicService {
     constructor(private topicRepository: ITopicRepository) {}
 
-    async createTopic(data: { name: string, iconId: string, description: string }) {
-        return this.topicRepository.create(data);
+    async createTopic(data: { name: string, iconId: string, description: string, slug?: string }) {
+        const newSlug = data.slug || data.name.toLowerCase().replace(/\s+/g, '-');
+
+        const existingTopic = await this.topicRepository.findBySlug(newSlug);
+        if (existingTopic) {
+            throw new TopicAlreadyExistsError();
+        }
+
+        return this.topicRepository.create({ ...data, slug: newSlug });
     }
 
     async updateTopic(
         id: string,
-        data: { name?: string; iconId?: string; description?: string }
+        data: { name?: string; iconId?: string; description?: string, slug?: string }
     ) {
-        if (!data.name && !data.description && !data.iconId) {
+        if (!data.name && !data.description && !data.iconId && !data.slug) {
             throw new BadRequestError();
         }
 

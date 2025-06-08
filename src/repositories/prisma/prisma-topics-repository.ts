@@ -8,19 +8,26 @@ export class PrismaTopicsRepository implements ITopicRepository {
         });
     }
 
-    async create(topic: { name: string; iconId: string; description: string }) {
+    async findBySlug(slug: string) {
+        return await prisma.topic.findUnique({
+            where: { slug },
+        });
+    }
+
+    async create(topic: { name: string; iconId: string; description: string, slug: string }) {
         return await prisma.topic.create({
             data: {
                 name: topic.name,
                 description: topic.description,
                 icon: { connect: { id: topic.iconId } },
+                slug: topic.slug
             },
         });
     }
 
     async update(
         id: string,
-        topic: { name?: string; iconId?: string; description?: string }
+        topic: { name?: string; iconId?: string; description?: string, slug?: string }
     ) {
         return await prisma.topic.update({
             where: { id },
