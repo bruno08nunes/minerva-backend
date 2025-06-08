@@ -1560,7 +1560,53 @@
                 }
             }
         },
-        "/themes/{id}": {
+        "/themes/{slug}": {
+            "get": {
+                "tags": ["Themes"],
+                "summary": "Get theme by slug",
+                "description": "Retrieve an theme by its unique slug.",
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the theme to retrieve.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Theme details",
+                        "content": {
+                            "application/json": {
+                                "$ref": "#/components/schemas/Theme"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Theme not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "put": {
                 "tags": ["Themes"],
                 "summary": "Update theme by ID",

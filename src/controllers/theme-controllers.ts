@@ -8,6 +8,30 @@ import ThemeAlreadyExistsError from "../utils/errors/theme-already-exists";
 
 const themeService = new ThemeService(new PrismaThemesRepository());
 
+export async function getThemeBySlugController(req: Request, res: Response) {
+    const { slug } = req.params;
+
+    try {
+        const theme = await themeService.getThemeBySlug(slug);
+
+        res.status(200).json({
+            message: "Theme found succesfuly.",
+            success: true,
+            data: theme,
+        });
+    } catch (err) {
+        if (err instanceof NotFoundError) {
+            res.status(404).json({
+                message: err.message ?? "Resource not found.",
+                success: false,
+            });
+            return;
+        }
+
+        throw err;
+    }
+}
+
 export async function createThemeController(req: Request, res: Response) {
     const createThemeBodySchema = z.object({
         name: z.string(),

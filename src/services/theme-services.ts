@@ -6,6 +6,14 @@ import ThemeAlreadyExistsError from "../utils/errors/theme-already-exists";
 export class ThemeService {
     constructor(private themeRepository: IThemesRepository) {}
 
+    async getThemeBySlug(slug: string) {
+        const theme = await this.themeRepository.findBySlug(slug);
+        if (!theme) {
+            throw new NotFoundError();
+        }
+        return theme;
+    }
+
     async createTheme(data: { name: string, iconId: string, description: string, slug?: string }) {
         const newSlug = data.slug || data.name.toLowerCase().replace(/\s+/g, '-');
 
