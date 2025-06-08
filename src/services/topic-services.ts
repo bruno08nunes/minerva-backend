@@ -6,6 +6,16 @@ import TopicAlreadyExistsError from '../utils/errors/topic-already-exists';
 export class TopicService {
     constructor(private topicRepository: ITopicRepository) {}
 
+    async getTopicBySlug(slug: string) {
+        const topic = await this.topicRepository.findBySlug(slug);
+        
+        if (!topic) {
+            throw new NotFoundError();
+        }
+
+        return topic;
+    }
+
     async createTopic(data: { name: string, iconId: string, description: string, slug?: string }) {
         const newSlug = data.slug || data.name.toLowerCase().replace(/\s+/g, '-');
 

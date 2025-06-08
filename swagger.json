@@ -1606,7 +1606,9 @@
                         }
                     }
                 }
-            },
+            }
+        },
+        "/themes/{id}": {
             "put": {
                 "tags": ["Themes"],
                 "summary": "Update theme by ID",
@@ -1859,6 +1861,54 @@
                                         "message": {
                                             "type": "string",
                                             "example": "Topic already exists."
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/topics/{slug}": {
+            "get": {
+                "tags": ["Topics"],
+                "summary": "Get topic by slug",
+                "description": "Retrieve an topic by its unique slug.",
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ID of the topic to retrieve.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Topic details",
+                        "content": {
+                            "application/json": {
+                                "$ref": "#/components/schemas/Topic"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Topic not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Resource not found."
                                         },
                                         "success": {
                                             "type": "boolean",

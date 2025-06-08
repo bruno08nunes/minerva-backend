@@ -1,5 +1,5 @@
 import { PrismaTopicsRepository } from './../repositories/prisma/prisma-topics-repository';
-import { Request, Response } from "express";
+import e, { Request, Response } from "express";
 import { z } from "zod";
 import { TopicService } from "../services/topic-services";
 import BadRequestError from "../utils/errors/bad-request-error";
@@ -7,6 +7,30 @@ import NotFoundError from "../utils/errors/not-found";
 import TopicAlreadyExistsError from '../utils/errors/topic-already-exists';
 
 const topicService = new TopicService(new PrismaTopicsRepository());
+
+export async function getTopicBySlugController(req: Request, res: Response) {
+    const { slug } = req.params;
+
+    try {
+        const topic = await topicService.getTopicBySlug(slug);
+
+        res.status(200).json({
+            message: "Topic found succesfuly.",
+            success: true,
+            data: topic,
+        });
+    } catch (err) {
+        if (err instanceof NotFoundError) {
+            res.status(404).json({
+                message: err.message ?? "Resource not found.",
+                success: false,
+            });
+            return;
+        }
+
+        throw err;
+    }
+}
 
 export async function createTopicController(req: Request, res: Response) {
     const createTopicBodySchema = z.object({
