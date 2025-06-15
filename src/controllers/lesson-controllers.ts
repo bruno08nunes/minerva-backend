@@ -50,8 +50,8 @@ export async function listLessonsByTopicAndThemeController(
     res: Response
 ) {
     const listLessonsBodySchema = z.object({
-        topicId: z.string().uuid(),
-        themeId: z.string().uuid(),
+        topicId: z.string(),
+        themeId: z.string(),
     });
 
     const { topicId, themeId } = listLessonsBodySchema.parse(req.query);

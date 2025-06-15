@@ -42,8 +42,20 @@ export class PrismaLessonsRepository implements ILessonRepository {
     ) {
         return prisma.lesson.findMany({
             where: {
-                topicId: topicId,
-                themeId: themeId,
+                OR: [
+                    {
+                        topicId: topicId,
+                        themeId: themeId,
+                    },
+                    {
+                        topic: {
+                            slug: topicId,
+                        },
+                        theme: {
+                            slug: themeId,
+                        },
+                    },
+                ],
             },
             include: {
                 exercises: {
