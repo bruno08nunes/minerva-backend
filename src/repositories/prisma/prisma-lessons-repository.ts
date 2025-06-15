@@ -9,8 +9,8 @@ export class PrismaLessonsRepository implements ILessonRepository {
             include: {
                 exercises: {
                     include: {
-                        choices: true
-                    }
+                        choices: true,
+                    },
                 },
                 topic: true,
                 theme: true,
@@ -24,17 +24,22 @@ export class PrismaLessonsRepository implements ILessonRepository {
             include: {
                 exercises: {
                     include: {
-                        choices: true
-                    }
+                        choices: true,
+                    },
                 },
                 topic: true,
                 theme: true,
                 icon: true,
             },
+            orderBy: { order: "asc" },
         });
     }
 
-    async listByTopicAndTheme(topicId: string, themeId: string, userId?: string) {
+    async listByTopicAndTheme(
+        topicId: string,
+        themeId: string,
+        userId?: string
+    ) {
         return prisma.lesson.findMany({
             where: {
                 topicId: topicId,
@@ -43,18 +48,19 @@ export class PrismaLessonsRepository implements ILessonRepository {
             include: {
                 exercises: {
                     include: {
-                        choices: true
-                    }
+                        choices: true,
+                    },
                 },
                 topic: true,
                 theme: true,
                 icon: true,
                 Progress: {
                     where: {
-                        userId
+                        userId,
                     },
-                }
+                },
             },
+            orderBy: { order: "asc" },
         });
     }
 

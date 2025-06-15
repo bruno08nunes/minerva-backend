@@ -17,6 +17,7 @@ export class PrismaChoicesRepository implements IChoicesRepository {
     async listByExercise(exerciseId: string) {
         return prisma.choice.findMany({
             where: { exerciseId },
+            orderBy: { order: "asc" },
         });
     }
 
@@ -24,7 +25,10 @@ export class PrismaChoicesRepository implements IChoicesRepository {
         return prisma.choice.create({ data });
     }
 
-    async update(id: string, data: { text?: string, order?: number, isCorrect?: boolean }) {
+    async update(
+        id: string,
+        data: { text?: string; order?: number; isCorrect?: boolean }
+    ) {
         return prisma.choice.update({
             where: { id },
             data,

@@ -20,6 +20,7 @@ export class PrismaExercisesRepository implements IExercisesRepository {
     async listByLesson(lessonId: string) {
         return prisma.exercise.findMany({
             where: { lessonId },
+            orderBy: { order: "asc" },
         });
     }
 
