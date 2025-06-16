@@ -12,7 +12,7 @@ describe("Delete Exercise Use Case", () => {
 
     it("should be able to delete an exercise", async () => {
         const { id: createdExerciseId } = await exerciseRepository.create({
-            statement: "What is the capital of France?",
+            content: [{type: "paragraph", data: "What is the capital of France?"}],
             order: 1,
             type: "MULTIPLE_CHOICE",
             hint: "It's also known as the city of lights.",

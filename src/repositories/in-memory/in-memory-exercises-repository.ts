@@ -1,3 +1,4 @@
+import { JsonValue } from "@prisma/client/runtime/library";
 import { $Enums, Exercise } from "../../generated/prisma";
 import { CreateExerciseType, IExercisesRepository } from "../exercise-repository";
 import { randomUUID } from "node:crypto";
@@ -24,7 +25,7 @@ export class InMemoryExercisesRepository implements IExercisesRepository {
     async create(data: CreateExerciseType) {
         const exercise = {
             id: randomUUID(),
-            statement: data.statement,
+            content: data.content as JsonValue,
             order: data.order,
             type: data.type,
             hint: data.hint,

@@ -1,3 +1,4 @@
+import { Prisma } from "../generated/prisma";
 import {
     CreateExerciseType,
     IExercisesRepository,
@@ -25,7 +26,10 @@ export class ExerciseServices {
         return await this.exerciseRepository.create(data);
     }
 
-    async updateExercise(id: string, data: { statement?: string; hint?: string; order?: number }) {
+    async updateExercise(
+        id: string,
+        data: { content?: Prisma.InputJsonValue; hint?: string; order?: number }
+    ) {
         const exercise = await this.exerciseRepository.findById(id);
 
         if (!exercise) {

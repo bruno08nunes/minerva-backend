@@ -3,6 +3,7 @@ import {
     CreateExerciseType,
     IExercisesRepository,
 } from "../exercise-repository";
+import { Prisma } from "../../generated/prisma";
 
 export class PrismaExercisesRepository implements IExercisesRepository {
     async findById(id: string) {
@@ -30,7 +31,7 @@ export class PrismaExercisesRepository implements IExercisesRepository {
 
     async update(
         id: string,
-        data: { statement: string; hint: string; order: number }
+        data: { content: Prisma.InputJsonValue; hint: string; order: number }
     ) {
         return prisma.exercise.update({
             where: { id },

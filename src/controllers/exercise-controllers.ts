@@ -52,7 +52,12 @@ export async function listExercisesByLessonController(
 
 export async function createExerciseController(req: Request, res: Response) {
     const createBodySchema = z.object({
-        statement: z.string(),
+        content: z.array(
+            z.object({
+                type: z.enum(["paragraph", "code"]),
+                data: z.string(),
+            })
+        ),
         order: z.number().int(),
         type: z.nativeEnum($Enums.ExerciseType),
         hint: z.string(),
@@ -72,7 +77,12 @@ export async function createExerciseController(req: Request, res: Response) {
 
 export async function updateExerciseController(req: Request, res: Response) {
     const createBodySchema = z.object({
-        statement: z.string().optional(),
+        content: z.array(
+            z.object({
+                type: z.enum(["text", "code"]),
+                data: z.string(),
+            })
+        ).optional(),
         order: z.number().int().optional(),
         hint: z.string().optional(),
         id: z.string().uuid(),

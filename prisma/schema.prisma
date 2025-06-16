@@ -56,7 +56,7 @@ model Topic {
   description String
   iconId      String
   icon        Icon   @relation(fields: [iconId], references: [id])
-  slug       String  @unique
+  slug        String @unique
 
   lessons Lesson[]
 
@@ -69,7 +69,7 @@ model Theme {
   description String
   iconId      String
   icon        Icon   @relation(fields: [iconId], references: [id])
-  slug       String  @unique
+  slug        String @unique
 
   lessons Lesson[]
 }
@@ -97,7 +97,7 @@ model Lesson {
 
 model Exercise {
   id        String       @id @default(uuid())
-  statement String
+  content   Json
   order     Int
   type      ExerciseType
   hint      String

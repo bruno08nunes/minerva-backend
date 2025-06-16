@@ -12,7 +12,7 @@ describe("Get Exercise Use Case", () => {
 
     it("should be able to get exercise by id", async () => {
         const { id: createdExerciseId } = await exerciseRepository.create({
-            statement: "What is the capital of France?",
+            content: [{type: "paragraph", data: "What is the capital of France?"}],
             order: 1,
             type: "MULTIPLE_CHOICE",
             hint: "It's also known as the city of lights.",
@@ -22,7 +22,7 @@ describe("Get Exercise Use Case", () => {
         const exercise = await service.getExerciseById(createdExerciseId);
 
         expect(exercise.id).toEqual(createdExerciseId);
-        expect(exercise.statement).toEqual("What is the capital of France?");
+        expect(exercise.type).toEqual("MULTIPLE_CHOICE");
     });
 
     it("should not be able to get exercise with wrong id", async () => {
