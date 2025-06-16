@@ -79,7 +79,7 @@ export async function updateExerciseController(req: Request, res: Response) {
     const createBodySchema = z.object({
         content: z.array(
             z.object({
-                type: z.enum(["text", "code"]),
+                type: z.enum(["paragraph", "code"]),
                 data: z.string(),
             })
         ).optional(),

@@ -2464,7 +2464,19 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "statement": { "type": "string" },
+                                    "content": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string",
+                                                    "enum": ["paragraph", "code"]
+                                                },
+                                                "data": { "type": "string" }
+                                            }
+                                        }
+                                    },
                                     "order": { "type": "integer" },
                                     "type": {
                                         "type": "string",
@@ -2579,7 +2591,19 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "statement": { "type": "string" },
+                                    "content": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string",
+                                                    "enum": ["paragraph", "code"]
+                                                },
+                                                "data": { "type": "string" }
+                                            }
+                                        }
+                                    },
                                     "order": { "type": "integer" },
                                     "hint": { "type": "string" }
                                 }
@@ -4279,7 +4303,19 @@
                 "type": "object",
                 "properties": {
                     "id": { "type": "string" },
-                    "statement": { "type": "string" },
+                    "content": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string",
+                                    "enum": ["paragraph", "code"]
+                                },
+                                "data": { "type": "string" }
+                            }
+                        }
+                    },
                     "order": { "type": "integer" },
                     "type": {
                         "type": "string",
@@ -4306,7 +4342,12 @@
                 ],
                 "example": {
                     "id": "123",
-                    "statement": "Exercise statement",
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "data": "Lorem ipsum dolor sit amet."
+                        }
+                    ],
                     "order": 0,
                     "type": "COMPLETE_CODE",
                     "hint": "Exercise hint",
