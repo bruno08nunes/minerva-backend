@@ -46,6 +46,23 @@ export async function createExercises() {
                 lessonId: "ac127c88-75ad-46f9-9e46-52da8d5eca9c",
                 order: 3,
             },
+            {
+                id: "43854899-6f0c-41b5-9d7b-fd6c00e75706",
+                content: [
+                    {
+                        type: "paragraph",
+                        data: "Defina um valor para a variável abaixo.",
+                    },
+                    {
+                        type: "code",
+                        data: "const idade = 5;\n_____",
+                    },
+                ],
+                hint: "Use a sintaxe de declaração de variáveis da linguagem que você está aprendendo.",
+                type: "COMPLETE_CODE",
+                lessonId: "ac127c88-75ad-46f9-9e46-52da8d5eca9c",
+                order: 4,
+            },
         ],
     });
 }

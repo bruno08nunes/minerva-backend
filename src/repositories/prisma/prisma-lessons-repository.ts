@@ -9,7 +9,14 @@ export class PrismaLessonsRepository implements ILessonRepository {
             include: {
                 exercises: {
                     include: {
-                        choices: true,
+                        choices: {
+                            orderBy: {
+                                order: "asc",
+                            },
+                        },
+                    },
+                    orderBy: {
+                        order: "asc",
                     },
                 },
                 topic: true,
@@ -24,7 +31,14 @@ export class PrismaLessonsRepository implements ILessonRepository {
             include: {
                 exercises: {
                     include: {
-                        choices: true,
+                        choices: {
+                            orderBy: {
+                                order: "asc",
+                            },
+                        },
+                    },
+                    orderBy: {
+                        order: "asc",
                     },
                 },
                 topic: true,
@@ -60,7 +74,14 @@ export class PrismaLessonsRepository implements ILessonRepository {
             include: {
                 exercises: {
                     include: {
-                        choices: true,
+                        choices: {
+                            orderBy: {
+                                order: "asc",
+                            },
+                        },
+                    },
+                    orderBy: {
+                        order: "asc",
                     },
                 },
                 topic: true,
