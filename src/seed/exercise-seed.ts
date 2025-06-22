@@ -51,11 +51,11 @@ export async function createExercises() {
                 content: [
                     {
                         type: "paragraph",
-                        data: "Defina um valor para a variável abaixo.",
+                        data: "Defina o valor 3 para a variável abaixo.",
                     },
                     {
                         type: "code",
-                        data: "const idade = 5;\n_____",
+                        data: "let idade;\n_____",
                     },
                 ],
                 hint: "Use a sintaxe de declaração de variáveis da linguagem que você está aprendendo.",
@@ -68,7 +68,7 @@ export async function createExercises() {
                 content: [
                     {
                         type: "paragraph",
-                        data: "Defina um valor para a variável abaixo.",
+                        data: "Defina o valor 32 para a variável abaixo.",
                     },
                     {
                         type: "code",

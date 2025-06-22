@@ -59,6 +59,27 @@ export async function createChoices() {
                 order: 4,
                 exerciseId: "g3h4i5j6-k7l8-9m0n-1o2p-3q4r5s6t7u8v",
             },
+            {
+                id: "3f33ecaf-4ef5-4478-bd2e-0b2293b4cef6",
+                text: "let idade = 25;",
+                isCorrect: true,
+                order: 1,
+                exerciseId: "e1f2d3c4-b5a6-7d8e-9f0a-b1c2d3e4f5g6",
+            },
+            {
+                id: "7bbc5a85-7315-4815-8f8a-dfbcdd4fdba8",
+                text: "idade = 3;",
+                isCorrect: true,
+                order: 1,
+                exerciseId: "43854899-6f0c-41b5-9d7b-fd6c00e75706",
+            },
+            {
+                id: "2f42906d-8fde-4158-9e6c-218254290219",
+                text: "32",
+                isCorrect: true,
+                order: 1,
+                exerciseId: "622d8aeb-4a1e-4349-abe5-0ce4bf75a91f",
+            },
         ],
     });
 }

@@ -1,6 +1,7 @@
 import { env } from "../env";
 import { prisma } from "../lib/prisma";
 import { createAchievements } from "./achievement-seed";
+import { createChoices } from "./choice-seed";
 import { createExercises } from "./exercise-seed";
 import { createExplanations } from "./explanation-seed";
 import { createIcons } from "./icon-seed";
@@ -19,6 +20,7 @@ export async function createSeeds() {
         await createTopics();
         await createLessons();
         await createExercises();
+        await createChoices();
         await createExplanations();
         await createAchievements();
         await createProfilePictures();
