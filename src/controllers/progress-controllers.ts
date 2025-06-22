@@ -8,7 +8,7 @@ const service = new ProgressServices(new PrismaProgressRepository());
 export async function getProgressController(req: Request, res: Response) {
     const getProgressQuerySchema = z.object({
         userId: z.string().uuid(),
-        lessonId: z.string().uuid()
+        lessonId: z.string().uuid(),
     });
 
     const { userId, lessonId } = getProgressQuerySchema.parse(req.query);
@@ -29,9 +29,10 @@ export async function progressController(req: Request, res: Response) {
         isCompleted: z.boolean(),
     });
 
-    const { userId, lessonId, isCompleted } = createProgressBodySchema.parse(
-        req.body
-    );
+    const { userId, lessonId, isCompleted } = createProgressBodySchema.parse({
+        userId: req.user?.id,
+        ...req.body,
+    });
 
     const progress = await service.progress({ userId, lessonId, isCompleted });
 
