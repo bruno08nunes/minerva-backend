@@ -15,7 +15,7 @@ export async function getThemeBySlugController(req: Request, res: Response) {
         const theme = await themeService.getThemeBySlug(slug);
 
         res.status(200).json({
-            message: "Theme found succesfuly.",
+            message: "Theme found successfully.",
             success: true,
             data: theme,
         });
@@ -46,7 +46,7 @@ export async function createThemeController(req: Request, res: Response) {
         const theme = await themeService.createTheme(data);
 
         res.status(201).json({
-            message: "Theme created succesfuly",
+            message: "Theme created successfully",
             success: true,
             data: theme,
         });
@@ -84,7 +84,7 @@ export async function updateThemeController(req: Request, res: Response) {
         });
 
         res.status(200).json({
-            message: "Theme updated succesfuly",
+            message: "Theme updated successfully",
             success: true,
             data: theme,
         });
@@ -116,7 +116,7 @@ export async function deleteThemeController(req: Request, res: Response) {
         const theme = await themeService.deleteTheme(id);
 
         res.status(200).json({
-            message: "Theme deleted succesfuly.",
+            message: "Theme deleted successfully.",
             success: true,
             data: theme,
         });
@@ -136,7 +136,7 @@ export async function listThemeController(req: Request, res: Response) {
     const themes = await themeService.listThemes();
 
     res.status(200).json({
-        message: "Themes listed succesfuly.",
+        message: "Themes listed successfully.",
         success: true,
         data: themes,
     });

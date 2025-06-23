@@ -37,7 +37,7 @@ describe("[e2e] Create Theme Route", () => {
 
         expect(response.status).toBe(201);
         expect(response.body.success).toBe(true);
-        expect(response.body.message).toBe("Theme created succesfuly");
+        expect(response.body.message).toBe("Theme created successfully");
         expect(response.body.data).toMatchObject({
             name: "Lorem",
             description: "Lorem ipsum dolor.",
