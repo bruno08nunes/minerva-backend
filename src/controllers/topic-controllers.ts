@@ -15,7 +15,7 @@ export async function getTopicBySlugController(req: Request, res: Response) {
         const topic = await topicService.getTopicBySlug(slug);
 
         res.status(200).json({
-            message: "Topic found succesfuly.",
+            message: "Topic found successfully.",
             success: true,
             data: topic,
         });
@@ -46,7 +46,7 @@ export async function createTopicController(req: Request, res: Response) {
         const topic = await topicService.createTopic(data);
     
         res.status(201).json({
-            message: "Topic created succesfuly",
+            message: "Topic created successfully",
             success: true,
             data: topic,
         });
@@ -84,7 +84,7 @@ export async function updateTopicController(req: Request, res: Response) {
         });
 
         res.status(200).json({
-            message: "Topic updated succesfuly",
+            message: "Topic updated successfully",
             success: true,
             data: topic,
         });
@@ -116,7 +116,7 @@ export async function deleteTopicController(req: Request, res: Response) {
         const topic = await topicService.deleteTopic(id);
 
         res.status(200).json({
-            message: "Topic deleted succesfuly.",
+            message: "Topic deleted successfully.",
             success: true,
             data: topic
         });
@@ -136,7 +136,7 @@ export async function listTopicController(req: Request, res: Response) {
     const topics = await topicService.listTopics();
 
     res.status(200).json({
-        message: "Topics listed succesfuly.",
+        message: "Topics listed successfully.",
         success: true,
         data: topics
     });
