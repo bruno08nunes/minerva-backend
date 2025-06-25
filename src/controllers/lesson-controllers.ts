@@ -135,7 +135,7 @@ export async function deleteLessonController(req: Request, res: Response) {
         const lesson = await service.deleteLesson(id);
     
         res.json({
-            message: "Lesson deleted successfuly.",
+            message: "Lesson deleted successfully.",
             success: true,
             data: lesson
         });
