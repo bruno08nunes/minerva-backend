@@ -47,14 +47,21 @@ export class UserService {
         return user;
     }
 
-    async createUser(data: { name: string; email: string; password: string, username: string }) {
+    async createUser(data: {
+        name: string;
+        email: string;
+        password: string;
+        username: string;
+    }) {
         const existingUser = await this.userRepository.findByEmail(data.email);
 
         if (existingUser) {
             throw new UserAlreadyExistsError();
         }
 
-        const existingUsername = await this.userRepository.findByUsername(data.username);
+        const existingUsername = await this.userRepository.findByUsername(
+            data.username
+        );
 
         if (existingUsername) {
             throw new UserAlreadyExistsError();
@@ -72,7 +79,7 @@ export class UserService {
 
     async updateUserProfile(
         id: string,
-        data: { name?: string; profilePictureId?: string, username?: string }
+        data: { name?: string; profilePictureId?: string; username?: string }
     ) {
         if (!data.name && !data.profilePictureId && !data.username) {
             throw new BadRequestError();
@@ -120,12 +127,12 @@ export class UserService {
         }
 
         const user = await this.userRepository.getUserRankingPosition(userId);
-        
+
         return [...users, user];
     }
 
     async incrementUserXp(id: string, amount: number) {
-        if (amount <= 0 ) {
+        if (amount <= 0) {
             throw new BadRequestError();
         }
 
@@ -143,6 +150,10 @@ export class UserService {
 
         if (!user) {
             throw new NotFoundError();
+        }
+        
+        if (user.lastActiveDay?.getDate() === new Date().getDate()) {
+            return user;
         }
 
         return this.userRepository.updateStreak(id);
