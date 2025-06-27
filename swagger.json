@@ -813,20 +813,14 @@
                 }
             }
         },
-        "/users/xp/{id}": {
+        "/users/xp": {
             "put": {
                 "tags": ["Users"],
                 "summary": "Update user XP by ID",
                 "description": "Update the XP of a user.",
-                "parameters": [
+                "security": [
                     {
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "description": "The ID of the user to update.",
-                        "schema": {
-                            "type": "string"
-                        }
+                        "BearerAuth": []
                     }
                 ],
                 "requestBody": {

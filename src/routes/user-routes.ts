@@ -19,7 +19,7 @@ const userRoutes = Router();
 userRoutes.get("/users/:username", getUserByUsernameController);
 userRoutes.post("/login", loginController);
 userRoutes.post("/register", registerUserController);
-userRoutes.put("/users/xp/:id", incrementUserXpController);
+userRoutes.put("/users/xp", getUserIdMiddleware, incrementUserXpController);
 userRoutes.put("/users/:id", updateUserProfileController);
 userRoutes.delete("/users/:id", deleteUserController);
 userRoutes.get("/ranking", getUserIdMiddleware, listRankingController);

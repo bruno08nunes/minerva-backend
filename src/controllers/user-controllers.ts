@@ -309,14 +309,21 @@ export async function listRankingController(req: Request, res: Response) {
 }
 
 export async function incrementUserXpController(req: Request, res: Response) {
-    const { id } = req.params;
-    const { amount } = req.body;
+    const id = req.user?.id;
 
     const incrementXpBodySchema = z.object({
         amount: z.number().int().positive(),
     });
 
-    const { amount: xpAmount } = incrementXpBodySchema.parse({ amount });
+    const { amount: xpAmount } = incrementXpBodySchema.parse(req.body);
+
+    if (!id) {
+        res.status(401).json({
+            message: "Token not provided.",
+            success: false,
+        });
+        return;
+    }
 
     try {
         const user = await userService.incrementUserXp(id, xpAmount);
