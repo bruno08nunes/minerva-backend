@@ -1,23 +1,67 @@
 import { NextFunction, Request, Response } from "express";
-import { verifyJwt } from "../utils/jwt";
+import { signJwt, verifyJwt } from "../utils/jwt";
 import { env } from "../env";
+import { prisma } from "../lib/prisma";
 
-export const getUserIdMiddleware = (
+export const getUserIdMiddleware = async (
     req: Request,
     res: Response,
     next: NextFunction
 ) => {
     const authHeader = req.headers.authorization;
+    let token = authHeader?.startsWith("Bearer ")
+        ? authHeader.split(" ")[1]
+        : null;
 
-    if (!authHeader || !authHeader.startsWith("Bearer ")) {
-        next();
-        return;
+    let decoded;
+
+    if (token) {
+        decoded = verifyJwt(token, env.JWT_SECRET);
     }
 
-    const token = authHeader.split(" ")[1];
-    const decoded = verifyJwt(token, env.JWT_SECRET);
+    if (
+        !decoded ||
+        typeof decoded !== "object" ||
+        !("id" in decoded) ||
+        !("role" in decoded)
+    ) {
+        const refreshToken = req.cookies?.refreshToken;
+        if (!refreshToken) {
+            next();
+            return;
+        }
 
-    if (!decoded || typeof decoded !== "object" || !("id" in decoded) || !("role" in decoded)) {
+        const refreshDecoded = verifyJwt(refreshToken, env.JWT_REFRESH_SECRET);
+
+        if (
+            !refreshDecoded ||
+            typeof refreshDecoded !== "object" ||
+            !("id" in refreshDecoded)
+        ) {
+            next();
+            return;
+        }
+
+        const user = await prisma.user.findUnique({
+            where: { id: refreshDecoded.id },
+        });
+
+        if (!user) {
+            next();
+            return;
+        }
+
+        token = signJwt({ id: user.id, role: user.role });
+
+        if (token) {
+            res.setHeader("x-access-token", token);
+        }
+
+        req.user = {
+            id: user.id,
+            role: user.role,
+        };
+
         next();
         return;
     }
