@@ -54,6 +54,32 @@ export class PrismaLessonsRepository implements ILessonRepository {
         themeId: string,
         userId?: string
     ) {
+        const include: any = {
+            exercises: {
+                include: {
+                    choices: {
+                        orderBy: {
+                            order: "asc",
+                        },
+                    },
+                },
+                orderBy: {
+                    order: "asc",
+                },
+            },
+            topic: true,
+            theme: true,
+            icon: true,
+        };
+
+        if (userId) {
+            include.Progress = {
+                where: {
+                    userId: userId,
+                },
+            };
+        }
+
         return prisma.lesson.findMany({
             where: {
                 OR: [
@@ -71,28 +97,7 @@ export class PrismaLessonsRepository implements ILessonRepository {
                     },
                 ],
             },
-            include: {
-                exercises: {
-                    include: {
-                        choices: {
-                            orderBy: {
-                                order: "asc",
-                            },
-                        },
-                    },
-                    orderBy: {
-                        order: "asc",
-                    },
-                },
-                topic: true,
-                theme: true,
-                icon: true,
-                Progress: {
-                    where: {
-                        userId,
-                    },
-                },
-            },
+            include,
             orderBy: { order: "asc" },
         });
     }
