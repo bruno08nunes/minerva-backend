@@ -1,5 +1,6 @@
 import { Prisma } from "../../generated/prisma";
 import { prisma } from "../../lib/prisma";
+import { achievements } from "../../seed/achievement-seed";
 
 import { IUserRepository } from "../users-repository";
 
@@ -34,6 +35,21 @@ export class PrismaUsersRepository implements IUserRepository {
             },
             include: {
                 profilePicture: true,
+                achievements: {
+                    include: {
+                        achievement: {
+                            include: {
+                                icon: true,
+                            },
+                        },
+                    },
+                },
+                _count: {
+                    select: {
+                        followers: true,
+                        followings: true,
+                    },
+                },
             },
         });
 
@@ -79,7 +95,7 @@ export class PrismaUsersRepository implements IUserRepository {
                 username: true,
                 semanalXP: true,
                 profilePicture: true,
-            }
+            },
         });
 
         return users;
@@ -91,8 +107,8 @@ export class PrismaUsersRepository implements IUserRepository {
                 id,
             },
             include: {
-                profilePicture: true
-            }
+                profilePicture: true,
+            },
         });
 
         if (!user) {
@@ -111,7 +127,7 @@ export class PrismaUsersRepository implements IUserRepository {
             rankingPosition: rankingPosition + 1,
             username: user.username,
             semanalXp: user.semanalXP,
-            profilePicture: user.profilePicture
+            profilePicture: user.profilePicture,
         };
     }
 
@@ -125,8 +141,8 @@ export class PrismaUsersRepository implements IUserRepository {
                     increment: amount,
                 },
                 totalXP: {
-                    increment: amount
-                }
+                    increment: amount,
+                },
             },
         });
 
