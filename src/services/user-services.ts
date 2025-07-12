@@ -18,14 +18,14 @@ export class UserService {
         return user;
     }
 
-    async getUserByUsername(username: string) {
+    async getUserByUsername(username: string, userId?: string) {
         const user = await this.userRepository.findByUsername(username);
 
         if (!user) {
             throw new NotFoundError();
         }
 
-        return user;
+        return { ...user, isCurrentUser: user.id === userId };
     }
 
     async login(email: string, password: string) {
@@ -151,7 +151,7 @@ export class UserService {
         if (!user) {
             throw new NotFoundError();
         }
-        
+
         if (user.lastActiveDay?.getDate() === new Date().getDate()) {
             return user;
         }

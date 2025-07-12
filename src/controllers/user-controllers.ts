@@ -44,7 +44,7 @@ export async function getUserByUsernameController(req: Request, res: Response) {
     const { username } = req.params;
 
     try {
-        const user = await userService.getUserByUsername(username);
+        const user = await userService.getUserByUsername(username, req.user?.id);
 
         if (!user) {
             throw new NotFoundError();

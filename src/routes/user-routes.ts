@@ -1,6 +1,5 @@
 import { Router } from "express";
 import {
-    getUserByIdController,
     loginController,
     registerUserController,
     updateUserProfileController,
@@ -15,8 +14,7 @@ import { getUserIdMiddleware } from "../middlewares/get-user-id-middleware";
 
 const userRoutes = Router();
 
-// TODO: Check if the getUserByIdController is useless
-userRoutes.get("/users/:username", getUserByUsernameController);
+userRoutes.get("/users/:username", getUserIdMiddleware, getUserByUsernameController);
 userRoutes.post("/login", loginController);
 userRoutes.post("/register", registerUserController);
 userRoutes.put("/users/xp", getUserIdMiddleware, incrementUserXpController);
