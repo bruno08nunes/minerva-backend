@@ -10,6 +10,36 @@ import BadRequestError from "../utils/errors/bad-request-error";
 
 const userService = new UserService(new PrismaUsersRepository());
 
+export async function getMe(req: Request, res: Response) {
+    const id = req.user?.id;
+
+    try {
+        const user = await userService.getUserById(id ?? "");
+
+        if (!user) {
+            throw new NotFoundError();
+        }
+
+        const { password, ...safeUser } = user;
+
+        res.json({
+            user: safeUser,
+            success: true,
+            message: "User found.",
+        });
+    } catch (error) {
+        if (error instanceof NotFoundError) {
+            res.status(404).json({
+                message: error.message || "User not found.",
+                success: false,
+            });
+            return;
+        }
+
+        throw error;
+    }
+}
+
 export async function getUserByIdController(req: Request, res: Response) {
     const { id } = req.params;
 
@@ -44,7 +74,10 @@ export async function getUserByUsernameController(req: Request, res: Response) {
     const { username } = req.params;
 
     try {
-        const user = await userService.getUserByUsername(username, req.user?.id);
+        const user = await userService.getUserByUsername(
+            username,
+            req.user?.id
+        );
 
         if (!user) {
             throw new NotFoundError();

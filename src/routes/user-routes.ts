@@ -9,11 +9,13 @@ import {
     incrementUserXpController,
     resetUserStreakController,
     updateUserStreakController,
+    getMe,
 } from "../controllers/user-controllers";
 import { getUserIdMiddleware } from "../middlewares/get-user-id-middleware";
 
 const userRoutes = Router();
 
+userRoutes.get("/me", getUserIdMiddleware, getMe);
 userRoutes.get("/users/:username", getUserIdMiddleware, getUserByUsernameController);
 userRoutes.post("/login", loginController);
 userRoutes.post("/register", registerUserController);
