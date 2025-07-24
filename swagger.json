@@ -126,20 +126,14 @@
                 }
             }
         },
-        "/users/{userId}": {
+        "/users": {
             "put": {
                 "tags": ["Users"],
                 "summary": "Update user profile by ID",
                 "description": "Update user details.",
-                "parameters": [
+                "security": [
                     {
-                        "name": "userId",
-                        "in": "path",
-                        "required": true,
-                        "description": "The ID of the user to update.",
-                        "schema": {
-                            "type": "string"
-                        }
+                        "BearerAuth": []
                     }
                 ],
                 "requestBody": {

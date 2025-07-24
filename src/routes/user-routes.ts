@@ -12,6 +12,7 @@ import {
     getMe,
 } from "../controllers/user-controllers";
 import { getUserIdMiddleware } from "../middlewares/get-user-id-middleware";
+import { authMiddleware } from "../middlewares/verify-jwt";
 
 const userRoutes = Router();
 
@@ -20,8 +21,8 @@ userRoutes.get("/users/:username", getUserIdMiddleware, getUserByUsernameControl
 userRoutes.post("/login", loginController);
 userRoutes.post("/register", registerUserController);
 userRoutes.put("/users/xp", getUserIdMiddleware, incrementUserXpController);
-userRoutes.put("/users/:id", updateUserProfileController);
-userRoutes.delete("/users/:id", deleteUserController);
+userRoutes.put("/users", authMiddleware, updateUserProfileController);
+userRoutes.delete("/users", authMiddleware, deleteUserController);
 userRoutes.get("/ranking", getUserIdMiddleware, listRankingController);
 userRoutes.patch("/users/streak", getUserIdMiddleware, updateUserStreakController);
 userRoutes.patch("/users/streak/reset", getUserIdMiddleware, resetUserStreakController);

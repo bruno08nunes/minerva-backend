@@ -229,10 +229,10 @@ export async function registerUserController(req: Request, res: Response) {
 }
 
 export async function updateUserProfileController(req: Request, res: Response) {
-    const { id } = req.params;
     const { name, profilePictureId, username } = req.body;
 
     const updateBodySchema = z.object({
+        id: z.string(),
         name: z.string().optional(),
         profilePictureId: z.string().optional(),
         username: z
@@ -244,10 +244,11 @@ export async function updateUserProfileController(req: Request, res: Response) {
     });
 
     const {
+        id,
         name: newName,
         profilePictureId: newProfilePictureId,
         username: newUsername,
-    } = updateBodySchema.parse({ name, profilePictureId, username });
+    } = updateBodySchema.parse({ id: req.user?.id, name, profilePictureId, username });
 
     try {
         const user = await userService.updateUserProfile(id, {
