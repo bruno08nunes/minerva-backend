@@ -220,15 +220,9 @@
                 "tags": ["Users"],
                 "summary": "Delete user by ID",
                 "description": "Delete a user account.",
-                "parameters": [
+                "security": [
                     {
-                        "name": "userId",
-                        "in": "path",
-                        "required": true,
-                        "description": "The ID of the user to delete.",
-                        "schema": {
-                            "type": "string"
-                        }
+                        "BearerAuth": []
                     }
                 ],
                 "responses": {

@@ -248,7 +248,12 @@ export async function updateUserProfileController(req: Request, res: Response) {
         name: newName,
         profilePictureId: newProfilePictureId,
         username: newUsername,
-    } = updateBodySchema.parse({ id: req.user?.id, name, profilePictureId, username });
+    } = updateBodySchema.parse({
+        id: req.user?.id,
+        name,
+        profilePictureId,
+        username,
+    });
 
     try {
         const user = await userService.updateUserProfile(id, {
@@ -290,7 +295,11 @@ export async function updateUserProfileController(req: Request, res: Response) {
 }
 
 export async function deleteUserController(req: Request, res: Response) {
-    const { id } = req.params;
+    const deleteBodySchema = z.object({
+        id: z.string(),
+    });
+
+    const { id } = deleteBodySchema.parse({ id: req.user?.id });
 
     try {
         const user = await userService.deleteUser(id);
