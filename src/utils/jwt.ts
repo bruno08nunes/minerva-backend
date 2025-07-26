@@ -8,7 +8,7 @@ type JwtPayload = object;
  */
 export const signJwt = (
     payload: JwtPayload,
-    expiresIn: string = '1h',
+    expiresIn: string = '1d',
     secret: string = env.JWT_SECRET
 ) => {
     secret = secret === "refresh" ? env.JWT_REFRESH_SECRET : secret;
