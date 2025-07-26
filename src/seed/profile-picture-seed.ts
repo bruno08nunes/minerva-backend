@@ -24,10 +24,6 @@ export async function createProfilePictures() {
                 url: "buzzcut-girl.png",
             },
             {
-                id: "b3c4b2b4-5fa0-4da5-bf4c-672a0b09c07b",
-                url: "buzzcut-girl.png",
-            },
-            {
                 id: "ebfecfbe-d485-4c78-a033-314cf967edeb",
                 url: "buzzcut-girl-2.png",
             },
@@ -79,6 +75,10 @@ export async function createProfilePictures() {
                 id: "cef1d338-460c-44d7-9aae-d18c1d2fc3df",
                 url: "robot.png"
             },
+            {
+                id: "615544c5-87e0-4568-a20b-d11ec162209f",
+                url: "no-picture.png"
+            }
         ],
     });
 }
