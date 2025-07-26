@@ -229,12 +229,14 @@ export async function registerUserController(req: Request, res: Response) {
 }
 
 export async function updateUserProfileController(req: Request, res: Response) {
-    const { name, profilePictureId, username } = req.body;
+    const { name, profilePictureId, username, password, email } = req.body;
 
     const updateBodySchema = z.object({
         id: z.string(),
         name: z.string().optional(),
         profilePictureId: z.string().optional(),
+        email: z.string().email().optional(),
+        password: z.string().min(6).optional(),
         username: z
             .string()
             .min(3)
@@ -248,11 +250,15 @@ export async function updateUserProfileController(req: Request, res: Response) {
         name: newName,
         profilePictureId: newProfilePictureId,
         username: newUsername,
+        password: newPassword,
+        email: newEmail,
     } = updateBodySchema.parse({
         id: req.user?.id,
         name,
         profilePictureId,
         username,
+        password,
+        email,
     });
 
     try {
@@ -260,6 +266,8 @@ export async function updateUserProfileController(req: Request, res: Response) {
             name: newName,
             profilePictureId: newProfilePictureId,
             username: newUsername,
+            password: newPassword,
+            email: newEmail
         });
 
         if (!user) {

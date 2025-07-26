@@ -79,10 +79,28 @@ export class UserService {
 
     async updateUserProfile(
         id: string,
-        data: { name?: string; profilePictureId?: string; username?: string }
+        data: {
+            name?: string;
+            profilePictureId?: string;
+            username?: string;
+            password?: string;
+            email?: string;
+        }
     ) {
-        if (!data.name && !data.profilePictureId && !data.username) {
+        if (
+            !data.name &&
+            !data.profilePictureId &&
+            !data.username &&
+            !data.password &&
+            !data.email
+        ) {
             throw new BadRequestError();
+        }
+
+        let password = data.password;
+
+        if (data.password) {
+            password = await encryptPassword(data.password);
         }
 
         const user = await this.userRepository.findById(id);
@@ -91,18 +109,10 @@ export class UserService {
             throw new NotFoundError();
         }
 
-        const updatedUser = await this.userRepository.update(id, data);
-
-        // TODO: Uncomment this when the profile picture feature is implemented
-        // if (data.profilePictureId) {
-        //     const exists = await prisma.profilePicture.findUnique({
-        //         where: { id: data.profilePictureId },
-        //     });
-
-        //     if (!exists) {
-        //         throw new Error("profilePictureId inválido");
-        //     }
-        // }
+        const updatedUser = await this.userRepository.update(id, {
+            ...data,
+            password,
+        });
 
         return updatedUser;
     }
