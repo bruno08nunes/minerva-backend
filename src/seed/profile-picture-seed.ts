@@ -39,6 +39,46 @@ export async function createProfilePictures() {
                 id: "6a413ff5-e65c-4316-9f87-e77312227bce",
                 url: "bald-girl-2.png",
             },
+            {
+                id: "b915a155-1fb2-4a06-8439-3604c125d596",
+                url: "bald-boy.png"
+            },
+            {
+                id: "4923a6d2-5c49-45ed-a00c-8762d15a213a",
+                url: "bald-boy-2.png"
+            },
+            {
+                id: "f7cbd4a5-f4ce-4003-9db6-8d16c0b319f7",
+                url: "blond-boy.png"
+            },
+            {
+                id: "24b158db-4f58-42d3-b3ad-ab9e18d28afc",
+                url: "blond-boy-2.png"
+            },
+            {
+                id: "8636b47f-245b-4945-9418-713a8097c270",
+                url: "blond-boy-3.png"
+            },
+            {
+                id: "53e0c48f-314b-402d-a5c7-af52ab65dad8",
+                url: "boy.png"
+            },
+            {
+                id: "da9bc1b2-b3c8-4103-bfb2-3c188ceabf8e",
+                url: "buzzcut-boy.png"
+            },
+            {
+                id: "ab30f3ca-08e1-4123-abfb-de07f0a19231",
+                url: "buzzcut-boy-2.png"
+            },
+            {
+                id: "5c91725b-305a-4144-b574-e63aa6180b99",
+                url: "brain.png"
+            },
+            {
+                id: "cef1d338-460c-44d7-9aae-d18c1d2fc3df",
+                url: "robot.png"
+            },
         ],
     });
 }
