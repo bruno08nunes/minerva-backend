@@ -1,13 +1,14 @@
 import { User, Prisma, ProfilePicture } from "../generated/prisma";
 
-type UserWithProfilePicture = User & {
+type CompleteUser = User & {
     profilePicture: ProfilePicture | null;
+    isFollowing?: boolean;
 };
 
 export interface IUserRepository {
-    findById(id: string): Promise<UserWithProfilePicture | null>;
+    findById(id: string): Promise<CompleteUser | null>;
     findByEmail(email: string): Promise<User | null>;
-    findByUsername(username: string): Promise<UserWithProfilePicture | null>;
+    findByUsername(username: string, userId?: string): Promise<CompleteUser | null>;
     create(data: Prisma.UserCreateInput): Promise<User>;
     update(id: string, data: Prisma.UserUpdateInput): Promise<User>;
     delete(id: string): Promise<User>;

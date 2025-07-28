@@ -28,7 +28,7 @@ export class PrismaUsersRepository implements IUserRepository {
         return user;
     }
 
-    async findByUsername(username: string) {
+    async findByUsername(username: string, userId?: string) {
         const user = await prisma.user.findUnique({
             where: {
                 username,
@@ -53,7 +53,14 @@ export class PrismaUsersRepository implements IUserRepository {
             },
         });
 
-        return user;
+        const isFollowing = await prisma.follow.count({
+            where: {
+                followerId: userId,
+                followingId: user?.id,
+            },
+        });
+
+        return user === null ? null : {...user, isFollowing: isFollowing > 0};
     }
 
     async create(data: Prisma.UserCreateInput) {

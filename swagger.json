@@ -3995,6 +3995,9 @@
                     },
                     "profilePicture": {
                         "$ref": "#/components/schemas/ProfilePicture"
+                    },
+                    "isFollowing": {
+                        "type": "boolean"
                     }
                 },
                 "required": [
