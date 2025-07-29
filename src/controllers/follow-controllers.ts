@@ -28,9 +28,10 @@ export async function getFollowingController(req: Request, res: Response) {
 }
 
 export async function createFollowController(req: Request, res: Response) {
-    const { followerId, followingId } = req.body;
+    const { followingId } = req.body;
+    const followerId = req.user?.id;
 
-    const follow = await service.createFollow(followerId, followingId);
+    const follow = await service.createFollow(followerId!, followingId);
 
     res.json({
         data: follow,
@@ -40,10 +41,11 @@ export async function createFollowController(req: Request, res: Response) {
 }
 
 export async function deleteFollowController(req: Request, res: Response) {
-    const { followerId, followingId } = req.body;
+    const { followingId } = req.body;
+    const followerId = req.user?.id;
 
     try {
-        const follow = await service.deleteFollow(followerId, followingId);
+        const follow = await service.deleteFollow(followerId!, followingId);
     
         res.json({
             data: follow,

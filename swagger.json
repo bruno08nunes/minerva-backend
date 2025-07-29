@@ -591,6 +591,11 @@
                 "tags": ["Users"],
                 "summary": "Follow a user",
                 "description": "Follow a user by their ID.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -598,10 +603,6 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "followerId": {
-                                        "type": "string",
-                                        "example": "123"
-                                    },
                                     "followingId": {
                                         "type": "string",
                                         "example": "456"
@@ -658,6 +659,11 @@
                 "tags": ["Users"],
                 "summary": "Unfollow a user",
                 "description": "Unfollow a user by their ID.",
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -665,10 +671,6 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "followerId": {
-                                        "type": "string",
-                                        "example": "123"
-                                    },
                                     "followingId": {
                                         "type": "string",
                                         "example": "456"
