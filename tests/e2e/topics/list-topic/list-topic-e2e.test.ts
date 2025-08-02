@@ -18,6 +18,7 @@ describe("[e2e] List Topics Route", () => {
             description: "This is a test topic",
             iconId: iconId,
             slug: "test-topic",
+            order: 1
         });
 
         await topicRepository.create({
@@ -25,6 +26,7 @@ describe("[e2e] List Topics Route", () => {
             description: "This is another test topic",
             iconId: iconId,
             slug: "another-test-topic",
+            order: 2
         });
 
         const response = await request(app).get("/topics");

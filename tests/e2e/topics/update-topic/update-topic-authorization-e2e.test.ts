@@ -20,6 +20,7 @@ describe("[e2e] Update Topic Route", () => {
             description: "This is a test topic",
             iconId: icon.id,
             slug: "test-topic",
+            order: 1
         });
 
         const updatedTopicData = {
@@ -56,6 +57,7 @@ describe("[e2e] Update Topic Route", () => {
             description: "This is a test topic",
             iconId: icon.id,
             slug: "test-topic-2",
+            order: 1
         });
 
         const updatedTopicData = {
@@ -83,6 +85,7 @@ describe("[e2e] Update Topic Route", () => {
             description: "This is a test topic",
             iconId: icon.id,
             slug: "test-topic-3",
+            order: 1
         });
 
         const updatedTopicData = {

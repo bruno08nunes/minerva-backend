@@ -20,6 +20,7 @@ describe("[e2e] Update Topic Route", () => {
             description: "This is a test topic",
             iconId: icon.id,
             slug: "test-topic",
+            order: 1
         });
 
         const updatedTopicData = {};

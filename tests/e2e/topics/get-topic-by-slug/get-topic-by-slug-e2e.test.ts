@@ -20,6 +20,7 @@ describe("[e2e] Get Topic By Slug Route", () => {
             description: "This is a test topic",
             iconId: iconId,
             slug: "test-topic",
+            order: 1
         });
 
         const response = await request(app).get(`/topics/${theme.slug}`);
@@ -34,6 +35,7 @@ describe("[e2e] Get Topic By Slug Route", () => {
                 description: theme.description,
                 iconId: theme.iconId,
                 slug: theme.slug,
+                order: 1
             },
         });
     });

@@ -32,6 +32,7 @@ describe("[e2e] Create Topic Route", () => {
                 description: "Lorem ipsum dolor.",
                 iconId: iconId,
                 slug: "lorem",
+                order: 1
             });
 
         expect(response.status).toBe(403);
@@ -50,6 +51,7 @@ describe("[e2e] Create Topic Route", () => {
                 description: "Lorem ipsum dolor.",
                 iconId: iconId,
                 slug: "lorem",
+                order: 1
             });
 
         expect(response.status).toBe(401);
@@ -72,6 +74,7 @@ describe("[e2e] Create Topic Route", () => {
                 description: "Lorem ipsum dolor.",
                 iconId: iconId,
                 slug: "lorem",
+                order: 1
             });
 
         expect(response.status).toBe(403);

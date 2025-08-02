@@ -33,6 +33,7 @@ describe("[e2e] Create Topic Route", () => {
                 description: "Lorem ipsum dolor.",
                 iconId: iconId,
                 slug: "lorem",
+                order: 1
             });
 
         const otherResponse = await request(app)
@@ -43,6 +44,7 @@ describe("[e2e] Create Topic Route", () => {
                 description: "Lorem ipsum dolor.",
                 iconId: iconId,
                 slug: "lorem",
+                order: 1
             });
 
         expect(otherResponse.status).toBe(409);

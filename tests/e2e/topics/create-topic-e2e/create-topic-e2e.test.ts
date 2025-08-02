@@ -33,6 +33,7 @@ describe("[e2e] Create Topic Route", () => {
                 description: "Lorem ipsum dolor.",
                 iconId: iconId,
                 slug: "lorem",
+                order: 1
             });
 
         expect(response.status).toBe(201);
