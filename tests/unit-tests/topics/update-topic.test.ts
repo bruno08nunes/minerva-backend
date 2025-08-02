@@ -1,5 +1,5 @@
-import { TopicService } from '../../../src/services/topic-services';
-import { InMemoryTopicsRepository } from '../../../src/repositories/in-memory/in-memory-topic-repository';
+import { TopicService } from "../../../src/services/topic-services";
+import { InMemoryTopicsRepository } from "../../../src/repositories/in-memory/in-memory-topic-repository";
 
 let topicRepository: InMemoryTopicsRepository;
 let service: TopicService;
@@ -14,7 +14,9 @@ describe("Update Topic Use Case", () => {
         const createdTopic = await topicRepository.create({
             name: "Lorem",
             description: "Lorem ipsum dolor it.",
-            iconId: "123"
+            iconId: "123",
+            slug: "lorem",
+            order: 1,
         });
         const updatedTopic = await service.updateTopic(createdTopic.id, {
             name: "Topic Updated",
@@ -26,21 +28,25 @@ describe("Update Topic Use Case", () => {
         await topicRepository.create({
             name: "Lorem",
             description: "Lorem ipsum dolor it.",
-            iconId: "123"
+            iconId: "123",
+            slug: "lorem",
+            order: 1,
         });
 
         expect(async () => {
             await service.updateTopic("wrong-id", {
-                name: "Topic Updated"
+                name: "Topic Updated",
             });
         }).rejects.toThrow("Resource not found.");
     });
-    
+
     it("should not be able to update topic with invalid data", async () => {
         const createdTopic = await topicRepository.create({
             name: "Lorem",
             description: "Lorem ipsum dolor it.",
-            iconId: "123"
+            iconId: "123",
+            slug: "lorem",
+            order: 1,
         });
 
         expect(async () => {

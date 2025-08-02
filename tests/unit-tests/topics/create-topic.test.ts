@@ -14,7 +14,8 @@ describe("Create Topic Use Case", () => {
         const { id: createdId } = await service.createTopic({
             name: "Lorem",
             description: "Lorem ipsum dolor met.",
-            iconId: "123"
+            iconId: "123",
+            order: 1
         });
 
         const topic = await topicRepository.findById(createdId);

@@ -16,6 +16,7 @@ describe("Get Topic Use Case", () => {
             description: "This is an existing topic.",
             slug: "existing-topic-slug",
             iconId: "icon-123",
+            order: 1
         });
 
         const topic = await topicService.getTopicBySlug("existing-topic-slug");

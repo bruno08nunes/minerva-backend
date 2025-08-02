@@ -15,6 +15,8 @@ describe("Delete Profile Picture Use Case", () => {
             name: "Lorem",
             description: "Lorem ipsum dolor met.",
             iconId: "123",
+            order: 1,
+            slug: "lorem"
         });
 
         const deletedTopic = await service.deleteTopic(createdId);
