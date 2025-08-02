@@ -2460,7 +2460,10 @@
                                             "properties": {
                                                 "type": {
                                                     "type": "string",
-                                                    "enum": ["paragraph", "code"]
+                                                    "enum": [
+                                                        "paragraph",
+                                                        "code"
+                                                    ]
                                                 },
                                                 "data": { "type": "string" }
                                             }
@@ -2587,7 +2590,10 @@
                                             "properties": {
                                                 "type": {
                                                     "type": "string",
-                                                    "enum": ["paragraph", "code"]
+                                                    "enum": [
+                                                        "paragraph",
+                                                        "code"
+                                                    ]
                                                 },
                                                 "data": { "type": "string" }
                                             }
@@ -4208,9 +4214,19 @@
                     },
                     "slug": {
                         "type": "string"
+                    },
+                    "order": {
+                        "type": "integer"
                     }
                 },
-                "required": ["id", "name", "description", "icon", "slug"],
+                "required": [
+                    "id",
+                    "name",
+                    "description",
+                    "icon",
+                    "slug",
+                    "order"
+                ],
                 "example": {
                     "id": "123456",
                     "name": "Lorem",
@@ -4219,7 +4235,8 @@
                         "id": "icon123",
                         "url": "http://example.com/icon.png"
                     },
-                    "slug": "lorem"
+                    "slug": "lorem",
+                    "order": 1
                 }
             },
             "Lesson": {

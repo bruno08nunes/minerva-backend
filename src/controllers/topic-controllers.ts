@@ -1,10 +1,10 @@
-import { PrismaTopicsRepository } from './../repositories/prisma/prisma-topics-repository';
+import { PrismaTopicsRepository } from "./../repositories/prisma/prisma-topics-repository";
 import e, { Request, Response } from "express";
 import { z } from "zod";
 import { TopicService } from "../services/topic-services";
 import BadRequestError from "../utils/errors/bad-request-error";
 import NotFoundError from "../utils/errors/not-found";
-import TopicAlreadyExistsError from '../utils/errors/topic-already-exists';
+import TopicAlreadyExistsError from "../utils/errors/topic-already-exists";
 
 const topicService = new TopicService(new PrismaTopicsRepository());
 
@@ -38,13 +38,14 @@ export async function createTopicController(req: Request, res: Response) {
         description: z.string(),
         iconId: z.string().uuid(),
         slug: z.string().optional(),
+        order: z.number().int(),
     });
 
     const data = createTopicBodySchema.parse(req.body);
 
     try {
         const topic = await topicService.createTopic(data);
-    
+
         res.status(201).json({
             message: "Topic created successfully",
             success: true,
@@ -69,6 +70,7 @@ export async function updateTopicController(req: Request, res: Response) {
             name: z.string().optional(),
             description: z.string().optional(),
             slug: z.string().optional(),
+            order: z.number().int().optional(),
             id: z.string().uuid(),
         });
 
@@ -81,6 +83,7 @@ export async function updateTopicController(req: Request, res: Response) {
             name: data.name,
             description: data.description,
             slug: data.slug,
+            order: data.order,
         });
 
         res.status(200).json({
@@ -118,13 +121,13 @@ export async function deleteTopicController(req: Request, res: Response) {
         res.status(200).json({
             message: "Topic deleted successfully.",
             success: true,
-            data: topic
+            data: topic,
         });
     } catch (err) {
         if (err instanceof NotFoundError) {
             res.status(404).json({
                 message: err.message ?? "Resource not found.",
-                success: false
+                success: false,
             });
         }
 
@@ -138,6 +141,6 @@ export async function listTopicController(req: Request, res: Response) {
     res.status(200).json({
         message: "Topics listed successfully.",
         success: true,
-        data: topics
+        data: topics,
     });
 }

@@ -1,11 +1,11 @@
-import { ITopicRepository } from './../topics-repository';
-import { randomUUID } from 'node:crypto';
+import { ITopicRepository } from "./../topics-repository";
+import { randomUUID } from "node:crypto";
 import { Topic } from "../../generated/prisma";
 
 export class InMemoryTopicsRepository implements ITopicRepository {
     private topics: Topic[] = [];
 
-    async findById(id: string){
+    async findById(id: string) {
         return this.topics.find((topic) => topic.id === id) || null;
     }
 
@@ -13,15 +13,22 @@ export class InMemoryTopicsRepository implements ITopicRepository {
         return this.topics.find((topic) => topic.slug === slug) || null;
     }
 
-    async create(topic: { name: string, iconId: string, description: string, slug: string }) {
-        const { name, description, iconId, slug } = topic;
+    async create(topic: {
+        name: string;
+        iconId: string;
+        description: string;
+        slug: string;
+        order: number;
+    }) {
+        const { name, description, iconId, slug, order } = topic;
 
         const newTopic: Topic = {
             id: randomUUID(),
             name,
             description,
             iconId,
-            slug
+            slug,
+            order,
         };
 
         this.topics.push(newTopic);
@@ -30,7 +37,13 @@ export class InMemoryTopicsRepository implements ITopicRepository {
 
     async update(
         id: string,
-        data: { name?: string; iconId?: string; description?: string; slug?: string }
+        data: {
+            name?: string;
+            iconId?: string;
+            description?: string;
+            slug?: string;
+            order?: number;
+        }
     ) {
         const topicIndex = this.topics.findIndex((topic) => topic.id === id);
         const topic = this.topics[topicIndex];

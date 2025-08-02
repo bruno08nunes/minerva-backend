@@ -57,6 +57,7 @@ model Topic {
   iconId      String
   icon        Icon   @relation(fields: [iconId], references: [id])
   slug        String @unique
+  order       Int
 
   lessons Lesson[]
 
@@ -96,13 +97,13 @@ model Lesson {
 }
 
 model Exercise {
-  id        String       @id @default(uuid())
-  content   Json
-  order     Int
-  type      ExerciseType
-  hint      String
-  lessonId  String
-  lesson    Lesson       @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  id       String       @id @default(uuid())
+  content  Json
+  order    Int
+  type     ExerciseType
+  hint     String
+  lessonId String
+  lesson   Lesson       @relation(fields: [lessonId], references: [id], onDelete: Cascade)
 
   choices Choice[]
 }

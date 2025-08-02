@@ -14,20 +14,33 @@ export class PrismaTopicsRepository implements ITopicRepository {
         });
     }
 
-    async create(topic: { name: string; iconId: string; description: string, slug: string }) {
+    async create(topic: {
+        name: string;
+        iconId: string;
+        description: string;
+        slug: string;
+        order: number;
+    }) {
         return await prisma.topic.create({
             data: {
                 name: topic.name,
                 description: topic.description,
                 icon: { connect: { id: topic.iconId } },
-                slug: topic.slug
+                slug: topic.slug,
+                order: topic.order,
             },
         });
     }
 
     async update(
         id: string,
-        topic: { name?: string; iconId?: string; description?: string, slug?: string }
+        topic: {
+            name?: string;
+            iconId?: string;
+            description?: string;
+            slug?: string;
+            order?: number;
+        }
     ) {
         return await prisma.topic.update({
             where: { id },
@@ -45,6 +58,9 @@ export class PrismaTopicsRepository implements ITopicRepository {
         return await prisma.topic.findMany({
             include: {
                 icon: true,
+            },
+            orderBy: {
+                order: "asc",
             },
         });
     }
