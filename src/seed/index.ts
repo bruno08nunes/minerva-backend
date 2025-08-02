@@ -9,6 +9,7 @@ import { createLessons } from "./lesson-seed";
 import { createProfilePictures } from "./profile-picture-seed";
 import { createThemes } from "./theme-seed";
 import { createTopics } from "./topic-seed";
+import { createUsersAchievementsDev } from "./user-achievement-seed";
 import { createUsersDev } from "./user-seed";
 
 export async function createSeeds() {
@@ -28,6 +29,7 @@ export async function createSeeds() {
         if (env.NODE_ENV === "dev") {
             console.log("🌱 Seeding development data...");
             await createUsersDev();
+            await createUsersAchievementsDev();
         }
 
         console.log("🎉 Seeds created successfully!");
