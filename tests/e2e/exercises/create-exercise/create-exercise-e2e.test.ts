@@ -33,6 +33,7 @@ describe("[e2e] Create Exercise Route", () => {
             description: "Description for Topic 1",
             slug: "topic-1",
             iconId,
+            order: 1,
         });
 
         const { id: themeId } = await themeRepository.create({
@@ -67,7 +68,7 @@ describe("[e2e] Create Exercise Route", () => {
                 hint: "This is a hint for the exercise.",
                 lessonId: lesson.id,
             });
-        
+
         expect(response.status).toBe(201);
         expect(response.body.success).toBe(true);
         expect(response.body.message).toBe("Exercise created successfully.");

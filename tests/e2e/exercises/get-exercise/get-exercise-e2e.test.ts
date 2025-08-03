@@ -23,6 +23,7 @@ describe("[e2e] Get Exercise Route", () => {
             description: "Description for Topic 1",
             slug: "topic-1",
             iconId: icon.id,
+            order: 1,
         });
 
         const theme = await themeRepository.create({
