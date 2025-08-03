@@ -38,7 +38,16 @@ export class PrismaExplanationRepository implements IExplanationRepository {
 
     async listByTopic(topicId: string) {
         return prisma.explanation.findMany({
-            where: { topicId },
+            where: {
+                OR: [
+                    { topicId },
+                    {
+                        topic: {
+                            slug: topicId,
+                        },
+                    },
+                ],
+            },
             include: {
                 topic: {
                     include: {

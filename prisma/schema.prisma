@@ -170,13 +170,14 @@ model Follow {
 }
 
 model Explanation {
-  id        String   @id @default(uuid())
-  title     String
-  content   Json
-  topicId   String
-  topic     Topic    @relation(fields: [topicId], references: [id])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  content     Json
+  topicId     String
+  topic       Topic    @relation(fields: [topicId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   @@index([topicId])
 }
