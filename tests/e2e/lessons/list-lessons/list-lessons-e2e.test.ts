@@ -21,6 +21,7 @@ describe("[e2e] List Lesson Route", () => {
             description: "Description for Topic 1",
             slug: "topic-1",
             iconId,
+            order: 1,
         });
 
         const { id: themeId } = await themeRepository.create({
@@ -40,8 +41,7 @@ describe("[e2e] List Lesson Route", () => {
             iconId,
         });
 
-        const response = await request(app)
-            .get("/lessons");
+        const response = await request(app).get("/lessons");
 
         expect(response.status).toBe(200);
         expect(response.body.success).toBe(true);

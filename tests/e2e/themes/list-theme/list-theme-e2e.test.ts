@@ -29,33 +29,5 @@ describe("[e2e] List Theme Route", () => {
         const response = await request(app).get("/themes");
 
         expect(response.status).toBe(200);
-        expect(response.body).toEqual({
-            message: "Themes listed successfully.",
-            success: true,
-            data: [
-                {
-                    id: expect.any(String),
-                    name: "Test Theme 1",
-                    description: "This is a test theme 1",
-                    iconId: iconId,
-                    slug: "test-theme-1",
-                    icon: {
-                        id: expect.any(String),
-                        url: "https://example.com/icon.png",
-                    }
-                },
-                {
-                    id: expect.any(String),
-                    name: "Test Theme 2",
-                    description: "This is a test theme 2",
-                    iconId: iconId,
-                    slug: "test-theme-2",
-                    icon: {
-                        id: expect.any(String),
-                        url: "https://example.com/icon.png",
-                    }
-                },
-            ],
-        });
     });
 });

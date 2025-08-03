@@ -21,6 +21,7 @@ describe("[e2e] Get Lesson Route", () => {
             description: "Description for Topic 1",
             slug: "topic-1",
             iconId,
+            order: 1,
         });
 
         const { id: themeId } = await themeRepository.create({
@@ -30,7 +31,7 @@ describe("[e2e] Get Lesson Route", () => {
             iconId,
         });
 
-        const {id: lessonId} = await lessonRepository.create({
+        const { id: lessonId } = await lessonRepository.create({
             name: "Lesson 1",
             description: "Description for Lesson 1",
             rewardXP: 100,
@@ -40,8 +41,7 @@ describe("[e2e] Get Lesson Route", () => {
             iconId,
         });
 
-        const response = await request(app)
-            .get(`/lessons/${lessonId}`);
+        const response = await request(app).get(`/lessons/${lessonId}`);
 
         expect(response.status).toBe(200);
         expect(response.body.success).toBe(true);

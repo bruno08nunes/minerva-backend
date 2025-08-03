@@ -29,14 +29,15 @@ describe("[e2e] Create Lesson Route", () => {
             name: "Topic 1",
             description: "Description for Topic 1",
             slug: "topic-1",
-            iconId
+            iconId,
+            order: 1,
         });
 
         const { id: themeId } = await themeRepository.create({
             name: "Theme 1",
             description: "Description for Theme 1",
             slug: "theme-1",
-            iconId
+            iconId,
         });
 
         const token = signJwt({ id: userId, role: "ADMIN" });

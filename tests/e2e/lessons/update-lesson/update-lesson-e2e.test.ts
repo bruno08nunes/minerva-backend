@@ -32,6 +32,7 @@ describe("[e2e] Update Lesson Route", () => {
             description: "Description for Topic 1",
             slug: "topic-1",
             iconId,
+            order: 1,
         });
 
         const { id: themeId } = await themeRepository.create({
