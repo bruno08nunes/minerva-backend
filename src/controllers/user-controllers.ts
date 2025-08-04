@@ -164,9 +164,9 @@ export async function loginController(req: Request, res: Response) {
 
 export async function registerUserController(req: Request, res: Response) {
     const registerBodySchema = z.object({
-        name: z.string(),
+        name: z.string().min(3).max(255),
         email: z.string().email(),
-        password: z.string().min(6),
+        password: z.string().min(6).max(20),
         username: z
             .string()
             .min(3)
@@ -233,10 +233,10 @@ export async function updateUserProfileController(req: Request, res: Response) {
 
     const updateBodySchema = z.object({
         id: z.string(),
-        name: z.string().optional(),
+        name: z.string().min(3).max(255).optional(),
         profilePictureId: z.string().optional(),
         email: z.string().email().optional(),
-        password: z.string().min(6).optional(),
+        password: z.string().min(6).max(20).optional(),
         username: z
             .string()
             .min(3)
