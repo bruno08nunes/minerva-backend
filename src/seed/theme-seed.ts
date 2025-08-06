@@ -14,7 +14,7 @@ export async function createThemes() {
                 id: "bb858ea9-6327-48a5-a523-39a07fb82183",
                 name: "Detetive",
                 description: "O tema de detetive envolve resolver mistérios enquanto você aprende sobre lógica e programação",
-                iconId: "6668bcde-d0bf-4e7e-8a33-a1a870e5051e",
+                iconId: "2d7aa8d9-256f-4763-a1f3-17738eb6a7a7",
                 slug: "detetive",
             },
             {

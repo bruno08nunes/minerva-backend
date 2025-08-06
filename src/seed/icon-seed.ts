@@ -51,6 +51,10 @@ export async function createIcons() {
                 id: "bae1f351-03fd-4736-9d64-4a107bae8d1a",
                 url: "horror.png",
             },
+            {
+                id: "2d7aa8d9-256f-4763-a1f3-17738eb6a7a7",
+                url: "detective.png",
+            },
         ],
     });
 }
