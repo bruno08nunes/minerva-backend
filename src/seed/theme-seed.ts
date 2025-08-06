@@ -21,7 +21,7 @@ export async function createThemes() {
                 id: "99f2d1eb-0ad7-4fba-b994-dfa8f735dbb4",
                 name: "Terror",
                 description: "O tema de terror se liga tanto com o medo quanto com a ansiedade.",
-                iconId: "6668bcde-d0bf-4e7e-8a33-a1a870e5051e",
+                iconId: "bae1f351-03fd-4736-9d64-4a107bae8d1a",
                 slug: "terror"
             }
         ],
