@@ -25,16 +25,19 @@ import progressRouter from "./routes/progress-routes";
 import achievementRouter from "./routes/achievement-routes";
 import userAchievementRouter from "./routes/user-achievement-routes";
 import followRouter from "./routes/follow-routes";
+import { verifyUserRoleMiddleware } from "./middlewares/verify-user-role";
 
 const app = express();
 
 // Middlewares
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-    origin: "http://localhost:3000", // ou a URL do seu frontend
-    credentials: true, // permite cookies
-  }));
+app.use(
+    cors({
+        origin: "http://localhost:3000", // ou a URL do seu frontend
+        credentials: true, // permite cookies
+    })
+);
 
 // Routes
 app.use("/", followRouter);
@@ -52,10 +55,21 @@ app.use("/", progressRouter);
 app.use("/", achievementRouter);
 app.use("/", userAchievementRouter);
 
+app.get("/admin", verifyUserRoleMiddleware, (req, res) => {
+    res.json({ message: "Cargo verificado", success: true });
+    return;
+});
+
 app.use("/api/docs", SwaggerUI.serve, SwaggerUI.setup(swaggerDocument));
 
-app.use("/uploads/profile-images", express.static(path.join(__dirname, "public", "profile-images")));
-app.use("/uploads/icons", express.static(path.join(__dirname, "public", "icons")));
+app.use(
+    "/uploads/profile-images",
+    express.static(path.join(__dirname, "public", "profile-images"))
+);
+app.use(
+    "/uploads/icons",
+    express.static(path.join(__dirname, "public", "icons"))
+);
 
 // Global Error Handler
 app.use(errorHandler);
