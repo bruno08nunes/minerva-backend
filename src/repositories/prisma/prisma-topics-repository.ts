@@ -11,6 +11,9 @@ export class PrismaTopicsRepository implements ITopicRepository {
     async findBySlug(slug: string) {
         return await prisma.topic.findUnique({
             where: { slug },
+            include: {
+                icon: true,
+            },
         });
     }
 

@@ -71,6 +71,7 @@ export async function updateTopicController(req: Request, res: Response) {
             description: z.string().optional(),
             slug: z.string().optional(),
             order: z.number().int().optional(),
+            iconId: z.string().optional(),
             id: z.string().uuid(),
         });
 
@@ -84,6 +85,7 @@ export async function updateTopicController(req: Request, res: Response) {
             description: data.description,
             slug: data.slug,
             order: data.order,
+            iconId: data.iconId,
         });
 
         res.status(200).json({
