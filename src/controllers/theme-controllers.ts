@@ -69,6 +69,7 @@ export async function updateThemeController(req: Request, res: Response) {
             name: z.string().optional(),
             description: z.string().optional(),
             slug: z.string().optional(),
+            iconId: z.string().optional(),
             id: z.string().uuid(),
         });
 
@@ -81,6 +82,7 @@ export async function updateThemeController(req: Request, res: Response) {
             name: data.name,
             description: data.description,
             slug: data.slug,
+            iconId: data.iconId,
         });
 
         res.status(200).json({
