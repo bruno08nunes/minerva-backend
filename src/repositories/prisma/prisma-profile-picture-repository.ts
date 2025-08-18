@@ -2,7 +2,9 @@ import { Prisma } from "../../generated/prisma";
 import { prisma } from "../../lib/prisma";
 import { IProfilePicturesRepository } from "../profile-picture-repository";
 
-export class PrismaProfilePictureRepository implements IProfilePicturesRepository {
+export class PrismaProfilePictureRepository
+    implements IProfilePicturesRepository
+{
     async list() {
         return await prisma.profilePicture.findMany();
     }
@@ -23,9 +25,10 @@ export class PrismaProfilePictureRepository implements IProfilePicturesRepositor
         return {
             id: profilePicture.id,
             url: profilePicture.url,
+            description: profilePicture.description,
         };
     }
-    
+
     async delete(id: string) {
         const profilePicture = await prisma.profilePicture.delete({
             where: {
@@ -36,6 +39,7 @@ export class PrismaProfilePictureRepository implements IProfilePicturesRepositor
         return {
             id: profilePicture.id,
             url: profilePicture.url,
+            description: profilePicture.description,
         };
     }
 }

@@ -6,7 +6,7 @@ export class ProfilePicturesService {
     constructor(private profilePictureRepository: IProfilePicturesRepository) {}
 
     async createProfilePicture(data: Prisma.ProfilePictureCreateInput) {
-        return this.profilePictureRepository.create({ url: data.url });
+        return this.profilePictureRepository.create({ url: data.url, description: data.description });
     }
 
     async getProfilePictureById(id: string) {

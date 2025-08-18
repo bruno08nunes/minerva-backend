@@ -5,13 +5,19 @@ import NotFoundError from "../utils/errors/not-found";
 import { unlink } from "fs";
 import { join } from "path";
 
-const profilePictureService = new ProfilePicturesService(new PrismaProfilePictureRepository());
+const profilePictureService = new ProfilePicturesService(
+    new PrismaProfilePictureRepository()
+);
 
-export async function getProfilePictureByIdController(req: Request, res: Response) {
+export async function getProfilePictureByIdController(
+    req: Request,
+    res: Response
+) {
     const { id } = req.params;
 
     try {
-        const profilePicture = await profilePictureService.getProfilePictureById(id);
+        const profilePicture =
+            await profilePictureService.getProfilePictureById(id);
 
         if (!profilePicture) {
             throw new NotFoundError();
@@ -35,8 +41,12 @@ export async function getProfilePictureByIdController(req: Request, res: Respons
     }
 }
 
-export async function uploadProfilePictureController(req: Request, res: Response) {
+export async function uploadProfilePictureController(
+    req: Request,
+    res: Response
+) {
     const { file } = req;
+    const { description } = req.body;
 
     if (!file) {
         res.status(400).json({
@@ -46,7 +56,10 @@ export async function uploadProfilePictureController(req: Request, res: Response
         return;
     }
 
-    const profilePicture = await profilePictureService.createProfilePicture({ url: file.filename });
+    const profilePicture = await profilePictureService.createProfilePicture({
+        url: file.filename,
+        description,
+    });
 
     res.status(201).json({
         data: profilePicture,
@@ -55,7 +68,10 @@ export async function uploadProfilePictureController(req: Request, res: Response
     });
 }
 
-export async function listProfilePicturesController(req: Request, res: Response) {
+export async function listProfilePicturesController(
+    req: Request,
+    res: Response
+) {
     const profilePictures = await profilePictureService.listProfilePictures();
 
     res.json({
@@ -65,12 +81,23 @@ export async function listProfilePicturesController(req: Request, res: Response)
     });
 }
 
-export async function deleteProfilePictureController(req: Request, res: Response) {
+export async function deleteProfilePictureController(
+    req: Request,
+    res: Response
+) {
     const { id } = req.params;
 
     try {
-        const profilePicture = await profilePictureService.deleteProfilePicture(id);
-        const filePath = join(__dirname, "..", "public", "profile-images", profilePicture.url);
+        const profilePicture = await profilePictureService.deleteProfilePicture(
+            id
+        );
+        const filePath = join(
+            __dirname,
+            "..",
+            "public",
+            "profile-images",
+            profilePicture.url
+        );
 
         unlink(filePath, (err) => {
             if (err) {
