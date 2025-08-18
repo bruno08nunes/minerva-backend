@@ -40,6 +40,7 @@ export async function getIconByIdController(req: Request, res: Response) {
 
 export async function createIconController(req: Request, res: Response) {
     const { file } = req;
+    const { description } = req.body;
 
     if (!file) {
         res.status(400).json({
@@ -51,6 +52,7 @@ export async function createIconController(req: Request, res: Response) {
 
     const icon = await iconService.createIcon({
         url: file.filename,
+        description,
     });
 
     res.status(201).json({
@@ -73,7 +75,10 @@ export async function editIconController(req: Request, res: Response) {
         return;
     }
 
-    const icon = await iconService.editIcon(id, { url: file.filename, description });
+    const icon = await iconService.editIcon(id, {
+        url: file.filename,
+        description,
+    });
 
     res.status(201).json({
         data: icon,

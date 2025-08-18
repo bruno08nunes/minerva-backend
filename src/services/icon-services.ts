@@ -16,7 +16,10 @@ export class IconServices {
     }
 
     async createIcon(data: Prisma.IconCreateInput) {
-        return this.iconsRepository.create({ url: data.url });
+        return this.iconsRepository.create({
+            url: data.url,
+            description: data.description,
+        });
     }
 
     async editIcon(id: string, data: { url?: string; description?: string }) {

@@ -27,7 +27,7 @@ export class PrismaIconsRepository implements IIconsRepository {
             where: {
                 id,
             },
-            data: { url: data.url },
+            data,
         });
 
         return icon;
