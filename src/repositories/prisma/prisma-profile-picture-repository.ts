@@ -29,6 +29,17 @@ export class PrismaProfilePictureRepository
         };
     }
 
+    async edit(id: string, data: { url: string; description: string }) {
+        const profilePicture = await prisma.profilePicture.update({
+            where: {
+                id,
+            },
+            data,
+        });
+
+        return profilePicture;
+    }
+
     async delete(id: string) {
         const profilePicture = await prisma.profilePicture.delete({
             where: {

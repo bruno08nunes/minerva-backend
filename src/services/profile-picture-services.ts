@@ -6,7 +6,10 @@ export class ProfilePicturesService {
     constructor(private profilePictureRepository: IProfilePicturesRepository) {}
 
     async createProfilePicture(data: Prisma.ProfilePictureCreateInput) {
-        return this.profilePictureRepository.create({ url: data.url, description: data.description });
+        return this.profilePictureRepository.create({
+            url: data.url,
+            description: data.description,
+        });
     }
 
     async getProfilePictureById(id: string) {
@@ -19,6 +22,19 @@ export class ProfilePicturesService {
         return profilePicture;
     }
 
+    async editProfilePicture(
+        id: string,
+        data: { url: string; description: string }
+    ) {
+        const profilePicture = await this.profilePictureRepository.findById(id);
+
+        if (!profilePicture) {
+            throw new NotFoundError();
+        }
+
+        return this.createProfilePicture.edit(id, data);
+    }
+
     async deleteProfilePicture(id: string) {
         const profilePicture = await this.profilePictureRepository.findById(id);
 
@@ -26,7 +42,8 @@ export class ProfilePicturesService {
             throw new NotFoundError();
         }
 
-        const deletedProfilePicture = await this.profilePictureRepository.delete(id);
+        const deletedProfilePicture =
+            await this.profilePictureRepository.delete(id);
 
         return deletedProfilePicture;
     }

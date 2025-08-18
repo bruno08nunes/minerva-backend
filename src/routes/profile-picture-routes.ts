@@ -4,6 +4,7 @@ import {
     uploadProfilePictureController,
     listProfilePicturesController,
     deleteProfilePictureController,
+    editProfilePictureController,
 } from "../controllers/profile-picture-controllers";
 import { uploadImageMiddleware } from "../middlewares/upload-middleware";
 import { verifyUserRoleMiddleware } from "../middlewares/verify-user-role";
@@ -21,6 +22,12 @@ profilePictureRoutes.post(
     uploadProfilePictureController
 );
 profilePictureRoutes.get("/profile-pictures", listProfilePicturesController);
+profilePictureRoutes.put(
+    "/profile-pictures/:id",
+    verifyUserRoleMiddleware,
+    uploadImageMiddleware("file", "profileImage"),
+    editProfilePictureController
+);
 profilePictureRoutes.delete(
     "/profile-pictures/:id",
     verifyUserRoleMiddleware,

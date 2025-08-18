@@ -81,6 +81,46 @@ export async function listProfilePicturesController(
     });
 }
 
+export async function editProfilePictureController(
+    req: Request,
+    res: Response
+) {
+    const { file } = req;
+    const { description } = req.body;
+    const { id } = req.params;
+
+    if (!file) {
+        res.status(400).json({
+            success: false,
+            message: "File not send.",
+        });
+        return;
+    }
+
+    try {
+        const icon = await profilePictureService.editProfilePicture(id, {
+            url: file.filename,
+            description,
+        });
+
+        res.status(201).json({
+            data: icon,
+            success: true,
+            message: "Profile picture updated successfully.",
+        });
+    } catch (error) {
+        if (error instanceof NotFoundError) {
+            res.status(404).json({
+                message: error.message || "Profile picture not found.",
+                success: false,
+            });
+            return;
+        }
+
+        throw error;
+    }
+}
+
 export async function deleteProfilePictureController(
     req: Request,
     res: Response

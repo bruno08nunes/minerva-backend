@@ -5,4 +5,5 @@ export interface IProfilePicturesRepository {
     findById(id: string): Promise<ProfilePicture | null>;
     create(data: Prisma.ProfilePictureCreateInput): Promise<ProfilePicture>;
     delete(id: string): Promise<ProfilePicture>;
+    edit(id: string, data: { url: string; description: string });
 }
