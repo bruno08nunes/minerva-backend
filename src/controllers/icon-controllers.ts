@@ -60,6 +60,28 @@ export async function createIconController(req: Request, res: Response) {
     });
 }
 
+export async function editIconController(req: Request, res: Response) {
+    const { file } = req;
+    const { description } = req.body;
+    const { id } = req.params;
+
+    if (!file) {
+        res.status(400).json({
+            success: false,
+            message: "File not send.",
+        });
+        return;
+    }
+
+    const icon = await iconService.editIcon(id, { url: file.filename, description });
+
+    res.status(201).json({
+        data: icon,
+        success: true,
+        message: "Icon updated successfully.",
+    });
+}
+
 export async function deleteIconController(req: Request, res: Response) {
     const { id } = req.params;
 

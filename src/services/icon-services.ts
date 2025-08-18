@@ -19,6 +19,10 @@ export class IconServices {
         return this.iconsRepository.create({ url: data.url });
     }
 
+    async editIcon(id: string, data: { url?: string; description?: string }) {
+        return this.iconsRepository.edit(id, data);
+    }
+
     async deleteIcon(id: string) {
         const icon = await this.iconsRepository.findById(id);
 

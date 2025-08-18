@@ -22,6 +22,17 @@ export class PrismaIconsRepository implements IIconsRepository {
         return icon;
     }
 
+    async edit(id: string, data: { url?: string; description?: string }) {
+        const icon = await prisma.icon.update({
+            where: {
+                id,
+            },
+            data: { url: data.url },
+        });
+
+        return icon;
+    }
+
     async delete(id: string) {
         const icon = await prisma.icon.delete({
             where: { id },
