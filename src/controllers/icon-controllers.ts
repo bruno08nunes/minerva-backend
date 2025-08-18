@@ -75,16 +75,28 @@ export async function editIconController(req: Request, res: Response) {
         return;
     }
 
-    const icon = await iconService.editIcon(id, {
-        url: file.filename,
-        description,
-    });
+    try {
+        const icon = await iconService.editIcon(id, {
+            url: file.filename,
+            description,
+        });
 
-    res.status(201).json({
-        data: icon,
-        success: true,
-        message: "Icon updated successfully.",
-    });
+        res.status(201).json({
+            data: icon,
+            success: true,
+            message: "Icon updated successfully.",
+        });
+    } catch (error) {
+        if (error instanceof NotFoundError) {
+            res.status(404).json({
+                message: error.message || "Icon not found.",
+                success: false,
+            });
+            return;
+        }
+
+        throw error;
+    }
 }
 
 export async function deleteIconController(req: Request, res: Response) {

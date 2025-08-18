@@ -23,6 +23,12 @@ export class IconServices {
     }
 
     async editIcon(id: string, data: { url?: string; description?: string }) {
+        const icon = this.iconsRepository.findById(id);
+
+        if (!icon) {
+            throw new NotFoundError();
+        }
+
         return this.iconsRepository.edit(id, data);
     }
 
