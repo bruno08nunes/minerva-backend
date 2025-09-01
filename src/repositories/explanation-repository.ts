@@ -4,6 +4,7 @@ export interface CreateExplanationType {
   title: string;
   content: Prisma.InputJsonValue;
   topicId: string;
+  description: string;
 };
 
 export interface IExplanationRepository {

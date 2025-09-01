@@ -76,6 +76,7 @@ export async function createExplanationController(req: Request, res: Response) {
             })
         ),
         topicId: z.string().uuid(),
+        description: z.string(),
     });
 
     const data = createBodySchema.parse(req.body);
@@ -92,12 +93,14 @@ export async function createExplanationController(req: Request, res: Response) {
 export async function updateExplanationController(req: Request, res: Response) {
     const updateBodySchema = z.object({
         title: z.string().optional(),
-        content: z.array(
-            z.object({
-                type: z.enum(["paragraph", "code", "image"]),
-                data: z.string(),
-            })
-        ).optional(),
+        content: z
+            .array(
+                z.object({
+                    type: z.enum(["paragraph", "code", "image"]),
+                    data: z.string(),
+                })
+            )
+            .optional(),
         topicId: z.string().uuid().optional(),
         id: z.string().uuid(),
     });
@@ -139,13 +142,13 @@ export async function deleteExplanationController(req: Request, res: Response) {
         res.json({
             message: "Explanation deleted successfully.",
             success: true,
-            data: explanation
+            data: explanation,
         });
     } catch (err) {
         if (err instanceof NotFoundError) {
             res.json({
                 message: err.message || "Explanation not found.",
-                success: false
+                success: false,
             });
         }
 
