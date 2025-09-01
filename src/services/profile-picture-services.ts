@@ -32,7 +32,7 @@ export class ProfilePicturesService {
             throw new NotFoundError();
         }
 
-        return this.createProfilePicture.edit(id, data);
+        return this.profilePictureRepository.edit(id, data);
     }
 
     async deleteProfilePicture(id: string) {
