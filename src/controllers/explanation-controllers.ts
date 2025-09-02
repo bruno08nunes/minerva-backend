@@ -102,6 +102,7 @@ export async function updateExplanationController(req: Request, res: Response) {
             )
             .optional(),
         topicId: z.string().uuid().optional(),
+        description: z.string().optional(),
         id: z.string().uuid(),
     });
 
