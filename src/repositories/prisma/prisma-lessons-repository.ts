@@ -41,8 +41,16 @@ export class PrismaLessonsRepository implements ILessonRepository {
                         order: "asc",
                     },
                 },
-                topic: true,
-                theme: true,
+                topic: {
+                    include: {
+                        icon: true,
+                    },
+                },
+                theme: {
+                    include: {
+                        icon: true,
+                    },
+                },
                 icon: true,
             },
             orderBy: { order: "asc" },
@@ -67,8 +75,16 @@ export class PrismaLessonsRepository implements ILessonRepository {
                     order: "asc",
                 },
             },
-            topic: true,
-            theme: true,
+            topic: {
+                include: {
+                    icon: true,
+                },
+            },
+            theme: {
+                include: {
+                    icon: true,
+                },
+            },
             icon: true,
         };
 
