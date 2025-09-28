@@ -77,12 +77,14 @@ export async function createExerciseController(req: Request, res: Response) {
 
 export async function updateExerciseController(req: Request, res: Response) {
     const createBodySchema = z.object({
-        content: z.array(
-            z.object({
-                type: z.enum(["paragraph", "code"]),
-                data: z.string(),
-            })
-        ).optional(),
+        content: z
+            .array(
+                z.object({
+                    type: z.enum(["paragraph", "code"]),
+                    data: z.string(),
+                })
+            )
+            .optional(),
         order: z.number().int().optional(),
         hint: z.string().optional(),
         id: z.string().uuid(),
@@ -112,6 +114,28 @@ export async function updateExerciseController(req: Request, res: Response) {
 
         throw err;
     }
+}
+
+export async function updateExercisesOrderController(
+    req: Request,
+    res: Response
+) {
+    const createBodySchema = z.array(
+        z.object({
+            order: z.number().int(),
+            id: z.string(),
+        })
+    );
+
+    const exercises = createBodySchema.parse(req.body);
+
+    const exercise = await exerciseService.updateExercisesOrder(exercises);
+
+    res.json({
+        message: "Exercises updated successfully.",
+        success: true,
+        data: exercise,
+    });
 }
 
 export async function deleteExerciseController(req: Request, res: Response) {

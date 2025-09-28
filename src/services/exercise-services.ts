@@ -41,6 +41,10 @@ export class ExerciseServices {
         return updatedExercise;
     }
 
+    async updateExercisesOrder(exercises: {id: string, order: number}[]) {
+        return this.exerciseRepository.updateOrders(exercises);
+    }
+
     async deleteExercise(id: string) {
         const exercise = await this.exerciseRepository.findById(id);
 

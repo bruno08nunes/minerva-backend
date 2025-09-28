@@ -95,6 +95,8 @@ export async function updateLessonController(req: Request, res: Response) {
         description: z.string().optional(),
         rewardXP: z.number().int().optional(),
         order: z.number().int().optional(),
+        topicId: z.string(),
+        themeId: z.string(),
         id: z.string().uuid(),
     });
 

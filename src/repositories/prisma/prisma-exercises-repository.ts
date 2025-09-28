@@ -39,6 +39,17 @@ export class PrismaExercisesRepository implements IExercisesRepository {
         });
     }
 
+    async updateOrders(exercises: { id: string; order: number }[]) {
+        const transactions = exercises.map((exercise) =>
+            prisma.exercise.update({
+                where: { id: exercise.id },
+                data: { order: exercise.order },
+            })
+        );
+
+        return await prisma.$transaction(transactions);
+    }
+
     async delete(id: string) {
         return prisma.exercise.delete({ where: { id } });
     }

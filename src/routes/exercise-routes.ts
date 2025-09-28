@@ -5,11 +5,13 @@ import {
     getExerciseByIdController,
     listExercisesByLessonController,
     updateExerciseController,
+    updateExercisesOrderController,
 } from "../controllers/exercise-controllers";
 import { verifyUserRoleMiddleware } from "../middlewares/verify-user-role";
 
 const exerciseRouter = Router();
 
+exerciseRouter.patch("/exercises/order", verifyUserRoleMiddleware, updateExercisesOrderController);
 exerciseRouter.get(
     "/exercises/list/:lessonId",
     listExercisesByLessonController
