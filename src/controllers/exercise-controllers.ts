@@ -58,7 +58,6 @@ export async function createExerciseController(req: Request, res: Response) {
                 data: z.string(),
             })
         ),
-        order: z.number().int(),
         type: z.nativeEnum($Enums.ExerciseType),
         hint: z.string(),
         lessonId: z.string().uuid(),
@@ -87,7 +86,7 @@ export async function updateExerciseController(req: Request, res: Response) {
             .optional(),
         order: z.number().int().optional(),
         hint: z.string().optional(),
-        id: z.string().uuid(),
+        id: z.string(),
     });
 
     const { id, ...data } = createBodySchema.parse({

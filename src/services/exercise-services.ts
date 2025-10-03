@@ -1,4 +1,5 @@
 import { Prisma } from "../generated/prisma";
+import { prisma } from "../lib/prisma";
 import {
     CreateExerciseType,
     IExercisesRepository,
@@ -23,7 +24,23 @@ export class ExerciseServices {
     }
 
     async createExercise(data: CreateExerciseType) {
-        return await this.exerciseRepository.create(data);
+        const biggestOrder = await prisma.exercise.aggregate({
+            _max: {
+                order: true,
+            },
+            where: {
+                lessonId: data.lessonId
+            }
+        });
+
+        const nextOrder = biggestOrder._max?.order
+            ? biggestOrder._max.order + 1
+            : 1;
+
+        return await this.exerciseRepository.create({
+            ...data,
+            order: nextOrder,
+        });
     }
 
     async updateExercise(
@@ -41,7 +58,7 @@ export class ExerciseServices {
         return updatedExercise;
     }
 
-    async updateExercisesOrder(exercises: {id: string, order: number}[]) {
+    async updateExercisesOrder(exercises: { id: string; order: number }[]) {
         return this.exerciseRepository.updateOrders(exercises);
     }
 

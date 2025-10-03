@@ -2,7 +2,7 @@ import { $Enums, Exercise, Prisma } from "../generated/prisma";
 
 export interface CreateExerciseType {
     content: Prisma.InputJsonValue;
-    order: number;
+    order?: number;
     type: $Enums.ExerciseType;
     hint: string;
     lessonId: string;
