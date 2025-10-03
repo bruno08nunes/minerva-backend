@@ -9,6 +9,9 @@ export class PrismaExercisesRepository implements IExercisesRepository {
     async findById(id: string) {
         const exercise = await prisma.exercise.findUnique({
             where: { id },
+            include: {
+                choices: true
+            }
         });
 
         if (!exercise) {
@@ -25,7 +28,7 @@ export class PrismaExercisesRepository implements IExercisesRepository {
         });
     }
 
-    async create(data: CreateExerciseType) {
+    async create(data: Required<CreateExerciseType>) {
         return prisma.exercise.create({ data });
     }
 
