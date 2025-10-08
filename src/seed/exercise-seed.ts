@@ -1,11 +1,11 @@
 import { prisma } from "../lib/prisma";
+import { arithmeticExercises } from "./data/rpg/operators/exercises";
 import {
-    arithmeticExercises,
     assignmentLessonExercises,
     constExercises,
     dataTypesLessonExercises,
     firstLessonExercises,
-} from "./data/rpg/variable-and-operators/exercises";
+} from "./data/rpg/variable/exercises";
 
 export async function createExercises() {
     return prisma.exercise.createMany({

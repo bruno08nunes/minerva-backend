@@ -1,11 +1,11 @@
 import { prisma } from "../lib/prisma";
+import { arithmeticChoices } from "./data/rpg/operators/choices";
 import {
     firstLessonChoices,
     dataTypesLessonChoices,
     assignmentLessonChoices,
     constChoices,
-    arithmeticChoices,
-} from "./data/rpg/variable-and-operators/choices";
+} from "./data/rpg/variable/choices";
 
 export async function createChoices() {
     return prisma.choice.createMany({
