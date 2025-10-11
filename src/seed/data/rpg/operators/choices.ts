@@ -175,3 +175,172 @@ export const assignmentChoices = [
         exerciseId: "48d06c00-337f-4ac4-829f-55f93abdf85f",
     },
 ];
+
+export const relationalChoices = [
+    // Exercício 1
+    {
+        id: "c181f75b-18b3-457f-8175-98950076fcb1",
+        text: "Continuar",
+        isCorrect: true,
+        order: 1,
+        exerciseId: "c181f75b-18b3-457f-8175-98950076fcb2",
+    },
+
+    // Exercício 2
+    {
+        id: "a3815f92-8703-40ff-93c7-38a359a905b1",
+        text: "<=",
+        isCorrect: true,
+        order: 1,
+        exerciseId: "a3815f92-8703-40ff-93c7-38a359a905b9",
+    },
+
+    // Exercício 3
+    {
+        id: "29159d16-5dda-4aa6-86d5-df43b8090344",
+        text: "==",
+        isCorrect: true,
+        order: 1,
+        exerciseId: "29159d16-5dda-4aa6-86d5-df43b8090343",
+    },
+    {
+        id: "29159d16-5dda-4aa6-86d5-df43b8090345",
+        text: "=",
+        isCorrect: false,
+        order: 2,
+        exerciseId: "29159d16-5dda-4aa6-86d5-df43b8090343",
+    },
+    {
+        id: "29159d16-5dda-4aa6-86d5-df43b8090346",
+        text: "!=",
+        isCorrect: false,
+        order: 3,
+        exerciseId: "29159d16-5dda-4aa6-86d5-df43b8090343",
+    },
+    {
+        id: "29159d16-5dda-4aa6-86d5-df43b8090347",
+        text: ">=",
+        isCorrect: true,
+        order: 4,
+        exerciseId: "29159d16-5dda-4aa6-86d5-df43b8090343",
+    },
+
+    // Exercício 4
+    {
+        id: "db7f93c3-b325-4d8f-97f3-ff5c430d6811",
+        text: "!=",
+        isCorrect: true,
+        order: 1,
+        exerciseId: "db7f93c3-b325-4d8f-97f3-ff5c430d6811",
+    },
+];
+
+export const logicalChoices = [
+    // Exercício 0
+    {
+        id: "99b6d49e-fda6-4b89-835a-482a5f63ba61",
+        text: "Continuar",
+        isCorrect: true,
+        order: 1,
+        exerciseId: "99b6d49e-fda6-4b89-835a-482a5f63ba6f",
+    },
+
+    // Exerício 1
+    {
+        id: "c9b15bb8-8b3f-44e8-b7ac-579df9fd9a11",
+        text: "&&",
+        isCorrect: true,
+        order: 1,
+        exerciseId: "c9b15bb8-8b3f-44e8-b7ac-579df9fd9a17",
+    },
+    {
+        id: "c9b15bb8-8b3f-44e8-b7ac-579df9fd9a12",
+        text: "||",
+        isCorrect: false,
+        order: 2,
+        exerciseId: "c9b15bb8-8b3f-44e8-b7ac-579df9fd9a17",
+    },
+    {
+        id: "c9b15bb8-8b3f-44e8-b7ac-579df9fd9a13",
+        text: "!",
+        isCorrect: false,
+        order: 3,
+        exerciseId: "c9b15bb8-8b3f-44e8-b7ac-579df9fd9a17",
+    },
+    {
+        id: "c9b15bb8-8b3f-44e8-b7ac-579df9fd9a14",
+        text: "and",
+        isCorrect: false,
+        order: 4,
+        exerciseId: "c9b15bb8-8b3f-44e8-b7ac-579df9fd9a17",
+    },
+
+    // Exercício 2
+    {
+        id: "d929f654-76d2-46d1-97ff-3b7cc5272358",
+        text: "||",
+        isCorrect: true,
+        order: 1,
+        exerciseId: "d929f654-76d2-46d1-97ff-3b7cc5272358",
+    },
+
+    // Exercício 3 - NÃO lógico (!)
+    {
+        id: "ec2d205b-96a5-4ab1-8261-c3ba082a7351",
+        text: "!",
+        isCorrect: true,
+        order: 1,
+        exerciseId: "ec2d205b-96a5-4ab1-8261-c3ba082a7352",
+    },
+    {
+        id: "ec2d205b-96a5-4ab1-8261-c3ba082a7352",
+        text: "&&",
+        isCorrect: false,
+        order: 2,
+        exerciseId: "ec2d205b-96a5-4ab1-8261-c3ba082a7352",
+    },
+    {
+        id: "ec2d205b-96a5-4ab1-8261-c3ba082a7353",
+        text: "||",
+        isCorrect: false,
+        order: 3,
+        exerciseId: "ec2d205b-96a5-4ab1-8261-c3ba082a7352",
+    },
+    {
+        id: "ec2d205b-96a5-4ab1-8261-c3ba082a7354",
+        text: "not",
+        isCorrect: false,
+        order: 4,
+        exerciseId: "ec2d205b-96a5-4ab1-8261-c3ba082a7352",
+    },
+
+    // Exercício 4
+    {
+        id: "d9f62e56-0b10-41ba-aa85-63485eca6111",
+        text: "if (!temMana)",
+        isCorrect: true,
+        order: 1,
+        exerciseId: "d9f62e56-0b10-41ba-aa85-63485eca6117",
+    },
+    {
+        id: "d9f62e56-0b10-41ba-aa85-63485eca6112",
+        text: "if (temMana)",
+        isCorrect: false,
+        order: 2,
+        exerciseId: "d9f62e56-0b10-41ba-aa85-63485eca6117",
+    },
+    {
+        id: "d9f62e56-0b10-41ba-aa85-63485eca6113",
+        text: "if (temMana && !vida)",
+        isCorrect: false,
+        order: 3,
+        exerciseId: "d9f62e56-0b10-41ba-aa85-63485eca6117",
+    },
+    {
+        id: "d9f62e56-0b10-41ba-aa85-63485eca6114",
+        text: "if (temMana || !vida)",
+        isCorrect: false,
+        order: 4,
+        exerciseId: "d9f62e56-0b10-41ba-aa85-63485eca6117",
+    },
+];

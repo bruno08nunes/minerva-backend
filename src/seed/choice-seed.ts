@@ -1,5 +1,5 @@
 import { prisma } from "../lib/prisma";
-import { arithmeticChoices } from "./data/rpg/operators/choices";
+import { arithmeticChoices, assignmentChoices, logicalChoices, relationalChoices } from "./data/rpg/operators/choices";
 import {
     firstLessonChoices,
     dataTypesLessonChoices,
@@ -15,6 +15,9 @@ export async function createChoices() {
             ...assignmentLessonChoices,
             ...constChoices,
             ...arithmeticChoices,
+            ...assignmentChoices,
+            ...relationalChoices,
+            ...logicalChoices,
         ],
     });
 }

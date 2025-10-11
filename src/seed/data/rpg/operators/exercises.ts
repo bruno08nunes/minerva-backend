@@ -80,7 +80,7 @@ export const assignmentExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Os operadores de atribuição alteram um valor de uma variável. O operador = pode ser misturado com operadores aritméticos (+, -, *, /, %) para somar um valor à variável.",
+                data: "Os operadores de atribuição alteram um valor de uma variável. O operador de atribuição (=) pode ser misturado com operadores aritméticos (+, -, *, /, %) para realizar a operação enquanto atribui o valor à variável.",
             },
         ],
         hint: "Use o operador básico de atribuição.",
@@ -100,7 +100,7 @@ export const assignmentExercises = [
                 data: "experiencia _____ 50",
             },
         ],
-        hint: "Use o operador que **soma e reatribui** o valor.",
+        hint: "Use o operador que soma e reatribui o valor.",
         type: "COMPLETE_CODE",
         lessonId: "d0f6ac2a-32ab-4c7f-b147-91a2e888d871",
         order: 2,
@@ -117,7 +117,7 @@ export const assignmentExercises = [
                 data: "vida _____ 20",
             },
         ],
-        hint: "Use o operador que **subtrai e atualiza** o valor.",
+        hint: "Use o operador que subtrai e atualiza o valor.",
         type: "MULTIPLE_CHOICE",
         lessonId: "d0f6ac2a-32ab-4c7f-b147-91a2e888d871",
         order: 3,
@@ -134,7 +134,7 @@ export const assignmentExercises = [
                 data: "durabilidade _____ 2",
             },
         ],
-        hint: "Use o operador que **multiplica e reatribui** o valor.",
+        hint: "Use o operador que multiplica e reatribui o valor.",
         type: "COMPLETE_CODE",
         lessonId: "d0f6ac2a-32ab-4c7f-b147-91a2e888d871",
         order: 4,
@@ -154,6 +154,141 @@ export const assignmentExercises = [
         hint: "Use o operador que divide e reatribui o valor.",
         type: "MULTIPLE_CHOICE",
         lessonId: "d0f6ac2a-32ab-4c7f-b147-91a2e888d871",
+        order: 5,
+    },
+] as const;
+
+export const relationalExercises = [
+    {
+        id: "c181f75b-18b3-457f-8175-98950076fcb2",
+        content: [
+            {
+                type: "paragraph",
+                data: "Os operadores relacionais são aqueles que comparam dois valores. Eles podem ser o de maior que (>), menor que (<), igual (==) ou diferente (!=).",
+            },
+        ],
+        hint: "",
+        type: "MULTIPLE_CHOICE",
+        lessonId: "ae902a15-03c9-4a17-9e2a-9134c82b921d",
+        order: 1,
+    },
+    {
+        id: "a3815f92-8703-40ff-93c7-38a359a905b9",
+        content: [
+            {
+                type: "paragraph",
+                data: "A feiticeira quer verificar se sua energia é menor ou igual a 50. Complete o código:",
+            },
+            {
+                type: "code",
+                data: "if (energia _____ 50) {\n console.log('Energia baixa!') \n}",
+            },
+        ],
+        hint: "Combine os símbolos de 'menor' e 'igual'.",
+        type: "COMPLETE_CODE",
+        lessonId: "ae902a15-03c9-4a17-9e2a-9134c82b921d",
+        order: 2,
+    },
+    {
+        id: "29159d16-5dda-4aa6-86d5-df43b8090343",
+        content: [
+            {
+                type: "paragraph",
+                data: "O mago quer saber se dois ingredientes possuem o mesmo valor mágico. Qual operador deve usar?",
+            },
+        ],
+        hint: "Use o operador de igualdade.",
+        type: "MULTIPLE_CHOICE",
+        lessonId: "ae902a15-03c9-4a17-9e2a-9134c82b921d",
+        order: 3,
+    },
+    {
+        id: "db7f93c3-b325-4d8f-97f3-ff5c430d6811",
+        content: [
+            {
+                type: "paragraph",
+                data: "Você precisa testar se o valor de forca é diferente de 20. Complete o código:",
+            },
+            {
+                type: "code",
+                data: "if (forca _____ 20) {\n console.log('Força alterada!') \n}",
+            },
+        ],
+        hint: "O operador de diferença usa um ponto de exclamação.",
+        type: "COMPLETE_CODE",
+        lessonId: "ae902a15-03c9-4a17-9e2a-9134c82b921d",
+        order: 4,
+    },
+] as const;
+
+export const logicalExercises = [
+    {
+        id: "99b6d49e-fda6-4b89-835a-482a5f63ba6f",
+        content: [
+            {
+                type: "paragraph",
+                data: "Operadores lógicos são usados para comparar valores booleanos (verdadeiro ou falso) e combinar resultados para criar condições mais complexas. Elas são && (verdade quando todas são verdade), || (verdade quando ao menos uma é verdade) e ! (inverte o valor).",
+            },
+        ],
+        hint: "",
+        type: "MULTIPLE_CHOICE",
+        lessonId: "9b27d522-b76a-4a54-b6e5-8a941fbe00cd",
+        order: 1,
+    },
+    {
+        id: "c9b15bb8-8b3f-44e8-b7ac-579df9fd9a17",
+        content: [
+            {
+                type: "paragraph",
+                data: "O mago só pode lançar um feitiço se tiver mana maior que 50 e foco maior que 30. Qual operador lógico deve usar?",
+            },
+        ],
+        hint: "Use o operador que exige que todas as condições sejam verdadeiras.",
+        type: "MULTIPLE_CHOICE",
+        lessonId: "9b27d522-b76a-4a54-b6e5-8a941fbe00cd",
+        order: 2,
+    },
+    {
+        id: "d929f654-76d2-46d1-97ff-3b7cc5272358",
+        content: [
+            {
+                type: "paragraph",
+                data: "Você quer verificar se o guerreiro tem espada ou machado. Complete o código:",
+            },
+            {
+                type: "code",
+                data: "if (temEspada _____ temMachado) {\n console.log('Pronto para a batalha!') \n}",
+            },
+        ],
+        hint: "Use o operador que retorna verdadeiro se pelo menos uma condição for verdadeira.",
+        type: "COMPLETE_CODE",
+        lessonId: "9b27d522-b76a-4a54-b6e5-8a941fbe00cd",
+        order: 3,
+    },
+    {
+        id: "ec2d205b-96a5-4ab1-8261-c3ba082a7352",
+        content: [
+            {
+                type: "paragraph",
+                data: "A feiticeira quer garantir que não esteja envenenada antes de tomar a poção. Qual operador deve usar?",
+            },
+        ],
+        hint: "Use o operador de negação.",
+        type: "MULTIPLE_CHOICE",
+        lessonId: "9b27d522-b76a-4a54-b6e5-8a941fbe00cd",
+        order: 4,
+    },
+    {
+        id: "d9f62e56-0b10-41ba-aa85-63485eca6117",
+        content: [
+            {
+                type: "paragraph",
+                data: "Qual das opções retorna verdadeiro se o jogador não tiver mana?",
+            },
+        ],
+        hint: "Use o operador que inverte o valor lógico.",
+        type: "MULTIPLE_CHOICE",
+        lessonId: "9b27d522-b76a-4a54-b6e5-8a941fbe00cd",
         order: 5,
     },
 ] as const;

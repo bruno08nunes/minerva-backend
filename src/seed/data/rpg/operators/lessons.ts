@@ -45,15 +45,4 @@ export const operatorLessons = [
         order: 4,
         rewardXP: 1000,
     },
-    {
-        id: "afc92c8e-7dbe-46c9-8e29-92c2b2fd728f",
-        name: "Operador Ternário",
-        description:
-            "Domine a arte de decidir o destino em uma única linha com o operador ternário.",
-        topicId,
-        themeId,
-        iconId,
-        order: 5,
-        rewardXP: 1200,
-    },
 ] as const;

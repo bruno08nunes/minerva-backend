@@ -1,5 +1,5 @@
 import { prisma } from "../lib/prisma";
-import { arithmeticExercises } from "./data/rpg/operators/exercises";
+import { arithmeticExercises, assignmentExercises, logicalExercises, relationalExercises } from "./data/rpg/operators/exercises";
 import {
     assignmentLessonExercises,
     constExercises,
@@ -15,6 +15,9 @@ export async function createExercises() {
             ...assignmentLessonExercises,
             ...constExercises,
             ...arithmeticExercises,
+            ...assignmentExercises,
+            ...relationalExercises,
+            ...logicalExercises,
         ],
     });
 }
