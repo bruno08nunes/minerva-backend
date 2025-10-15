@@ -1,5 +1,6 @@
 import { prisma } from "../lib/prisma";
 import { ifChoices, ifElseChoices, ifElseIfChoices, switchChoices } from "./data/rpg/conditional/choices";
+import { controlFlowChoices, doWhileChoices, forChoices, whileChoices } from "./data/rpg/loop/choices";
 import {
     arithmeticChoices,
     assignmentChoices,
@@ -34,8 +35,15 @@ const conditionalRPGChoices = [
     ...switchChoices
 ]
 
+const loopRPGChoices = [
+    ...whileChoices,
+    ...doWhileChoices,
+    ...forChoices,
+    ...controlFlowChoices
+]
+
 export async function createChoices() {
     return prisma.choice.createMany({
-        data: [...variableRPGChoices, ...operatorsRPGChoices, ...conditionalRPGChoices],
+        data: [...variableRPGChoices, ...operatorsRPGChoices, ...conditionalRPGChoices, ...loopRPGChoices],
     });
 }
