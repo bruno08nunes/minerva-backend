@@ -1,5 +1,6 @@
 import { prisma } from "../lib/prisma";
 import { ifElseExercises, ifElseIfExercises, ifExercises, switchExercises } from "./data/rpg/conditional/exercises";
+import { functionExercises, functionPureExercises, functionRecursiveExercises } from "./data/rpg/functions/exercises";
 import { controlFlowExercises, doWhileExercises, forExercises, whileExercises } from "./data/rpg/loop/exercises";
 import {
     arithmeticExercises,
@@ -30,7 +31,9 @@ const operatorsRPGExercises = [
 
 const conditionalRPGExercises = [...ifExercises, ...ifElseExercises, ...ifElseIfExercises, ...switchExercises];
 
-const loopRPGExercises = [...whileExercises, ...doWhileExercises, ...forExercises, ...controlFlowExercises]
+const loopRPGExercises = [...whileExercises, ...doWhileExercises, ...forExercises, ...controlFlowExercises];
+
+const functionRPGExercises = [...functionExercises, ...functionPureExercises, ...functionRecursiveExercises];
 
 export async function createExercises() {
     return prisma.exercise.createMany({
@@ -38,7 +41,8 @@ export async function createExercises() {
             ...variableRPGExercises,
             ...operatorsRPGExercises,
             ...conditionalRPGExercises,
-            ...loopRPGExercises
+            ...loopRPGExercises,
+            ...functionRPGExercises
         ],
     });
 }
