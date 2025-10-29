@@ -3,6 +3,7 @@ import { arraysAdvancedChoices, arraysChoices, handlingArraysChoices, iterations
 import { ifChoices, ifElseChoices, ifElseIfChoices, switchChoices } from "./data/rpg/conditional/choices";
 import { functionPureChoices, functionRecursiveChoices, functionsChoices } from "./data/rpg/functions/choices";
 import { controlFlowChoices, doWhileChoices, forChoices, whileChoices } from "./data/rpg/loop/choices";
+import { classInheritanceChoices, objectLiteralChoices, prototypeThisChoices } from "./data/rpg/objects/choices";
 import {
     arithmeticChoices,
     assignmentChoices,
@@ -55,10 +56,16 @@ const arrayRPGChoices = [
     ...handlingArraysChoices,
     ...arraysAdvancedChoices,
     ...iterationsArraysChoices
+];
+
+const objectRPGChoices = [
+    ...objectLiteralChoices,
+    ...prototypeThisChoices,
+    ...classInheritanceChoices
 ]
 
 export async function createChoices() {
     return prisma.choice.createMany({
-        data: [...variableRPGChoices, ...operatorsRPGChoices, ...conditionalRPGChoices, ...loopRPGChoices, ...functionRPGChoices, ...arrayRPGChoices],
+        data: [...variableRPGChoices, ...operatorsRPGChoices, ...conditionalRPGChoices, ...loopRPGChoices, ...functionRPGChoices, ...arrayRPGChoices, ...objectRPGChoices],
     });
 }

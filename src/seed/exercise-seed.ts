@@ -3,6 +3,7 @@ import { arraysAdvancedExercises, arraysExercises, handlingArraysExercises, iter
 import { ifElseExercises, ifElseIfExercises, ifExercises, switchExercises } from "./data/rpg/conditional/exercises";
 import { functionExercises, functionPureExercises, functionRecursiveExercises } from "./data/rpg/functions/exercises";
 import { controlFlowExercises, doWhileExercises, forExercises, whileExercises } from "./data/rpg/loop/exercises";
+import { classInheritanceExercises, objectLiteralExercises, prototypeThisExercises } from "./data/rpg/objects/exercises";
 import {
     arithmeticExercises,
     assignmentExercises,
@@ -38,6 +39,8 @@ const functionRPGExercises = [...functionExercises, ...functionPureExercises, ..
 
 const arrayRPGExercises = [...arraysExercises, ...handlingArraysExercises, ...arraysAdvancedExercises, ...iterationsArraysExercises];
 
+const objectsRPGExercises = [...objectLiteralExercises, ...prototypeThisExercises, ...classInheritanceExercises];
+
 export async function createExercises() {
     return prisma.exercise.createMany({
         data: [
@@ -46,7 +49,8 @@ export async function createExercises() {
             ...conditionalRPGExercises,
             ...loopRPGExercises,
             ...functionRPGExercises,
-            ...arrayRPGExercises
+            ...arrayRPGExercises,
+            ...objectsRPGExercises
         ],
     });
 }
