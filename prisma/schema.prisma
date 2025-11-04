@@ -139,11 +139,13 @@ model ProfilePicture {
 }
 
 model Achievement {
-  id          String @id @default(uuid())
+  id          String          @id @default(uuid())
   name        String
   description String
+  type        AchievementType
+  amount      Int
   iconId      String
-  icon        Icon   @relation(fields: [iconId], references: [id])
+  icon        Icon            @relation(fields: [iconId], references: [id])
 
   userAchievements UserAchievement[]
 }
@@ -193,4 +195,11 @@ enum ExerciseType {
 enum Role {
   USER
   ADMIN
+}
+
+enum AchievementType {
+  PROGRESS
+  STREAK
+  FOLLOW
+  RANKING
 }
