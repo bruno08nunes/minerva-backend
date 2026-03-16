@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto';
-import { Achievement } from "../../generated/prisma";
+import { Achievement, AchievementType } from "../../generated/prisma";
 import { IAchievementsRepository, CreateAchievementType } from "../achievements-repository";
 import NotFoundError from '../../utils/errors/not-found';
 
@@ -37,5 +37,17 @@ export class InMemoryAchievementsRepository implements IAchievementsRepository {
 
         const [deleted] = this.achievements.splice(index, 1);
         return deleted;
+    }
+
+    async findAvailable(type: AchievementType, value: number) {
+        return this.achievements.filter((achievement) => achievement.type === type && achievement.amount < value);
+    }
+
+    async findUnlocked(userId: string, achievementsIds: string[]) {
+        return [];
+    }
+
+    async unlockAchievements(userId: string, achievementsIds: string[]) {
+        
     }
 }

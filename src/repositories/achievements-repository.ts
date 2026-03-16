@@ -1,9 +1,11 @@
-import { Achievement } from "../generated/prisma";
+import { Achievement, AchievementType } from "../generated/prisma";
 
 export interface CreateAchievementType {
     name: string;
     description: string;
     iconId: string;
+    type: AchievementType;
+    amount: number;
 }
 
 export interface IAchievementsRepository {
@@ -12,4 +14,7 @@ export interface IAchievementsRepository {
     update(id: string, data: Partial<CreateAchievementType>): Promise<Achievement>;
     findAll(userId?: string): Promise<Achievement[]>;
     delete(id: string): Promise<Achievement>;
+    findAvailable(type: AchievementType, value: number): Promise<Achievement[]>;
+    findUnlocked(userId: string, achievementsIds: string[]): Promise<{ achievementId: string }[]>;
+    unlockAchievements(userId: string, achievementsIds: string[]): Promise<void>;
 }

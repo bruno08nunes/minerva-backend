@@ -19,19 +19,11 @@ export const achievements = [
     },
     {
         id: "c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8",
-        name: "Desbravador de Exercícios",
-        description: "Complete 10 exercícios de programação.",
-        iconId: "35b91640-7b4e-4988-a9f9-8027b4280f5b",
-        type: "PROGRESS",
-        amount: 10
-    },
-    {
-        id: "c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r9",
         name: "Semana de Ouro",
         description: "Complete 7 dias de sequência.",
         iconId: "35b91640-7b4e-4988-a9f9-8027b4280f5b",
         type: "STREAK",
-        amount: 10
+        amount: 7
     },
 ] as const;
 

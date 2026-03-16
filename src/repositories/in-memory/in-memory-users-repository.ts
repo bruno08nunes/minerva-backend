@@ -6,6 +6,16 @@ import { IUserRepository } from "../users-repository";
 export class InMemoryUsersRepository implements IUserRepository {
     public items: User[] = [];
 
+    async getStreak(userId: string) {
+        const user = this.items.find((user) => user.id === userId) || null;
+
+        return user?.streak ?? 0;
+    }
+
+    async hasMutualFollow(userId: string) {
+        return false;
+    }
+
     async findById(id: string) {
         const user = this.items.find((user) => user.id === id) || null;
 
@@ -91,7 +101,7 @@ export class InMemoryUsersRepository implements IUserRepository {
             name: user.name,
             username: user.username,
             semanalXP: user.semanalXP,
-            position,
+            rankingPosition: position,
         };
     }
 

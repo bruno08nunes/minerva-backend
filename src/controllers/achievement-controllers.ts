@@ -1,12 +1,14 @@
 import { z } from "zod";
-import { CreateAchievementType } from "../repositories/achievements-repository";
 import { PrismaAchievementsRepository } from "../repositories/prisma/prisma-achievements-repository";
 import { AchievementServices } from "../services/achievement-services";
 import NotFoundError from "../utils/errors/not-found";
 import { Request, Response } from "express";
+import { PrismaUsersRepository } from "../repositories/prisma/prisma-users-repository";
+import { AchievementType } from "../generated/prisma";
 
-const achievementService = new AchievementServices(
-    new PrismaAchievementsRepository()
+export const achievementService = new AchievementServices(
+    new PrismaAchievementsRepository(),
+    new PrismaUsersRepository()
 );
 
 export async function getAchievementById(req: Request, res: Response) {
@@ -54,6 +56,8 @@ export async function createAchievement(req: Request, res: Response) {
         name: z.string(),
         description: z.string(),
         iconId: z.string().uuid(),
+        type: z.nativeEnum(AchievementType),
+        amount: z.number()
     });
 
     const achievementData = createBodySchema.parse(req.body);

@@ -5,6 +5,39 @@ import { achievements } from "../../seed/achievement-seed";
 import { IUserRepository } from "../users-repository";
 
 export class PrismaUsersRepository implements IUserRepository {
+    async getStreak(userId: string) {
+        const user = await prisma.user.findUnique({
+            where: { id: userId },
+            select: { streak: true },
+        });
+
+        return user?.streak ?? 0;
+    }
+
+    async hasMutualFollow(userId: string) {
+        const follows = await prisma.follow.findMany({
+            where: {
+                followerId: userId,
+            },
+            select: {
+                followingId: true,
+            },
+        });
+
+        if (!follows.length) return false;
+
+        const reverse = await prisma.follow.findFirst({
+            where: {
+                followerId: {
+                    in: follows.map((f) => f.followingId),
+                },
+                followingId: userId,
+            },
+        });
+
+        return !!reverse;
+    }
+
     async findById(id: string) {
         const user = await prisma.user.findUnique({
             where: {
@@ -60,7 +93,7 @@ export class PrismaUsersRepository implements IUserRepository {
             },
         });
 
-        return user === null ? null : {...user, isFollowing: isFollowing > 0};
+        return user === null ? null : { ...user, isFollowing: isFollowing > 0 };
     }
 
     async create(data: Prisma.UserCreateInput) {
