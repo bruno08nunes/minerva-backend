@@ -7,6 +7,7 @@ import { z } from "zod";
 import UserAlreadyExistsError from "../utils/errors/user-already-exists";
 import { signJwt } from "../utils/jwt";
 import BadRequestError from "../utils/errors/bad-request-error";
+import { achievementService } from "./achievement-controllers";
 
 const userService = new UserService(new PrismaUsersRepository());
 
@@ -76,7 +77,7 @@ export async function getUserByUsernameController(req: Request, res: Response) {
     try {
         const user = await userService.getUserByUsername(
             username,
-            req.user?.id
+            req.user?.id,
         );
 
         if (!user) {
@@ -126,7 +127,7 @@ export async function loginController(req: Request, res: Response) {
         const refreshToken = signJwt(
             { id: user.id, role: user.role },
             "7d",
-            "refresh"
+            "refresh",
         );
         if (!refreshToken) {
             throw new Error("Refresh token generation failed.");
@@ -175,7 +176,7 @@ export async function registerUserController(req: Request, res: Response) {
     });
 
     const { name, email, password, username } = registerBodySchema.parse(
-        req.body
+        req.body,
     );
 
     let user;
@@ -206,7 +207,7 @@ export async function registerUserController(req: Request, res: Response) {
     const refreshToken = signJwt(
         { id: user.id, role: user.role },
         "7d",
-        "refresh"
+        "refresh",
     );
     if (!refreshToken) {
         throw new Error("Refresh token generation failed.");
@@ -267,7 +268,7 @@ export async function updateUserProfileController(req: Request, res: Response) {
             profilePictureId: newProfilePictureId,
             username: newUsername,
             password: newPassword,
-            email: newEmail
+            email: newEmail,
         });
 
         if (!user) {
@@ -422,6 +423,12 @@ export async function updateUserStreakController(req: Request, res: Response) {
 
     try {
         const user = await userService.updateUserStreak(id);
+
+        try {
+            await achievementService.checkAchievements(id, "STREAK");
+        } catch (err) {
+            console.log(err);
+        }
 
         if (!user) {
             throw new NotFoundError();

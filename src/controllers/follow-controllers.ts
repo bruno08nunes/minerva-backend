@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { PrismaFollowRepository } from "../repositories/prisma/prisma-follow-repository";
 import { FollowServices } from "../services/follow-services";
 import NotFoundError from "../utils/errors/not-found";
+import { achievementService } from "./achievement-controllers";
 
 const service = new FollowServices(new PrismaFollowRepository());
 
@@ -33,6 +34,13 @@ export async function createFollowController(req: Request, res: Response) {
 
     const follow = await service.createFollow(followerId!, followingId);
 
+    try {
+        await achievementService.checkAchievements(followerId!, "FOLLOW");
+        await achievementService.checkAchievements(followingId, "FOLLOW");
+    } catch (err) {
+        console.log(err);
+    }
+
     res.json({
         data: follow,
         message: "Follow created successfully",
@@ -46,7 +54,7 @@ export async function deleteFollowController(req: Request, res: Response) {
 
     try {
         const follow = await service.deleteFollow(followerId!, followingId);
-    
+
         res.json({
             data: follow,
             message: "Follow deleted successfully",

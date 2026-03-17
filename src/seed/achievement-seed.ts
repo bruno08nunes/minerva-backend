@@ -25,6 +25,22 @@ export const achievements = [
         type: "STREAK",
         amount: 7
     },
+    {
+        id: "c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r9",
+        name: "Iniciante da Lógica",
+        description: "Complete seu primeiro exercício.",
+        iconId: "a0771cdd-ea68-4737-bb30-401fe7da4b98",
+        type: "STREAK",
+        amount: 1
+    },
+    {
+        id: "c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r0",
+        name: "Nerd",
+        description: "Complete 3 dias de sequência.",
+        iconId: "35b91640-7b4e-4988-a9f9-8027b4280f5b",
+        type: "STREAK",
+        amount: 3
+    },
 ] as const;
 
 export async function createAchievements() {
