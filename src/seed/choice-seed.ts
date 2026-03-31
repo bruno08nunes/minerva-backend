@@ -1,4 +1,5 @@
 import { prisma } from "../lib/prisma";
+import { choices } from "./data/choices";
 import { arraysAdvancedChoices, arraysChoices, handlingArraysChoices, iterationsArraysChoices } from "./data/rpg/arrays/choices";
 import { ifChoices, ifElseChoices, ifElseIfChoices, switchChoices } from "./data/rpg/conditional/choices";
 import { functionPureChoices, functionRecursiveChoices, functionsChoices } from "./data/rpg/functions/choices";
@@ -66,6 +67,6 @@ const objectRPGChoices = [
 
 export async function createChoices() {
     return prisma.choice.createMany({
-        data: [...variableRPGChoices, ...operatorsRPGChoices, ...conditionalRPGChoices, ...loopRPGChoices, ...functionRPGChoices, ...arrayRPGChoices, ...objectRPGChoices],
+        data: [...variableRPGChoices, ...operatorsRPGChoices, ...conditionalRPGChoices, ...loopRPGChoices, ...functionRPGChoices, ...arrayRPGChoices, ...objectRPGChoices, ...choices],
     });
 }

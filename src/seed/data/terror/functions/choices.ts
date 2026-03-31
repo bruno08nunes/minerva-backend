@@ -5,7 +5,7 @@ export const functionsChoices = [
         text: "Continuar",
         isCorrect: true,
         order: 1,
-        exerciseId: 'fc78bc42-f5af-4674-bd43-204d63abe19a',
+        exerciseId: '97ccabbd-e475-407f-87d2-ecd369a89ce2',
     },
 
     // Exercício 2
@@ -14,7 +14,7 @@ export const functionsChoices = [
         text: "function",
         isCorrect: true,
         order: 1,
-        exerciseId: '4c231e4a-27c6-4519-b3d5-07518da00b34',
+        exerciseId: '5a3ef190-292c-4348-babb-00b924774df7',
     },
 
     // Exercício 3
@@ -23,14 +23,14 @@ export const functionsChoices = [
         text: "O valor da variável `ouro` aumenta para 150.",
         isCorrect: true,
         order: 1,
-        exerciseId: '509b489e-995a-4aa9-a435-714ead7d321e',
+        exerciseId: '25dbf7fd-f29e-4651-8eeb-2a05d3b483ea',
     },
     {
         id: '530ff6ef-577c-423a-9545-7a00f2339427',
         text: "O valor de ouro fica 50.",
         isCorrect: false,
         order: 2,
-        exerciseId: 'bbd9cee6-1bf7-4b36-8420-37a918c00e18',
+        exerciseId: '25dbf7fd-f29e-4651-8eeb-2a05d3b483ea',
     },
 
     // Exercício 4
@@ -39,7 +39,7 @@ export const functionsChoices = [
         text: "-",
         isCorrect: true,
         order: 1,
-        exerciseId: 'd3fb7a5b-9b79-444b-84c3-0bed8b1946a7',
+        exerciseId: 'b3e8c86f-6713-406a-a457-a7f566cd712e',
     },
 ] as const;
 
@@ -50,7 +50,7 @@ export const functionPureChoices = [
         text: "Continuar.",
         isCorrect: true,
         order: 1,
-        exerciseId: '4556ecc5-3e1a-4c51-97e7-e0145d9a935c',
+        exerciseId: '8dfaf217-6f7a-45b8-b4d1-1aae3427ac59',
     },
 
     // Exercício 2
@@ -59,7 +59,7 @@ export const functionPureChoices = [
         text: "return",
         isCorrect: true,
         order: 1,
-        exerciseId: '066aafc6-6bf8-497b-9f50-63514b9a8b47',
+        exerciseId: '9076bb32-829f-4694-a063-1dbd299f2477',
     },
 
     // Exercício 3
@@ -68,14 +68,14 @@ export const functionPureChoices = [
         text: "Ele imprime o valor na tela.",
         isCorrect: false,
         order: 1,
-        exerciseId: '77cccb66-5322-4b4a-a0ee-2d2d3c1dbfb7',
+        exerciseId: '86a6899f-65a3-4dfb-a672-721965667f8b',
     },
     {
         id: 'c8a1fff5-8386-4f13-99c3-e3421fa6302b',
         text: "Ele devolve um valor para quem chamou a função.",
         isCorrect: true,
         order: 2,
-        exerciseId: '3cf165ca-0623-45e1-ada8-40494e906786',
+        exerciseId: '86a6899f-65a3-4dfb-a672-721965667f8b',
     },
 
     // Exercício 4
@@ -84,7 +84,7 @@ export const functionPureChoices = [
         text: "quantidade",
         isCorrect: true,
         order: 1,
-        exerciseId: '3c4c9249-c5bd-427f-aaf8-34fc5c07d4ea',
+        exerciseId: 'de9bc854-b1d4-4f46-946b-c62e7c6e0a4a',
     },
 ] as const;
 
@@ -95,7 +95,7 @@ export const functionRecursiveChoices = [
         text: "Continuar",
         isCorrect: true,
         order: 1,
-        exerciseId: '56995bc2-bab0-4917-a087-9fb2d96adf66',
+        exerciseId: '80c2a11c-dee9-4e06-8a05-f7f871eddf8a',
     },
 
     // Exercício 2
@@ -104,7 +104,7 @@ export const functionRecursiveChoices = [
         text: "numero",
         isCorrect: true,
         order: 1,
-        exerciseId: '8c4e2b58-0b2d-4a0d-8ed1-abc5e7ef5742',
+        exerciseId: '2de42ab5-731b-4acc-a407-752981d17283',
     },
 
     // Exercício 3
@@ -113,14 +113,14 @@ export const functionRecursiveChoices = [
         text: "Ela entra em um loop infinito e causa erro de estouro de pilha.",
         isCorrect: true,
         order: 1,
-        exerciseId: 'dfc8fb19-4914-412d-9c95-a5152595fe37',
+        exerciseId: '94f7a4a6-09a5-4cbc-a0a5-b432f7e688c2',
     },
     {
         id: '46f866f4-9a49-40dc-bfab-a3d23cc543b8',
         text: "Ela apenas para automaticamente quando quiser.",
         isCorrect: false,
         order: 2,
-        exerciseId: '1fdb3c32-1bb6-49c5-a132-e96a47ec9de2',
+        exerciseId: '94f7a4a6-09a5-4cbc-a0a5-b432f7e688c2',
     },
 
     // Exercício 4
@@ -129,6 +129,6 @@ export const functionRecursiveChoices = [
         text: "n",
         isCorrect: true,
         order: 1,
-        exerciseId: '2121e7e4-feec-4f55-b327-c1301b7d231f',
+        exerciseId: '14f7f667-0af8-49a2-8e3e-b17e939cd469',
     },
 ] as const;

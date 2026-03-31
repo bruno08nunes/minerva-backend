@@ -17,7 +17,7 @@ export const objectLiteralExercises = [
         ],
         hint: "Observe o valor da propriedade 'elemento'.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '0e37c630-28dd-4d59-9201-75e94f6d1d5a',
+        lessonId: 'beeb8e73-2df0-4d03-9de8-d3726efdbd82',
         order: 1,
     },
     {
@@ -34,7 +34,7 @@ export const objectLiteralExercises = [
         ],
         hint: "Use o operador de ponto e o nome da propriedade.",
         type: "COMPLETE_CODE",
-        lessonId: '0c58e7d8-2b9c-47fc-8a1b-5417c453b6dc',
+        lessonId: 'beeb8e73-2df0-4d03-9de8-d3726efdbd82',
         order: 2,
     },
     {
@@ -55,7 +55,7 @@ export const objectLiteralExercises = [
         ],
         hint: "Atribua o valor à nova propriedade com o ponto.",
         type: "COMPLETE_CODE",
-        lessonId: '3e017eb3-2214-4b75-91d5-e321c45b49f0',
+        lessonId: 'beeb8e73-2df0-4d03-9de8-d3726efdbd82',
         order: 3,
     },
     {
@@ -76,7 +76,7 @@ export const objectLiteralExercises = [
         ],
         hint: "Use a variável que guarda o nome da propriedade.",
         type: "COMPLETE_CODE",
-        lessonId: '6ec7f55f-3403-4429-893a-45ba776ea82e',
+        lessonId: 'beeb8e73-2df0-4d03-9de8-d3726efdbd82',
         order: 4,
     },
     {
@@ -97,7 +97,7 @@ export const objectLiteralExercises = [
         ],
         hint: "A propriedade 'tipo' dentro do objeto 'poção'.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '35e3fb1e-4cfd-4b1e-bbdf-9055fea6cc5b',
+        lessonId: 'beeb8e73-2df0-4d03-9de8-d3726efdbd82',
         order: 5,
     },
 ] as const;
@@ -121,7 +121,7 @@ export const prototypeThisExercises = [
         ],
         hint: "O objeto 'aprendiz' herda propriedades do objeto 'mago' por meio da cadeia de protótipos.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'e6dd2181-0b73-4471-b184-161a12990ca7',
+        lessonId: 'a521da0f-5777-433c-bd7f-5aaf320785f9',
         order: 1,
     },
     {
@@ -142,7 +142,7 @@ export const prototypeThisExercises = [
         ],
         hint: "Lembre-se: o protótipo do aprendiz aponta para o objeto mestre.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '0c2b11d6-db05-4657-b2b8-dc5df113aacf',
+        lessonId: 'a521da0f-5777-433c-bd7f-5aaf320785f9',
         order: 2,
     },
     {
@@ -163,7 +163,7 @@ export const prototypeThisExercises = [
         ],
         hint: "O método está dentro do objeto, e o this se refere a ele.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'b3aa2410-e02d-4038-ab40-c17eb06b91f6',
+        lessonId: 'a521da0f-5777-433c-bd7f-5aaf320785f9',
         order: 3,
     },
     {
@@ -180,7 +180,7 @@ export const prototypeThisExercises = [
         ],
         hint: "Dentro de métodos, use 'this' para acessar propriedades do mesmo objeto.",
         type: "COMPLETE_CODE",
-        lessonId: 'e1c48e0f-7c1f-4128-aff1-0db9ad043725',
+        lessonId: 'a521da0f-5777-433c-bd7f-5aaf320785f9',
         order: 4,
     },
 ] as const;
@@ -204,7 +204,7 @@ export const classInheritanceExercises = [
         ],
         hint: "O construtor define propriedades iniciais do objeto criado com 'new'.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '28a08efb-6997-4860-8f78-9e8085f03c36',
+        lessonId: '7f1fcf4a-49bc-46d8-93be-a3df4b962aab',
         order: 1,
     },
     {
@@ -225,7 +225,7 @@ export const classInheritanceExercises = [
         ],
         hint: "A classe filha herda todas as propriedades e métodos da classe mãe.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'ce51856e-741c-4b2c-a5bc-8702c543b34c',
+        lessonId: '7f1fcf4a-49bc-46d8-93be-a3df4b962aab',
         order: 2,
     },
     {
@@ -246,7 +246,7 @@ export const classInheritanceExercises = [
         ],
         hint: "O 'super()' chama o construtor da classe mãe antes de definir novas propriedades.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '9b0873f5-6a29-43fd-b114-f44c74d8815a',
+        lessonId: '7f1fcf4a-49bc-46d8-93be-a3df4b962aab',
         order: 3,
     },
     {
@@ -263,7 +263,7 @@ export const classInheritanceExercises = [
         ],
         hint: "Use 'super(nome)' para completar o feitiço da herança.",
         type: "COMPLETE_CODE",
-        lessonId: '9abc627f-c505-4921-92bb-f98a206af4fd',
+        lessonId: '7f1fcf4a-49bc-46d8-93be-a3df4b962aab',
         order: 4,
     },
 ] as const;

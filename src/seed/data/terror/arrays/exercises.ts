@@ -122,7 +122,7 @@ export const handlingArraysExercises = [
         ],
         hint: "Lembre-se: o segundo item está na posição 1.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '2dbfcbff-a4d9-46d0-9e52-7a8c7b5751aa',
+        lessonId: '89a856ad-ccf8-48ea-9444-51027094bbe8',
         order: 1,
     },
     {
@@ -139,7 +139,7 @@ export const handlingArraysExercises = [
         ],
         hint: "O método `push` adiciona um novo item ao final do array.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'e4b8620a-9c75-435c-a198-88fb2a51572f',
+        lessonId: '89a856ad-ccf8-48ea-9444-51027094bbe8',
         order: 2,
     },
     {
@@ -156,7 +156,7 @@ export const handlingArraysExercises = [
         ],
         hint: "É o oposto de `push()`.",
         type: "COMPLETE_CODE",
-        lessonId: 'c1fce894-f06b-4e00-9661-2c0bc20e9ca9',
+        lessonId: '89a856ad-ccf8-48ea-9444-51027094bbe8',
         order: 3,
     },
     {
@@ -173,7 +173,7 @@ export const handlingArraysExercises = [
         ],
         hint: "O `.length` mostra quantos elementos há no array.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '035ac722-5473-4f63-91d5-7f78ab561187',
+        lessonId: '89a856ad-ccf8-48ea-9444-51027094bbe8',
         order: 4,
     },
     {
@@ -190,7 +190,7 @@ export const handlingArraysExercises = [
         ],
         hint: "Use o método que adiciona um item ao fim.",
         type: "COMPLETE_CODE",
-        lessonId: '42e90bc6-1e4d-4b8b-9c82-88ce94fc00c6',
+        lessonId: '89a856ad-ccf8-48ea-9444-51027094bbe8',
         order: 5,
     },
 ] as const;
@@ -214,7 +214,7 @@ export const arraysAdvancedExercises = [
         ],
         hint: "O feitiço 'Gelo' está no grimório?",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'a1748caa-f802-46b3-a9ce-b67878ce1420',
+        lessonId: '7f3e83a7-ac97-40ed-a1c2-20a75973beb5',
         order: 1,
     },
     {
@@ -235,7 +235,7 @@ export const arraysAdvancedExercises = [
         ],
         hint: "Lembre-se: índices começam do 0.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'c5fda8a1-0f85-4088-b2ee-e10574818c9d',
+        lessonId: '7f3e83a7-ac97-40ed-a1c2-20a75973beb5',
         order: 2,
     },
     {
@@ -252,7 +252,7 @@ export const arraysAdvancedExercises = [
         ],
         hint: "O slice copia do índice inicial até o final (sem incluir o último).",
         type: "MULTIPLE_CHOICE",
-        lessonId: '9e62ffae-6d94-4b12-af3a-3414a14985c6',
+        lessonId: '7f3e83a7-ac97-40ed-a1c2-20a75973beb5',
         order: 3,
     },
     {
@@ -265,7 +265,7 @@ export const arraysAdvancedExercises = [
         ],
         hint: "Nem todas as funções de array são inofensivas...",
         type: "MULTIPLE_CHOICE",
-        lessonId: '94ae5adb-e7a6-486e-ab6c-1050dd8f1d1b',
+        lessonId: '7f3e83a7-ac97-40ed-a1c2-20a75973beb5',
         order: 4,
     },
 ] as const;
@@ -289,7 +289,7 @@ export const iterationsArraysExercises = [
         ],
         hint: "O loop percorre todos os elementos do array em ordem.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'fe620bb1-189a-427c-9a74-4e57aa1bd1dc',
+        lessonId: 'd80834bc-423c-40db-8b1a-45323852feaa',
         order: 1,
     },
     {
@@ -306,7 +306,7 @@ export const iterationsArraysExercises = [
         ],
         hint: "Cada elemento da lista é mostrado uma vez.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '829291f3-1638-4b3f-9e72-a34669bed4c5',
+        lessonId: 'd80834bc-423c-40db-8b1a-45323852feaa',
         order: 2,
     },
     {
@@ -323,7 +323,7 @@ export const iterationsArraysExercises = [
         ],
         hint: "",
         type: "COMPLETE_CODE",
-        lessonId: '3d742a14-40d9-4872-a9ee-c68f0f4f3564',
+        lessonId: 'd80834bc-423c-40db-8b1a-45323852feaa',
         order: 3,
     },
     {
@@ -348,7 +348,7 @@ export const iterationsArraysExercises = [
         ],
         hint: "Cada runa é invocada individualmente com um prefixo de texto.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '7b4cdfd0-782e-44b2-ae73-de000007f765',
+        lessonId: 'd80834bc-423c-40db-8b1a-45323852feaa',
         order: 4,
     },
     {
@@ -365,7 +365,7 @@ export const iterationsArraysExercises = [
         ],
         hint: "Coloque o método que cria um novo array.",
         type: "COMPLETE_CODE",
-        lessonId: '3e758542-71f1-4cb3-9347-ffaa47361f99',
+        lessonId: 'd80834bc-423c-40db-8b1a-45323852feaa',
         order: 5,
     },
     {
@@ -382,7 +382,7 @@ export const iterationsArraysExercises = [
         ],
         hint: "O método map não altera o original, mas retorna um novo com as transformações.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '0bce2c30-8dd3-4813-8d86-7a39dc10a19a',
+        lessonId: 'd80834bc-423c-40db-8b1a-45323852feaa',
         order: 6,
     },
 ] as const;

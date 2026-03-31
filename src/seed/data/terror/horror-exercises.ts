@@ -1,6 +1,27 @@
-import { ifElseExercises, ifElseIfExercises, ifExercises, switchExercises } from "./conditional/exercises";
-import { functionExercises, functionPureExercises, functionRecursiveExercises } from "./functions/exercises";
-import { controlFlowExercises, doWhileExercises, forExercises, whileExercises } from "./loop/exercises";
+import {
+    arraysAdvancedExercises,
+    arraysExercises,
+    handlingArraysExercises,
+    iterationsArraysExercises,
+} from "./arrays/exercises";
+import {
+    ifElseExercises,
+    ifElseIfExercises,
+    ifExercises,
+    switchExercises,
+} from "./conditional/exercises";
+import {
+    functionExercises,
+    functionPureExercises,
+    functionRecursiveExercises,
+} from "./functions/exercises";
+import {
+    controlFlowExercises,
+    doWhileExercises,
+    forExercises,
+    whileExercises,
+} from "./loop/exercises";
+import { classInheritanceExercises, objectLiteralExercises, prototypeThisExercises } from "./objects/exercises";
 import {
     arithmeticExercises,
     assignmentExercises,
@@ -32,26 +53,41 @@ const conditionalHorrorExercises = [
     ...ifExercises,
     ...ifElseExercises,
     ...ifElseIfExercises,
-    ...switchExercises
-]
+    ...switchExercises,
+];
 
 const loopHorrorExercises = [
     ...whileExercises,
     ...doWhileExercises,
     ...forExercises,
-    ...controlFlowExercises
+    ...controlFlowExercises,
 ];
 
 const functionHorrorExercises = [
     ...functionExercises,
     ...functionPureExercises,
-    ...functionRecursiveExercises
+    ...functionRecursiveExercises,
 ];
+
+const arrayExercises = [
+    ...arraysExercises,
+    ...handlingArraysExercises,
+    ...arraysAdvancedExercises,
+    ...iterationsArraysExercises,
+];
+
+const objectsExercises = [
+    ...objectLiteralExercises,
+    ...prototypeThisExercises,
+    ...classInheritanceExercises
+]
 
 export const horrorExercises = [
     ...variableHorrorExercises,
     ...operatorsHorrorExercises,
     ...conditionalHorrorExercises,
     ...loopHorrorExercises,
-    ...functionHorrorExercises
+    ...functionHorrorExercises,
+    ...arrayExercises,
+    ...objectsExercises
 ];
