@@ -1,15 +1,15 @@
-const topicId = "218492d4-2a81-4b5a-a0fe-1fd644ee38be";
-const themeId = "d14e94ff-5702-47d5-bf25-d0984ca44e9e";
+const topicId = "e58681e3-8305-4787-b63f-9e58b07c52a8";
+const themeId = "bb858ea9-6327-48a5-a523-39a07fb82183";
 const iconId = "6668bcde-d0bf-4e7e-8a33-a1a870e5051e";
 
-export const variableLessons = [
+export const variableLessonsDetetive = [
     {
         id: '2776ee7a-31bf-462e-ad06-08c74371475b',
         name: "Introdução às Variáveis",
         description: "Aprenda o básico sobre variáveis em programação.",
-        topicId: "e58681e3-8305-4787-b63f-9e58b07c52a8",
-        themeId: "d14e94ff-5702-47d5-bf25-d0984ca44e9e",
-        iconId: "6668bcde-d0bf-4e7e-8a33-a1a870e5051e",
+        topicId: topicId,
+        themeId: themeId,
+        iconId: iconId,
         order: 1,
         rewardXP: 500,
     },
@@ -18,9 +18,9 @@ export const variableLessons = [
         name: "Tipos de Dados",
         description:
             "Aprenda o básico sobre os tipos de dados em programação (string, number e boolean).",
-        topicId: "e58681e3-8305-4787-b63f-9e58b07c52a8",
-        themeId: "d14e94ff-5702-47d5-bf25-d0984ca44e9e",
-        iconId: "6668bcde-d0bf-4e7e-8a33-a1a870e5051e",
+        topicId: topicId,
+        themeId: themeId,
+        iconId: iconId,
         order: 2,
         rewardXP: 500,
     },
@@ -28,9 +28,9 @@ export const variableLessons = [
         id: '7812b8c9-2a87-4ae1-9eaa-d133fb7aa6a6',
         name: "Atribuição de valores",
         description: "Aprenda a atribuir valores à variáveis já existentes.",
-        topicId: "e58681e3-8305-4787-b63f-9e58b07c52a8",
-        themeId: "d14e94ff-5702-47d5-bf25-d0984ca44e9e",
-        iconId: "6668bcde-d0bf-4e7e-8a33-a1a870e5051e",
+        topicId: topicId,
+        themeId: themeId,
+        iconId: iconId,
         order: 3,
         rewardXP: 500,
     },
@@ -38,9 +38,9 @@ export const variableLessons = [
         id: '818659ac-1b07-4bd8-afc3-74f38e3e0d64',
         name: "Constantes",
         description: "Aprenda sobre constantes.",
-        topicId: "e58681e3-8305-4787-b63f-9e58b07c52a8",
-        themeId: "d14e94ff-5702-47d5-bf25-d0984ca44e9e",
-        iconId: "6668bcde-d0bf-4e7e-8a33-a1a870e5051e",
+        topicId: topicId,
+        themeId: themeId,
+        iconId: iconId,
         order: 4,
         rewardXP: 500,
     },

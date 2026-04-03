@@ -13,7 +13,7 @@ export const firstLessonExercises = [
         ],
         hint: "Não há dicas para esse exercício.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '23a1c0f9-1b4c-4711-9db6-eef3131b405a',
+        lessonId: '2776ee7a-31bf-462e-ad06-08c74371475b',
         order: 1,
     },
     {
@@ -26,7 +26,7 @@ export const firstLessonExercises = [
         ],
         hint: "Você deve usar uma certa palavra-chave para declarar uma variável.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '6af96c49-7b11-4347-92cc-778a2136930b',
+        lessonId: '2776ee7a-31bf-462e-ad06-08c74371475b',
         order: 2,
     },
     {
@@ -43,7 +43,7 @@ export const firstLessonExercises = [
         ],
         hint: 'Lembre-se de usar a palavra "let" antes do nome da sua variável.',
         type: "WRITE_CODE",
-        lessonId: '1804565b-284e-4389-8275-276fe6e330c6',
+        lessonId: '2776ee7a-31bf-462e-ad06-08c74371475b',
         order: 3,
     },
     {
@@ -60,7 +60,7 @@ export const firstLessonExercises = [
         ],
         hint: "Sem dicas para esse exercício.",
         type: "COMPLETE_CODE",
-        lessonId: 'b348a5f1-e22c-49e8-b188-d7bb5ba5faef',
+        lessonId: '2776ee7a-31bf-462e-ad06-08c74371475b',
         order: 4,
     },
     {
@@ -73,7 +73,7 @@ export const firstLessonExercises = [
         ],
         hint: "Sem dicas para esse exercício.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'cce527de-f650-457d-976c-9a942ae197ae',
+        lessonId: '2776ee7a-31bf-462e-ad06-08c74371475b',
         order: 5,
     },
 ] as const;
@@ -93,7 +93,7 @@ export const dataTypesLessonExercises = [
         ],
         hint: "Strings sempre ficam entre aspas simples (') ou duplas (\").",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'fbaacd31-e17e-406a-be6d-38fa0d1ec14e',
+        lessonId: '6ab140f9-ef4f-48a8-b655-90ad8ea73fd6',
         order: 1,
     },
     {
@@ -106,7 +106,7 @@ export const dataTypesLessonExercises = [
         ],
         hint: "Lembre-se: aspas!",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'f1595ba4-0178-4e5a-8ec9-bf3724547ac2',
+        lessonId: '6ab140f9-ef4f-48a8-b655-90ad8ea73fd6',
         order: 2,
     },
     {
@@ -123,7 +123,7 @@ export const dataTypesLessonExercises = [
         ],
         hint: "Números não usam aspas.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '73c833f1-e66c-4721-a9d4-38bb22556131',
+        lessonId: '6ab140f9-ef4f-48a8-b655-90ad8ea73fd6',
         order: 3,
     },
     {
@@ -140,7 +140,7 @@ export const dataTypesLessonExercises = [
         ],
         hint: "Apenas escreva o número, sem aspas.",
         type: "COMPLETE_CODE",
-        lessonId: '7c25fa80-0da6-475e-8a77-e22e4f54234e',
+        lessonId: '6ab140f9-ef4f-48a8-b655-90ad8ea73fd6',
         order: 4,
     },
     {
@@ -157,7 +157,7 @@ export const dataTypesLessonExercises = [
         ],
         hint: "Boolean não leva aspas, e só aceita true ou false.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'e9a45c91-487b-470c-baa9-876b93c7c40a',
+        lessonId: '6ab140f9-ef4f-48a8-b655-90ad8ea73fd6',
         order: 5,
     },
     {
@@ -170,7 +170,7 @@ export const dataTypesLessonExercises = [
         ],
         hint: "Apenas true ou false, sem aspas.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'f3258dd7-849f-43bc-99e7-be9033f0718e',
+        lessonId: '6ab140f9-ef4f-48a8-b655-90ad8ea73fd6',
         order: 6,
     },
 ] as const;
@@ -190,7 +190,7 @@ export const assignmentLessonExercises = [
         ],
         hint: "Lembre-se: você pode declarar uma variável sem valor e atribuir depois.",
         type: "COMPLETE_CODE",
-        lessonId: '6a814ef1-e364-44ba-94d0-418a11aab029',
+        lessonId: '7812b8c9-2a87-4ae1-9eaa-d133fb7aa6a6',
         order: 1,
     },
     {
@@ -207,7 +207,7 @@ export const assignmentLessonExercises = [
         ],
         hint: "Veja que a variável foi declarada e depois recebeu um valor.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'e0409c01-0389-4410-90a3-491e4d08fcc5',
+        lessonId: '7812b8c9-2a87-4ae1-9eaa-d133fb7aa6a6',
         order: 2,
     },
     {
@@ -224,7 +224,7 @@ export const assignmentLessonExercises = [
         ],
         hint: "Use `let` para declarar e depois atribua o valor com =.",
         type: "COMPLETE_CODE",
-        lessonId: '0dfab8c5-940e-4acb-a2bc-291703914c4f',
+        lessonId: '7812b8c9-2a87-4ae1-9eaa-d133fb7aa6a6',
         order: 3,
     },
     {
@@ -241,7 +241,7 @@ export const assignmentLessonExercises = [
         ],
         hint: "Atribua o número 20 usando o operador de atribuição (=).",
         type: "COMPLETE_CODE",
-        lessonId: '4eb0c85b-c48b-4b4b-8e47-a641f38b4c86',
+        lessonId: '7812b8c9-2a87-4ae1-9eaa-d133fb7aa6a6',
         order: 4,
     },
 ] as const;
@@ -261,7 +261,7 @@ export const constExercises = [
         ],
         hint: "Não há dicas para esse exercício.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '713c19a7-3a4c-43f3-9528-06b554a8a247',
+        lessonId: '818659ac-1b07-4bd8-afc3-74f38e3e0d64',
         order: 1,
     },
     {
@@ -274,7 +274,7 @@ export const constExercises = [
         ],
         hint: "Use a palavra-chave que define um valor que não pode ser alterado.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'cda770d6-69e9-493c-a39b-7da10c8b27fe',
+        lessonId: '818659ac-1b07-4bd8-afc3-74f38e3e0d64',
         order: 2,
     },
     {
@@ -291,7 +291,7 @@ export const constExercises = [
         ],
         hint: "Lembre-se: constantes usam \"const\".",
         type: "WRITE_CODE",
-        lessonId: '3a8603b1-fcaf-40f6-9b24-e931b167bbda',
+        lessonId: '818659ac-1b07-4bd8-afc3-74f38e3e0d64',
         order: 3,
     },
     {
@@ -308,7 +308,7 @@ export const constExercises = [
         ],
         hint: "Lembre-se da palavra-chave para definir constantes.",
         type: "COMPLETE_CODE",
-        lessonId: 'becbea1f-c760-4e60-8121-6dbe05e5cc63',
+        lessonId: '818659ac-1b07-4bd8-afc3-74f38e3e0d64',
         order: 4,
     },
 ] as const;

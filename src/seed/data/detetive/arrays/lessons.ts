@@ -1,8 +1,8 @@
 const topicId = "36e04352-0d70-4198-8dfd-0e064e0d7e78";
-const themeId = "d14e94ff-5702-47d5-bf25-d0984ca44e9e";
+const themeId = "bb858ea9-6327-48a5-a523-39a07fb82183";
 const iconId = "6668bcde-d0bf-4e7e-8a33-a1a870e5051e";
 
-export const arraysLessons = [
+export const arraysLessonsDetetive = [
     {
         id: '9d3d5847-0c97-4ce1-8ea4-9f7fd9d825b7',
         name: "Arrays",

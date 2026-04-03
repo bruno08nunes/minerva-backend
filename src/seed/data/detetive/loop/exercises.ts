@@ -13,7 +13,7 @@ export const whileExercises = [
         ],
         hint: "Esse código repete 3 vezes.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'd74bb134-5fde-4362-afb8-2cfade6a386b',
+        lessonId: '3d1dc34f-f0e3-4528-a387-ce66233dd648',
         order: 1,
     },
     {
@@ -30,7 +30,7 @@ export const whileExercises = [
         ],
         hint: "Qual palavra-chave cria o laço de repetição?",
         type: "COMPLETE_CODE",
-        lessonId: '726560d3-844e-4acc-9c2f-ecc3dd3e9b59',
+        lessonId: '3d1dc34f-f0e3-4528-a387-ce66233dd648',
         order: 2,
     },
     {
@@ -47,7 +47,7 @@ export const whileExercises = [
         ],
         hint: "Pense no que ocorreria se o contador nunca diminuísse dentro do laço.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'e232f4ed-2dc3-49af-8a5d-955d0fea18d2',
+        lessonId: '3d1dc34f-f0e3-4528-a387-ce66233dd648',
         order: 3,
     },
     {
@@ -64,7 +64,7 @@ export const whileExercises = [
         ],
         hint: "Qual operador mantém o laço ativo até que xp chegue a 50?",
         type: "MULTIPLE_CHOICE",
-        lessonId: '80eb97c8-1c87-4451-a68c-97d8e3b87538',
+        lessonId: '3d1dc34f-f0e3-4528-a387-ce66233dd648',
         order: 4,
     },
 ] as const;
@@ -84,7 +84,7 @@ export const doWhileExercises = [
         ],
         hint: "",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'baee6090-89ce-4bcd-bb17-d1d8db1e1ec0',
+        lessonId: '89c9ffaf-9074-47ca-bad4-8b041b51afdf',
         order: 1,
     },
     {
@@ -101,7 +101,7 @@ export const doWhileExercises = [
         ],
         hint: "Qual palavra inicia o bloco que executa antes da verificação?",
         type: "COMPLETE_CODE",
-        lessonId: '74880f6f-88e8-4781-bb63-56788e1a7e92',
+        lessonId: '89c9ffaf-9074-47ca-bad4-8b041b51afdf',
         order: 2,
     },
     {
@@ -118,7 +118,7 @@ export const doWhileExercises = [
         ],
         hint: "A estrutura começa com 'do' e termina com 'while'.",
         type: "COMPLETE_CODE",
-        lessonId: 'fc3e5219-3471-4801-9250-ec7ac007ed0d',
+        lessonId: '89c9ffaf-9074-47ca-bad4-8b041b51afdf',
         order: 3,
     },
     {
@@ -131,7 +131,7 @@ export const doWhileExercises = [
         ],
         hint: "Pense em situações em que é preciso executar algo ao menos uma vez antes de testar a condição.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '3daa5a86-76a3-4e6c-8885-5d4d77bf288f',
+        lessonId: '89c9ffaf-9074-47ca-bad4-8b041b51afdf',
         order: 4,
     },
 ] as const;
@@ -151,7 +151,7 @@ export const forExercises = [
         ],
         hint: "",
         type: "MULTIPLE_CHOICE",
-        lessonId: '4dc7d7a0-9714-4909-b12b-2497121794ad',
+        lessonId: '8946dd94-c082-4978-aac9-2649675b4bbe',
         order: 1,
     },
     {
@@ -168,7 +168,7 @@ export const forExercises = [
         ],
         hint: "Qual palavra inicia um laço com contador definido?",
         type: "COMPLETE_CODE",
-        lessonId: 'b88d1849-b371-4c5f-9b86-66a896b8fab8',
+        lessonId: '8946dd94-c082-4978-aac9-2649675b4bbe',
         order: 2,
     },
     {
@@ -181,7 +181,7 @@ export const forExercises = [
         ],
         hint: "Está localizada no final dos parênteses: (let i = 0; i < 10; i+=1)",
         type: "MULTIPLE_CHOICE",
-        lessonId: '60757c65-3d23-47e5-81ea-51695859ceaa',
+        lessonId: '8946dd94-c082-4978-aac9-2649675b4bbe',
         order: 3,
     },
     {
@@ -198,7 +198,7 @@ export const forExercises = [
         ],
         hint: "Use a estrutura de repetição com contador fixo.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'da5d3442-c61f-4365-bbbd-a078acc95ee7',
+        lessonId: '8946dd94-c082-4978-aac9-2649675b4bbe',
         order: 4,
     },
 ] as const;
@@ -218,7 +218,7 @@ export const controlFlowExercises = [
         ],
         hint: "",
         type: "MULTIPLE_CHOICE",
-        lessonId: '48a3c16b-4f90-4ca3-a800-1122f7bd4431',
+        lessonId: 'a12831f0-80b9-4cb3-89b3-e8e86c889c57',
         order: 1,
     },
     {
@@ -235,7 +235,7 @@ export const controlFlowExercises = [
         ],
         hint: "Use o comando que encerra o laço completamente.",
         type: "COMPLETE_CODE",
-        lessonId: '3f5d4e12-6d71-48b2-9770-5113221a57c2',
+        lessonId: 'a12831f0-80b9-4cb3-89b3-e8e86c889c57',
         order: 2,
     },
     {
@@ -248,7 +248,7 @@ export const controlFlowExercises = [
         ],
         hint: "Ele faz o laço pular para a próxima repetição.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '8a1016cc-6420-4185-8082-ad0c58ad0a77',
+        lessonId: 'a12831f0-80b9-4cb3-89b3-e8e86c889c57',
         order: 3,
     },
     {
@@ -265,7 +265,7 @@ export const controlFlowExercises = [
         ],
         hint: "Use o comando que pula a execução atual do laço.",
         type: "COMPLETE_CODE",
-        lessonId: '5d5649a6-3602-4782-bc7c-7d3b3d203eed',
+        lessonId: 'a12831f0-80b9-4cb3-89b3-e8e86c889c57',
         order: 4,
     },
     {
@@ -278,7 +278,7 @@ export const controlFlowExercises = [
         ],
         hint: "Um encerra o laço, o outro apenas pula uma iteração.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'cd516a57-138d-4fc7-ae48-220f9e5110d7',
+        lessonId: 'a12831f0-80b9-4cb3-89b3-e8e86c889c57',
         order: 5,
     },
 ] as const;

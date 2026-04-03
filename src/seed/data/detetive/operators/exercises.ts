@@ -9,7 +9,7 @@ export const arithmeticExercises = [
         ],
         hint: "",
         type: "MULTIPLE_CHOICE",
-        lessonId: '9817e66e-2cbc-4477-9304-481440a1c53a',
+        lessonId: '6dc9654a-9de9-4afe-a498-9b2a7c7e995a',
         order: 1,
     },
     {
@@ -26,7 +26,7 @@ export const arithmeticExercises = [
         ],
         hint: "Qual é o operador de multiplicação?",
         type: "COMPLETE_CODE",
-        lessonId: '0eef9a4d-2b0c-4c52-8b0c-521df18aa5a1',
+        lessonId: '6dc9654a-9de9-4afe-a498-9b2a7c7e995a',
         order: 2,
     },
     {
@@ -39,7 +39,7 @@ export const arithmeticExercises = [
         ],
         hint: "Use o operador '/' para dividir.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '0b3ef263-04b7-4c13-bcde-27ae467a2385',
+        lessonId: '6dc9654a-9de9-4afe-a498-9b2a7c7e995a',
         order: 3,
     },
     {
@@ -56,7 +56,7 @@ export const arithmeticExercises = [
         ],
         hint: "Qual o operador usado para soma?",
         type: "COMPLETE_CODE",
-        lessonId: 'f8670d27-d7b9-4551-9954-64483eb3f9e2',
+        lessonId: '6dc9654a-9de9-4afe-a498-9b2a7c7e995a',
         order: 4,
     },
     {
@@ -69,7 +69,7 @@ export const arithmeticExercises = [
         ],
         hint: 'É conhecido como "módulo".',
         type: "MULTIPLE_CHOICE",
-        lessonId: '9a043a41-6122-4609-b5ae-fb6af97da860',
+        lessonId: '6dc9654a-9de9-4afe-a498-9b2a7c7e995a',
         order: 5,
     },
 ] as const;
@@ -85,7 +85,7 @@ export const assignmentExercises = [
         ],
         hint: "Use o operador básico de atribuição.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '5a0ed570-a917-478a-b676-074d831597b3',
+        lessonId: 'ae83eabd-1580-4f71-bdff-11dc98e527cd',
         order: 1,
     },
     {
@@ -102,7 +102,7 @@ export const assignmentExercises = [
         ],
         hint: "Use o operador que soma e reatribui o valor.",
         type: "COMPLETE_CODE",
-        lessonId: '7c73e7d0-af5c-47d4-a95d-4dc76cb93a58',
+        lessonId: 'ae83eabd-1580-4f71-bdff-11dc98e527cd',
         order: 2,
     },
     {
@@ -119,7 +119,7 @@ export const assignmentExercises = [
         ],
         hint: "Use o operador que subtrai e atualiza o valor.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'cca1eb6f-dd30-434f-8449-754fe2132136',
+        lessonId: 'ae83eabd-1580-4f71-bdff-11dc98e527cd',
         order: 3,
     },
     {
@@ -136,7 +136,7 @@ export const assignmentExercises = [
         ],
         hint: "Use o operador que multiplica e reatribui o valor.",
         type: "COMPLETE_CODE",
-        lessonId: '164c6190-1609-4266-94f0-8d2dc31ab58f',
+        lessonId: 'ae83eabd-1580-4f71-bdff-11dc98e527cd',
         order: 4,
     },
     {
@@ -153,7 +153,7 @@ export const assignmentExercises = [
         ],
         hint: "Use o operador que divide e reatribui o valor.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '3e49901a-26dc-4dd2-9ca6-22664c3fa5a8',
+        lessonId: 'ae83eabd-1580-4f71-bdff-11dc98e527cd',
         order: 5,
     },
 ] as const;
@@ -169,7 +169,7 @@ export const relationalExercises = [
         ],
         hint: "",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'ad0ecf3c-569f-4042-ba05-53dbc09d579d',
+        lessonId: 'e288fdb5-1e7f-4880-ba50-590b593c5e84',
         order: 1,
     },
     {
@@ -186,7 +186,7 @@ export const relationalExercises = [
         ],
         hint: "Combine os símbolos de 'menor' e 'igual'.",
         type: "COMPLETE_CODE",
-        lessonId: '0802d970-5ef6-44ec-a367-9458607bf076',
+        lessonId: 'e288fdb5-1e7f-4880-ba50-590b593c5e84',
         order: 2,
     },
     {
@@ -199,7 +199,7 @@ export const relationalExercises = [
         ],
         hint: "Use o operador de igualdade.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'f58c4588-c39e-4f70-b8e0-f940a6c50c5d',
+        lessonId: 'e288fdb5-1e7f-4880-ba50-590b593c5e84',
         order: 3,
     },
     {
@@ -216,7 +216,7 @@ export const relationalExercises = [
         ],
         hint: "O operador de diferença usa um ponto de exclamação.",
         type: "COMPLETE_CODE",
-        lessonId: '04bb9a11-29fa-4e26-b3cb-607ff00e6576',
+        lessonId: 'e288fdb5-1e7f-4880-ba50-590b593c5e84',
         order: 4,
     },
 ] as const;
@@ -232,7 +232,7 @@ export const logicalExercises = [
         ],
         hint: "",
         type: "MULTIPLE_CHOICE",
-        lessonId: '85cc5140-3ead-483f-aee1-51d137a4cdc4',
+        lessonId: 'ac151f6d-7f78-4bb4-8ab7-39cce88ae166',
         order: 1,
     },
     {
@@ -245,7 +245,7 @@ export const logicalExercises = [
         ],
         hint: "Use o operador que exige que todas as condições sejam verdadeiras.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '34974114-1aa2-45bb-a7bb-d24672b3f9cf',
+        lessonId: 'ac151f6d-7f78-4bb4-8ab7-39cce88ae166',
         order: 2,
     },
     {
@@ -262,7 +262,7 @@ export const logicalExercises = [
         ],
         hint: "Use o operador que retorna verdadeiro se pelo menos uma condição for verdadeira.",
         type: "COMPLETE_CODE",
-        lessonId: 'c1451ee4-5c13-4711-969a-3d7d316d58bf',
+        lessonId: 'ac151f6d-7f78-4bb4-8ab7-39cce88ae166',
         order: 3,
     },
     {
@@ -275,7 +275,7 @@ export const logicalExercises = [
         ],
         hint: "Use o operador de negação.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '90beb6e7-c237-404e-94a5-38d0db1117c0',
+        lessonId: 'ac151f6d-7f78-4bb4-8ab7-39cce88ae166',
         order: 4,
     },
     {
@@ -288,7 +288,7 @@ export const logicalExercises = [
         ],
         hint: "Use o operador que inverte o valor lógico.",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'd7c7abbe-cd9a-481d-afce-44bc731e1aff',
+        lessonId: 'ac151f6d-7f78-4bb4-8ab7-39cce88ae166',
         order: 5,
     },
 ] as const;

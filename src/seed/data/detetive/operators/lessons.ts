@@ -1,8 +1,8 @@
 const topicId = "218492d4-2a81-4b5a-a0fe-1fd644ee38be";
-const themeId = "d14e94ff-5702-47d5-bf25-d0984ca44e9e";
+const themeId = "bb858ea9-6327-48a5-a523-39a07fb82183";
 const iconId = "6668bcde-d0bf-4e7e-8a33-a1a870e5051e";
 
-export const operatorLessons = [
+export const operatorLessonsDetetive = [
     {
         id: '6dc9654a-9de9-4afe-a498-9b2a7c7e995a',
         name: "Operadores Aritméticos",

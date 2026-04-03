@@ -1,8 +1,8 @@
 const topicId = "d20a6380-9ee1-4a41-81fe-758133aaf35c";
-const themeId = "d14e94ff-5702-47d5-bf25-d0984ca44e9e";
+const themeId = "bb858ea9-6327-48a5-a523-39a07fb82183";
 const iconId = "6668bcde-d0bf-4e7e-8a33-a1a870e5051e";
 
-export const loopLessons = [
+export const loopLessonsDetetive = [
     {
         id: '3d1dc34f-f0e3-4528-a387-ce66233dd648',
         name: "While",

@@ -1,8 +1,8 @@
 const topicId = "7e3748c5-cb38-4304-9319-ba805dd13aa4";
-const themeId = "d14e94ff-5702-47d5-bf25-d0984ca44e9e";
+const themeId = "bb858ea9-6327-48a5-a523-39a07fb82183";
 const iconId = "6668bcde-d0bf-4e7e-8a33-a1a870e5051e";
 
-export const conditionalLessons = [
+export const conditionalLessonsDetetive = [
     {
         id: '0b3c39eb-f13e-438d-87fa-68a851b45755',
         name: "Condicionais",

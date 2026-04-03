@@ -1,8 +1,8 @@
 const topicId = "205bf383-5b91-4502-a489-f9dd250fdcc1";
-const themeId = "d14e94ff-5702-47d5-bf25-d0984ca44e9e";
+const themeId = "bb858ea9-6327-48a5-a523-39a07fb82183";
 const iconId = "6668bcde-d0bf-4e7e-8a33-a1a870e5051e";
 
-export const objectsLessons = [
+export const objectsLessonsDetetive = [
     {
         id: 'e7c8f0c8-902f-4937-abe6-501ac0cbb759',
         name: "Objetos Literais",

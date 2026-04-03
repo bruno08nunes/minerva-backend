@@ -14,6 +14,14 @@ import { loopLessons as loopLessonsHorror } from "./terror/loop/lessons";
 import { objectsLessons as objectsLessonsHorror } from "./terror/objects/lessons";
 import { arraysLessons as arraysLessonsHorror } from "./terror/arrays/lessons";
 
+import { variableLessonsDetetive } from "./detetive/variable/lessons";
+import { operatorLessonsDetetive } from "./detetive/operators/lessons";
+import { conditionalLessonsDetetive } from "./detetive/conditional/lessons";
+import { functionLessonsDetetive } from "./detetive/functions/lessons";
+import { loopLessonsDetetive } from "./detetive/loop/lessons";
+import { objectsLessonsDetetive } from "./detetive/objects/lessons";
+import { arraysLessonsDetetive } from "./detetive/arrays/lessons";
+
 const rpgLessons = [
     ...variableLessons,
     ...operatorLessons,
@@ -34,4 +42,14 @@ const horrorLessons = [
     ...arraysLessonsHorror,
 ];
 
-export const lessonData = [...rpgLessons, ...horrorLessons];
+const detetiveLessons = [
+    ...variableLessonsDetetive,
+    ...operatorLessonsDetetive,
+    ...conditionalLessonsDetetive,
+    ...functionLessonsDetetive,
+    ...loopLessonsDetetive,
+    ...objectsLessonsDetetive,
+    ...arraysLessonsDetetive
+]
+
+export const lessonData = [...rpgLessons, ...horrorLessons, ...detetiveLessons];

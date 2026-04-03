@@ -13,7 +13,7 @@ export const ifExercises = [
         ],
         hint: "",
         type: "MULTIPLE_CHOICE",
-        lessonId: '68506eee-37b5-464b-923b-acd5fd77aecb',
+        lessonId: '0b3c39eb-f13e-438d-87fa-68a851b45755',
         order: 1,
     },
     {
@@ -30,7 +30,7 @@ export const ifExercises = [
         ],
         hint: "Qual a declaração para um código que acontece apenas com uma condição?",
         type: "COMPLETE_CODE",
-        lessonId: 'b84a13d7-e4a8-40f7-b115-d99317fe25f4',
+        lessonId: '0b3c39eb-f13e-438d-87fa-68a851b45755',
         order: 2,
     },
     {
@@ -47,7 +47,7 @@ export const ifExercises = [
         ],
         hint: "Leia o código com calma — o que acontece quando a vida chega a zero?",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'e49ff72b-5664-4026-9de6-2a10a8d2a26d',
+        lessonId: '0b3c39eb-f13e-438d-87fa-68a851b45755',
         order: 3,
     },
     {
@@ -64,7 +64,7 @@ export const ifExercises = [
         ],
         hint: "Qual operador verifica igualdade?",
         type: "COMPLETE_CODE",
-        lessonId: '430463f1-4bcd-4968-a6e6-b6fb71be5dd0',
+        lessonId: '0b3c39eb-f13e-438d-87fa-68a851b45755',
         order: 4,
     },
     {
@@ -77,7 +77,7 @@ export const ifExercises = [
         ],
         hint: "Use o operador '>' (maior que).",
         type: "MULTIPLE_CHOICE",
-        lessonId: '81fc3676-b3d0-4653-9aa2-44b29fd937fc',
+        lessonId: '0b3c39eb-f13e-438d-87fa-68a851b45755',
         order: 5,
     },
 ] as const;
@@ -97,7 +97,7 @@ export const ifElseExercises = [
         ],
         hint: "",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'a255a609-5d9f-4649-908d-7b10e60e2498',
+        lessonId: '89b4f0f9-f71f-49b3-b19b-8848cf27541f',
         order: 1,
     },
     {
@@ -114,7 +114,7 @@ export const ifElseExercises = [
         ],
         hint: "Você quer executar um código SE a condição NÃO for real.",
         type: "COMPLETE_CODE",
-        lessonId: '7efd43b4-5546-4d86-99d5-9f0fa6dc336e',
+        lessonId: '89b4f0f9-f71f-49b3-b19b-8848cf27541f',
         order: 2,
     },
     {
@@ -131,7 +131,7 @@ export const ifElseExercises = [
         ],
         hint: "Qual operador verifica se a energia é maior ou igual a 20?",
         type: "MULTIPLE_CHOICE",
-        lessonId: '1c61f31b-e026-42fd-a502-f920757040e9',
+        lessonId: '89b4f0f9-f71f-49b3-b19b-8848cf27541f',
         order: 3,
     },
     {
@@ -144,7 +144,7 @@ export const ifElseExercises = [
         ],
         hint: "Pense no papel do 'else'.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '6c079262-a7f1-4e53-9b70-1413576247cd',
+        lessonId: '89b4f0f9-f71f-49b3-b19b-8848cf27541f',
         order: 4,
     },
     {
@@ -161,7 +161,7 @@ export const ifElseExercises = [
         ],
         hint: "Qual palavra completa o bloco alternativo?",
         type: "COMPLETE_CODE",
-        lessonId: '3965cea8-c545-4adc-b5a6-ecfbd097962d',
+        lessonId: '89b4f0f9-f71f-49b3-b19b-8848cf27541f',
         order: 5,
     },
 ] as const;
@@ -181,7 +181,7 @@ export const ifElseIfExercises = [
         ],
         hint: "",
         type: "MULTIPLE_CHOICE",
-        lessonId: '5ab2ffb4-fbf0-4406-acd4-85ca072097d5',
+        lessonId: 'c9bb5f68-5fe5-47af-84fa-f4c68cd93f2b',
         order: 1,
     },
     {
@@ -198,7 +198,7 @@ export const ifElseIfExercises = [
         ],
         hint: "Use a palavra que liga o segundo teste condicional.",
         type: "COMPLETE_CODE",
-        lessonId: 'b6bdf1b1-914f-4e79-8212-1fec325de9be',
+        lessonId: 'c9bb5f68-5fe5-47af-84fa-f4c68cd93f2b',
         order: 2,
     },
     {
@@ -215,7 +215,7 @@ export const ifElseIfExercises = [
         ],
         hint: "Use a mesma variável anterior.",
         type: "COMPLETE_CODE",
-        lessonId: '393e1856-edba-4a39-92de-08facc2d8820',
+        lessonId: 'c9bb5f68-5fe5-47af-84fa-f4c68cd93f2b',
         order: 3,
     },
     {
@@ -228,7 +228,7 @@ export const ifElseIfExercises = [
         ],
         hint: "Pense em quantas condições podem ser verdadeiras ao mesmo tempo.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '011f40aa-9e4a-48c3-a80a-201189437e95',
+        lessonId: 'c9bb5f68-5fe5-47af-84fa-f4c68cd93f2b',
         order: 4,
     },
 ] as const;
@@ -248,7 +248,7 @@ export const switchExercises = [
         ],
         hint: "",
         type: "MULTIPLE_CHOICE",
-        lessonId: 'f939b7d7-02c7-4542-8333-7a16b18e2b0a',
+        lessonId: '4b446f68-7bdf-4583-aca1-b804cb2666f7',
         order: 1,
     },
     {
@@ -265,7 +265,7 @@ export const switchExercises = [
         ],
         hint: "Qual palavra que recebe uma variável para comparar?",
         type: "COMPLETE_CODE",
-        lessonId: '218bf7dd-a128-4391-99d2-cc6e67f9394a',
+        lessonId: '4b446f68-7bdf-4583-aca1-b804cb2666f7',
         order: 2,
     },
     {
@@ -278,7 +278,7 @@ export const switchExercises = [
         ],
         hint: "Lembre-se que o JavaScript executa os próximos blocos até encontrar uma quebra.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '62d22839-682c-4fce-878f-d102b5f5e6c6',
+        lessonId: '4b446f68-7bdf-4583-aca1-b804cb2666f7',
         order: 3,
     },
     {
@@ -295,7 +295,7 @@ export const switchExercises = [
         ],
         hint: "Qual palavra é usada para o caso padrão (quando nenhum outro é verdadeiro)?",
         type: "COMPLETE_CODE",
-        lessonId: '54102f48-5e93-46f0-9815-aa79aca4dbef',
+        lessonId: '4b446f68-7bdf-4583-aca1-b804cb2666f7',
         order: 4,
     },
 ] as const;

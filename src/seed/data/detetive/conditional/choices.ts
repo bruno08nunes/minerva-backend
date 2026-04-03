@@ -5,7 +5,7 @@ export const ifChoices = [
         text: "Continuar",
         isCorrect: true,
         order: 1,
-        exerciseId: 'bce4fc33-0dac-49a9-8a0d-1c4597f9aacf',
+        exerciseId: 'a7fd20b0-2212-4027-bfdf-b38dc7e91633',
     },
 
     // Exercise 2
@@ -14,7 +14,7 @@ export const ifChoices = [
         text: "if",
         isCorrect: true,
         order: 1,
-        exerciseId: '2229f686-15ad-40d2-aa1a-62e144dbaf98',
+        exerciseId: 'ef96bc4c-0b3f-4670-b25b-4ef26c4715c1',
     },
 
     // Exercise 3
@@ -23,28 +23,28 @@ export const ifChoices = [
         text: "Abaixa a vida se for maior que o máximo.",
         isCorrect: true,
         order: 1,
-        exerciseId: 'e102945d-e9fd-404a-83ff-840ecc856743',
+        exerciseId: 'ec6366c0-3e0b-413a-8449-5192e7ce6725',
     },
     {
         id: '158d374e-6a44-48c5-be98-c185c902daaf',
         text: "Aumenta a vida do jogador.",
         isCorrect: false,
         order: 2,
-        exerciseId: '068813a2-1d99-4fe6-a62c-aef10427de86',
+        exerciseId: 'ec6366c0-3e0b-413a-8449-5192e7ce6725',
     },
     {
         id: '4b485a93-c062-4564-8b4d-3581372e79c5',
         text: "Termina o jogo.",
         isCorrect: false,
         order: 3,
-        exerciseId: 'd3d9fd4f-9651-48ce-b707-c92769f6a447',
+        exerciseId: 'ec6366c0-3e0b-413a-8449-5192e7ce6725',
     },
     {
         id: '486c9847-3649-4981-a3d6-1d599258ad9d',
         text: "Zera a vida do jogador.",
         isCorrect: false,
         order: 4,
-        exerciseId: '19d6e658-8886-4352-811e-280cf9b5b684',
+        exerciseId: 'ec6366c0-3e0b-413a-8449-5192e7ce6725',
     },
 
     // Exercise 4
@@ -53,7 +53,7 @@ export const ifChoices = [
         text: "==",
         isCorrect: true,
         order: 1,
-        exerciseId: 'a43cf43a-59d2-4ae1-9b3c-e7c678b71630',
+        exerciseId: 'ef5470c9-73b8-4b09-884a-aeec98bd4737',
     },
 
     // Exercise 5
@@ -62,28 +62,28 @@ export const ifChoices = [
         text: "if (xp > 100)",
         isCorrect: true,
         order: 1,
-        exerciseId: '433b2dd2-bcf5-42f5-aa34-710a173409fe',
+        exerciseId: '251e7a3d-9ef2-4976-b49e-c026255c79e3',
     },
     {
         id: '4bebfff2-8c4b-4c54-9add-d7afd84306ea',
         text: "if (xp < 100)",
         isCorrect: false,
         order: 2,
-        exerciseId: '54d6bab3-9a0a-4900-bfb4-1ea24c576299',
+        exerciseId: '251e7a3d-9ef2-4976-b49e-c026255c79e3',
     },
     {
         id: 'c1176419-6c16-4e32-97ef-65ac5f5a1af9',
         text: "if (xp == 100)",
         isCorrect: false,
         order: 3,
-        exerciseId: '796afb82-ef86-4f92-8450-476e7dc25f67',
+        exerciseId: '251e7a3d-9ef2-4976-b49e-c026255c79e3',
     },
     {
         id: '25747956-ffb3-4955-abe9-24e33e7952d0',
         text: "if (xp >= 100)",
         isCorrect: false,
         order: 3,
-        exerciseId: 'fdb0c9ff-9840-4ab7-9095-bf482a243715',
+        exerciseId: '251e7a3d-9ef2-4976-b49e-c026255c79e3',
     },
 ] as const;
 
@@ -94,7 +94,7 @@ export const ifElseChoices = [
         text: "Continuar.",
         isCorrect: true,
         order: 1,
-        exerciseId: 'ad373a69-61f6-4f34-bc17-9492d505dd76',
+        exerciseId: '42abcbef-1ba8-4bbf-b8f2-88a472dea097',
     },
 
     // Exercise 2
@@ -103,7 +103,7 @@ export const ifElseChoices = [
         text: "else",
         isCorrect: true,
         order: 1,
-        exerciseId: 'ce7e3296-8b42-4b23-abe5-0a71a19300c0',
+        exerciseId: '6e7cda6b-8e94-4db3-ae48-c38496d3b8bd',
     },
 
     // Exercise 3
@@ -112,28 +112,28 @@ export const ifElseChoices = [
         text: "<=",
         isCorrect: false,
         order: 1,
-        exerciseId: '08c0fa0a-6ca1-4171-8d1f-d210a9653538',
+        exerciseId: '41767bfc-c667-414e-83d2-31a894e60aa0',
     },
     {
         id: '9c0df43a-8e79-4c2d-be0f-7df30aa97938',
         text: "!=",
         isCorrect: false,
         order: 2,
-        exerciseId: 'e7ad1965-66a8-4aeb-9f17-b7fd64a25768',
+        exerciseId: '41767bfc-c667-414e-83d2-31a894e60aa0',
     },
     {
         id: '3bdee7b2-c17a-4063-a016-2a6902fc93bf',
         text: ">=",
         isCorrect: true,
         order: 3,
-        exerciseId: 'e7b38371-0738-4e52-bd5f-292cdac1a93f',
+        exerciseId: '41767bfc-c667-414e-83d2-31a894e60aa0',
     },
     {
         id: '1d5e14cb-6662-4307-8da9-67f4bc6018fa',
         text: "==",
         isCorrect: false,
         order: 4,
-        exerciseId: 'ef0811fc-79d7-4781-b324-13139a3c1156',
+        exerciseId: '41767bfc-c667-414e-83d2-31a894e60aa0',
     },
 
     // Exercise 4
@@ -142,28 +142,28 @@ export const ifElseChoices = [
         text: "Nada acontece.",
         isCorrect: false,
         order: 1,
-        exerciseId: '089ab79d-3351-46aa-b9e1-98f0e0a00168',
+        exerciseId: 'b7a0f797-88bc-48fc-ba22-b8f71c028c42',
     },
     {
         id: 'ccebac18-2956-4420-9ae4-f56cc1e82195',
         text: "O bloco dentro do 'else' é executado.",
         isCorrect: true,
         order: 2,
-        exerciseId: 'da88e512-23c8-456b-a40d-451c5ad7a71d',
+        exerciseId: 'b7a0f797-88bc-48fc-ba22-b8f71c028c42',
     },
     {
         id: '5a0df6c7-7a94-4012-93ef-1c032feab450',
         text: "O programa é encerrado automaticamente.",
         isCorrect: false,
         order: 3,
-        exerciseId: '32fdff0c-3f13-4a97-8806-c08596f33ef2',
+        exerciseId: 'b7a0f797-88bc-48fc-ba22-b8f71c028c42',
     },
     {
         id: '27b2d416-a025-4868-9b9e-b08c23392356',
         text: "O código dentro do if é executado.",
         isCorrect: false,
         order: 4,
-        exerciseId: '2caebdc2-61c7-4795-b376-b804e10a6ed1',
+        exerciseId: 'b7a0f797-88bc-48fc-ba22-b8f71c028c42',
     },
 
     // Exercise 5
@@ -172,7 +172,7 @@ export const ifElseChoices = [
         text: "else",
         isCorrect: true,
         order: 1,
-        exerciseId: 'db66c321-4eb6-41c8-98c0-d2e177f52931',
+        exerciseId: '7d1560a6-4adb-454c-9909-c432bf4c9d4e',
     },
 ] as const;
 
@@ -183,7 +183,7 @@ export const ifElseIfChoices = [
         text: "Continuar.",
         isCorrect: true,
         order: 1,
-        exerciseId: 'd09e6d5c-4f9b-48c1-a7a3-c8f1026945d4',
+        exerciseId: '7bc46e4e-5fad-4b17-b268-4bd6d454571a',
     },
 
     // Exercise 2
@@ -192,7 +192,7 @@ export const ifElseIfChoices = [
         text: "else if",
         isCorrect: true,
         order: 1,
-        exerciseId: '455ecac0-8c00-4d88-86cd-e9fb7841c5b2',
+        exerciseId: 'f819f5ec-b4da-4490-a4fe-9bddb50d1473',
     },
 
     // Exercise 3
@@ -201,7 +201,7 @@ export const ifElseIfChoices = [
         text: "forca",
         isCorrect: true,
         order: 1,
-        exerciseId: 'd7cf10f6-2949-40d9-88f0-db806ed2e79f',
+        exerciseId: '086ba5c9-bc36-4a8b-87c9-33e99aaac799',
     },
 
     // Exercise 4
@@ -210,14 +210,14 @@ export const ifElseIfChoices = [
         text: "Da primeira forma várias condições são executadas.",
         isCorrect: false,
         order: 1,
-        exerciseId: '82354d29-7a84-42ce-839a-5015a2583469',
+        exerciseId: 'f53abfff-1f6c-49a8-96ca-cef0cdbad2d2',
     },
     {
         id: 'b0a5bae5-9f78-4f96-afd1-064269f5de24',
         text: "Da primeira forma apenas uma condição é executada.",
         isCorrect: true,
         order: 2,
-        exerciseId: '2984756e-a663-4249-aefb-138a3e5e6506',
+        exerciseId: 'f53abfff-1f6c-49a8-96ca-cef0cdbad2d2',
     },
 ] as const;
 
@@ -228,7 +228,7 @@ export const switchChoices = [
         text: "Continuar.",
         isCorrect: true,
         order: 1,
-        exerciseId: '68c75f75-e8df-40a7-9d5e-ae14f425ecd9',
+        exerciseId: 'e6b83437-66df-4e49-acba-f822125b2d9b',
     },
 
     // Exercise 2
@@ -237,7 +237,7 @@ export const switchChoices = [
         text: "switch",
         isCorrect: true,
         order: 1,
-        exerciseId: 'd610b7ba-237d-4220-891e-de7eaba6212c',
+        exerciseId: 'baf62fc0-a2fb-42bd-a27a-4fdb5f2c54f0',
     },
 
     // Exercise 3
@@ -246,28 +246,28 @@ export const switchChoices = [
         text: "switch",
         isCorrect: false,
         order: 1,
-        exerciseId: '53a69d9c-2203-4eee-98ad-f73202842ff9',
+        exerciseId: 'c942a5ee-277d-4a89-a1f8-e4d0c035d1e4',
     },
     {
         id: '3722fc8f-d1b1-4711-9e94-73340eb5b65b',
         text: "default",
         isCorrect: false,
         order: 2,
-        exerciseId: 'b12a94ca-4a14-40bd-95fa-62ce948bf26d',
+        exerciseId: 'c942a5ee-277d-4a89-a1f8-e4d0c035d1e4',
     },
     {
         id: 'b009b1dd-7641-4fcb-8e47-2f865b6210a0',
         text: "break",
         isCorrect: true,
         order: 3,
-        exerciseId: 'd584b8a7-9131-4f94-9d6b-5db44011338c',
+        exerciseId: 'c942a5ee-277d-4a89-a1f8-e4d0c035d1e4',
     },
     {
         id: '6b41ad0d-250b-4fba-a632-d3677088052c',
         text: "case",
         isCorrect: false,
         order: 4,
-        exerciseId: '3d4d6ee4-cbb1-477b-8af5-572db3b82f91',
+        exerciseId: 'c942a5ee-277d-4a89-a1f8-e4d0c035d1e4',
     },
 
     // Exercise 4
@@ -276,6 +276,6 @@ export const switchChoices = [
         text: "default",
         isCorrect: true,
         order: 1,
-        exerciseId: '45269048-6592-41a3-bdfb-1c272799d809',
+        exerciseId: '40402f3e-6377-4e14-bcff-9d4f01fa2b93',
     },
 ];

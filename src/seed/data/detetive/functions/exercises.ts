@@ -13,7 +13,7 @@ export const functionExercises = [
         ],
         hint: "",
         type: "MULTIPLE_CHOICE",
-        lessonId: '33fe3c1d-26a2-406b-abe7-94ef0bd7bc1d',
+        lessonId: 'f42e778b-17c6-4672-a811-a5151db35d9b',
         order: 1,
     },
     {
@@ -30,7 +30,7 @@ export const functionExercises = [
         ],
         hint: "Use a palavra que define uma função",
         type: "COMPLETE_CODE",
-        lessonId: '8048b004-bbfe-41fd-a4b5-c62d3b4fb6c9',
+        lessonId: 'f42e778b-17c6-4672-a811-a5151db35d9b',
         order: 2,
     },
     {
@@ -47,7 +47,7 @@ export const functionExercises = [
         ],
         hint: "A variável `ouro` está fora da função.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '7671bc8c-6898-4d2c-b27c-4d4a3054cefe',
+        lessonId: 'f42e778b-17c6-4672-a811-a5151db35d9b',
         order: 3,
     },
     {
@@ -64,7 +64,7 @@ export const functionExercises = [
         ],
         hint: "O operador de subtração é usado aqui.",
         type: "COMPLETE_CODE",
-        lessonId: '577f6669-e9f6-41ce-bcb7-7d16c8b30d6d',
+        lessonId: 'f42e778b-17c6-4672-a811-a5151db35d9b',
         order: 4,
     },
 ] as const;
@@ -84,7 +84,7 @@ export const functionPureExercises = [
         ],
         hint: "A variável soma recebe o valor 3.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '6f2adda3-6ff7-43c7-a61e-e38b7e3cd0e1',
+        lessonId: 'b14515dc-e799-4fdd-820d-a12f5d413ce9',
         order: 1,
     },
     {
@@ -101,7 +101,7 @@ export const functionPureExercises = [
         ],
         hint: "Você deve definir o retorno da função.",
         type: "COMPLETE_CODE",
-        lessonId: '6a388dd1-7018-49b6-9aa6-f87089840283',
+        lessonId: 'b14515dc-e799-4fdd-820d-a12f5d413ce9',
         order: 2,
     },
     {
@@ -114,7 +114,7 @@ export const functionPureExercises = [
         ],
         hint: "Ele serve para devolver um valor.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '60d82400-07bf-4ebc-af5d-253a9843d961',
+        lessonId: 'b14515dc-e799-4fdd-820d-a12f5d413ce9',
         order: 3,
     },
     {
@@ -131,7 +131,7 @@ export const functionPureExercises = [
         ],
         hint: "Use um dos parâmetros passados.",
         type: "COMPLETE_CODE",
-        lessonId: 'b07a621c-1019-4240-8bf3-5a476ce02a97',
+        lessonId: 'b14515dc-e799-4fdd-820d-a12f5d413ce9',
         order: 4,
     },
 ] as const;
@@ -147,7 +147,7 @@ export const functionRecursiveExercises = [
         ],
         hint: "",
         type: "MULTIPLE_CHOICE",
-        lessonId: '859cc57d-9a33-44b0-bbb8-f983eefbcd43',
+        lessonId: 'b3515928-d738-447b-9638-533cac813877',
         order: 1,
     },
     {
@@ -164,7 +164,7 @@ export const functionRecursiveExercises = [
         ],
         hint: "A função deve chamar a si mesma com o valor decrementado para que não ocorra um loop infinito.",
         type: "COMPLETE_CODE",
-        lessonId: 'b263d45a-ed4f-4ff8-8215-522a8740447f',
+        lessonId: 'b3515928-d738-447b-9638-533cac813877',
         order: 2,
     },
     {
@@ -177,7 +177,7 @@ export const functionRecursiveExercises = [
         ],
         hint: "Pense no que ocorre se ela nunca parar de se chamar.",
         type: "MULTIPLE_CHOICE",
-        lessonId: '6ec7b02d-a510-480b-ad35-dd2e96ee9243',
+        lessonId: 'b3515928-d738-447b-9638-533cac813877',
         order: 3,
     },
     {
@@ -194,7 +194,7 @@ export const functionRecursiveExercises = [
         ],
         hint: "A função deve chamar ela mesma, diminuindo o valor de `n`.",
         type: "COMPLETE_CODE",
-        lessonId: '8420f723-ffc6-40b8-b8a5-d319a277c95b',
+        lessonId: 'b3515928-d738-447b-9638-533cac813877',
         order: 4,
     },
 ] as const;

@@ -1,8 +1,8 @@
 const topicId = "b6101fef-e2c7-4c68-91dc-d47f10ba497c";
-const themeId = "d14e94ff-5702-47d5-bf25-d0984ca44e9e";
+const themeId = "bb858ea9-6327-48a5-a523-39a07fb82183";
 const iconId = "6668bcde-d0bf-4e7e-8a33-a1a870e5051e";
 
-export const functionLessons = [
+export const functionLessonsDetetive = [
     {
         id: 'f42e778b-17c6-4672-a811-a5151db35d9b',
         name: "Funções",
