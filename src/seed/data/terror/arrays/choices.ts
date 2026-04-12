@@ -93,21 +93,21 @@ export const handlingArraysChoices = [
     // Exercício 1
     {
         id: 'f30ce100-55eb-4a15-a56a-2c0ebf953ea8',
-        text: "Fogo",
+        text: "Porta rangendo",
         isCorrect: false,
         order: 1,
         exerciseId: '8a0f42b9-8233-486b-9728-23fa4b39fa7a',
     },
     {
         id: '4fc87734-47a6-49ae-a7cf-147e4027844d',
-        text: "Gelo",
+        text: "Sombra",
         isCorrect: true,
         order: 2,
         exerciseId: '8a0f42b9-8233-486b-9728-23fa4b39fa7a',
     },
     {
         id: '7131c51a-ad68-4198-a1a2-c83bbf386075',
-        text: "Raio",
+        text: "Grito",
         isCorrect: false,
         order: 3,
         exerciseId: '8a0f42b9-8233-486b-9728-23fa4b39fa7a',
@@ -116,21 +116,21 @@ export const handlingArraysChoices = [
     // Exercício 2
     {
         id: 'dcd0da58-8d7b-4e36-b8bd-e65ef234326f',
-        text: "['Espada', 'Escudo', 'Poção']",
+        text: "['Pegada', 'Sussurro', 'Mancha de sangue']",
         isCorrect: true,
         order: 1,
         exerciseId: 'a81b0dff-32e0-4cc9-8cf2-cf79fc0ad195',
     },
     {
         id: '8492a86d-6f45-4ca7-a922-c38b691efffd',
-        text: "['Poção', 'Espada', 'Escudo']",
+        text: "['Mancha de sangue', 'Pegada', 'Sussurro']",
         isCorrect: false,
         order: 2,
         exerciseId: 'a81b0dff-32e0-4cc9-8cf2-cf79fc0ad195',
     },
     {
         id: '31b3386a-782c-4709-8d4a-5d230b0022d3',
-        text: "['Poção', 'Escudo', 'Espada']",
+        text: "['Mancha de sangue', 'Sussuro', 'Pegada']",
         isCorrect: false,
         order: 3,
         exerciseId: 'a81b0dff-32e0-4cc9-8cf2-cf79fc0ad195',
@@ -221,16 +221,30 @@ export const arraysAdvancedChoices = [
     // Exercício 3
     {
         id: 'bf3d5714-f45b-4ed3-a337-09ed475ca709',
-        text: "['Fogo', 'Gelo']",
+        text: "['Caso 1', 'Caso 2']",
         isCorrect: false,
         order: 1,
         exerciseId: '6e9079b8-1d0e-4251-a5f2-2cdb27a1dcb3',
     },
     {
         id: '82d6f9d4-30af-4b48-b7dd-ff0c5db9397b',
-        text: "['Gelo', 'Raio']",
+        text: "['Caso 2', 'Caso 3']",
         isCorrect: true,
         order: 2,
+        exerciseId: '6e9079b8-1d0e-4251-a5f2-2cdb27a1dcb3',
+    },
+    {
+        id: '82d6f9d4-30af-4b48-b7dd-ff0c5db9398c',
+        text: "['Caso 1', 'Caso 2', 'Caso 3']",
+        isCorrect: false,
+        order: 3,
+        exerciseId: '6e9079b8-1d0e-4251-a5f2-2cdb27a1dcb3',
+    },
+    {
+        id: '82d6f9d4-30af-4b48-b7dd-ff0c5db3218c',
+        text: "['Caso 2', 'Caso 3', 'Caso 4']",
+        isCorrect: false,
+        order: 4,
         exerciseId: '6e9079b8-1d0e-4251-a5f2-2cdb27a1dcb3',
     },
 
@@ -269,15 +283,15 @@ export const iterationsArraysChoices = [
     // Exercício 1
     {
         id: '3b3b9d91-52e1-467c-afd8-6b45f4470594',
-        text: "Fogo\nGelo\nRaio",
-        isCorrect: true,
+        text: "Batida na porta\nPassos\nSussurros",
+        isCorrect: false,
         order: 1,
         exerciseId: '42640826-71d0-4426-9fe0-f00e20fd9fa0',
     },
     {
         id: '0fd14949-8105-49d3-890c-1796c4309674',
-        text: "Raio\nGelo\nFogo",
-        isCorrect: false,
+        text: "Sussurro\nPassos\nBatida na porta",
+        isCorrect: true,
         order: 2,
         exerciseId: '42640826-71d0-4426-9fe0-f00e20fd9fa0',
     },
@@ -321,21 +335,21 @@ export const iterationsArraysChoices = [
     // Exercício 6
     {
         id: 'd6a286ae-92dd-4711-a240-aa525d5aca11',
-        text: "[10, 20, 30]",
+        text: "[1, 2, 3]",
         isCorrect: false,
         order: 1,
         exerciseId: '347ed5fe-5eda-446a-bf26-2a28717cfe8c',
     },
     {
         id: 'c22c7ae2-d432-4b3f-aaaf-be58666b7d1d',
-        text: "[20, 40, 60]",
+        text: "[2, 4, 6]",
         isCorrect: true,
         order: 2,
         exerciseId: '347ed5fe-5eda-446a-bf26-2a28717cfe8c',
     },
     {
         id: 'fbd9abfa-cf70-48c4-b24d-c38c20dbc481',
-        text: "[0, 1, 2]",
+        text: "[10, 20, 30]",
         isCorrect: false,
         order: 3,
         exerciseId: '347ed5fe-5eda-446a-bf26-2a28717cfe8c',

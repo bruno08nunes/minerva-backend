@@ -317,28 +317,28 @@ export const logicalChoices = [
     // Exercício 5
     {
         id: '487a0a8b-be6a-4a54-8955-88c96128360a',
-        text: "if (!temMana)",
+        text: "if (!temSanidade)",
         isCorrect: true,
         order: 1,
         exerciseId: '40ac290c-7d81-48bf-9981-3c48b51ea906',
     },
     {
         id: 'ff2e9331-aa73-4344-b6fc-6d0585bc3bb1',
-        text: "if (temMana)",
+        text: "if (temSanidade)",
         isCorrect: false,
         order: 2,
         exerciseId: '40ac290c-7d81-48bf-9981-3c48b51ea906',
     },
     {
         id: 'b4ee348b-17ff-4243-9be6-782725b69104',
-        text: "if (temMana && !vida)",
+        text: "if (temSanidade && !vida)",
         isCorrect: false,
         order: 3,
         exerciseId: '40ac290c-7d81-48bf-9981-3c48b51ea906',
     },
     {
         id: '220fa8b3-3013-4086-8edc-ae461cb41ac7',
-        text: "if (temMana || !vida)",
+        text: "if (temSanidade || !vida)",
         isCorrect: false,
         order: 4,
         exerciseId: '40ac290c-7d81-48bf-9981-3c48b51ea906',

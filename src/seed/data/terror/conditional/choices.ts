@@ -16,21 +16,21 @@ export const ifChoices = [
 
     {
         id: '8b1a1c6e-6d8a-4f9b-9a1f-1c1a1e1a0003',
-        text: "Limita a vida ao valor máximo.",
+        text: "Limita a sanidade ao valor máximo.",
         isCorrect: true,
         order: 1,
         exerciseId: 'a7f0f877-5fd1-473a-b83a-b593af9faec9',
     },
     {
         id: '8b1a1c6e-6d8a-4f9b-9a1f-1c1a1e1a0004',
-        text: "Aumenta a vida do jogador.",
+        text: "Aumenta a sanidade do jogador.",
         isCorrect: false,
         order: 2,
         exerciseId: 'a7f0f877-5fd1-473a-b83a-b593af9faec9',
     },
     {
         id: '8b1a1c6e-6d8a-4f9b-9a1f-1c1a1e1a0005',
-        text: "Zera a vida.",
+        text: "Zera a sanidade.",
         isCorrect: false,
         order: 3,
         exerciseId: 'a7f0f877-5fd1-473a-b83a-b593af9faec9',
@@ -53,28 +53,28 @@ export const ifChoices = [
 
     {
         id: '8b1a1c6e-6d8a-4f9b-9a1f-1c1a1e1a0008',
-        text: "if (xp > 100)",
+        text: "if (medo > 100)",
         isCorrect: true,
         order: 1,
         exerciseId: '530e8828-4b57-428f-b350-aaa7b4e2f9b4',
     },
     {
         id: '8b1a1c6e-6d8a-4f9b-9a1f-1c1a1e1a0009',
-        text: "if (xp >= 100)",
+        text: "if (medo >= 100)",
         isCorrect: false,
         order: 2,
         exerciseId: '530e8828-4b57-428f-b350-aaa7b4e2f9b4',
     },
     {
         id: '8b1a1c6e-6d8a-4f9b-9a1f-1c1a1e1a0010',
-        text: "if (xp == 100)",
+        text: "if (medo == 100)",
         isCorrect: false,
         order: 3,
         exerciseId: '530e8828-4b57-428f-b350-aaa7b4e2f9b4',
     },
     {
         id: '8b1a1c6e-6d8a-4f9b-9a1f-1c1a1e1a0011',
-        text: "if (xp < 100)",
+        text: "if (medo < 100)",
         isCorrect: false,
         order: 4,
         exerciseId: '530e8828-4b57-428f-b350-aaa7b4e2f9b4',
@@ -167,7 +167,7 @@ export const ifElseIfChoices = [
     },
     {
         id: 'ad3c3e80-8fab-5abc-9c3f-3e3c3f3c0003',
-        text: "forca",
+        text: "medo",
         isCorrect: true,
         order: 1,
         exerciseId: '841d4951-660a-4ce9-800f-a4bff58d40bd',

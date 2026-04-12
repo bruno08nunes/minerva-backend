@@ -4,7 +4,7 @@ export const arithmeticExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Os operadores aritméticos são os operadores que fazem operações matemáticas. As operações possíveis são: adição (+), subtração (-), multiplicação (*), divisão (/) e módulo (%).",
+                data: "Os operadores aritméticos permitem fazer cálculos importantes para sua sobrevivência. Você pode somar (+), subtrair (-), multiplicar (*), dividir (/) e obter o resto (%) de uma divisão.",
             },
         ],
         hint: "",
@@ -17,14 +17,14 @@ export const arithmeticExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Calcule o dano total de uma magia que causa 12 pontos por golpe e acerta 4 vezes.",
+                data: "Uma entidade causa 12 pontos de dano psicológico por sussurro e você ouviu 4 sussurros. Calcule o dano total.",
             },
             {
                 type: "code",
                 data: "12 _____ 4",
             },
         ],
-        hint: "Qual é o operador de multiplicação?",
+        hint: "Qual operador representa multiplicação?",
         type: "COMPLETE_CODE",
         lessonId: 'fa814e2e-85ef-49c0-8ece-8d5873c36d06',
         order: 2,
@@ -34,10 +34,10 @@ export const arithmeticExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Um alquimista divide 100 pontos de energia igualmente entre 5 frascos. Qual operação representa essa ação?",
+                data: "Você encontrou 100 páginas de um diário amaldiçoado e quer dividir igualmente entre 5 pistas. Qual operação representa isso?",
             },
         ],
-        hint: "Use o operador '/' para dividir.",
+        hint: "Use '/' para dividir.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'fa814e2e-85ef-49c0-8ece-8d5873c36d06',
         order: 3,
@@ -47,14 +47,14 @@ export const arithmeticExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você encontrou uma runa que aumenta sua força em 2 pontos toda vez que a usa. Complete o código que soma esse bônus corretamente.",
+                data: "Cada pista encontrada aumenta sua sanidade em 2 pontos. Complete o código:",
             },
             {
                 type: "code",
-                data: "forca = forca _____ 2",
+                data: "sanidade = sanidade _____ 2",
             },
         ],
-        hint: "Qual o operador usado para soma?",
+        hint: "Qual operador soma valores?",
         type: "COMPLETE_CODE",
         lessonId: 'fa814e2e-85ef-49c0-8ece-8d5873c36d06',
         order: 4,
@@ -64,10 +64,10 @@ export const arithmeticExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Qual operador é usado para obter o resto de uma divisão?",
+                data: "Qual operador retorna o resto de uma divisão?",
             },
         ],
-        hint: 'É conhecido como "módulo".',
+        hint: 'É chamado de "módulo".',
         type: "MULTIPLE_CHOICE",
         lessonId: 'fa814e2e-85ef-49c0-8ece-8d5873c36d06',
         order: 5,
@@ -93,14 +93,14 @@ export const assignmentExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Durante a batalha, o herói ganha 50 pontos de experiência. Complete o código para adicionar esse valor à variável existente:",
+                data: "Você encontrou um remédio e recuperou 50 pontos de sanidade. Complete o código:",
             },
             {
                 type: "code",
-                data: "experiencia _____ 50",
+                data: "sanidade _____ 50",
             },
         ],
-        hint: "Use o operador que soma e reatribui o valor.",
+        hint: "Use o operador que soma e reatribui.",
         type: "COMPLETE_CODE",
         lessonId: 'f1ae32a2-115a-4b85-99a2-0b6349fa6bcf',
         order: 2,
@@ -110,14 +110,14 @@ export const assignmentExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Após uma armadilha, o guerreiro perde 20 pontos de vida. Qual dos abaixos completa o código:",
+                data: "Após um encontro com algo no escuro, você perde 20 pontos de sanidade. Complete o código:",
             },
             {
                 type: "code",
-                data: "vida _____ 20",
+                data: "sanidade _____ 20",
             },
         ],
-        hint: "Use o operador que subtrai e atualiza o valor.",
+        hint: "Use o operador que subtrai e atualiza.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'f1ae32a2-115a-4b85-99a2-0b6349fa6bcf',
         order: 3,
@@ -127,14 +127,14 @@ export const assignmentExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O ferreiro quer dobrar a durabilidade de uma espada. Complete o código:",
+                data: "Uma força desconhecida dobra seu nível de medo. Complete o código:",
             },
             {
                 type: "code",
-                data: "durabilidade _____ 2",
+                data: "medo _____ 2",
             },
         ],
-        hint: "Use o operador que multiplica e reatribui o valor.",
+        hint: "Use o operador de multiplicação com atribuição.",
         type: "COMPLETE_CODE",
         lessonId: 'f1ae32a2-115a-4b85-99a2-0b6349fa6bcf',
         order: 4,
@@ -144,14 +144,14 @@ export const assignmentExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Um mago quer dividir sua energia pela metade. Qual dos abaixo completa o código corretamente?",
+                data: "Você tenta se acalmar e reduz seu medo pela metade. Qual operador usar?",
             },
             {
                 type: "code",
-                data: "energia _____ 2",
+                data: "medo _____ 2",
             },
         ],
-        hint: "Use o operador que divide e reatribui o valor.",
+        hint: "Use o operador de divisão com atribuição.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'f1ae32a2-115a-4b85-99a2-0b6349fa6bcf',
         order: 5,
@@ -164,7 +164,7 @@ export const relationalExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Os operadores relacionais são aqueles que comparam dois valores. Eles podem ser o de maior que (>), menor que (<), igual (==) ou diferente (!=).",
+                data: "Operadores relacionais comparam valores, algo crucial para tomar decisões em situações perigosas. Eles podem ser o de maior que (>), menor que (<), igual (==) ou diferente (!=).",
             },
         ],
         hint: "",
@@ -177,14 +177,14 @@ export const relationalExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "A feiticeira quer verificar se sua energia é menor ou igual a 50. Complete o código:",
+                data: "Você quer verificar se sua sanidade está menor ou igual a 50 antes de tomar uma decisão.",
             },
             {
                 type: "code",
-                data: "if (energia _____ 50) {\n console.log('Energia baixa!') \n}",
+                data: "if (sanidade _____ 50) {\n console.log('Perigo mental!') \n}",
             },
         ],
-        hint: "Combine os símbolos de 'menor' e 'igual'.",
+        hint: "Combine menor que e igual.",
         type: "COMPLETE_CODE",
         lessonId: 'b1f9014f-6a3a-4bde-91b8-868d361a5097',
         order: 2,
@@ -194,7 +194,7 @@ export const relationalExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O mago quer saber se dois ingredientes possuem o mesmo valor mágico. Qual operador deve usar?",
+                data: "Você quer saber se duas pistas têm exatamente o mesmo valor.",
             },
         ],
         hint: "Use o operador de igualdade.",
@@ -207,14 +207,14 @@ export const relationalExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você precisa testar se o valor de forca é diferente de 20. Complete o código:",
+                data: "Você precisa verificar se seu nível de medo é diferente de 20.",
             },
             {
                 type: "code",
-                data: "if (forca _____ 20) {\n console.log('Força alterada!') \n}",
+                data: "if (medo _____ 20) {\n console.log('Algo mudou...') \n}",
             },
         ],
-        hint: "O operador de diferença usa um ponto de exclamação.",
+        hint: "Use o operador com !",
         type: "COMPLETE_CODE",
         lessonId: 'b1f9014f-6a3a-4bde-91b8-868d361a5097',
         order: 4,
@@ -240,10 +240,10 @@ export const logicalExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O mago só pode lançar um feitiço se tiver mana maior que 50 e foco maior que 30. Qual operador lógico deve usar?",
+                data: "Você só pode fugir se a porta estiver destrancada e não houver presença por perto. Qual operador usar?",
             },
         ],
-        hint: "Use o operador que exige que todas as condições sejam verdadeiras.",
+        hint: "Ambas condições devem ser verdadeiras.",
         type: "MULTIPLE_CHOICE",
         lessonId: '23912f00-2975-43ac-8571-dd0fe44416df',
         order: 2,
@@ -253,14 +253,14 @@ export const logicalExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você quer verificar se o guerreiro tem espada ou machado. Complete o código:",
+                data: "Você quer verificar se há luz ou se tem uma lanterna.",
             },
             {
                 type: "code",
-                data: "if (temEspada _____ temMachado) {\n console.log('Pronto para a batalha!') \n}",
+                data: "if (temLuz _____ temLanterna) {\n console.log('Você consegue enxergar... por enquanto') \n}",
             },
         ],
-        hint: "Use o operador que retorna verdadeiro se pelo menos uma condição for verdadeira.",
+        hint: "Pelo menos uma condição deve ser verdadeira.",
         type: "COMPLETE_CODE",
         lessonId: '23912f00-2975-43ac-8571-dd0fe44416df',
         order: 3,
@@ -270,7 +270,7 @@ export const logicalExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "A feiticeira quer garantir que não esteja envenenada antes de tomar a poção. Qual operador deve usar?",
+                data: "Você precisa garantir que NÃO está sendo observado antes de agir.",
             },
         ],
         hint: "Use o operador de negação.",
@@ -283,10 +283,10 @@ export const logicalExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Qual das opções retorna verdadeiro se o jogador não tiver mana?",
+                data: "Qual expressão retorna verdadeiro se você NÃO tiver sanidade?",
             },
         ],
-        hint: "Use o operador que inverte o valor lógico.",
+        hint: "Inverta o valor lógico.",
         type: "MULTIPLE_CHOICE",
         lessonId: '23912f00-2975-43ac-8571-dd0fe44416df',
         order: 5,

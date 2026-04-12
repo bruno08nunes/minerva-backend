@@ -20,14 +20,14 @@ export const functionsChoices = [
     // Exercício 3
     {
         id: 'cb92734f-9d88-4a17-b050-b726784eaffe',
-        text: "O valor da variável `ouro` aumenta para 150.",
+        text: "O valor da variável `pistas` aumenta para 150.",
         isCorrect: true,
         order: 1,
         exerciseId: '25dbf7fd-f29e-4651-8eeb-2a05d3b483ea',
     },
     {
         id: '530ff6ef-577c-423a-9545-7a00f2339427',
-        text: "O valor de ouro fica 50.",
+        text: "O valor de pistas fica 50.",
         isCorrect: false,
         order: 2,
         exerciseId: '25dbf7fd-f29e-4651-8eeb-2a05d3b483ea',

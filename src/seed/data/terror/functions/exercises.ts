@@ -4,11 +4,11 @@ export const functionExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Funções executam várias linhas de código de uma vez quando são chamadas, sendo usadas para facilitar a execução de várias linhas. O código acima aumenta a energia do personagem e adiciona um limite máximo para ela.",
+                data: "Funções executam várias linhas de código de uma vez quando são chamadas. Em uma casa assombrada, você pode usá-las para restaurar sua sanidade aos poucos, mas sem ultrapassar um limite seguro.",
             },
             {
                 type: "code",
-                data: "let energia = 50;\nfunction descansar() {\n    energia += 10;\n    if (energia > 100) {\n      energia = 100;\n    }\n}",
+                data: "let sanidade = 50;\nfunction descansar() {\n    sanidade += 10;\n    if (sanidade > 100) {\n      sanidade = 100;\n    }\n}",
             },
         ],
         hint: "",
@@ -21,11 +21,11 @@ export const functionExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você tem uma variável global chamada `energia` e quer criar uma função `descansar()` que recupere 10 pontos de energia. Complete o código abaixo:",
+                data: "Você tem uma variável global chamada `sanidade` e quer criar uma função `descansar()` que recupere 10 pontos de sanidade. Complete o código abaixo:",
             },
             {
                 type: "code",
-                data: "energia = 50;\n _____ descansar() {\n    energia += 10;\n}",
+                data: "sanidade = 50;\n _____ descansar() {\n    sanidade += 10;\n}",
             },
         ],
         hint: "Use a palavra que define uma função",
@@ -38,14 +38,14 @@ export const functionExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O código abaixo altera uma variável global chamada `ouro`. O que acontece quando chamamos a função `encontrarTesouro()`?",
+                data: "O código abaixo altera uma variável global chamada `pistas`. O que acontece quando chamamos a função `investigar()`?",
             },
             {
                 type: "code",
-                data: "let ouro = 100;\nfunction encontrarTesouro() {\n    ouro += 50;\n}",
+                data: "let pistas = 100;\nfunction investigar() {\n    pistas += 50;\n}",
             },
         ],
-        hint: "A variável `ouro` está fora da função.",
+        hint: "A variável `pistas` está fora da função.",
         type: "MULTIPLE_CHOICE",
         lessonId: '907e6bce-6bf0-4089-9ff9-c3defec5b957',
         order: 3,
@@ -55,11 +55,11 @@ export const functionExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você quer criar uma função `tomarDano()` que reduza a variável global `vida` em 20 pontos. Complete o código corretamente:",
+                data: "Você quer criar uma função `tomarDano()` que reduza a variável global `sanidade` em 20 pontos após um susto. Complete o código corretamente:",
             },
             {
                 type: "code",
-                data: "vida = 100;\nfunction tomarDano() {\n    vida = vida _____ 20;\n}",
+                data: "sanidade = 100;\nfunction tomarDano() {\n    sanidade = sanidade _____ 20;\n}",
             },
         ],
         hint: "O operador de subtração é usado aqui.",
@@ -75,14 +75,14 @@ export const functionPureExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "As funções podem receber parâmetros (valores de entrada) e podem retornam valores de saída.",
+                data: "As funções podem receber parâmetros (valores de entrada) e retornar valores. Em um cenário de terror, você pode calcular níveis de medo com base em diferentes fatores.",
             },
             {
                 type: "code",
-                data: "function somar(parametro1, parametro2) {\n   return parametro1 + parametro2;\n}\nconst soma = somar(1, 2);",
+                data: "function somar(valor1, valor2) {\n   return valor1 + valor2;\n}\nconst medoTotal = somar(1, 2);",
             },
         ],
-        hint: "A variável soma recebe o valor 3.",
+        hint: "A variável recebe o valor 3.",
         type: "MULTIPLE_CHOICE",
         lessonId: '5f766dad-4a80-4f6a-b8a6-d30cad43e4a8',
         order: 1,
@@ -92,11 +92,11 @@ export const functionPureExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você quer criar uma função que calcule o dano de um feitiço. Ela recebe a `forca` e o `multiplicador` e retorna o resultado da multiplicação. Complete o código:",
+                data: "Você quer criar uma função que calcule o nível de medo. Ela recebe a `intensidade` e o `multiplicador` e retorna o resultado da multiplicação. Complete o código:",
             },
             {
                 type: "code",
-                data: "function calcularDano(forca, multiplicador) {\n    _____ forca * multiplicador;\n}",
+                data: "function calcularMedo(intensidade, multiplicador) {\n    _____ intensidade * multiplicador;\n}",
             },
         ],
         hint: "Você deve definir o retorno da função.",
@@ -122,11 +122,11 @@ export const functionPureExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você quer uma função que receba o número de poções e o valor de cada uma e retorne o custo total. Complete:",
+                data: "Você quer uma função que receba o número de pistas encontradas e o valor de cada uma e retorne o total de evidências coletadas. Complete:",
             },
             {
                 type: "code",
-                data: "function calcularCusto(quantidade, valor) {\n    return _____ * valor;\n}",
+                data: "function calcularEvidencias(quantidade, valor) {\n    return _____ * valor;\n}",
             },
         ],
         hint: "Use um dos parâmetros passados.",
@@ -142,7 +142,7 @@ export const functionRecursiveExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Uma função recursiva é uma função que chama a si mesma. É como um feitiço que se repete até que uma condição de parada seja atingida.",
+                data: "Uma função recursiva é uma função que chama a si mesma. Em um cenário de terror, é como um eco em um corredor escuro que se repete até desaparecer.",
             },
         ],
         hint: "",
@@ -155,14 +155,14 @@ export const functionRecursiveExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete a função abaixo, que imprime números de forma decrescente até 1:",
+                data: "Complete a função abaixo, que imprime números de forma decrescente até 1, como uma contagem regressiva antes de algo assustador acontecer:",
             },
             {
                 type: "code",
                 data: "function contagem(numero) {\n    if (numero > 0) {\n        console.log(numero);\n        contagem(_____-1);\n    }\n}",
             },
         ],
-        hint: "A função deve chamar a si mesma com o valor decrementado para que não ocorra um loop infinito.",
+        hint: "A função deve chamar a si mesma com o valor decrementado.",
         type: "COMPLETE_CODE",
         lessonId: '3d63c1e3-6fa9-4f1c-9c19-4a6ee10905a9',
         order: 2,
@@ -185,14 +185,14 @@ export const functionRecursiveExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Crie uma função `contarAte(n)` que conte de 1 até `n` usando recursão. Complete o retorno da chamada recursiva:",
+                data: "Crie uma função `contarAte(n)` que conte de 1 até `n` usando recursão, como passos ecoando em um corredor escuro. Complete a chamada recursiva:",
             },
             {
                 type: "code",
                 data: "function contarAte(n) {\n    if (n > 1) {\n        contarAte(_____-1);\n    }\n    console.log(n);\n}",
             },
         ],
-        hint: "A função deve chamar ela mesma, diminuindo o valor de `n`.",
+        hint: "A função deve chamar ela mesma diminuindo o valor de `n`.",
         type: "COMPLETE_CODE",
         lessonId: '3d63c1e3-6fa9-4f1c-9c19-4a6ee10905a9',
         order: 4,

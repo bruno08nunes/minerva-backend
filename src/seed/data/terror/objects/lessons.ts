@@ -7,7 +7,7 @@ export const objectsLessons = [
         id: 'beeb8e73-2df0-4d03-9de8-d3726efdbd82',
         name: "Objetos Literais",
         description:
-            "Aprenda a conjurar objetos literais e armazenar múltiplas informações em uma única estrutura mágica.",
+            "Aprenda a usar objetos literais e armazenar múltiplas informações em uma única estrutura.",
         topicId,
         themeId,
         iconId,
@@ -18,7 +18,7 @@ export const objectsLessons = [
         id: 'a521da0f-5777-433c-bd7f-5aaf320785f9',
         name: "Prototype Chain e This",
         description:
-            "Descubra como os objetos herdam poder por meio da corrente de protótipos e aprenda a dominar o enigmático 'this'.",
+            "Descubra como os objetos herdam propriedades por meio da corrente de protótipos e aprenda a dominar o enigmático 'this'.",
         topicId,
         themeId,
         iconId,
@@ -29,7 +29,7 @@ export const objectsLessons = [
         id: '7f1fcf4a-49bc-46d8-93be-a3df4b962aab',
         name: "Classes e Herança",
         description:
-            "Descubra como as classes do JavaScript permitem criar linhagens de objetos, passando poder de mestres para aprendizes com 'extends' e 'super'.",
+            "Descubra como as classes permitem criar linhagens de objetos, passando propriedades para aprendizes com 'extends' e 'super'.",
         topicId,
         themeId,
         iconId,

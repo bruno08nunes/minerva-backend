@@ -8,14 +8,14 @@ export const objectLiteralExercises = [
             },
             {
                 type: "code",
-                data: "const mago = {\n  nome: 'Eldrin',\n  nivel: 5,\n  elemento: 'Fogo'\n};",
+                data: "const entidade = {\n  nome: 'Sombrasussurro',\n  nivel: 5,\n  tipo: 'Espiritual'\n};",
             },
             {
                 type: "paragraph",
-                data: "No código acima, o objeto `mago` tem três propriedades. Qual delas guarda o tipo de magia que ele controla?",
+                data: "No código acima, o objeto `entidade` tem três propriedades. Qual delas define o tipo da entidade?",
             },
         ],
-        hint: "Observe o valor da propriedade 'elemento'.",
+        hint: "Observe o valor da propriedade 'tipo'.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'beeb8e73-2df0-4d03-9de8-d3726efdbd82',
         order: 1,
@@ -25,11 +25,11 @@ export const objectLiteralExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você pode acessar uma propriedade de um objeto usando o ponto (`.`). Complete o código para exibir o nome do mago:",
+                data: "Você pode acessar uma propriedade de um objeto usando o ponto (`.`). Complete o código para exibir o nome da entidade:",
             },
             {
                 type: "code",
-                data: "const mago = { nome: 'Eldrin' };\nconsole.log(mago_____);",
+                data: "const entidade = { nome: 'Sombrasussurro' };\nconsole.log(entidade_____);",
             },
         ],
         hint: "Use o operador de ponto e o nome da propriedade.",
@@ -46,11 +46,11 @@ export const objectLiteralExercises = [
             },
             {
                 type: "code",
-                data: "const poção = { tipo: 'Mana' };\npoção._____ = 50;",
+                data: "const artefato = { tipo: 'Amaldiçoado' };\nartefato._____ = 50;",
             },
             {
                 type: "paragraph",
-                data: "Complete o código para adicionar a propriedade `quantidade` com valor 50.",
+                data: "Complete o código para adicionar a propriedade `intensidade` com valor 50.",
             },
         ],
         hint: "Atribua o valor à nova propriedade com o ponto.",
@@ -67,11 +67,11 @@ export const objectLiteralExercises = [
             },
             {
                 type: "code",
-                data: "const grimorio = { magia: 'Relâmpago' };\nconst chave = 'magia';\nconsole.log(grimorio[_____]);",
+                data: "const registro = { evento: 'Grito na madrugada' };\nconst chave = 'evento';\nconsole.log(registro[_____]);",
             },
             {
                 type: "paragraph",
-                data: "Complete o código para acessar a magia corretamente.",
+                data: "Complete o código para acessar o evento corretamente.",
             },
         ],
         hint: "Use a variável que guarda o nome da propriedade.",
@@ -88,14 +88,14 @@ export const objectLiteralExercises = [
             },
             {
                 type: "code",
-                data: "const inventario = {\n  varinha: { dano: 12, elemento: 'Gelo' },\n  poção: { tipo: 'Cura', quantidade: 2 }\n};\n\nconsole.log(inventario.poção.tipo);",
+                data: "const caso = {\n  entidade: { nome: 'Sombrasussurro', nivel: 12 },\n  evidencia: { tipo: 'Mancha de sangue', quantidade: 2 }\n};\n\nconsole.log(caso.evidencia.tipo);",
             },
             {
                 type: "paragraph",
                 data: "O que será exibido no console?",
             },
         ],
-        hint: "A propriedade 'tipo' dentro do objeto 'poção'.",
+        hint: "A propriedade 'tipo' dentro do objeto 'evidencia'.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'beeb8e73-2df0-4d03-9de8-d3726efdbd82',
         order: 5,
@@ -108,18 +108,18 @@ export const prototypeThisExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "No JavaScript, todos os objetos têm uma ligação mágica chamada Prototype, que permite herdar propriedades de outros objetos.",
+                data: "No JavaScript, todos os objetos têm uma ligação misteriosa chamada Prototype, que permite herdar propriedades de outros objetos.",
             },
             {
                 type: "code",
-                data: "const mago = { poder: 50 };\nconst aprendiz = Object.create(mago);\nconsole.log(aprendiz.poder);",
+                data: "const entidade = { energia: 50 };\nconst manifestacao = Object.create(entidade);\nconsole.log(manifestacao.energia);",
             },
             {
                 type: "paragraph",
                 data: "O que será exibido no console?",
             },
         ],
-        hint: "O objeto 'aprendiz' herda propriedades do objeto 'mago' por meio da cadeia de protótipos.",
+        hint: "A manifestação herda energia da entidade original.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'a521da0f-5777-433c-bd7f-5aaf320785f9',
         order: 1,
@@ -129,18 +129,18 @@ export const prototypeThisExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você pode verificar de onde um objeto herda suas propriedades usando o operador mágico `__proto__`.",
+                data: "Você pode verificar de onde um objeto herda suas propriedades usando o operador `__proto__`.",
             },
             {
                 type: "code",
-                data: "const mago = { poder: 50 };\nconst aprendiz = Object.create(mago);\nconsole.log(aprendiz.__proto__ === mago);",
+                data: "const entidade = { energia: 50 };\nconst manifestacao = Object.create(entidade);\nconsole.log(manifestacao.__proto__ === entidade);",
             },
             {
                 type: "paragraph",
                 data: "O que esse código exibirá?",
             },
         ],
-        hint: "Lembre-se: o protótipo do aprendiz aponta para o objeto mestre.",
+        hint: "O vínculo entre entidade e manifestação é direto.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'a521da0f-5777-433c-bd7f-5aaf320785f9',
         order: 2,
@@ -154,14 +154,14 @@ export const prototypeThisExercises = [
             },
             {
                 type: "code",
-                data: "const mago = {\n  nome: 'Eldrin',\n  falar() {\n    console.log('Eu sou ' + this.nome);\n  }\n};\n\nmago.falar();",
+                data: "const entidade = {\n  nome: 'Sombrasussurro',\n  revelar() {\n    console.log('Eu sou ' + this.nome);\n  }\n};\n\nentidade.revelar();",
             },
             {
                 type: "paragraph",
                 data: "O que será exibido?",
             },
         ],
-        hint: "O método está dentro do objeto, e o this se refere a ele.",
+        hint: "A entidade revela o próprio nome.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'a521da0f-5777-433c-bd7f-5aaf320785f9',
         order: 3,
@@ -171,14 +171,14 @@ export const prototypeThisExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código para que o método do objeto `feitico` use corretamente o `this` para acessar o poder e lançar a magia:",
+                data: "Complete o código para que o método do objeto `ritual` use corretamente o `this` para acessar a energia:",
             },
             {
                 type: "code",
-                data: "const feitico = {\n  poder: 100,\n  lançar() {\n    console.log('Lançando magia com poder ' + _____.poder);\n  }\n};",
+                data: "const ritual = {\n  energia: 100,\n  invocar() {\n    console.log('Invocando com energia ' + _____.energia);\n  }\n};",
             },
         ],
-        hint: "Dentro de métodos, use 'this' para acessar propriedades do mesmo objeto.",
+        hint: "Dentro de métodos, use 'this'.",
         type: "COMPLETE_CODE",
         lessonId: 'a521da0f-5777-433c-bd7f-5aaf320785f9',
         order: 4,
@@ -191,18 +191,18 @@ export const classInheritanceExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "As classes em JavaScript são como grimórios mágicos: modelos que descrevem como criar objetos com poderes específicos.",
+                data: "As classes em JavaScript são como registros ocultos: modelos que descrevem como criar entidades com características específicas.",
             },
             {
                 type: "code",
-                data: "class Mago {\n  constructor(nome) {\n    this.nome = nome;\n  }\n}\n\nconst eldrin = new Mago('Eldrin');\nconsole.log(eldrin.nome);",
+                data: "class Entidade {\n  constructor(nome) {\n    this.nome = nome;\n  }\n}\n\nconst sombra = new Entidade('Sombrasussurro');\nconsole.log(sombra.nome);",
             },
             {
                 type: "paragraph",
                 data: "O que será exibido no console?",
             },
         ],
-        hint: "O construtor define propriedades iniciais do objeto criado com 'new'.",
+        hint: "O nome é definido ao criar a entidade.",
         type: "MULTIPLE_CHOICE",
         lessonId: '7f1fcf4a-49bc-46d8-93be-a3df4b962aab',
         order: 1,
@@ -212,18 +212,18 @@ export const classInheritanceExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Podemos criar uma classe que herda de outra usando o encantamento `extends`.",
+                data: "Podemos criar uma classe que herda de outra usando `extends`.",
             },
             {
                 type: "code",
-                data: "class Mago {\n  constructor() {\n    this.tipo = 'Mago';\n  }\n}\n\nclass Feiticeiro extends Mago {}\n\nconst lira = new Feiticeiro();\nconsole.log(lira.tipo);",
+                data: "class Entidade {\n  constructor() {\n    this.tipo = 'Espiritual';\n  }\n}\n\nclass Aparicao extends Entidade {}\n\nconst espectro = new Aparicao();\nconsole.log(espectro.tipo);",
             },
             {
                 type: "paragraph",
                 data: "O que será exibido?",
             },
         ],
-        hint: "A classe filha herda todas as propriedades e métodos da classe mãe.",
+        hint: "A aparição herda o tipo da entidade.",
         type: "MULTIPLE_CHOICE",
         lessonId: '7f1fcf4a-49bc-46d8-93be-a3df4b962aab',
         order: 2,
@@ -233,18 +233,18 @@ export const classInheritanceExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Para usar o construtor da classe mãe dentro da classe filha, invocamos o feitiço `super()`.",
+                data: "Para usar o construtor da classe mãe dentro da classe filha, usamos `super()`.",
             },
             {
                 type: "code",
-                data: "class Mago {\n  constructor(nome) {\n    this.nome = nome;\n  }\n}\n\nclass Arcanista extends Mago {\n  constructor(nome, elemento) {\n    super(nome);\n    this.elemento = elemento;\n  }\n}\n\nconst sora = new Arcanista('Sora', 'Fogo');\nconsole.log(sora.nome, sora.elemento);",
+                data: "class Entidade {\n  constructor(nome) {\n    this.nome = nome;\n  }\n}\n\nclass Demonio extends Entidade {\n  constructor(nome, nivel) {\n    super(nome);\n    this.nivel = nivel;\n  }\n}\n\nconst azrael = new Demonio('Azrael', 10);\nconsole.log(azrael.nome, azrael.nivel);",
             },
             {
                 type: "paragraph",
                 data: "O que o console exibirá?",
             },
         ],
-        hint: "O 'super()' chama o construtor da classe mãe antes de definir novas propriedades.",
+        hint: "O nome vem da classe mãe e o nível da classe filha.",
         type: "MULTIPLE_CHOICE",
         lessonId: '7f1fcf4a-49bc-46d8-93be-a3df4b962aab',
         order: 3,
@@ -254,14 +254,14 @@ export const classInheritanceExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código para que a classe 'Arcanista' herde de 'Mago' e chame o construtor da classe mãe corretamente:",
+                data: "Complete o código para que a classe 'Demonio' herde de 'Entidade' e chame o construtor corretamente:",
             },
             {
                 type: "code",
-                data: "class Mago {\n  constructor(nome) {\n    this.nome = nome;\n  }\n}\n\nclass Arcanista extends Mago {\n  constructor(nome, elemento) {\n    _____(nome);\n    this.elemento = elemento;\n  }\n}",
+                data: "class Entidade {\n  constructor(nome) {\n    this.nome = nome;\n  }\n}\n\nclass Demonio extends Entidade {\n  constructor(nome, nivel) {\n    _____(nome);\n    this.nivel = nivel;\n  }\n}",
             },
         ],
-        hint: "Use 'super(nome)' para completar o feitiço da herança.",
+        hint: "Use 'super(nome)'.",
         type: "COMPLETE_CODE",
         lessonId: '7f1fcf4a-49bc-46d8-93be-a3df4b962aab',
         order: 4,

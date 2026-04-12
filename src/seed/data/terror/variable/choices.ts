@@ -38,7 +38,7 @@ export const firstLessonChoices = [
     ],
     {
         id: '94d8075b-dd5f-43ff-a891-6e505a283fb0',
-        text: "let sabedoria = 16",
+        text: "let sanidade = 16",
         isCorrect: true,
         order: 1,
         exerciseId: '7747916c-4151-407a-adb0-7071018d7b4e', // Exercício 3
@@ -144,28 +144,28 @@ export const dataTypesLessonChoices = [
     ...[
         {
             id: '05ec21b8-14e7-4780-933a-85126205eca5',
-            text: "let possuiEspada = true",
+            text: "let possuiCicatriz = true",
             isCorrect: true,
             order: 1,
             exerciseId: '03af3432-f68a-46ca-a837-a4afa55af28f', // Exercício 6
         },
         {
             id: '83a62a24-f3c3-46eb-9c5c-5b0bc962e866',
-            text: "let possuiEspada = 'true'",
+            text: "let possuiCicatriz = 'true'",
             isCorrect: false,
             order: 2,
             exerciseId: '03af3432-f68a-46ca-a837-a4afa55af28f',
         },
         {
             id: '585be59a-f3ad-4712-b799-8a85144bf25a',
-            text: "let possuiEspada = false",
+            text: "let possuiCicatriz = false",
             isCorrect: true,
             order: 3,
             exerciseId: '03af3432-f68a-46ca-a837-a4afa55af28f',
         },
         {
             id: '05160399-adc0-417c-a5dd-e3967a77f95f',
-            text: "let possuiEspada = 0",
+            text: "let possuiCicatriz = 0",
             isCorrect: false,
             order: 4,
             exerciseId: '03af3432-f68a-46ca-a837-a4afa55af28f',
@@ -221,7 +221,7 @@ export const assignmentLessonChoices = [
 
     {
         id: 'a0b4b81d-227d-4cac-a6bb-14b47040da26',
-        text: "sabedoria = 17",
+        text: "sanidade = 17",
         isCorrect: true,
         order: 1,
         exerciseId: 'cd6c0637-ab78-47d8-b40a-dcc1a90a14d8', // Ex 4
@@ -269,7 +269,7 @@ export const constChoices = [
     {
         id: '69354b6b-3aac-4497-9ba0-dedc22e0d759',
         exerciseId: '108cf72c-0a6f-4a5b-bf15-57e44a848cef', // Ex 3
-        text: "const bonus = 10",
+        text: "const marca = \"Sangue\"",
         isCorrect: true,
         order: 1,
     },
