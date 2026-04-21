@@ -4,11 +4,11 @@ export const functionExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Funções executam várias linhas de código de uma vez quando são chamadas, sendo usadas para facilitar a execução de várias linhas. O código acima aumenta a energia do personagem e adiciona um limite máximo para ela.",
+                data: "Funções executam várias linhas de código de uma vez quando são chamadas. No contexto de investigação, elas podem representar ações do detetive. O código abaixo aumenta o nível de atenção do detetive e define um limite máximo.",
             },
             {
                 type: "code",
-                data: "let energia = 50;\nfunction descansar() {\n    energia += 10;\n    if (energia > 100) {\n      energia = 100;\n    }\n}",
+                data: "let atencao = 50;\nfunction analisarPistas() {\n    atencao += 10;\n    if (atencao > 100) {\n      atencao = 100;\n    }\n}",
             },
         ],
         hint: "",
@@ -21,11 +21,11 @@ export const functionExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você tem uma variável global chamada `energia` e quer criar uma função `descansar()` que recupere 10 pontos de energia. Complete o código abaixo:",
+                data: "Você tem uma variável global chamada `atencao` e quer criar uma função `analisarPistas()` que aumente 10 pontos de atenção do detetive. Complete o código abaixo:",
             },
             {
                 type: "code",
-                data: "energia = 50;\n _____ descansar() {\n    energia += 10;\n}",
+                data: "atencao = 50;\n _____ analisarPistas() {\n    atencao += 10;\n}",
             },
         ],
         hint: "Use a palavra que define uma função",
@@ -38,14 +38,14 @@ export const functionExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O código abaixo altera uma variável global chamada `ouro`. O que acontece quando chamamos a função `encontrarTesouro()`?",
+                data: "O código abaixo altera uma variável global chamada `pistas`. O que acontece quando chamamos a função `encontrarPista()`?",
             },
             {
                 type: "code",
-                data: "let ouro = 100;\nfunction encontrarTesouro() {\n    ouro += 50;\n}",
+                data: "let pistas = 100;\nfunction encontrarPista() {\n    pistas += 50;\n}",
             },
         ],
-        hint: "A variável `ouro` está fora da função.",
+        hint: "A variável `pistas` está fora da função.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'f42e778b-17c6-4672-a811-a5151db35d9b',
         order: 3,
@@ -55,11 +55,11 @@ export const functionExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você quer criar uma função `tomarDano()` que reduza a variável global `vida` em 20 pontos. Complete o código corretamente:",
+                data: "Você quer criar uma função `perderCredibilidade()` que reduza a variável global `credibilidade` em 20 pontos. Complete o código corretamente:",
             },
             {
                 type: "code",
-                data: "vida = 100;\nfunction tomarDano() {\n    vida = vida _____ 20;\n}",
+                data: "credibilidade = 100;\nfunction perderCredibilidade() {\n    credibilidade = credibilidade _____ 20;\n}",
             },
         ],
         hint: "O operador de subtração é usado aqui.",
@@ -75,14 +75,14 @@ export const functionPureExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "As funções podem receber parâmetros (valores de entrada) e podem retornam valores de saída.",
+                data: "Funções podem receber parâmetros (como pistas ou evidências) e retornar conclusões.",
             },
             {
                 type: "code",
-                data: "function somar(parametro1, parametro2) {\n   return parametro1 + parametro2;\n}\nconst soma = somar(1, 2);",
+                data: "function somarPistas(pista1, pista2) {\n   return pista1 + pista2;\n}\nconst total = somarPistas(1, 2);",
             },
         ],
-        hint: "A variável soma recebe o valor 3.",
+        hint: "A variável total recebe o valor 3.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'b14515dc-e799-4fdd-820d-a12f5d413ce9',
         order: 1,
@@ -92,11 +92,11 @@ export const functionPureExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você quer criar uma função que calcule o dano de um feitiço. Ela recebe a `forca` e o `multiplicador` e retorna o resultado da multiplicação. Complete o código:",
+                data: "Você quer criar uma função que calcule a intensidade de uma pista. Ela recebe a `forca` da evidência e um `multiplicador` e retorna o resultado da multiplicação. Complete o código:",
             },
             {
                 type: "code",
-                data: "function calcularDano(forca, multiplicador) {\n    _____ forca * multiplicador;\n}",
+                data: "function calcularIntensidade(forca, multiplicador) {\n    _____ forca * multiplicador;\n}",
             },
         ],
         hint: "Você deve definir o retorno da função.",
@@ -109,7 +109,7 @@ export const functionPureExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O que o comando `return` faz dentro de uma função?",
+                data: "O que o comando `return` faz dentro de uma função durante uma investigação?",
             },
         ],
         hint: "Ele serve para devolver um valor.",
@@ -122,11 +122,11 @@ export const functionPureExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você quer uma função que receba o número de poções e o valor de cada uma e retorne o custo total. Complete:",
+                data: "Você quer uma função que receba o número de evidências coletadas e o valor de cada uma e retorne o total analisado. Complete:",
             },
             {
                 type: "code",
-                data: "function calcularCusto(quantidade, valor) {\n    return _____ * valor;\n}",
+                data: "function calcularTotal(quantidade, valor) {\n    return _____ * valor;\n}",
             },
         ],
         hint: "Use um dos parâmetros passados.",
@@ -142,7 +142,7 @@ export const functionRecursiveExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Uma função recursiva é uma função que chama a si mesma. É como um feitiço que se repete até que uma condição de parada seja atingida.",
+                data: "Uma função recursiva é uma função que chama a si mesma. Em uma investigação, isso pode representar revisar pistas repetidamente até chegar a uma conclusão.",
             },
         ],
         hint: "",
@@ -155,11 +155,11 @@ export const functionRecursiveExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete a função abaixo, que imprime números de forma decrescente até 1:",
+                data: "Complete a função abaixo, que revisa pistas numeradas de forma decrescente até 1:",
             },
             {
                 type: "code",
-                data: "function contagem(numero) {\n    if (numero > 0) {\n        console.log(numero);\n        contagem(_____-1);\n    }\n}",
+                data: "function revisarPistas(numero) {\n    if (numero > 0) {\n        console.log(numero);\n        revisarPistas(_____-1);\n    }\n}",
             },
         ],
         hint: "A função deve chamar a si mesma com o valor decrementado para que não ocorra um loop infinito.",
@@ -172,7 +172,7 @@ export const functionRecursiveExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O que acontece se uma função recursiva não tiver uma condição de parada?",
+                data: "O que acontece se uma função recursiva não tiver uma condição de parada durante uma investigação?",
             },
         ],
         hint: "Pense no que ocorre se ela nunca parar de se chamar.",
@@ -185,11 +185,11 @@ export const functionRecursiveExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Crie uma função `contarAte(n)` que conte de 1 até `n` usando recursão. Complete o retorno da chamada recursiva:",
+                data: "Crie uma função `investigarAte(n)` que revise pistas de 1 até `n` usando recursão. Complete o retorno da chamada recursiva:",
             },
             {
                 type: "code",
-                data: "function contarAte(n) {\n    if (n > 1) {\n        contarAte(_____-1);\n    }\n    console.log(n);\n}",
+                data: "function investigarAte(n) {\n    if (n > 1) {\n        investigarAte(_____-1);\n    }\n    console.log(n);\n}",
             },
         ],
         hint: "A função deve chamar ela mesma, diminuindo o valor de `n`.",

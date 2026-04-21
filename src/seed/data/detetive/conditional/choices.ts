@@ -20,28 +20,28 @@ export const ifChoices = [
     // Exercise 3
     {
         id: '404254ac-a726-47f8-b5df-44e8b7db1007',
-        text: "Abaixa a vida se for maior que o máximo.",
+        text: "Abaixa a quantidade de evidências se for maior que o máximo.",
         isCorrect: true,
         order: 1,
         exerciseId: 'ec6366c0-3e0b-413a-8449-5192e7ce6725',
     },
     {
         id: '158d374e-6a44-48c5-be98-c185c902daaf',
-        text: "Aumenta a vida do jogador.",
+        text: "Aumenta a quantidade de evidências.",
         isCorrect: false,
         order: 2,
         exerciseId: 'ec6366c0-3e0b-413a-8449-5192e7ce6725',
     },
     {
         id: '4b485a93-c062-4564-8b4d-3581372e79c5',
-        text: "Termina o jogo.",
+        text: "Termina a investigação.",
         isCorrect: false,
         order: 3,
         exerciseId: 'ec6366c0-3e0b-413a-8449-5192e7ce6725',
     },
     {
         id: '486c9847-3649-4981-a3d6-1d599258ad9d',
-        text: "Zera a vida do jogador.",
+        text: "Zera a quantidade de evidências do jogador.",
         isCorrect: false,
         order: 4,
         exerciseId: 'ec6366c0-3e0b-413a-8449-5192e7ce6725',
@@ -59,28 +59,28 @@ export const ifChoices = [
     // Exercise 5
     {
         id: '92aaccc9-29f4-48de-bad8-60ee266d46d4',
-        text: "if (xp > 100)",
+        text: "if (evidencias > 100)",
         isCorrect: true,
         order: 1,
         exerciseId: '251e7a3d-9ef2-4976-b49e-c026255c79e3',
     },
     {
         id: '4bebfff2-8c4b-4c54-9add-d7afd84306ea',
-        text: "if (xp < 100)",
+        text: "if (evidencias < 100)",
         isCorrect: false,
         order: 2,
         exerciseId: '251e7a3d-9ef2-4976-b49e-c026255c79e3',
     },
     {
         id: 'c1176419-6c16-4e32-97ef-65ac5f5a1af9',
-        text: "if (xp == 100)",
+        text: "if (evidencias == 100)",
         isCorrect: false,
         order: 3,
         exerciseId: '251e7a3d-9ef2-4976-b49e-c026255c79e3',
     },
     {
         id: '25747956-ffb3-4955-abe9-24e33e7952d0',
-        text: "if (xp >= 100)",
+        text: "if (evidencias >= 100)",
         isCorrect: false,
         order: 3,
         exerciseId: '251e7a3d-9ef2-4976-b49e-c026255c79e3',
@@ -198,7 +198,7 @@ export const ifElseIfChoices = [
     // Exercise 3
     {
         id: 'f61f91b2-e034-45f0-8fd3-2d2f8b1b1c28',
-        text: "forca",
+        text: "suspeita",
         isCorrect: true,
         order: 1,
         exerciseId: '086ba5c9-bc36-4a8b-87c9-33e99aaac799',

@@ -4,15 +4,15 @@ export const arraysExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Um array é uma estrutura que permite guardar vários valores em uma única variável. Por exemplo:",
+                data: "Um array é uma estrutura que permite guardar vários valores em uma única variável. Em uma investigação, pode representar uma lista de evidências:",
             },
             {
                 type: "code",
-                data: "const inventario = ['Espada', 'Escudo', 'Poção'];\ninventario[0]",
+                data: "const evidencias = ['Impressão digital', 'Pegada', 'Câmera'];\nevidencias[0]",
             },
             {
                 type: "paragraph",
-                data: "No exemplo acima, `inventario` guarda três itens, acessíveis por seus índices 0, 1 e 2 caso sejam colocados entre colchetes.",
+                data: "No exemplo acima, `evidencias` guarda três itens, acessíveis por seus índices 0, 1 e 2.",
             },
         ],
         hint: "",
@@ -25,14 +25,14 @@ export const arraysExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código para acessar o segundo item do array `inventario`:",
+                data: "Complete o código para acessar a segunda evidência do array `evidencias`:",
             },
             {
                 type: "code",
-                data: "const inventario = ['Espada', 'Escudo', 'Poção'];\nconsole.log(inventario[_____]);",
+                data: "const evidencias = ['Impressão digital', 'Pegada', 'Câmera'];\nconsole.log(evidencias[_____]);",
             },
         ],
-        hint: "Lembre-se que os índices começam do 0 e é necessário colocar apenas o número.",
+        hint: "Os índices começam em 0.",
         type: "COMPLETE_CODE",
         lessonId: '9d3d5847-0c97-4ce1-8ea4-9f7fd9d825b7',
         order: 2,
@@ -42,11 +42,11 @@ export const arraysExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Arrays possuem propriedades e métodos, que funcionam como variáveis e funções internas do array.",
+                data: "Arrays possuem propriedades e métodos úteis para manipular listas de pistas.",
             },
             {
                 type: "code",
-                data: "const inventario = ['Espada', 'Escudo', 'Poção'];\ninventario.push('Grimório'); // Adiciona um item no fim do array\ninventario.pop(); // Remove o último item de um array\ninventario.length // Retorna a quantidade de itens no array",
+                data: "const evidencias = ['Impressão digital', 'Pegada', 'Câmera'];\nevidencias.push('Testemunha');\nevidencias.pop();\nevidencias.length",
             },
         ],
         hint: "",
@@ -59,10 +59,10 @@ export const arraysExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Qual método adiciona um novo elemento ao final de um array?",
+                data: "Qual método adiciona uma nova evidência ao final de um array?",
             },
         ],
-        hint: "Você precisa 'empurrar' um valor para o final do array.",
+        hint: "Você precisa 'empurrar' a evidência para o final.",
         type: "MULTIPLE_CHOICE",
         lessonId: '9d3d5847-0c97-4ce1-8ea4-9f7fd9d825b7',
         order: 4,
@@ -72,14 +72,14 @@ export const arraysExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código que remove o último item de um array:",
+                data: "Complete o código que remove a última evidência:",
             },
             {
                 type: "code",
-                data: "const inventario = ['Espada', 'Escudo', 'Poção'];\ninventario._____();",
+                data: "const evidencias = ['Impressão digital', 'Pegada', 'Câmera'];\nevidencias._____();",
             },
         ],
-        hint: "É o método oposto de `push()`.",
+        hint: "É o oposto de `push()`.",
         type: "COMPLETE_CODE",
         lessonId: '9d3d5847-0c97-4ce1-8ea4-9f7fd9d825b7',
         order: 5,
@@ -89,14 +89,14 @@ export const arraysExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Qual resultado será exibido no console?",
+                data: "Quantas evidências existem?",
             },
             {
                 type: "code",
                 data: "const numeros = [10, 20, 30];\nconsole.log(numeros.length);",
             },
         ],
-        hint: "O `.length` mostra o tamanho (quantos elementos existem).",
+        hint: "`.length` mostra quantos itens existem.",
         type: "MULTIPLE_CHOICE",
         lessonId: '9d3d5847-0c97-4ce1-8ea4-9f7fd9d825b7',
         order: 6,
@@ -109,18 +109,18 @@ export const handlingArraysExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Os índices dos arrays começam em 0. Assim, o primeiro item tem índice 0, o segundo tem índice 1 e assim por diante.",
+                data: "Os índices começam em 0. Isso ajuda o detetive a acessar pistas específicas.",
             },
             {
                 type: "code",
-                data: "const magias = ['Fogo', 'Gelo', 'Raio'];\nconsole.log(magias[1]);",
+                data: "const suspeitos = ['João', 'Maria', 'Carlos'];\nconsole.log(suspeitos[1]);",
             },
             {
                 type: "paragraph",
                 data: "O código acima exibirá:",
             },
         ],
-        hint: "Lembre-se: o segundo item está na posição 1.",
+        hint: "O segundo item está na posição 1.",
         type: "MULTIPLE_CHOICE",
         lessonId: '7118b28c-f423-46f0-91b8-35f465423520',
         order: 1,
@@ -130,14 +130,14 @@ export const handlingArraysExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Qual será o resultado do código abaixo?",
+                data: "Qual será o resultado?",
             },
             {
                 type: "code",
-                data: "const inventario = ['Espada', 'Escudo'];\ninventario.push('Poção');\nconsole.log(inventario);",
+                data: "const evidencias = ['Impressão', 'Pegada'];\nevidencias.push('Câmera');\nconsole.log(evidencias);",
             },
         ],
-        hint: "O método `push` adiciona um novo item ao final do array.",
+        hint: "Adiciona no final.",
         type: "MULTIPLE_CHOICE",
         lessonId: '7118b28c-f423-46f0-91b8-35f465423520',
         order: 2,
@@ -147,14 +147,14 @@ export const handlingArraysExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código para remover o último item do array `mochila`:",
+                data: "Remova a última evidência:",
             },
             {
                 type: "code",
-                data: "const mochila = ['Mapa', 'Tocha', 'Corda'];\nmochila._____();",
+                data: "const mochila = ['Prova A', 'Prova B', 'Prova C'];\nmochila._____();",
             },
         ],
-        hint: "É o oposto de `push()`.",
+        hint: "Oposto de `push()`.",
         type: "COMPLETE_CODE",
         lessonId: '7118b28c-f423-46f0-91b8-35f465423520',
         order: 3,
@@ -164,14 +164,14 @@ export const handlingArraysExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O que o código a seguir exibirá no console?",
+                data: "Quantas pistas existem?",
             },
             {
                 type: "code",
-                data: "const runas = ['Terra', 'Água', 'Ar', 'Fogo'];\nconsole.log(runas.length);",
+                data: "const pistas = ['A', 'B', 'C', 'D'];\nconsole.log(pistas.length);",
             },
         ],
-        hint: "O `.length` mostra quantos elementos há no array.",
+        hint: "Conta os elementos.",
         type: "MULTIPLE_CHOICE",
         lessonId: '7118b28c-f423-46f0-91b8-35f465423520',
         order: 4,
@@ -181,14 +181,14 @@ export const handlingArraysExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código para adicionar um novo feitiço ao final do array `grimorio`:",
+                data: "Adicione uma nova evidência:",
             },
             {
                 type: "code",
-                data: "const grimorio = ['Cura', 'Ilusão'];\ngrimorio._____('Relâmpago');",
+                data: "const casos = ['Roubo', 'Fraude'];\ncasos._____('Sequestro');",
             },
         ],
-        hint: "Use o método que adiciona um item ao fim.",
+        hint: "Adiciona ao final.",
         type: "COMPLETE_CODE",
         lessonId: '7118b28c-f423-46f0-91b8-35f465423520',
         order: 5,
@@ -201,18 +201,18 @@ export const arraysAdvancedExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O método `includes()` verifica se um valor está presente em um array, retornando true ou false.",
+                data: "O método `includes()` verifica se uma evidência está presente.",
             },
             {
                 type: "code",
-                data: "const grimorio = ['Fogo', 'Gelo', 'Raio'];\nconsole.log(grimorio.includes('Gelo'));",
+                data: "const evidencias = ['Impressão', 'Pegada', 'DNA'];\nconsole.log(evidencias.includes('Pegada'));",
             },
             {
                 type: "paragraph",
-                data: "O código acima exibirá:",
+                data: "O código exibirá:",
             },
         ],
-        hint: "O feitiço 'Gelo' está no grimório?",
+        hint: "A evidência existe?",
         type: "MULTIPLE_CHOICE",
         lessonId: '94b18b29-f34c-4a6e-acec-f3ca3a2a4dc5',
         order: 1,
@@ -222,18 +222,18 @@ export const arraysAdvancedExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O método `indexOf()` retorna o índice onde um valor aparece no array, ou `-1` se ele não for encontrado.",
+                data: "O método `indexOf()` retorna onde uma pista aparece.",
             },
             {
                 type: "code",
-                data: "const runas = ['Terra', 'Água', 'Fogo'];\nconsole.log(runas.indexOf('Fogo'));",
+                data: "const pistas = ['A', 'B', 'C'];\nconsole.log(pistas.indexOf('C'));",
             },
             {
                 type: "paragraph",
-                data: "O código acima exibirá:",
+                data: "O código exibirá:",
             },
         ],
-        hint: "Lembre-se: índices começam do 0.",
+        hint: "Índices começam em 0.",
         type: "MULTIPLE_CHOICE",
         lessonId: '94b18b29-f34c-4a6e-acec-f3ca3a2a4dc5',
         order: 2,
@@ -243,14 +243,14 @@ export const arraysAdvancedExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O método `slice()` cria uma cópia parcial do array, sem modificar o original.",
+                data: "O método `slice()` permite copiar parte de uma lista de evidências.",
             },
             {
                 type: "code",
-                data: "const pergaminhos = ['Fogo', 'Gelo', 'Raio', 'Terra'];\nconst copiados = pergaminhos.slice(1, 3);\nconsole.log(copiados);",
+                data: "const provas = ['A', 'B', 'C', 'D'];\nconst copia = provas.slice(1, 3);\nconsole.log(copia);",
             },
         ],
-        hint: "O slice copia do índice inicial até o final (sem incluir o último).",
+        hint: "Não inclui o último índice.",
         type: "MULTIPLE_CHOICE",
         lessonId: '94b18b29-f34c-4a6e-acec-f3ca3a2a4dc5',
         order: 3,
@@ -260,10 +260,10 @@ export const arraysAdvancedExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Qual dessas magias modifica o array original?",
+                data: "Qual desses métodos altera o array original durante a investigação?",
             },
         ],
-        hint: "Nem todas as funções de array são inofensivas...",
+        hint: "Alguns métodos modificam as evidências diretamente.",
         type: "MULTIPLE_CHOICE",
         lessonId: '94b18b29-f34c-4a6e-acec-f3ca3a2a4dc5',
         order: 4,
@@ -276,18 +276,18 @@ export const iterationsArraysExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O laço `for` clássico pode ser usado para percorrer todos os elementos de um array, acessando cada posição com um índice.",
+                data: "O laço `for` permite que o detetive analise todas as evidências uma por uma.",
             },
             {
                 type: "code",
-                data: "const magias = ['Fogo', 'Gelo', 'Raio'];\nfor (let i = 0; i < magias.length; i++) {\n  console.log(magias[i]);\n}",
+                data: "const evidencias = ['Impressão', 'Pegada', 'DNA'];\nfor (let i = 0; i < evidencias.length; i++) {\n  console.log(evidencias[i]);\n}",
             },
             {
                 type: "paragraph",
-                data: "O código acima exibirá:",
+                data: "O código exibirá:",
             },
         ],
-        hint: "O loop percorre todos os elementos do array em ordem.",
+        hint: "Percorre todas as evidências.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'f164775f-82be-4745-8b63-102ee57644d8',
         order: 1,
@@ -297,14 +297,14 @@ export const iterationsArraysExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O `for...of` percorre diretamente os valores de um array, sem precisar de índice.",
+                data: "O `for...of` percorre diretamente cada pista encontrada.",
             },
             {
                 type: "code",
-                data: "const poções = ['Cura', 'Mana', 'Força'];\nfor (const poção of poções) {\n  console.log(poção);\n}",
+                data: "const pistas = ['A', 'B', 'C'];\nfor (const pista of pistas) {\n  console.log(pista);\n}",
             },
         ],
-        hint: "Cada elemento da lista é mostrado uma vez.",
+        hint: "Cada item aparece uma vez.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'f164775f-82be-4745-8b63-102ee57644d8',
         order: 2,
@@ -314,11 +314,11 @@ export const iterationsArraysExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código.",
+                data: "Complete o código:",
             },
             {
                 type: "code",
-                data: "const poções = ['Cura', 'Mana', 'Força'];\nfor (const poção _____ poções) {\n  console.log(poção);\n}",
+                data: "const pistas = ['A', 'B', 'C'];\nfor (const pista _____ pistas) {\n  console.log(pista);\n}",
             },
         ],
         hint: "",
@@ -331,22 +331,22 @@ export const iterationsArraysExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O método `forEach()` executa uma função para cada elemento do array.",
+                data: "O método `forEach()` permite analisar cada evidência.",
             },
             {
                 type: "code",
-                data: "const runas = ['Ar', 'Água', 'Terra'];\nrunas.forEach((runa) => {\n  console.log('Runa mágica:', runa);\n});",
+                data: "const pistas = ['A', 'B', 'C'];\npistas.forEach((pista) => {\n  console.log('Analisando:', pista);\n});",
             },
             {
                 type: "paragraph",
-                data: "Enquanto isso, método `map()` cria um novo array com os resultados da função aplicada a cada elemento.",
+                data: "Já o `map()` cria uma nova lista com resultados da análise.",
             },
             {
                 type: "code",
-                data: "const danos = [10, 20, 30];\nconst dobrados = danos.map(dano => dano * 2);\nconsole.log(dobrados);",
+                data: "const valores = [10, 20, 30];\nconst dobrados = valores.map(v => v * 2);\nconsole.log(dobrados);",
             },
         ],
-        hint: "Cada runa é invocada individualmente com um prefixo de texto.",
+        hint: "Cada pista é analisada individualmente.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'f164775f-82be-4745-8b63-102ee57644d8',
         order: 4,
@@ -356,14 +356,14 @@ export const iterationsArraysExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código.",
+                data: "Complete o código:",
             },
             {
                 type: "code",
-                data: "const danos = [10, 20, 30];\nconst dobrados = danos._____(dano => dano * 2);\nconsole.log(dobrados);",
+                data: "const valores = [10, 20, 30];\nconst dobrados = valores._____(v => v * 2);\nconsole.log(dobrados);",
             },
         ],
-        hint: "Coloque o método que cria um novo array.",
+        hint: "Cria um novo array.",
         type: "COMPLETE_CODE",
         lessonId: 'f164775f-82be-4745-8b63-102ee57644d8',
         order: 5,
@@ -373,14 +373,14 @@ export const iterationsArraysExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Qual será o resultado do código abaixo?",
+                data: "Qual será o resultado?",
             },
             {
                 type: "code",
-                data: "const danos = [10, 20, 30];\nconst dobrados = danos.map(dano => dano * 2);\nconsole.log(dobrados);",
+                data: "const valores = [10, 20, 30];\nconst dobrados = valores.map(v => v * 2);\nconsole.log(dobrados);",
             },
         ],
-        hint: "O método map não altera o original, mas retorna um novo com as transformações.",
+        hint: "Retorna um novo array com valores dobrados.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'f164775f-82be-4745-8b63-102ee57644d8',
         order: 6,

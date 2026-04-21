@@ -4,11 +4,11 @@ export const whileExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O laço 'while' permite repetir um bloco de código enquanto uma condição for verdadeira.",
+                data: "O laço 'while' permite repetir ações durante uma investigação enquanto uma condição for verdadeira.",
             },
             {
                 type: "code",
-                data: "let energia = 3;\nwhile (energia > 0) {\n    console.log('Você ainda tem energia!');\n    energia = energia - 1;\n}",
+                data: "let pistas = 3;\nwhile (pistas > 0) {\n    console.log('Ainda há pistas para analisar!');\n    pistas = pistas - 1;\n}",
             },
         ],
         hint: "Esse código repete 3 vezes.",
@@ -21,14 +21,14 @@ export const whileExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código para que o mago continue lançando feitiços enquanto tiver mana:",
+                data: "Continue investigando enquanto ainda houver evidências a analisar:",
             },
             {
                 type: "code",
-                data: "let mana = 5;\n_____ (mana > 0) {\n    console.log('Feitiço lançado!');\n    mana = mana - 1;\n}",
+                data: "let evidencias = 5;\n_____ (evidencias > 0) {\n    console.log('Analisando evidência...');\n    evidencias = evidencias - 1;\n}",
             },
         ],
-        hint: "Qual palavra-chave cria o laço de repetição?",
+        hint: "Qual palavra cria um laço baseado em condição?",
         type: "COMPLETE_CODE",
         lessonId: '3d1dc34f-f0e3-4528-a387-ce66233dd648',
         order: 2,
@@ -38,14 +38,14 @@ export const whileExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O que acontece se a condição do 'while' nunca for falsa?",
+                data: "O que acontece se a condição do 'while' nunca se tornar falsa durante a investigação?",
             },
             {
                 type: "code",
-                data: "let energia = 3;\nwhile (energia > 0) {\n    console.log('Você ainda tem energia!');\n    energia = energia - 1;\n}",
+                data: "let pistas = 3;\nwhile (pistas > 0) {\n    console.log('Analisando pista...');\n    pistas = pistas - 1;\n}",
             },
         ],
-        hint: "Pense no que ocorreria se o contador nunca diminuísse dentro do laço.",
+        hint: "E se o valor nunca fosse reduzido?",
         type: "MULTIPLE_CHOICE",
         lessonId: '3d1dc34f-f0e3-4528-a387-ce66233dd648',
         order: 3,
@@ -55,14 +55,14 @@ export const whileExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Um aprendiz está treinando. A cada rodada ele ganha 10 XP, mas para quando atingir 50 XP. Complete o código:",
+                data: "Você ganha 10 pontos de progresso a cada análise, mas para ao atingir 50. Complete o código:",
             },
             {
                 type: "code",
-                data: "let xp = 0;\nwhile (xp _____ 50) {\n    xp = xp + 10;\n    console.log('XP atual:', xp);\n}",
+                data: "let progresso = 0;\nwhile (progresso _____ 50) {\n    progresso = progresso + 10;\n    console.log('Progresso:', progresso);\n}",
             },
         ],
-        hint: "Qual operador mantém o laço ativo até que xp chegue a 50?",
+        hint: "Qual operador mantém o loop até atingir 50?",
         type: "MULTIPLE_CHOICE",
         lessonId: '3d1dc34f-f0e3-4528-a387-ce66233dd648',
         order: 4,
@@ -75,11 +75,11 @@ export const doWhileExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O laço 'do...while' executa o bloco ao menos uma vez, mesmo que a condição seja falsa no início.",
+                data: "O laço 'do...while' executa uma ação pelo menos uma vez, mesmo que a condição não seja verdadeira no início.",
             },
             {
                 type: "code",
-                data: "let tentativas = 0;\ndo {\n    console.log('Tentando abrir o baú...');\n    tentativas+=1;\n} while (tentativas < 3);",
+                data: "let tentativas = 0;\ndo {\n    console.log('Tentando acessar o sistema...');\n    tentativas+=1;\n} while (tentativas < 3);",
             },
         ],
         hint: "",
@@ -92,14 +92,14 @@ export const doWhileExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código para que o guerreiro ataque pelo menos uma vez, mesmo com energia 0:",
+                data: "Você tenta interrogar um suspeito pelo menos uma vez, mesmo sem provas suficientes:",
             },
             {
                 type: "code",
-                data: "let energia = 0;\n_____ {\n    console.log('Ataque realizado!');\n    energia--;\n} while (energia > 0);",
+                data: "let provas = 0;\n_____ {\n    console.log('Interrogando suspeito...');\n    provas--;\n} while (provas > 0);",
             },
         ],
-        hint: "Qual palavra inicia o bloco que executa antes da verificação?",
+        hint: "Qual palavra inicia o bloco que executa antes da condição?",
         type: "COMPLETE_CODE",
         lessonId: '89c9ffaf-9074-47ca-bad4-8b041b51afdf',
         order: 2,
@@ -109,11 +109,11 @@ export const doWhileExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Um mago tenta adivinhar um número secreto. Complete o código que garante que ele sempre tenta pelo menos uma vez:",
+                data: "Você tenta descobrir o suspeito correto, garantindo ao menos uma tentativa:",
             },
             {
                 type: "code",
-                data: "let numero;\ndo {\n    numero = Math.floor(Math.random() * 10);\n    console.log('Tentando número:', numero);\n} _____ (numero !== 7);",
+                data: "let suspeito;\ndo {\n    suspeito = Math.floor(Math.random() * 10);\n    console.log('Testando suspeito:', suspeito);\n} _____ (suspeito !== 7);",
             },
         ],
         hint: "A estrutura começa com 'do' e termina com 'while'.",
@@ -126,10 +126,10 @@ export const doWhileExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Quando o 'do...while' é mais útil do que o 'while'?",
+                data: "Quando o 'do...while' é mais útil em uma investigação?",
             },
         ],
-        hint: "Pense em situações em que é preciso executar algo ao menos uma vez antes de testar a condição.",
+        hint: "Quando é necessário executar pelo menos uma ação antes da verificação.",
         type: "MULTIPLE_CHOICE",
         lessonId: '89c9ffaf-9074-47ca-bad4-8b041b51afdf',
         order: 4,
@@ -142,11 +142,11 @@ export const forExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O laço 'for' é usado quando sabemos quantas vezes queremos repetir algo. Ele possui três partes: inicialização, onde a variável é criada; condição, onde a variável é comparada com um valor específico; e incremento, onde é adiciona um valor à variável.",
+                data: "O laço 'for' é útil quando você sabe quantas vezes precisa repetir uma ação durante uma investigação.",
             },
             {
                 type: "code",
-                data: "for (let i = 0; i < 5; i+=1) {\n    console.log('Ataque número', i + 1);\n}",
+                data: "for (let i = 0; i < 5; i+=1) {\n    console.log('Analisando pista', i + 1);\n}",
             },
         ],
         hint: "",
@@ -159,14 +159,14 @@ export const forExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código para que o mago conjure 3 feitiços numerados de 1 a 3:",
+                data: "Analise 3 evidências numeradas de 1 a 3:",
             },
             {
                 type: "code",
-                data: " _____ (let i = 1; i <= 3; i+=1) {\n    console.log('Feitiço número', i);\n}",
+                data: " _____ (let i = 1; i <= 3; i+=1) {\n    console.log('Evidência', i);\n}",
             },
         ],
-        hint: "Qual palavra inicia um laço com contador definido?",
+        hint: "Qual palavra inicia esse tipo de laço?",
         type: "COMPLETE_CODE",
         lessonId: '8946dd94-c082-4978-aac9-2649675b4bbe',
         order: 2,
@@ -176,10 +176,10 @@ export const forExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Qual parte do laço 'for' é responsável por aumentar o valor da variável de controle?",
+                data: "Qual parte do 'for' aumenta o contador a cada repetição?",
             },
         ],
-        hint: "Está localizada no final dos parênteses: (let i = 0; i < 10; i+=1)",
+        hint: "Está no final: i+=1",
         type: "MULTIPLE_CHOICE",
         lessonId: '8946dd94-c082-4978-aac9-2649675b4bbe',
         order: 3,
@@ -189,14 +189,14 @@ export const forExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O guerreiro quer atacar 5 vezes. Complete o código para que ele ataque 5 vezes e mostre o número de cada ataque:",
+                data: "Você precisa analisar 5 suspeitos. Complete o código:",
             },
             {
                 type: "code",
-                data: "for (let golpe = 1; golpe _____ 5; golpe+=1) {\n    console.log('Golpe número', golpe);\n}",
+                data: "for (let suspeito = 1; suspeito _____ 5; suspeito+=1) {\n    console.log('Analisando suspeito', suspeito);\n}",
             },
         ],
-        hint: "Use a estrutura de repetição com contador fixo.",
+        hint: "Use uma condição que permita repetir 5 vezes.",
         type: "MULTIPLE_CHOICE",
         lessonId: '8946dd94-c082-4978-aac9-2649675b4bbe',
         order: 4,
@@ -209,11 +209,11 @@ export const controlFlowExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Os comandos 'break' e 'continue' controlam o fluxo dentro dos laços. O 'break' encerra o laço imediatamente, enquanto o 'continue' pula para a próxima iteração. O código abaixo termina o loop quando 'i' é igual a 3.",
+                data: "Os comandos 'break' e 'continue' ajudam a controlar o fluxo de uma investigação dentro de loops.",
             },
             {
                 type: "code",
-                data: "for (let i = 1; i <= 5; i+=1) {\n    if (i == 3) {\n      break;\n    }\n    console.log('Ataque número', i);\n}",
+                data: "for (let i = 1; i <= 5; i+=1) {\n    if (i == 3) {\n      break;\n    }\n    console.log('Analisando pista', i);\n}",
             },
         ],
         hint: "",
@@ -226,14 +226,14 @@ export const controlFlowExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Um guerreiro está treinando 5 golpes, mas quer parar o treino assim que o golpe número 4 for executado. Complete o código corretamente:",
+                data: "Você analisa 5 pistas, mas para ao encontrar a pista número 4:",
             },
             {
                 type: "code",
-                data: "for (let golpe = 1; golpe <= 5; golpe+=1) {\n    if (golpe === 4) {\n     _____;\n    }\n    console.log('Golpe', golpe);\n}",
+                data: "for (let pista = 1; pista <= 5; pista+=1) {\n    if (pista === 4) {\n     _____;\n    }\n    console.log('Pista', pista);\n}",
             },
         ],
-        hint: "Use o comando que encerra o laço completamente.",
+        hint: "Qual comando encerra o loop?",
         type: "COMPLETE_CODE",
         lessonId: 'a12831f0-80b9-4cb3-89b3-e8e86c889c57',
         order: 2,
@@ -243,10 +243,10 @@ export const controlFlowExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Um mago lança 5 feitiços, mas quer ignorar o terceiro. Qual comando faz isso?",
+                data: "Você analisa 5 suspeitos, mas decide ignorar o terceiro. Qual comando usar?",
             },
         ],
-        hint: "Ele faz o laço pular para a próxima repetição.",
+        hint: "Ele pula para a próxima repetição.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'a12831f0-80b9-4cb3-89b3-e8e86c889c57',
         order: 3,
@@ -256,14 +256,14 @@ export const controlFlowExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código para que o mago não conjure o feitiço número 3, mas continue o resto normalmente:",
+                data: "Complete o código para ignorar a pista número 3:",
             },
             {
                 type: "code",
-                data: "for (let i = 1; i <= 5; i+=1) {\n    if (i === 3) {\n     _____;\n    }\n    console.log('Feitiço número', i);\n}",
+                data: "for (let i = 1; i <= 5; i+=1) {\n    if (i === 3) {\n     _____;\n    }\n    console.log('Pista', i);\n}",
             },
         ],
-        hint: "Use o comando que pula a execução atual do laço.",
+        hint: "Use o comando que pula a iteração atual.",
         type: "COMPLETE_CODE",
         lessonId: 'a12831f0-80b9-4cb3-89b3-e8e86c889c57',
         order: 4,
@@ -273,10 +273,10 @@ export const controlFlowExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Qual é a diferença entre 'break' e 'continue'?",
+                data: "Qual a diferença entre 'break' e 'continue'?",
             },
         ],
-        hint: "Um encerra o laço, o outro apenas pula uma iteração.",
+        hint: "Um encerra o loop, o outro apenas pula uma repetição.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'a12831f0-80b9-4cb3-89b3-e8e86c889c57',
         order: 5,

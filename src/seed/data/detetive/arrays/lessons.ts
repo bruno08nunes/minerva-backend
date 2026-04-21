@@ -7,7 +7,7 @@ export const arraysLessonsDetetive = [
         id: '9d3d5847-0c97-4ce1-8ea4-9f7fd9d825b7',
         name: "Arrays",
         description:
-            "Aprenda a armazenar e manipular coleções de valores usando o poder dos arrays!",
+            "Aprenda a armazenar e manipular coleções de valores usando arrays!",
         topicId,
         themeId,
         iconId,
@@ -18,7 +18,7 @@ export const arraysLessonsDetetive = [
         id: '7118b28c-f423-46f0-91b8-35f465423520',
         name: "Manipulando Arrays",
         description:
-            "Domine as magias de inserção, remoção e contagem dentro dos arrays!",
+            "Domine métodos de inserção, remoção e contagem dentro dos arrays!",
         topicId,
         themeId,
         iconId,
@@ -27,9 +27,9 @@ export const arraysLessonsDetetive = [
     },
     {
         id: '94b18b29-f34c-4a6e-acec-f3ca3a2a4dc5',
-        name: "Magias Avançadas de Arrays",
+        name: "Array Avançado",
         description:
-            "Aprenda a localizar, copiar e modificar partes de arrays com novos feitiços!",
+            "Aprenda a localizar, copiar e modificar partes de arrays com novos métodos!",
         topicId,
         themeId,
         iconId,
@@ -40,7 +40,7 @@ export const arraysLessonsDetetive = [
         id: 'f164775f-82be-4745-8b63-102ee57644d8',
         name: "Loops em Arrays",
         description:
-            "Aprenda os feitiços de repetição que percorrem arrays e executam magias sobre cada elemento.",
+            "Aprenda o processo de repetição que percorrem arrays e executam métodos sobre cada elemento.",
         topicId,
         themeId,
         iconId,

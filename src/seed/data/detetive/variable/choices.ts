@@ -9,28 +9,28 @@ export const firstLessonChoices = [
     ...[
         {
             id: '14a71565-d2a4-4ffd-8676-a7f08bc6c1f2',
-            text: "vida = 100",
+            text: "qtdPistas = 100",
             isCorrect: false,
             order: 1,
             exerciseId: '4c229855-bc8f-4800-9715-ff3dd9f94f64', // Exercício 2
         },
         {
             id: '024553bc-8e76-47cc-bfca-ac320395b50d',
-            text: "let vida = 100",
+            text: "let qtdPistas = 100",
             isCorrect: true,
             order: 2,
             exerciseId: '4c229855-bc8f-4800-9715-ff3dd9f94f64',
         },
         {
             id: '90edef30-3a17-442b-8180-649093657c98',
-            text: "vida: 100",
+            text: "qtdPistas: 100",
             isCorrect: false,
             order: 3,
             exerciseId: '4c229855-bc8f-4800-9715-ff3dd9f94f64',
         },
         {
             id: '9168e248-fae6-417d-8a7a-a76e522fae93',
-            text: "let vida: 100",
+            text: "let qtdPistas: 100",
             isCorrect: false,
             order: 4,
             exerciseId: '4c229855-bc8f-4800-9715-ff3dd9f94f64',
@@ -38,7 +38,7 @@ export const firstLessonChoices = [
     ],
     {
         id: 'cd11bb8b-cc57-41c6-8114-876ae108cb5c',
-        text: "let sabedoria = 16",
+        text: "let nivelDeSuspeita = 16",
         isCorrect: true,
         order: 1,
         exerciseId: '42649dcd-b60d-4a8e-a29f-eff9ba162159', // Exercício 3
@@ -93,21 +93,21 @@ export const dataTypesLessonChoices = [
     ...[
         {
             id: 'd986c83d-e4ad-4053-8c2f-909d93ce77e7',
-            text: 'let nome = "Lancelot"',
+            text: 'let nome = "Anna"',
             isCorrect: true,
             order: 1,
             exerciseId: 'a5093073-eee6-41ba-852f-41ed67c5fc34', // Exercício 2
         },
         {
             id: '32c8f3b5-c25a-42ae-9c9c-1949d8a72bc2',
-            text: "let nome = Lancelot",
+            text: "let nome = Anna",
             isCorrect: false,
             order: 2,
             exerciseId: 'a5093073-eee6-41ba-852f-41ed67c5fc34',
         },
         {
             id: 'bdc8aead-afb6-4247-a968-f545d0eb211e',
-            text: "let nome = 'Gwen'",
+            text: "let nome = 'Maria'",
             isCorrect: true,
             order: 3,
             exerciseId: 'a5093073-eee6-41ba-852f-41ed67c5fc34',
@@ -144,28 +144,28 @@ export const dataTypesLessonChoices = [
     ...[
         {
             id: 'b688f23f-8f0b-4da9-b904-fced4fd74a3d',
-            text: "let possuiEspada = true",
+            text: "let foiPreso = true",
             isCorrect: true,
             order: 1,
             exerciseId: '5ee731fd-f75d-40ca-a24c-32c96048b472', // Exercício 6
         },
         {
             id: '9ee554e3-0521-4be4-b15d-c71bb0bb8210',
-            text: "let possuiEspada = 'true'",
+            text: "let foiPreso = 'true'",
             isCorrect: false,
             order: 2,
             exerciseId: '5ee731fd-f75d-40ca-a24c-32c96048b472',
         },
         {
             id: '154ed9ca-aabc-461e-ac5b-b1c322d41aa5',
-            text: "let possuiEspada = false",
+            text: "let foiPreso = false",
             isCorrect: true,
             order: 3,
             exerciseId: '5ee731fd-f75d-40ca-a24c-32c96048b472',
         },
         {
             id: '58e81d16-92bb-4e76-8a95-6b26803b7596',
-            text: "let possuiEspada = 0",
+            text: "let foiPreso = 0",
             isCorrect: false,
             order: 4,
             exerciseId: '5ee731fd-f75d-40ca-a24c-32c96048b472',
@@ -218,7 +218,7 @@ export const assignmentLessonChoices = [
     },
     {
         id: '5d5c4115-27b0-451f-bc0d-817fe01e492c',
-        text: "sabedoria = 17",
+        text: "nivelDeSuspeita = 17",
         isCorrect: true,
         order: 1,
         exerciseId: 'c24d3fec-76f3-4143-b2c8-01f558141f20',
@@ -264,7 +264,7 @@ export const constChoices = [
     {
         id: 'd97730bd-5f3c-4af0-8dd2-3d402f33160b',
         exerciseId: '4758305d-f373-4f71-8cce-e808bc561e09',
-        text: "const bonus = 10",
+        text: "const codigoSecreto = 10",
         isCorrect: true,
         order: 1,
     },

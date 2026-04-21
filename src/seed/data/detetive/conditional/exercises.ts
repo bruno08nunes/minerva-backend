@@ -4,11 +4,11 @@ export const ifExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O comando 'if' permite que seu código tome decisões. Ele executa um bloco de código apenas se uma condição for verdadeira.",
+                data: "O comando 'if' permite que você tome decisões durante uma investigação. Ele executa um bloco de código apenas se uma condição for verdadeira.",
             },
             {
                 type: "code",
-                data: "if (condicao) {\n    // código a executar se for verdadeiro\n}",
+                data: "if (condicao) {\n    // código executado se a condição for verdadeira\n}",
             },
         ],
         hint: "",
@@ -21,14 +21,14 @@ export const ifExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você quer que uma magia só seja lançada se o mago tiver mana suficiente. Complete o código corretamente.",
+                data: "Você só pode interrogar um suspeito se tiver provas suficientes. Complete o código:",
             },
             {
                 type: "code",
-                data: " _____ (mana >= 10) {\n    lançarMagia();\n}",
+                data: " _____ (provas >= 10) {\n    interrogarSuspeito();\n}",
             },
         ],
-        hint: "Qual a declaração para um código que acontece apenas com uma condição?",
+        hint: "Qual estrutura executa código apenas quando a condição é verdadeira?",
         type: "COMPLETE_CODE",
         lessonId: '0b3c39eb-f13e-438d-87fa-68a851b45755',
         order: 2,
@@ -42,10 +42,10 @@ export const ifExercises = [
             },
             {
                 type: "code",
-                data: "if (vida > vidaMaxima) {\n    vida = vidaMaxima;\n}",
+                data: "if (evidencias > evidenciasMaximas) {\n    evidencias = evidenciasMaximas;\n}",
             },
         ],
-        hint: "Leia o código com calma — o que acontece quando a vida chega a zero?",
+        hint: "O que acontece quando o número de evidências ultrapassa o limite?",
         type: "MULTIPLE_CHOICE",
         lessonId: '0b3c39eb-f13e-438d-87fa-68a851b45755',
         order: 3,
@@ -55,14 +55,14 @@ export const ifExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código que verifica se o jogador tem uma chave antes de abrir um baú:",
+                data: "Complete o código que verifica se você tem um mandado antes de fazer uma busca:",
             },
             {
                 type: "code",
-                data: "if (temChave _____ true) {\n    abrirBau();\n}",
+                data: "if (temMandado _____ true) {\n    realizarBusca();\n}",
             },
         ],
-        hint: "Qual operador verifica igualdade?",
+        hint: "Qual operador usamos para verificar igualdade?",
         type: "COMPLETE_CODE",
         lessonId: '0b3c39eb-f13e-438d-87fa-68a851b45755',
         order: 4,
@@ -72,7 +72,7 @@ export const ifExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Qual dessas condições representa corretamente: 'o jogador tem mais de 100 pontos de XP'?",
+                data: "Qual condição representa corretamente: 'há mais de 100 evidências coletadas'?",
             },
         ],
         hint: "Use o operador '>' (maior que).",
@@ -88,7 +88,7 @@ export const ifElseExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O 'if... else' permite executar um bloco de código se uma condição for verdadeira, e outro bloco se ela for falsa.",
+                data: "O 'if... else' permite tomar decisões alternativas durante a investigação: um caminho se a condição for verdadeira, outro se for falsa.",
             },
             {
                 type: "code",
@@ -105,14 +105,14 @@ export const ifElseExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você vai utilizar uma magia que ao errar o alvo, você mesmo toma dano. Complete o código abaixo",
+                data: "Se você identificar corretamente o suspeito, avança no caso; caso contrário, perde tempo. Complete o código:",
             },
             {
                 type: "code",
-                data: "if (acertouOAlvo) {\n    vidaInimigo -= 20;\n} _____ {\n    vidaPersonagem -= 20;\n}",
+                data: "if (identificouSuspeito) {\n    avancarCaso();\n} _____ {\n    perderTempo();\n}",
             },
         ],
-        hint: "Você quer executar um código SE a condição NÃO for real.",
+        hint: "Qual bloco executa quando a condição é falsa?",
         type: "COMPLETE_CODE",
         lessonId: '89b4f0f9-f71f-49b3-b19b-8848cf27541f',
         order: 2,
@@ -122,14 +122,14 @@ export const ifElseExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código que verifica se o jogador tem energia suficiente para atacar. Se não tiver, o personagem desmaia:",
+                data: "Verifique se há evidências suficientes para prender o suspeito. Caso contrário, continue investigando:",
             },
             {
                 type: "code",
-                data: "if (energia _____ 20) {\n    atacar();\n} else {\n    desmaiar();\n}",
+                data: "if (evidencias _____ 20) {\n    prender();\n} else {\n    investigarMais();\n}",
             },
         ],
-        hint: "Qual operador verifica se a energia é maior ou igual a 20?",
+        hint: "Qual operador representa 'maior ou igual'?",
         type: "MULTIPLE_CHOICE",
         lessonId: '89b4f0f9-f71f-49b3-b19b-8848cf27541f',
         order: 3,
@@ -139,10 +139,10 @@ export const ifElseExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O que acontece se a condição dentro do 'if' for falsa e haver um else embaixo?",
+                data: "O que acontece se a condição do 'if' for falsa e houver um 'else'?",
             },
         ],
-        hint: "Pense no papel do 'else'.",
+        hint: "O 'else' cobre o caso contrário.",
         type: "MULTIPLE_CHOICE",
         lessonId: '89b4f0f9-f71f-49b3-b19b-8848cf27541f',
         order: 4,
@@ -152,14 +152,14 @@ export const ifElseExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código que mostra 'Sucesso!' se o teste for verdadeiro e 'Falha!' caso contrário.",
+                data: "Complete o código que mostra 'Caso resolvido!' se for verdadeiro e 'Caso inconclusivo!' caso contrário:",
             },
             {
                 type: "code",
-                data: "if (testePassou == true) {\n    console.log('Sucesso!');\n} _____ {\n    console.log('Falha!');\n}",
+                data: "if (casoResolvido == true) {\n    console.log('Caso resolvido!');\n} _____ {\n    console.log('Caso inconclusivo!');\n}",
             },
         ],
-        hint: "Qual palavra completa o bloco alternativo?",
+        hint: "Qual palavra define o caminho alternativo?",
         type: "COMPLETE_CODE",
         lessonId: '89b4f0f9-f71f-49b3-b19b-8848cf27541f',
         order: 5,
@@ -172,11 +172,11 @@ export const ifElseIfExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Quando temos várias condições possíveis, usamos 'if... else if... else' para testar uma por uma até encontrar a verdadeira.",
+                data: "Quando há vários possíveis cenários em uma investigação, usamos 'if... else if... else' para testar diferentes condições.",
             },
             {
                 type: "code",
-                data: "if (condicao1) {\n    // executa se condicao1 for verdadeira\n} else if (condicao2) {\n    // executa se condicao2 for verdadeira\n} else {\n    // executa se nenhuma for verdadeira\n}",
+                data: "if (condicao1) {\n    // ação 1\n} else if (condicao2) {\n    // ação 2\n} else {\n    // ação padrão\n}",
             },
         ],
         hint: "",
@@ -189,14 +189,14 @@ export const ifElseIfExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Um mago conjura feitiços diferentes dependendo da energia que tem. Complete o código:",
+                data: "Dependendo da quantidade de evidências, você toma decisões diferentes. Complete o código:",
             },
             {
                 type: "code",
-                data: "if (energia > 80) {\n    lancarMagiaForte();\n} _____ (energia > 40) {\n    lancarMagiaMedia();\n} else {\n    lancarMagiaFraca();\n}",
+                data: "if (evidencias > 80) {\n    acusarPrincipalSuspeito();\n} _____ (evidencias > 40) {\n    investigarSuspeitos();\n} else {\n    buscarMaisPistas();\n}",
             },
         ],
-        hint: "Use a palavra que liga o segundo teste condicional.",
+        hint: "Use a palavra que adiciona uma nova condição.",
         type: "COMPLETE_CODE",
         lessonId: 'c9bb5f68-5fe5-47af-84fa-f4c68cd93f2b',
         order: 2,
@@ -206,14 +206,14 @@ export const ifElseIfExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código que verifica o nível de ameaça de um inimigo com base em sua força:",
+                data: "Classifique o nível de suspeita com base no valor:",
             },
             {
                 type: "code",
-                data: "if (forca > 90) {\n    console.log('Chefe!');\n} else if (_____ > 50) {\n    console.log('Inimigo Forte');\n} else {\n    console.log('Inimigo Fraco');\n}",
+                data: "if (suspeita > 90) {\n    console.log('Culpado!');\n} else if (_____ > 50) {\n    console.log('Suspeito');\n} else {\n    console.log('Inocente');\n}",
             },
         ],
-        hint: "Use a mesma variável anterior.",
+        hint: "Use a mesma variável usada anteriormente.",
         type: "COMPLETE_CODE",
         lessonId: 'c9bb5f68-5fe5-47af-84fa-f4c68cd93f2b',
         order: 3,
@@ -226,7 +226,7 @@ export const ifElseIfExercises = [
                 data: "Qual a principal diferença entre usar 'if... else if' e vários 'if' separados?",
             },
         ],
-        hint: "Pense em quantas condições podem ser verdadeiras ao mesmo tempo.",
+        hint: "Pense em quantas condições podem ser executadas.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'c9bb5f68-5fe5-47af-84fa-f4c68cd93f2b',
         order: 4,
@@ -239,11 +239,11 @@ export const switchExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O 'switch' é uma alternativa ao 'if... else if' quando precisamos testar muitas opções de um mesmo valor. A declaração 'switch' recebe a variável cujo valor será comparado. A declaração 'case' testa a variável com o valor. A declaração 'break' encerra o código. A declaração 'default' coloca um valor padrão para caso as outras sejam falsas.",
+                data: "O 'switch' pode ser usado para lidar com diferentes situações em uma investigação, dependendo de um valor específico.",
             },
             {
                 type: "code",
-                data: "switch (valor) {\n    case 1:\n        console.log('Opção 1');\n        break;\n    case 2:\n        console.log('Opção 2');\n        break;\n    default:\n        console.log('Nenhuma das opções!');\n}",
+                data: "switch (caso) {\n    case 'roubo':\n        console.log('Investigar local');\n        break;\n    case 'homicidio':\n        console.log('Chamar perícia');\n        break;\n    default:\n        console.log('Caso desconhecido');\n}",
             },
         ],
         hint: "",
@@ -256,14 +256,14 @@ export const switchExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Um guardião pergunta sua classe e responde diferente conforme o caso. Complete o código:",
+                data: "Dependendo do tipo de crime, você toma ações diferentes. Complete o código:",
             },
             {
                 type: "code",
-                data: " _____ (classe) {\n    case 'guerreiro':\n        console.log('Força e honra!');\n        break;\n    case 'mago':\n        console.log('Sabedoria e poder!');\n        break;\n    default:\n        console.log('Classe desconhecida.');\n}",
+                data: " _____ (tipoCrime) {\n    case 'roubo':\n        console.log('Analisar câmeras');\n        break;\n    case 'fraude':\n        console.log('Verificar documentos');\n        break;\n    default:\n        console.log('Sem informações');\n}",
             },
         ],
-        hint: "Qual palavra que recebe uma variável para comparar?",
+        hint: "Qual palavra inicia essa estrutura?",
         type: "COMPLETE_CODE",
         lessonId: '4b446f68-7bdf-4583-aca1-b804cb2666f7',
         order: 2,
@@ -273,10 +273,10 @@ export const switchExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Qual a palavra que impede o código de continuar executando os próximos casos?",
+                data: "Qual palavra impede que o código continue executando os próximos casos?",
             },
         ],
-        hint: "Lembre-se que o JavaScript executa os próximos blocos até encontrar uma quebra.",
+        hint: "Ela interrompe o fluxo dentro do switch.",
         type: "MULTIPLE_CHOICE",
         lessonId: '4b446f68-7bdf-4583-aca1-b804cb2666f7',
         order: 3,
@@ -286,14 +286,14 @@ export const switchExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código que mostra o tipo de poção conforme sua cor:",
+                data: "Complete o código que define uma ação padrão quando o tipo de crime não é reconhecido:",
             },
             {
                 type: "code",
-                data: "switch (cor) {\n    case 'vermelha':\n        console.log('Poção de vida');\n        break;\n    case 'azul':\n        console.log('Poção de mana');\n        break;\n    _____:\n        console.log('Poção misteriosa');\n}",
+                data: "switch (tipoCrime) {\n    case 'roubo':\n        console.log('Investigar cena');\n        break;\n    case 'sequestro':\n        console.log('Ação imediata');\n        break;\n    _____:\n        console.log('Caso desconhecido');\n}",
             },
         ],
-        hint: "Qual palavra é usada para o caso padrão (quando nenhum outro é verdadeiro)?",
+        hint: "Qual palavra representa o caso padrão?",
         type: "COMPLETE_CODE",
         lessonId: '4b446f68-7bdf-4583-aca1-b804cb2666f7',
         order: 4,

@@ -4,18 +4,18 @@ export const objectLiteralExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Um objeto literal é criado usando chaves `{}` e permite armazenar várias informações relacionadas em um único lugar.",
+                data: "Um objeto literal é criado usando chaves `{}` e permite armazenar várias informações relacionadas em um único lugar, como os dados de um suspeito.",
             },
             {
                 type: "code",
-                data: "const mago = {\n  nome: 'Eldrin',\n  nivel: 5,\n  elemento: 'Fogo'\n};",
+                data: "const suspeito = {\n  nome: 'Carlos',\n  idade: 35,\n  evidencia: 'Impressão digital'\n};",
             },
             {
                 type: "paragraph",
-                data: "No código acima, o objeto `mago` tem três propriedades. Qual delas guarda o tipo de magia que ele controla?",
+                data: "No código acima, o objeto `suspeito` tem três propriedades. Qual delas guarda a evidência ligada a ele?",
             },
         ],
-        hint: "Observe o valor da propriedade 'elemento'.",
+        hint: "Observe o valor da propriedade 'evidencia'.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'e7c8f0c8-902f-4937-abe6-501ac0cbb759',
         order: 1,
@@ -25,14 +25,14 @@ export const objectLiteralExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você pode acessar uma propriedade de um objeto usando o ponto (`.`). Complete o código para exibir o nome do mago:",
+                data: "Você pode acessar uma propriedade usando o ponto (`.`). Complete o código para exibir o nome do suspeito:",
             },
             {
                 type: "code",
-                data: "const mago = { nome: 'Eldrin' };\nconsole.log(mago_____);",
+                data: "const suspeito = { nome: 'Carlos' };\nconsole.log(suspeito_____);",
             },
         ],
-        hint: "Use o operador de ponto e o nome da propriedade.",
+        hint: "Use o ponto seguido do nome da propriedade.",
         type: "COMPLETE_CODE",
         lessonId: 'e7c8f0c8-902f-4937-abe6-501ac0cbb759',
         order: 2,
@@ -42,18 +42,18 @@ export const objectLiteralExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Também é possível adicionar uma nova propriedade a um objeto já existente.",
+                data: "Também é possível adicionar novas informações a um objeto, como mais dados da investigação.",
             },
             {
                 type: "code",
-                data: "const poção = { tipo: 'Mana' };\npoção._____ = 50;",
+                data: "const evidencia = { tipo: 'DNA' };\nevidencia._____ = 50;",
             },
             {
                 type: "paragraph",
                 data: "Complete o código para adicionar a propriedade `quantidade` com valor 50.",
             },
         ],
-        hint: "Atribua o valor à nova propriedade com o ponto.",
+        hint: "Use o ponto para criar a nova propriedade.",
         type: "COMPLETE_CODE",
         lessonId: 'e7c8f0c8-902f-4937-abe6-501ac0cbb759',
         order: 3,
@@ -67,14 +67,14 @@ export const objectLiteralExercises = [
             },
             {
                 type: "code",
-                data: "const grimorio = { magia: 'Relâmpago' };\nconst chave = 'magia';\nconsole.log(grimorio[_____]);",
+                data: "const caso = { pista: 'Câmera' };\nconst chave = 'pista';\nconsole.log(caso[_____]);",
             },
             {
                 type: "paragraph",
-                data: "Complete o código para acessar a magia corretamente.",
+                data: "Complete o código para acessar a pista corretamente.",
             },
         ],
-        hint: "Use a variável que guarda o nome da propriedade.",
+        hint: "Use a variável que contém o nome da propriedade.",
         type: "COMPLETE_CODE",
         lessonId: 'e7c8f0c8-902f-4937-abe6-501ac0cbb759',
         order: 4,
@@ -84,18 +84,18 @@ export const objectLiteralExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você pode combinar objetos literais para criar estruturas mais complexas.",
+                data: "Você pode combinar objetos para representar informações mais complexas de um caso.",
             },
             {
                 type: "code",
-                data: "const inventario = {\n  varinha: { dano: 12, elemento: 'Gelo' },\n  poção: { tipo: 'Cura', quantidade: 2 }\n};\n\nconsole.log(inventario.poção.tipo);",
+                data: "const caso = {\n  suspeito: { nome: 'Carlos', idade: 35 },\n  evidencia: { tipo: 'DNA', quantidade: 2 }\n};\n\nconsole.log(caso.evidencia.tipo);",
             },
             {
                 type: "paragraph",
                 data: "O que será exibido no console?",
             },
         ],
-        hint: "A propriedade 'tipo' dentro do objeto 'poção'.",
+        hint: "A propriedade 'tipo' dentro de 'evidencia'.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'e7c8f0c8-902f-4937-abe6-501ac0cbb759',
         order: 5,
@@ -108,18 +108,18 @@ export const prototypeThisExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "No JavaScript, todos os objetos têm uma ligação mágica chamada Prototype, que permite herdar propriedades de outros objetos.",
+                data: "No JavaScript, objetos podem herdar características de outros — como um detetive aprendendo com seu mentor.",
             },
             {
                 type: "code",
-                data: "const mago = { poder: 50 };\nconst aprendiz = Object.create(mago);\nconsole.log(aprendiz.poder);",
+                data: "const detetive = { experiencia: 50 };\nconst aprendiz = Object.create(detetive);\nconsole.log(aprendiz.experiencia);",
             },
             {
                 type: "paragraph",
-                data: "O que será exibido no console?",
+                data: "O que será exibido?",
             },
         ],
-        hint: "O objeto 'aprendiz' herda propriedades do objeto 'mago' por meio da cadeia de protótipos.",
+        hint: "O aprendiz herda do detetive.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'af850bb0-714f-4a7b-80da-c64b33baf173',
         order: 1,
@@ -129,18 +129,18 @@ export const prototypeThisExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você pode verificar de onde um objeto herda suas propriedades usando o operador mágico `__proto__`.",
+                data: "Podemos verificar de onde um objeto herda suas propriedades usando `__proto__`.",
             },
             {
                 type: "code",
-                data: "const mago = { poder: 50 };\nconst aprendiz = Object.create(mago);\nconsole.log(aprendiz.__proto__ === mago);",
+                data: "const detetive = { experiencia: 50 };\nconst aprendiz = Object.create(detetive);\nconsole.log(aprendiz.__proto__ === detetive);",
             },
             {
                 type: "paragraph",
-                data: "O que esse código exibirá?",
+                data: "O que será exibido?",
             },
         ],
-        hint: "Lembre-se: o protótipo do aprendiz aponta para o objeto mestre.",
+        hint: "O protótipo aponta para o mentor.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'af850bb0-714f-4a7b-80da-c64b33baf173',
         order: 2,
@@ -150,18 +150,18 @@ export const prototypeThisExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "O `this` representa quem está executando a ação. Em métodos dentro de objetos, ele aponta para o próprio objeto.",
+                data: "O `this` representa quem executa a ação. Em um método, geralmente aponta para o próprio objeto.",
             },
             {
                 type: "code",
-                data: "const mago = {\n  nome: 'Eldrin',\n  falar() {\n    console.log('Eu sou ' + this.nome);\n  }\n};\n\nmago.falar();",
+                data: "const detetive = {\n  nome: 'Silva',\n  apresentar() {\n    console.log('Eu sou o detetive ' + this.nome);\n  }\n};\n\ndetetive.apresentar();",
             },
             {
                 type: "paragraph",
                 data: "O que será exibido?",
             },
         ],
-        hint: "O método está dentro do objeto, e o this se refere a ele.",
+        hint: "`this` se refere ao objeto detetive.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'af850bb0-714f-4a7b-80da-c64b33baf173',
         order: 3,
@@ -171,14 +171,14 @@ export const prototypeThisExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código para que o método do objeto `feitico` use corretamente o `this` para acessar o poder e lançar a magia:",
+                data: "Complete o código para usar corretamente `this`:",
             },
             {
                 type: "code",
-                data: "const feitico = {\n  poder: 100,\n  lançar() {\n    console.log('Lançando magia com poder ' + _____.poder);\n  }\n};",
+                data: "const caso = {\n  nivel: 100,\n  resolver() {\n    console.log('Resolvendo caso nível ' + _____.nivel);\n  }\n};",
             },
         ],
-        hint: "Dentro de métodos, use 'this' para acessar propriedades do mesmo objeto.",
+        hint: "Use `this` para acessar propriedades do próprio objeto.",
         type: "COMPLETE_CODE",
         lessonId: 'af850bb0-714f-4a7b-80da-c64b33baf173',
         order: 4,
@@ -191,18 +191,18 @@ export const classInheritanceExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "As classes em JavaScript são como grimórios mágicos: modelos que descrevem como criar objetos com poderes específicos.",
+                data: "Classes são modelos para criar objetos — como fichas de detetives.",
             },
             {
                 type: "code",
-                data: "class Mago {\n  constructor(nome) {\n    this.nome = nome;\n  }\n}\n\nconst eldrin = new Mago('Eldrin');\nconsole.log(eldrin.nome);",
+                data: "class Detetive {\n  constructor(nome) {\n    this.nome = nome;\n  }\n}\n\nconst silva = new Detetive('Silva');\nconsole.log(silva.nome);",
             },
             {
                 type: "paragraph",
-                data: "O que será exibido no console?",
+                data: "O que será exibido?",
             },
         ],
-        hint: "O construtor define propriedades iniciais do objeto criado com 'new'.",
+        hint: "O construtor define o nome.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'e40d6e9d-0885-42e3-9779-bd29259f5320',
         order: 1,
@@ -212,18 +212,18 @@ export const classInheritanceExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Podemos criar uma classe que herda de outra usando o encantamento `extends`.",
+                data: "Podemos criar especializações de detetives usando `extends`.",
             },
             {
                 type: "code",
-                data: "class Mago {\n  constructor() {\n    this.tipo = 'Mago';\n  }\n}\n\nclass Feiticeiro extends Mago {}\n\nconst lira = new Feiticeiro();\nconsole.log(lira.tipo);",
+                data: "class Detetive {\n  constructor() {\n    this.tipo = 'Detetive';\n  }\n}\n\nclass Investigador extends Detetive {}\n\nconst ana = new Investigador();\nconsole.log(ana.tipo);",
             },
             {
                 type: "paragraph",
                 data: "O que será exibido?",
             },
         ],
-        hint: "A classe filha herda todas as propriedades e métodos da classe mãe.",
+        hint: "Herda da classe base.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'e40d6e9d-0885-42e3-9779-bd29259f5320',
         order: 2,
@@ -233,18 +233,18 @@ export const classInheritanceExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Para usar o construtor da classe mãe dentro da classe filha, invocamos o feitiço `super()`.",
+                data: "Para usar o construtor da classe base, usamos `super()`.",
             },
             {
                 type: "code",
-                data: "class Mago {\n  constructor(nome) {\n    this.nome = nome;\n  }\n}\n\nclass Arcanista extends Mago {\n  constructor(nome, elemento) {\n    super(nome);\n    this.elemento = elemento;\n  }\n}\n\nconst sora = new Arcanista('Sora', 'Fogo');\nconsole.log(sora.nome, sora.elemento);",
+                data: "class Detetive {\n  constructor(nome) {\n    this.nome = nome;\n  }\n}\n\nclass Investigador extends Detetive {\n  constructor(nome, caso) {\n    super(nome);\n    this.caso = caso;\n  }\n}\n\nconst ana = new Investigador('Ana', 'Roubo');\nconsole.log(ana.nome, ana.caso);",
             },
             {
                 type: "paragraph",
-                data: "O que o console exibirá?",
+                data: "O que será exibido?",
             },
         ],
-        hint: "O 'super()' chama o construtor da classe mãe antes de definir novas propriedades.",
+        hint: "`super` chama o construtor da classe base.",
         type: "MULTIPLE_CHOICE",
         lessonId: 'e40d6e9d-0885-42e3-9779-bd29259f5320',
         order: 3,
@@ -254,14 +254,14 @@ export const classInheritanceExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código para que a classe 'Arcanista' herde de 'Mago' e chame o construtor da classe mãe corretamente:",
+                data: "Complete o código para herdar corretamente:",
             },
             {
                 type: "code",
-                data: "class Mago {\n  constructor(nome) {\n    this.nome = nome;\n  }\n}\n\nclass Arcanista extends Mago {\n  constructor(nome, elemento) {\n    _____(nome);\n    this.elemento = elemento;\n  }\n}",
+                data: "class Detetive {\n  constructor(nome) {\n    this.nome = nome;\n  }\n}\n\nclass Investigador extends Detetive {\n  constructor(nome, caso) {\n    _____(nome);\n    this.caso = caso;\n  }\n}",
             },
         ],
-        hint: "Use 'super(nome)' para completar o feitiço da herança.",
+        hint: "Use `super(nome)`.",
         type: "COMPLETE_CODE",
         lessonId: 'e40d6e9d-0885-42e3-9779-bd29259f5320',
         order: 4,

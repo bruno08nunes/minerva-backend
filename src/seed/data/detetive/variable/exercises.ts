@@ -4,11 +4,11 @@ export const firstLessonExercises = [
         content: [
             {
                 type: "paragraph",
-                data: 'Você é um mago aprendiz que está na Academia Arcana de Variáveis. As variáveis são como pergaminhos onde você armazena informações necessárias, como o número de feitiços que você tem. Na programação, você deve declarar uma variável com a palavra "let".',
+                data: 'Você é um detetive iniciante na Delegacia de Variáveis. Variáveis são como arquivos de caso onde você guarda informações importantes, como o número de pistas coletadas. Na programação, você deve declarar uma variável com a palavra "let".',
             },
             {
                 type: "code",
-                data: "let quantidadeDeMagias = 3",
+                data: "let quantidadeDePistas = 3",
             },
         ],
         hint: "Não há dicas para esse exercício.",
@@ -24,7 +24,7 @@ export const firstLessonExercises = [
                 data: "Qual das declarações de variáveis abaixo está correta?",
             },
         ],
-        hint: "Você deve usar uma certa palavra-chave para declarar uma variável.",
+        hint: "Você deve usar uma certa palavra-chave para registrar uma evidência.",
         type: "MULTIPLE_CHOICE",
         lessonId: '2776ee7a-31bf-462e-ad06-08c74371475b',
         order: 2,
@@ -34,14 +34,14 @@ export const firstLessonExercises = [
         content: [
             {
                 type: "paragraph",
-                data: 'Declare uma variável chamada "sabedoria" com o valor 16.',
+                data: 'Registre uma variável chamada "nivelDeSuspeita" com o valor 16.',
             },
             {
                 type: "code",
                 data: "_____",
             },
         ],
-        hint: 'Lembre-se de usar a palavra "let" antes do nome da sua variável.',
+        hint: 'Lembre-se de usar a palavra "let" antes do nome da variável.',
         type: "WRITE_CODE",
         lessonId: '2776ee7a-31bf-462e-ad06-08c74371475b',
         order: 3,
@@ -51,11 +51,11 @@ export const firstLessonExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Defina seu valor de força para 10 na variável abaixo.",
+                data: "Defina o nível de evidências coletadas para 10 na variável abaixo.",
             },
             {
                 type: "code",
-                data: "const forca = _____",
+                data: "const evidencias = _____",
             },
         ],
         hint: "Sem dicas para esse exercício.",
@@ -84,11 +84,11 @@ export const dataTypesLessonExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você encontrou um pergaminho com o seu nome. Em programação, textos como nomes são armazenados usando o tipo de dado string. Uma string deve estar entre aspas.",
+                data: "Você encontrou um relatório com o nome de um suspeito. Em programação, textos como nomes são armazenados usando o tipo string. Uma string deve estar entre aspas.",
             },
             {
                 type: "code",
-                data: 'let nomeDoHeroi = "Arthas"',
+                data: 'let nomeDoSuspeito = "Carlos"',
             },
         ],
         hint: "Strings sempre ficam entre aspas simples (') ou duplas (\").",
@@ -114,11 +114,11 @@ export const dataTypesLessonExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Você vendeu esse pergaminho por algumas moedas. Agora, você precisa guardar a quantidade de moedas de ouro que possui. Em programação, usamos o tipo number para representar valores numéricos. Você pode utilizar valores decimais também, usando um ponto (10.5).",
+                data: "Você contabilizou a quantidade de provas coletadas. Em programação, usamos o tipo number para representar valores numéricos.",
             },
             {
                 type: "code",
-                data: "let moedasDeOuro = 250",
+                data: "let quantidadeDeProvas = 250",
             },
         ],
         hint: "Números não usam aspas.",
@@ -131,11 +131,11 @@ export const dataTypesLessonExercises = [
         content: [
             {
                 type: "paragraph",
-                data: 'Complete o código para criar uma variável chamada "nivel" com o valor numérico 5.',
+                data: 'Complete o código para criar uma variável chamada "casosResolvidos" com o valor numérico 5.',
             },
             {
                 type: "code",
-                data: "let nivel = _____",
+                data: "let casosResolvidos = _____",
             },
         ],
         hint: "Apenas escreva o número, sem aspas.",
@@ -148,11 +148,11 @@ export const dataTypesLessonExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Por fim, vamos usar o tipo boolean. Booleans podem ser apenas os valores true ou false (verdadeiro ou falso). Por exemplo, se o herói está vivo, usamos true; se está morto, usamos false.",
+                data: "Agora vamos usar boolean. Por exemplo, se o suspeito tem álibi, usamos true; caso contrário, false.",
             },
             {
                 type: "code",
-                data: "let estaVivo = true",
+                data: "let temAlibi = true",
             },
         ],
         hint: "Boolean não leva aspas, e só aceita true ou false.",
@@ -181,14 +181,14 @@ export const assignmentLessonExercises = [
         content: [
             {
                 type: "paragraph",
-                data: 'Durante sua procura por um orb mágico, você encontra um baú com 250 moedas. A variável "moedas" já foi declarada sem valor. Agora só falta atribuir o número de moedas encontradas a variável.',
+                data: 'Durante uma investigação, você encontrou 250 evidências. A variável "evidencias" já foi declarada sem valor. Agora atribua esse valor.',
             },
             {
                 type: "code",
-                data: "let moedasDeOuro\nmoedasDeOuro = _____",
+                data: "let evidencias\nevidencias = _____",
             },
         ],
-        hint: "Lembre-se: você pode declarar uma variável sem valor e atribuir depois.",
+        hint: "Você pode declarar uma variável sem valor e atribuir depois.",
         type: "COMPLETE_CODE",
         lessonId: '7812b8c9-2a87-4ae1-9eaa-d133fb7aa6a6',
         order: 1,
@@ -198,14 +198,14 @@ export const assignmentLessonExercises = [
         content: [
             {
                 type: "paragraph",
-                data: 'Qual é o valor da variável "nivelDoMago" após a execução do código abaixo?',
+                data: 'Qual é o valor da variável "nivelDeSuspeita" após a execução do código abaixo?',
             },
             {
                 type: "code",
-                data: "let nivelDoMago\nnivelDoMago = 5",
+                data: "let nivelDeSuspeita\nnivelDeSuspeita = 5",
             },
         ],
-        hint: "Veja que a variável foi declarada e depois recebeu um valor.",
+        hint: "A variável foi declarada e depois recebeu um valor.",
         type: "MULTIPLE_CHOICE",
         lessonId: '7812b8c9-2a87-4ae1-9eaa-d133fb7aa6a6',
         order: 2,
@@ -215,14 +215,14 @@ export const assignmentLessonExercises = [
         content: [
             {
                 type: "paragraph",
-                data: 'Declare uma variável chamada "vida" sem valor e depois atribua o número 37.5 a ela.',
+                data: 'Declare uma variável chamada "tempoDeInvestigacao" sem valor e depois atribua 37.5.',
             },
             {
                 type: "code",
-                data: "let vida\nvida = _____",
+                data: "let tempoDeInvestigacao\ntempoDeInvestigacao = _____",
             },
         ],
-        hint: "Use `let` para declarar e depois atribua o valor com =.",
+        hint: "Use `let` para declarar e depois atribua com =.",
         type: "COMPLETE_CODE",
         lessonId: '7812b8c9-2a87-4ae1-9eaa-d133fb7aa6a6',
         order: 3,
@@ -232,14 +232,14 @@ export const assignmentLessonExercises = [
         content: [
             {
                 type: "paragraph",
-                data: 'A sua sabedoria aumentou durante a aventura! Complete o código para atribuir o valor 17 à variável "sabedoria" declarada abaixo.',
+                data: 'Novas pistas surgiram! Complete o código para atribuir o valor 17 à variável "nivelDeSuspeita".',
             },
             {
                 type: "code",
-                data: "let sabedoria\n_____",
+                data: "let nivelDeSuspeita\n_____",
             },
         ],
-        hint: "Atribua o número 20 usando o operador de atribuição (=).",
+        hint: "Atribua o número usando =.",
         type: "COMPLETE_CODE",
         lessonId: '7812b8c9-2a87-4ae1-9eaa-d133fb7aa6a6',
         order: 4,
@@ -252,11 +252,11 @@ export const constExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Há certas variáveis na qual nunca iremos mudar o valor. Nós declaramos ela como \"const\"",
+                data: "Há informações em uma investigação que nunca mudam, como o número do caso. Para isso usamos \"const\".",
             },
             {
                 type: "code",
-                data: "const nome = \"Baltazar\""
+                data: "const numeroDoCaso = \"A123\""
             }
         ],
         hint: "Não há dicas para esse exercício.",
@@ -269,10 +269,10 @@ export const constExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Em uma aventura de RPG, o valor máximo de pontos de vida do herói não pode mudar durante a partida. Qual palavra-chave devemos usar para definir essa informação?",
+                data: "O número de um caso não pode mudar durante a investigação. Qual palavra-chave devemos usar?",
             },
         ],
-        hint: "Use a palavra-chave que define um valor que não pode ser alterado.",
+        hint: "Use a palavra-chave que define um valor imutável.",
         type: "MULTIPLE_CHOICE",
         lessonId: '818659ac-1b07-4bd8-afc3-74f38e3e0d64',
         order: 2,
@@ -282,14 +282,14 @@ export const constExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Durante os seus estudos sobre variáveis, você encontrou uma poção que lhe concede permanentemente mana extra. Declare uma constante chamada \"bonus\" com o valor 10."
+                data: "Você recebeu uma informação fixa importante. Declare uma constante chamada \"codigoSecreto\" com valor 10."
             },
             {
                 type: "code",
                 data: "_____"
             }
         ],
-        hint: "Lembre-se: constantes usam \"const\".",
+        hint: "Constantes usam \"const\".",
         type: "WRITE_CODE",
         lessonId: '818659ac-1b07-4bd8-afc3-74f38e3e0d64',
         order: 3,
@@ -299,14 +299,14 @@ export const constExercises = [
         content: [
             {
                 type: "paragraph",
-                data: "Complete o código abaixo que define o nome do reino."
+                data: "Complete o código abaixo que define o nome da operação."
             },
             {
                 type: "code",
-                data: " _____ nomeDoReino = \"Cormyr\""
+                data: " _____ nomeDaOperacao = \"Operação Sombra\""
             }
         ],
-        hint: "Lembre-se da palavra-chave para definir constantes.",
+        hint: "Use a palavra-chave de constante.",
         type: "COMPLETE_CODE",
         lessonId: '818659ac-1b07-4bd8-afc3-74f38e3e0d64',
         order: 4,

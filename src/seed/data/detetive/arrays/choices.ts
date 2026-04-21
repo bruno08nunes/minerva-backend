@@ -93,21 +93,21 @@ export const handlingArraysChoices = [
     // Exercício 1 (id: 5e573628-5004-430f-863b-fa8af4ff376f)
     {
         id: '88940b0c-68d7-4ed9-af45-791b09308f10',
-        text: "Fogo",
+        text: "João",
         isCorrect: false,
         order: 1,
         exerciseId: '5e573628-5004-430f-863b-fa8af4ff376f',
     },
     {
         id: '87809219-cbca-4945-856f-144bc952674b',
-        text: "Gelo",
+        text: "Maria",
         isCorrect: true,
         order: 2,
         exerciseId: '5e573628-5004-430f-863b-fa8af4ff376f',
     },
     {
         id: 'a4a627c1-bec4-4460-87ae-862f0880002b',
-        text: "Raio",
+        text: "Carlos",
         isCorrect: false,
         order: 3,
         exerciseId: '5e573628-5004-430f-863b-fa8af4ff376f',
@@ -116,21 +116,21 @@ export const handlingArraysChoices = [
     // Exercício 2 (id: 64c722b9-9141-4294-8328-e44e4f946f79)
     {
         id: '8342fbb5-7623-4b65-b3f8-3e65fe318a3f',
-        text: "['Espada', 'Escudo', 'Poção']",
+        text: "['Impressão', 'Pegada', 'Câmera']",
         isCorrect: true,
         order: 1,
         exerciseId: '64c722b9-9141-4294-8328-e44e4f946f79',
     },
     {
         id: '8c6e6181-b8fd-4fc8-966b-a3d58239ff02',
-        text: "['Poção', 'Espada', 'Escudo']",
+        text: "['Câmera', 'Impressão', 'Pegada']",
         isCorrect: false,
         order: 2,
         exerciseId: '64c722b9-9141-4294-8328-e44e4f946f79',
     },
     {
         id: '067cef18-65f7-4915-b6d1-d622e1d6fa2c',
-        text: "['Poção', 'Escudo', 'Espada']",
+        text: "['Câmera', 'Pegada', 'Impressão']",
         isCorrect: false,
         order: 3,
         exerciseId: '64c722b9-9141-4294-8328-e44e4f946f79',
@@ -221,16 +221,30 @@ export const arraysAdvancedChoices = [
     // Exercício 3 (id: 852c780d-b142-4373-a1e2-f5679a3b6a52)
     {
         id: 'ea261226-044f-4147-9743-c36bb12132e4',
-        text: "['Fogo', 'Gelo']",
+        text: "['A', 'B', 'C']",
         isCorrect: false,
         order: 1,
         exerciseId: '852c780d-b142-4373-a1e2-f5679a3b6a52',
     },
     {
         id: '429eb1f2-49c0-47fc-a168-98c491c7b5b6',
-        text: "['Gelo', 'Raio']",
-        isCorrect: true,
+        text: "['B', 'C', 'D']",
+        isCorrect: false,
         order: 2,
+        exerciseId: '852c780d-b142-4373-a1e2-f5679a3b6a52',
+    },
+    {
+        id: 'ea261226-044f-4147-9743-c36bb12132e5',
+        text: "['A', 'B']",
+        isCorrect: false,
+        order: 3,
+        exerciseId: '852c780d-b142-4373-a1e2-f5679a3b6a52',
+    },
+    {
+        id: '429eb1f2-49c0-47fc-a168-98c491c7b5b7',
+        text: "['B', 'C']",
+        isCorrect: true,
+        order: 4,
         exerciseId: '852c780d-b142-4373-a1e2-f5679a3b6a52',
     },
 
@@ -269,14 +283,14 @@ export const iterationsArraysChoices = [
     // Exercício 1 (id: fb4921cb-7f1f-4b23-aeed-62caabb7e4fc)
     {
         id: '8b849242-f21e-4621-b0a8-3b6043b32e40',
-        text: "Fogo\nGelo\nRaio",
+        text: "Impressão\nPegada\nDNA",
         isCorrect: true,
         order: 1,
         exerciseId: 'fb4921cb-7f1f-4b23-aeed-62caabb7e4fc',
     },
     {
         id: 'bfb82ece-6583-42e9-bdf6-277634194705',
-        text: "Raio\nGelo\nFogo",
+        text: "DNA\nPegada\nImpressão",
         isCorrect: false,
         order: 2,
         exerciseId: 'fb4921cb-7f1f-4b23-aeed-62caabb7e4fc',
