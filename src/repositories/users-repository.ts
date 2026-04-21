@@ -1,4 +1,4 @@
-import { User, Prisma, ProfilePicture } from "../generated/prisma";
+import { User, Prisma, ProfilePicture } from "@prisma/client";
 
 type CompleteUser = User & {
     profilePicture: ProfilePicture | null;

@@ -1,4 +1,4 @@
-import { $Enums, Prisma, User } from "../../generated/prisma";
+import { $Enums, Prisma, User } from "@prisma/client";
 import { randomUUID } from "node:crypto";
 
 import { IUserRepository } from "../users-repository";

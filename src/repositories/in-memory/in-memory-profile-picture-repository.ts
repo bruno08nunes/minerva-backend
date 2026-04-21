@@ -1,5 +1,5 @@
-import { IProfilePicturesRepository } from './../profile-picture-repository';
-import { Prisma, ProfilePicture } from "../../generated/prisma";
+import { IProfilePicturesRepository } from "./../profile-picture-repository";
+import { Prisma, ProfilePicture } from "@prisma/client";
 import { randomUUID } from "node:crypto";
 
 export class InMemoryProfilePicturesRepository implements IProfilePicturesRepository {
@@ -10,7 +10,9 @@ export class InMemoryProfilePicturesRepository implements IProfilePicturesReposi
     }
 
     async findById(id: string) {
-        const profilePicture = this.items.find((profilePicture) => profilePicture.id === id) || null;
+        const profilePicture =
+            this.items.find((profilePicture) => profilePicture.id === id) ||
+            null;
 
         return profilePicture;
     }
@@ -27,7 +29,9 @@ export class InMemoryProfilePicturesRepository implements IProfilePicturesReposi
     }
 
     async delete(id: string) {
-        const profilePictureIndex = this.items.findIndex((profilePicture) => profilePicture.id === id);
+        const profilePictureIndex = this.items.findIndex(
+            (profilePicture) => profilePicture.id === id,
+        );
         const profilePicture = this.items[profilePictureIndex];
         this.items.splice(profilePictureIndex, 1);
         return profilePicture;

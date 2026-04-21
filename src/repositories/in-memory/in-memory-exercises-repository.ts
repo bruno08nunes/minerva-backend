@@ -1,6 +1,9 @@
 import { JsonValue } from "@prisma/client/runtime/library";
-import { $Enums, Exercise } from "../../generated/prisma";
-import { CreateExerciseType, IExercisesRepository } from "../exercise-repository";
+import { $Enums, Exercise } from "@prisma/client";
+import {
+    CreateExerciseType,
+    IExercisesRepository,
+} from "../exercise-repository";
 import { randomUUID } from "node:crypto";
 
 export class InMemoryExercisesRepository implements IExercisesRepository {
@@ -17,7 +20,9 @@ export class InMemoryExercisesRepository implements IExercisesRepository {
     }
 
     async listByLesson(lessonId: string) {
-        const exercises = this.items.filter((exercise) => exercise.lessonId === lessonId);
+        const exercises = this.items.filter(
+            (exercise) => exercise.lessonId === lessonId,
+        );
 
         return exercises;
     }
@@ -37,8 +42,17 @@ export class InMemoryExercisesRepository implements IExercisesRepository {
         return exercise;
     }
 
-    async update(id: string, data: { statement?: string | undefined; hint?: string | undefined; order?: number | undefined; }) {
-        const exerciseIndex = this.items.findIndex((exercise) => exercise.id === id);
+    async update(
+        id: string,
+        data: {
+            statement?: string | undefined;
+            hint?: string | undefined;
+            order?: number | undefined;
+        },
+    ) {
+        const exerciseIndex = this.items.findIndex(
+            (exercise) => exercise.id === id,
+        );
 
         const exercise = this.items[exerciseIndex];
 
@@ -53,11 +67,12 @@ export class InMemoryExercisesRepository implements IExercisesRepository {
     }
 
     async delete(id: string) {
-        const exerciseIndex = this.items.findIndex((exercise) => exercise.id === id);
+        const exerciseIndex = this.items.findIndex(
+            (exercise) => exercise.id === id,
+        );
 
         const [exercise] = this.items.splice(exerciseIndex, 1);
 
         return exercise;
     }
-    
 }

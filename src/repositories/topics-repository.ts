@@ -1,10 +1,25 @@
-import { Topic } from "../generated/prisma";
+import { Topic } from "@prisma/client";
 
 export interface ITopicRepository {
     findById(id: string): Promise<Topic | null>;
     findBySlug(slug: string): Promise<Topic | null>;
-    create(topic: { name: string, iconId: string, description: string, slug: string, order: number }): Promise<Topic>;
-    update(id: string, topic: { name?: string, iconId?: string, description?: string, slug?: string, order?: number }): Promise<Topic>;
+    create(topic: {
+        name: string;
+        iconId: string;
+        description: string;
+        slug: string;
+        order: number;
+    }): Promise<Topic>;
+    update(
+        id: string,
+        topic: {
+            name?: string;
+            iconId?: string;
+            description?: string;
+            slug?: string;
+            order?: number;
+        },
+    ): Promise<Topic>;
     delete(id: string): Promise<Topic>;
     list(): Promise<Topic[]>;
 }

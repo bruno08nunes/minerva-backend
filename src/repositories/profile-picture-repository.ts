@@ -1,9 +1,12 @@
-import { ProfilePicture, Prisma } from "../generated/prisma";
+import { ProfilePicture, Prisma } from "@prisma/client";
 
 export interface IProfilePicturesRepository {
     list(): Promise<ProfilePicture[]>;
     findById(id: string): Promise<ProfilePicture | null>;
     create(data: Prisma.ProfilePictureCreateInput): Promise<ProfilePicture>;
     delete(id: string): Promise<ProfilePicture>;
-    edit(id: string, data: { url: string; description: string }): Promise<ProfilePicture>;
+    edit(
+        id: string,
+        data: { url: string; description: string },
+    ): Promise<ProfilePicture>;
 }

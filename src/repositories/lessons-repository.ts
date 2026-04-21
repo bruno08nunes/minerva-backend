@@ -1,4 +1,4 @@
-import { Lesson } from "../generated/prisma";
+import { Lesson } from "@prisma/client";
 
 export interface ICreateLesson {
     name: string;
@@ -13,8 +13,20 @@ export interface ICreateLesson {
 export interface ILessonRepository {
     findById(id: string): Promise<Lesson | null>;
     list(): Promise<Lesson[]>;
-    listByTopicAndTheme(topicId: string, themeId: string, userId?: string): Promise<Lesson[]>;
+    listByTopicAndTheme(
+        topicId: string,
+        themeId: string,
+        userId?: string,
+    ): Promise<Lesson[]>;
     create(data: ICreateLesson): Promise<Lesson>;
-    update(id: string, data: { name?: string, description?: string, rewardXP?: number, order?: number }): Promise<Lesson>;
+    update(
+        id: string,
+        data: {
+            name?: string;
+            description?: string;
+            rewardXP?: number;
+            order?: number;
+        },
+    ): Promise<Lesson>;
     delete(id: string): Promise<Lesson>;
 }

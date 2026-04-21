@@ -3,15 +3,15 @@ import {
     CreateExerciseType,
     IExercisesRepository,
 } from "../exercise-repository";
-import { Prisma } from "../../generated/prisma";
+import { Prisma } from "@prisma/client";
 
 export class PrismaExercisesRepository implements IExercisesRepository {
     async findById(id: string) {
         const exercise = await prisma.exercise.findUnique({
             where: { id },
             include: {
-                choices: true
-            }
+                choices: true,
+            },
         });
 
         if (!exercise) {
@@ -34,7 +34,7 @@ export class PrismaExercisesRepository implements IExercisesRepository {
 
     async update(
         id: string,
-        data: { content: Prisma.InputJsonValue; hint: string; order: number }
+        data: { content: Prisma.InputJsonValue; hint: string; order: number },
     ) {
         return prisma.exercise.update({
             where: { id },
@@ -47,7 +47,7 @@ export class PrismaExercisesRepository implements IExercisesRepository {
             prisma.exercise.update({
                 where: { id: exercise.id },
                 data: { order: exercise.order },
-            })
+            }),
         );
 
         return await prisma.$transaction(transactions);

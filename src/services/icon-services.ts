@@ -1,4 +1,4 @@
-import { Prisma } from "../generated/prisma";
+import { Prisma } from "@prisma/client";
 import { IIconsRepository } from "../repositories/icons-repository";
 import NotFoundError from "../utils/errors/not-found";
 

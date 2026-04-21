@@ -1,6 +1,6 @@
 import { ITopicRepository } from "./../topics-repository";
 import { randomUUID } from "node:crypto";
-import { Topic } from "../../generated/prisma";
+import { Topic } from "@prisma/client";
 
 export class InMemoryTopicsRepository implements ITopicRepository {
     private topics: Topic[] = [];
@@ -43,7 +43,7 @@ export class InMemoryTopicsRepository implements ITopicRepository {
             description?: string;
             slug?: string;
             order?: number;
-        }
+        },
     ) {
         const topicIndex = this.topics.findIndex((topic) => topic.id === id);
         const topic = this.topics[topicIndex];

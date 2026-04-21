@@ -1,4 +1,4 @@
-import { AchievementType } from "../generated/prisma";
+import { AchievementType } from "@prisma/client";
 import {
     IAchievementsRepository,
     CreateAchievementType,
@@ -26,7 +26,7 @@ export class AchievementServices {
                 const { rankingPosition } =
                     (await this.userRepository.getUserRankingPosition(
                         userId,
-                    )) ?? { };
+                    )) ?? {};
 
                 return rankingPosition;
         }
@@ -46,13 +46,18 @@ export class AchievementServices {
             userId,
             achievements.map((a) => a.id),
         );
-        const unlockedSet = new Set(unlocked.map(a => a.achievementId));
+        const unlockedSet = new Set(unlocked.map((a) => a.achievementId));
 
-        const newAchievements = achievements.filter(a => !unlockedSet.has(a.id));
+        const newAchievements = achievements.filter(
+            (a) => !unlockedSet.has(a.id),
+        );
 
         if (!newAchievements.length) return [];
 
-        await this.achievementRepository.unlockAchievements(userId, newAchievements.map(a => a.id));
+        await this.achievementRepository.unlockAchievements(
+            userId,
+            newAchievements.map((a) => a.id),
+        );
 
         return newAchievements;
     }

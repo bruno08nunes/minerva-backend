@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { Lesson } from "../../generated/prisma";
+import { Lesson } from "@prisma/client";
 import { ICreateLesson, ILessonRepository } from "../lessons-repository";
 
 export class InMemoryLessonsRepository implements ILessonRepository {
@@ -19,9 +19,14 @@ export class InMemoryLessonsRepository implements ILessonRepository {
         return this.items;
     }
 
-    async listByTopicAndTheme(topicId: string, themeId: string, userId?: string) {
+    async listByTopicAndTheme(
+        topicId: string,
+        themeId: string,
+        userId?: string,
+    ) {
         return this.items.filter(
-            (lesson) => lesson.topicId === topicId && lesson.themeId === themeId
+            (lesson) =>
+                lesson.topicId === topicId && lesson.themeId === themeId,
         );
     }
 
@@ -38,7 +43,7 @@ export class InMemoryLessonsRepository implements ILessonRepository {
             description?: string;
             rewardXP?: number;
             order?: number;
-        }
+        },
     ) {
         const lessonIndex = this.items.findIndex((lesson) => (lesson.id = id));
         const lesson = this.items[lessonIndex];

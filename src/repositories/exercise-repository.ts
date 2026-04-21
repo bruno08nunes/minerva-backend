@@ -1,4 +1,4 @@
-import { $Enums, Exercise, Prisma } from "../generated/prisma";
+import { $Enums, Exercise, Prisma } from "@prisma/client";
 
 export interface CreateExerciseType {
     content: Prisma.InputJsonValue;
@@ -12,7 +12,16 @@ export interface IExercisesRepository {
     findById(id: string): Promise<Exercise | null>;
     listByLesson(lessonId: string): Promise<Exercise[]>;
     create(data: CreateExerciseType): Promise<Exercise>;
-    update(id: string, data: { content?: Prisma.InputJsonValue, hint?: string, order?: number }): Promise<Exercise>;
-    updateOrders(exercises: {id: string, order: number}[]): Promise<Exercise[]>;
+    update(
+        id: string,
+        data: {
+            content?: Prisma.InputJsonValue;
+            hint?: string;
+            order?: number;
+        },
+    ): Promise<Exercise>;
+    updateOrders(
+        exercises: { id: string; order: number }[],
+    ): Promise<Exercise[]>;
     delete(id: string): Promise<Exercise>;
 }

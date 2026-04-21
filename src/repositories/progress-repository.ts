@@ -1,4 +1,4 @@
-import { Progress } from "../generated/prisma";
+import { Progress } from "@prisma/client";
 
 export interface CreateProgressType {
     userId: string;

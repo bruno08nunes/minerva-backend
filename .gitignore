@@ -3,4 +3,6 @@ node_modules
 dist/
 .vscode/
 /src/generated/prisma
+generated/
 .env.testing
+prisma/@prisma

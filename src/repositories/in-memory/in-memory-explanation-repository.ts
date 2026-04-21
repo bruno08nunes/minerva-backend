@@ -1,6 +1,9 @@
-import { randomUUID } from 'node:crypto';
-import { Explanation, Prisma } from "../../generated/prisma";
-import { CreateExplanationType, IExplanationRepository } from "../explanation-repository";
+import { randomUUID } from "node:crypto";
+import { Explanation, Prisma } from "@prisma/client";
+import {
+    CreateExplanationType,
+    IExplanationRepository,
+} from "../explanation-repository";
 
 export class InMemoryExplanationRepository implements IExplanationRepository {
     public items: Explanation[] = [];
@@ -14,7 +17,7 @@ export class InMemoryExplanationRepository implements IExplanationRepository {
     }
 
     async listByTopic(topicId: string) {
-        return this.items.filter((item) => item.topicId === topicId)
+        return this.items.filter((item) => item.topicId === topicId);
     }
 
     async create(data: CreateExplanationType) {
@@ -23,7 +26,7 @@ export class InMemoryExplanationRepository implements IExplanationRepository {
             content: data.content as Prisma.JsonValue,
             id: randomUUID() as string,
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
         };
 
         this.items.push(explanation);
@@ -32,14 +35,16 @@ export class InMemoryExplanationRepository implements IExplanationRepository {
     }
 
     async update(id: string, data: Partial<CreateExplanationType>) {
-        const explanationIndex = this.items.findIndex(item => item.id === id);
+        const explanationIndex = this.items.findIndex((item) => item.id === id);
 
         const explanation = this.items[explanationIndex];
 
         const updatedExplanation = {
             ...explanation,
             ...data,
-            content: data.content as Prisma.JsonValue || explanation.content as Prisma.JsonValue
+            content:
+                (data.content as Prisma.JsonValue) ||
+                (explanation.content as Prisma.JsonValue),
         };
 
         this.items[explanationIndex] = updatedExplanation;
@@ -48,10 +53,10 @@ export class InMemoryExplanationRepository implements IExplanationRepository {
     }
 
     async delete(id: string): Promise<Explanation> {
-        const explanationIndex = this.items.findIndex(item => item.id === id);
-        
+        const explanationIndex = this.items.findIndex((item) => item.id === id);
+
         const [explanation] = this.items.splice(explanationIndex, 1);
-    
+
         return explanation;
     }
 }

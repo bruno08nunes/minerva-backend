@@ -1,5 +1,5 @@
-import { randomUUID } from 'node:crypto';
-import { Choice } from "../../generated/prisma";
+import { randomUUID } from "node:crypto";
+import { Choice } from "@prisma/client";
 import { CreateChoiceType, IChoicesRepository } from "../choice-repository";
 
 export class InMemoryChoicesRepository implements IChoicesRepository {
@@ -16,7 +16,7 @@ export class InMemoryChoicesRepository implements IChoicesRepository {
     async create(data: CreateChoiceType) {
         const newItem = {
             ...data,
-            id: randomUUID()
+            id: randomUUID(),
         };
 
         this.items.push(newItem);
@@ -24,7 +24,10 @@ export class InMemoryChoicesRepository implements IChoicesRepository {
         return newItem;
     }
 
-    async update(id: string, data: { text?: string; order?: number; isCorrect?: boolean; }) {
+    async update(
+        id: string,
+        data: { text?: string; order?: number; isCorrect?: boolean },
+    ) {
         const itemIndex = this.items.findIndex((item) => item.id === id);
         const item = this.items[itemIndex];
 
@@ -39,9 +42,8 @@ export class InMemoryChoicesRepository implements IChoicesRepository {
     }
 
     async delete(id: string) {
-        const itemIndex = this.items.findIndex(item => item.id === id);
+        const itemIndex = this.items.findIndex((item) => item.id === id);
         const [item] = this.items.splice(itemIndex, 1);
         return item;
     }
-    
 }

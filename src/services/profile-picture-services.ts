@@ -1,4 +1,4 @@
-import { Prisma } from "../generated/prisma";
+import { Prisma } from "@prisma/client";
 import { IProfilePicturesRepository } from "../repositories/profile-picture-repository";
 import NotFoundError from "../utils/errors/not-found";
 
@@ -24,7 +24,7 @@ export class ProfilePicturesService {
 
     async editProfilePicture(
         id: string,
-        data: { url: string; description: string }
+        data: { url: string; description: string },
     ) {
         const profilePicture = await this.profilePictureRepository.findById(id);
 

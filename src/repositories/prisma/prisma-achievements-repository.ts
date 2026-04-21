@@ -1,7 +1,4 @@
-import {
-    Achievement,
-    AchievementType,
-} from "../../generated/prisma";
+import { Achievement, AchievementType } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import {
     CreateAchievementType,
@@ -89,10 +86,7 @@ export class PrismaAchievementsRepository implements IAchievementsRepository {
         });
     }
 
-    async unlockAchievements(
-        userId: string,
-        achievementsIds: string[],
-    ) {
+    async unlockAchievements(userId: string, achievementsIds: string[]) {
         await prisma.userAchievement.createMany({
             data: achievementsIds.map((id) => ({
                 userId,

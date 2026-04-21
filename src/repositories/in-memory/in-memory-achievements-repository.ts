@@ -1,13 +1,19 @@
-import { randomUUID } from 'node:crypto';
-import { Achievement, AchievementType } from "../../generated/prisma";
-import { IAchievementsRepository, CreateAchievementType } from "../achievements-repository";
-import NotFoundError from '../../utils/errors/not-found';
+import { randomUUID } from "node:crypto";
+import { Achievement, AchievementType } from "@prisma/client";
+import {
+    IAchievementsRepository,
+    CreateAchievementType,
+} from "../achievements-repository";
+import NotFoundError from "../../utils/errors/not-found";
 
 export class InMemoryAchievementsRepository implements IAchievementsRepository {
     private achievements: Achievement[] = [];
 
     async findById(id: string): Promise<Achievement | null> {
-        return this.achievements.find(achievement => achievement.id === id) || null;
+        return (
+            this.achievements.find((achievement) => achievement.id === id) ||
+            null
+        );
     }
 
     async create(data: CreateAchievementType): Promise<Achievement> {
@@ -19,7 +25,10 @@ export class InMemoryAchievementsRepository implements IAchievementsRepository {
         return achievement;
     }
 
-    async update(id: string, data: Partial<CreateAchievementType>): Promise<Achievement> {
+    async update(
+        id: string,
+        data: Partial<CreateAchievementType>,
+    ): Promise<Achievement> {
         const achievement = await this.findById(id);
         if (!achievement) throw new NotFoundError();
 
@@ -32,7 +41,9 @@ export class InMemoryAchievementsRepository implements IAchievementsRepository {
     }
 
     async delete(id: string): Promise<Achievement> {
-        const index = this.achievements.findIndex(achievement => achievement.id === id);
+        const index = this.achievements.findIndex(
+            (achievement) => achievement.id === id,
+        );
         if (index === -1) throw new NotFoundError();
 
         const [deleted] = this.achievements.splice(index, 1);
@@ -40,14 +51,15 @@ export class InMemoryAchievementsRepository implements IAchievementsRepository {
     }
 
     async findAvailable(type: AchievementType, value: number) {
-        return this.achievements.filter((achievement) => achievement.type === type && achievement.amount < value);
+        return this.achievements.filter(
+            (achievement) =>
+                achievement.type === type && achievement.amount < value,
+        );
     }
 
     async findUnlocked(userId: string, achievementsIds: string[]) {
         return [];
     }
 
-    async unlockAchievements(userId: string, achievementsIds: string[]) {
-        
-    }
+    async unlockAchievements(userId: string, achievementsIds: string[]) {}
 }

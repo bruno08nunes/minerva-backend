@@ -1,4 +1,4 @@
-import { Lesson } from "../../generated/prisma";
+import { Lesson } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import { ICreateLesson, ILessonRepository } from "../lessons-repository";
 
@@ -60,7 +60,7 @@ export class PrismaLessonsRepository implements ILessonRepository {
     async listByTopicAndTheme(
         topicId: string,
         themeId: string,
-        userId?: string
+        userId?: string,
     ) {
         const include: any = {
             exercises: {
@@ -139,7 +139,7 @@ export class PrismaLessonsRepository implements ILessonRepository {
             description: string;
             rewardXP: number;
             order: number;
-        }
+        },
     ) {
         return prisma.lesson.update({
             where: {

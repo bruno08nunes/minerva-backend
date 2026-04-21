@@ -1,4 +1,4 @@
-import { Follow } from "../../generated/prisma";
+import { Follow } from "@prisma/client";
 import { IFollowRepository } from "../follow-repository";
 import { randomUUID } from "node:crypto";
 
@@ -9,7 +9,7 @@ export class InMemoryFollowRepository implements IFollowRepository {
         return this.follows.some(
             (follow) =>
                 follow.followerId === followerId &&
-                follow.followingId === followingId
+                follow.followingId === followingId,
         );
     }
 
@@ -36,7 +36,7 @@ export class InMemoryFollowRepository implements IFollowRepository {
         const index = this.follows.findIndex(
             (follow) =>
                 follow.followerId === followerId &&
-                follow.followingId === followingId
+                follow.followingId === followingId,
         );
         if (index === -1) throw new Error("Follow not found");
         const [deletedFollow] = this.follows.splice(index, 1);

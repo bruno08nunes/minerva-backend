@@ -1,5 +1,5 @@
-import { randomUUID } from 'node:crypto';
-import { Icon, Prisma } from "../../generated/prisma";
+import { randomUUID } from "node:crypto";
+import { Icon, Prisma } from "@prisma/client";
 import { IIconsRepository } from "../icons-repository";
 
 export class InMemoryIconsRepository implements IIconsRepository {

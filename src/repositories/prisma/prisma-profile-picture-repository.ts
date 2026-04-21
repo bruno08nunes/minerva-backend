@@ -1,10 +1,8 @@
-import { Prisma } from "../../generated/prisma";
+import { Prisma } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import { IProfilePicturesRepository } from "../profile-picture-repository";
 
-export class PrismaProfilePictureRepository
-    implements IProfilePicturesRepository
-{
+export class PrismaProfilePictureRepository implements IProfilePicturesRepository {
     async list() {
         return await prisma.profilePicture.findMany();
     }

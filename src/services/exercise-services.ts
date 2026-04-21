@@ -1,4 +1,4 @@
-import { Prisma } from "../generated/prisma";
+import { Prisma } from "@prisma/client";
 import { prisma } from "../lib/prisma";
 import {
     CreateExerciseType,
@@ -29,8 +29,8 @@ export class ExerciseServices {
                 order: true,
             },
             where: {
-                lessonId: data.lessonId
-            }
+                lessonId: data.lessonId,
+            },
         });
 
         const nextOrder = biggestOrder._max?.order
@@ -45,7 +45,11 @@ export class ExerciseServices {
 
     async updateExercise(
         id: string,
-        data: { content?: Prisma.InputJsonValue; hint?: string; order?: number }
+        data: {
+            content?: Prisma.InputJsonValue;
+            hint?: string;
+            order?: number;
+        },
     ) {
         const exercise = await this.exerciseRepository.findById(id);
 

@@ -1,4 +1,4 @@
-import { Follow } from "../generated/prisma";
+import { Follow } from "@prisma/client";
 
 export interface IFollowRepository {
     hasFollower(followerId: string, followingId: string): Promise<boolean>;

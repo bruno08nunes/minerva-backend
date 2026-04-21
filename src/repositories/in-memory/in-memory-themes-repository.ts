@@ -1,5 +1,5 @@
-import { randomUUID } from 'node:crypto';
-import { Theme, Prisma } from "../../generated/prisma";
+import { randomUUID } from "node:crypto";
+import { Theme, Prisma } from "@prisma/client";
 import { IThemesRepository } from "../themes-repository";
 
 export class InMemoryThemesRepository implements IThemesRepository {
@@ -13,7 +13,12 @@ export class InMemoryThemesRepository implements IThemesRepository {
         return this.themes.find((theme) => theme.slug === slug) || null;
     }
 
-    async create(theme: { name: string, iconId: string, description: string, slug: string }) {
+    async create(theme: {
+        name: string;
+        iconId: string;
+        description: string;
+        slug: string;
+    }) {
         const { name, description, iconId, slug } = theme;
 
         const newTheme: Theme = {
@@ -21,7 +26,7 @@ export class InMemoryThemesRepository implements IThemesRepository {
             name,
             description,
             iconId,
-            slug
+            slug,
         };
 
         this.themes.push(newTheme);
@@ -30,7 +35,12 @@ export class InMemoryThemesRepository implements IThemesRepository {
 
     async update(
         id: string,
-        data: { name?: string; iconId?: string; description?: string, slug?: string } = {}
+        data: {
+            name?: string;
+            iconId?: string;
+            description?: string;
+            slug?: string;
+        } = {},
     ) {
         const themeIndex = this.themes.findIndex((theme) => theme.id === id);
         const theme = this.themes[themeIndex];

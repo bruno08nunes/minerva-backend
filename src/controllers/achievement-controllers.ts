@@ -4,11 +4,11 @@ import { AchievementServices } from "../services/achievement-services";
 import NotFoundError from "../utils/errors/not-found";
 import { Request, Response } from "express";
 import { PrismaUsersRepository } from "../repositories/prisma/prisma-users-repository";
-import { AchievementType } from "../generated/prisma";
+import { AchievementType } from "@prisma/client";
 
 export const achievementService = new AchievementServices(
     new PrismaAchievementsRepository(),
-    new PrismaUsersRepository()
+    new PrismaUsersRepository(),
 );
 
 export async function getAchievementById(req: Request, res: Response) {
@@ -57,14 +57,13 @@ export async function createAchievement(req: Request, res: Response) {
         description: z.string(),
         iconId: z.string().uuid(),
         type: z.nativeEnum(AchievementType),
-        amount: z.number()
+        amount: z.number(),
     });
 
     const achievementData = createBodySchema.parse(req.body);
 
-    const newAchievement = await achievementService.createAchievement(
-        achievementData
-    );
+    const newAchievement =
+        await achievementService.createAchievement(achievementData);
 
     res.status(201).json({
         data: newAchievement,
@@ -87,7 +86,7 @@ export async function updateAchievement(req: Request, res: Response) {
     try {
         const updatedAchievement = await achievementService.updateAchievement(
             id,
-            updateData
+            updateData,
         );
 
         res.json({
@@ -112,7 +111,8 @@ export async function deleteAchievement(req: Request, res: Response) {
     const { id } = req.params;
 
     try {
-        const deletedAchievement = await achievementService.deleteAchievement(id);
+        const deletedAchievement =
+            await achievementService.deleteAchievement(id);
 
         res.json({
             data: deletedAchievement,

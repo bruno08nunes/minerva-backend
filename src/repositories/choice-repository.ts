@@ -1,4 +1,4 @@
-import { Choice } from "../generated/prisma";
+import { Choice } from "@prisma/client";
 
 export interface CreateChoiceType {
     text: string;
@@ -11,6 +11,9 @@ export interface IChoicesRepository {
     findById(id: string): Promise<Choice | null>;
     listByExercise(exerciseId: string): Promise<Choice[]>;
     create(data: CreateChoiceType): Promise<Choice>;
-    update(id: string, data: { text?: string, order?: number, isCorrect?: boolean }): Promise<Choice>;
+    update(
+        id: string,
+        data: { text?: string; order?: number; isCorrect?: boolean },
+    ): Promise<Choice>;
     delete(id: string): Promise<Choice>;
 }

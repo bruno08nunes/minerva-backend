@@ -1,17 +1,20 @@
-import { Explanation, Prisma } from "../generated/prisma";
+import { Explanation, Prisma } from "@prisma/client";
 
 export interface CreateExplanationType {
-  title: string;
-  content: Prisma.InputJsonValue;
-  topicId: string;
-  description: string;
-};
+    title: string;
+    content: Prisma.InputJsonValue;
+    topicId: string;
+    description: string;
+}
 
 export interface IExplanationRepository {
     findById(id: string): Promise<Explanation | null>;
     list(): Promise<Explanation[]>;
     listByTopic(topicId: string): Promise<Explanation[]>;
     create(data: CreateExplanationType): Promise<Explanation>;
-    update(id: string, data: Partial<CreateExplanationType>): Promise<Explanation>;
+    update(
+        id: string,
+        data: Partial<CreateExplanationType>,
+    ): Promise<Explanation>;
     delete(id: string): Promise<Explanation>;
 }

@@ -3,7 +3,7 @@ import { ExerciseServices } from "../services/exercise-services";
 import { PrismaExercisesRepository } from "../repositories/prisma/prisma-exercises-repository";
 import NotFoundError from "../utils/errors/not-found";
 import { z } from "zod";
-import { $Enums } from "../generated/prisma";
+import { $Enums } from "@prisma/client";
 
 const exerciseService = new ExerciseServices(new PrismaExercisesRepository());
 
@@ -37,7 +37,7 @@ export async function getExerciseByIdController(req: Request, res: Response) {
 
 export async function listExercisesByLessonController(
     req: Request,
-    res: Response
+    res: Response,
 ) {
     const { lessonId } = req.params;
 
@@ -56,7 +56,7 @@ export async function createExerciseController(req: Request, res: Response) {
             z.object({
                 type: z.enum(["paragraph", "code"]),
                 data: z.string(),
-            })
+            }),
         ),
         type: z.nativeEnum($Enums.ExerciseType),
         hint: z.string(),
@@ -81,7 +81,7 @@ export async function updateExerciseController(req: Request, res: Response) {
                 z.object({
                     type: z.enum(["paragraph", "code"]),
                     data: z.string(),
-                })
+                }),
             )
             .optional(),
         order: z.number().int().optional(),
@@ -117,13 +117,13 @@ export async function updateExerciseController(req: Request, res: Response) {
 
 export async function updateExercisesOrderController(
     req: Request,
-    res: Response
+    res: Response,
 ) {
     const createBodySchema = z.array(
         z.object({
             order: z.number().int(),
             id: z.string(),
-        })
+        }),
     );
 
     const exercises = createBodySchema.parse(req.body);
