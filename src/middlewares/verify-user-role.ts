@@ -1,11 +1,12 @@
 import { NextFunction, Request, Response } from "express";
 import { verifyJwt } from "../utils/jwt";
 import { env } from "../env";
+import { prisma } from "../lib/prisma";
 
-export function verifyUserRoleMiddleware(
+export async function verifyUserRoleMiddleware(
     req: Request,
     res: Response,
-    next: NextFunction
+    next: NextFunction,
 ) {
     const authHeader = req.headers.authorization;
 
@@ -24,6 +25,15 @@ export function verifyUserRoleMiddleware(
 
     if (payload.role !== "ADMIN") {
         res.status(403).json({ message: "Access denied: Admins only" });
+        return;
+    }
+
+    const user = await prisma.user.findUnique({
+        where: { id: payload.id },
+    });
+
+    if (!user || user.role !== "ADMIN") {
+        res.status(403).json({ message: "Access denied: Admins only" })
         return;
     }
 

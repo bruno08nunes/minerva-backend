@@ -84,7 +84,7 @@ export async function getUserByUsernameController(req: Request, res: Response) {
             throw new NotFoundError();
         }
 
-        const { password, email, ...safeUser } = user;
+        const { password, email, id, ...safeUser } = user;
 
         res.json({
             user: safeUser,
