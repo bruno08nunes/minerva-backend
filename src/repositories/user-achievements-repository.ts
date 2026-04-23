@@ -1,4 +1,4 @@
-import { UserAchievement } from './../generated/prisma';
+import { UserAchievement } from "@prisma/client";
 
 export interface IUserAchievementsRepository {
     getUserAchievement(
