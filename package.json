@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "dev": "tsx --watch src/server.ts",
-    "build": "npx prisma generate && tsc",
+    "build": "prisma generate && tsc",
     "start": "node dist/server.js",
-    "postinstall": "npx prisma generate",
+    "postinstall": "prisma generate",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:e2e": "jest --config jest-e2e.config.ts",
