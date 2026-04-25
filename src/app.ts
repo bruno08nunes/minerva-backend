@@ -35,7 +35,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
     cors({
-        origin: "https://minervapp.vercel.app/",
+        origin: "https://minervapp.vercel.app",
         credentials: true,
     })
 );
