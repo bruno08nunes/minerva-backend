@@ -26,6 +26,7 @@ import achievementRouter from "./routes/achievement-routes";
 import userAchievementRouter from "./routes/user-achievement-routes";
 import followRouter from "./routes/follow-routes";
 import { verifyUserRoleMiddleware } from "./middlewares/verify-user-role";
+import { env } from "./env";
 
 const app = express();
 
@@ -34,8 +35,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
     cors({
-        origin: "http://localhost:3000", // ou a URL do seu frontend
-        credentials: true, // permite cookies
+        origin: "https://minervapp.vercel.app/",
+        credentials: true,
     })
 );
 
@@ -60,15 +61,17 @@ app.get("/admin", verifyUserRoleMiddleware, (req, res) => {
     return;
 });
 
-app.use("/api/docs", SwaggerUI.serve, SwaggerUI.setup(swaggerDocument));
+if (env.NODE_ENV !== "production") {
+    app.use("/api/docs", SwaggerUI.serve, SwaggerUI.setup(swaggerDocument));
+}
 
 app.use(
     "/uploads/profile-images",
-    express.static(path.join(__dirname, "public", "profile-images"))
+    express.static(path.join(process.cwd(), "public", "profile-images"))
 );
 app.use(
     "/uploads/icons",
-    express.static(path.join(__dirname, "public", "icons"))
+    express.static(path.join(process.cwd(), "public", "icons"))
 );
 
 // Global Error Handler
