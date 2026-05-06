@@ -106,8 +106,8 @@ export async function getUserByUsernameController(req: Request, res: Response) {
 
 export async function loginController(req: Request, res: Response) {
     const authenticateBodySchema = z.object({
-        email: z.string().email(),
-        password: z.string().min(6),
+        email: z.string().email("Email inválido"),
+        password: z.string().max(20, "Tamanho máximo de senha excedido"),
     });
 
     const { email, password } = authenticateBodySchema.parse(req.body);
@@ -165,14 +165,14 @@ export async function loginController(req: Request, res: Response) {
 
 export async function registerUserController(req: Request, res: Response) {
     const registerBodySchema = z.object({
-        name: z.string().min(3).max(255),
-        email: z.string().email(),
-        password: z.string().min(6).max(20),
+        name: z.string().min(3, "Seu nome deve ter no mínimo 3 caracteres").max(255, "Tamanho máximo de nome excedido (255)"),
+        email: z.string().email("Email inválido"),
+        password: z.string().min(6, "Sua senha deve ter no mínimo 6 caracteres").max(20, "Tamanho máximo de senha excedido (20"),
         username: z
             .string()
-            .min(3)
-            .max(20)
-            .regex(/^[a-zA-Z0-9_]+$/),
+            .min(3, "Seu nome de usuário deve ter no mínimo 3 caracteres")
+            .max(20, "Tamanho máximo de nome excedido (20)")
+            .regex(/^[a-zA-Z0-9_]+$/, "Seu nome deve conter apenas letras, números ou underlines (sdasd_)"),
     });
 
     const { name, email, password, username } = registerBodySchema.parse(
@@ -234,15 +234,15 @@ export async function updateUserProfileController(req: Request, res: Response) {
 
     const updateBodySchema = z.object({
         id: z.string(),
-        name: z.string().min(3).max(255).optional(),
+        name: z.string().min(3, "Seu nome deve ter no mínimo 3 caracteres").max(255, "Tamanho máximo de nome excedido (255)").optional(),
         profilePictureId: z.string().optional(),
-        email: z.string().email().optional(),
-        password: z.string().min(6).max(20).optional(),
+        email: z.string().email("Email inválido").optional(),
+        password: z.string().min(6, "Sua senha deve ter ao menos 6 caracteres").max(20, "Tamanho máximo de senha excedido (20").optional(),
         username: z
             .string()
-            .min(3)
-            .max(20)
-            .regex(/^[a-zA-Z0-9_]+$/)
+            .min(3, "Seu nome de usuário deve ter ao menos 3 caracteres")
+            .max(20, "Seu nome de usuário deve ter no máximo 20 caracteres")
+            .regex(/^[a-zA-Z0-9_]+$/, "Seu nome de usuário deve conter apenas letras, números ou underline (_)")
             .optional(),
     });
 

@@ -13,14 +13,14 @@ export const errorHandler = (
     next: NextFunction
 ) => {
     if (err instanceof ZodError) {
-        res.status(400).send({
+        res.status(400).json({
             message: "Validation error.",
-            issues: err.format(),
+            issues: err.issues ?? [],
             success: false,
         });
         return;
     }
-
+    
     if (env.NODE_ENV !== "production") {
         console.error(err);
     } else {
